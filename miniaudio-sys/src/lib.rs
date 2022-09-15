@@ -380,6 +380,15 @@ fn bindgen_test_layout___mbstate_t() {
     }
     test_field__mbstateL();
 }
+impl Default for __mbstate_t {
+    fn default() -> Self {
+        let mut s = ::std::mem::MaybeUninit::<Self>::uninit();
+        unsafe {
+            ::std::ptr::write_bytes(s.as_mut_ptr(), 0, 1);
+            s.assume_init()
+        }
+    }
+}
 impl ::std::fmt::Debug for __mbstate_t {
     fn fmt(&self, f: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
         write!(f, "__mbstate_t {{ union }}")
@@ -487,6 +496,15 @@ fn bindgen_test_layout___darwin_pthread_handler_rec() {
     }
     test_field___next();
 }
+impl Default for __darwin_pthread_handler_rec {
+    fn default() -> Self {
+        let mut s = ::std::mem::MaybeUninit::<Self>::uninit();
+        unsafe {
+            ::std::ptr::write_bytes(s.as_mut_ptr(), 0, 1);
+            s.assume_init()
+        }
+    }
+}
 #[repr(C)]
 #[derive(Debug, Copy, Clone)]
 pub struct _opaque_pthread_attr_t {
@@ -539,6 +557,15 @@ fn bindgen_test_layout__opaque_pthread_attr_t() {
         );
     }
     test_field___opaque();
+}
+impl Default for _opaque_pthread_attr_t {
+    fn default() -> Self {
+        let mut s = ::std::mem::MaybeUninit::<Self>::uninit();
+        unsafe {
+            ::std::ptr::write_bytes(s.as_mut_ptr(), 0, 1);
+            s.assume_init()
+        }
+    }
 }
 #[repr(C)]
 #[derive(Debug, Copy, Clone)]
@@ -593,8 +620,17 @@ fn bindgen_test_layout__opaque_pthread_cond_t() {
     }
     test_field___opaque();
 }
+impl Default for _opaque_pthread_cond_t {
+    fn default() -> Self {
+        let mut s = ::std::mem::MaybeUninit::<Self>::uninit();
+        unsafe {
+            ::std::ptr::write_bytes(s.as_mut_ptr(), 0, 1);
+            s.assume_init()
+        }
+    }
+}
 #[repr(C)]
-#[derive(Debug, Copy, Clone)]
+#[derive(Debug, Default, Copy, Clone)]
 pub struct _opaque_pthread_condattr_t {
     pub __sig: ::std::os::raw::c_long,
     pub __opaque: [::std::os::raw::c_char; 8usize],
@@ -699,8 +735,17 @@ fn bindgen_test_layout__opaque_pthread_mutex_t() {
     }
     test_field___opaque();
 }
+impl Default for _opaque_pthread_mutex_t {
+    fn default() -> Self {
+        let mut s = ::std::mem::MaybeUninit::<Self>::uninit();
+        unsafe {
+            ::std::ptr::write_bytes(s.as_mut_ptr(), 0, 1);
+            s.assume_init()
+        }
+    }
+}
 #[repr(C)]
-#[derive(Debug, Copy, Clone)]
+#[derive(Debug, Default, Copy, Clone)]
 pub struct _opaque_pthread_mutexattr_t {
     pub __sig: ::std::os::raw::c_long,
     pub __opaque: [::std::os::raw::c_char; 8usize],
@@ -753,7 +798,7 @@ fn bindgen_test_layout__opaque_pthread_mutexattr_t() {
     test_field___opaque();
 }
 #[repr(C)]
-#[derive(Debug, Copy, Clone)]
+#[derive(Debug, Default, Copy, Clone)]
 pub struct _opaque_pthread_once_t {
     pub __sig: ::std::os::raw::c_long,
     pub __opaque: [::std::os::raw::c_char; 8usize],
@@ -858,8 +903,17 @@ fn bindgen_test_layout__opaque_pthread_rwlock_t() {
     }
     test_field___opaque();
 }
+impl Default for _opaque_pthread_rwlock_t {
+    fn default() -> Self {
+        let mut s = ::std::mem::MaybeUninit::<Self>::uninit();
+        unsafe {
+            ::std::ptr::write_bytes(s.as_mut_ptr(), 0, 1);
+            s.assume_init()
+        }
+    }
+}
 #[repr(C)]
-#[derive(Debug, Copy, Clone)]
+#[derive(Debug, Default, Copy, Clone)]
 pub struct _opaque_pthread_rwlockattr_t {
     pub __sig: ::std::os::raw::c_long,
     pub __opaque: [::std::os::raw::c_char; 16usize],
@@ -982,6 +1036,15 @@ fn bindgen_test_layout__opaque_pthread_t() {
     }
     test_field___opaque();
 }
+impl Default for _opaque_pthread_t {
+    fn default() -> Self {
+        let mut s = ::std::mem::MaybeUninit::<Self>::uninit();
+        unsafe {
+            ::std::ptr::write_bytes(s.as_mut_ptr(), 0, 1);
+            s.assume_init()
+        }
+    }
+}
 pub type __darwin_pthread_attr_t = _opaque_pthread_attr_t;
 pub type __darwin_pthread_cond_t = _opaque_pthread_cond_t;
 pub type __darwin_pthread_condattr_t = _opaque_pthread_condattr_t;
@@ -996,7 +1059,7 @@ pub type __darwin_nl_item = ::std::os::raw::c_int;
 pub type __darwin_wctrans_t = ::std::os::raw::c_int;
 pub type __darwin_wctype_t = __uint32_t;
 #[repr(C)]
-#[derive(Debug, Copy, Clone)]
+#[derive(Debug, Default, Copy, Clone)]
 pub struct sched_param {
     pub sched_priority: ::std::os::raw::c_int,
     pub __opaque: [::std::os::raw::c_char; 4usize],
@@ -1073,7 +1136,7 @@ pub type syscall_arg_t = u_int64_t;
 pub type clock_t = __darwin_clock_t;
 pub type time_t = __darwin_time_t;
 #[repr(C)]
-#[derive(Debug, Copy, Clone)]
+#[derive(Debug, Default, Copy, Clone)]
 pub struct timespec {
     pub tv_sec: __darwin_time_t,
     pub tv_nsec: ::std::os::raw::c_long,
@@ -1339,6 +1402,15 @@ fn bindgen_test_layout_tm() {
         );
     }
     test_field_tm_zone();
+}
+impl Default for tm {
+    fn default() -> Self {
+        let mut s = ::std::mem::MaybeUninit::<Self>::uninit();
+        unsafe {
+            ::std::ptr::write_bytes(s.as_mut_ptr(), 0, 1);
+            s.assume_init()
+        }
+    }
 }
 extern "C" {
     pub static mut tzname: [*mut ::std::os::raw::c_char; 0usize];
@@ -2307,8 +2379,17 @@ fn bindgen_test_layout_ma_allocation_callbacks() {
     }
     test_field_onFree();
 }
+impl Default for ma_allocation_callbacks {
+    fn default() -> Self {
+        let mut s = ::std::mem::MaybeUninit::<Self>::uninit();
+        unsafe {
+            ::std::ptr::write_bytes(s.as_mut_ptr(), 0, 1);
+            s.assume_init()
+        }
+    }
+}
 #[repr(C)]
-#[derive(Debug, Copy, Clone)]
+#[derive(Debug, Default, Copy, Clone)]
 pub struct ma_lcg {
     pub state: ma_int32,
 }
@@ -2425,6 +2506,15 @@ fn bindgen_test_layout_ma_event() {
     }
     test_field_cond();
 }
+impl Default for ma_event {
+    fn default() -> Self {
+        let mut s = ::std::mem::MaybeUninit::<Self>::uninit();
+        unsafe {
+            ::std::ptr::write_bytes(s.as_mut_ptr(), 0, 1);
+            s.assume_init()
+        }
+    }
+}
 #[repr(C)]
 #[derive(Debug, Copy, Clone)]
 pub struct ma_semaphore {
@@ -2496,6 +2586,15 @@ fn bindgen_test_layout_ma_semaphore() {
     }
     test_field_cond();
 }
+impl Default for ma_semaphore {
+    fn default() -> Self {
+        let mut s = ::std::mem::MaybeUninit::<Self>::uninit();
+        unsafe {
+            ::std::ptr::write_bytes(s.as_mut_ptr(), 0, 1);
+            s.assume_init()
+        }
+    }
+}
 extern "C" {
     pub fn ma_version(pMajor: *mut ma_uint32, pMinor: *mut ma_uint32, pRevision: *mut ma_uint32);
 }
@@ -2563,6 +2662,15 @@ fn bindgen_test_layout_ma_log_callback() {
         );
     }
     test_field_pUserData();
+}
+impl Default for ma_log_callback {
+    fn default() -> Self {
+        let mut s = ::std::mem::MaybeUninit::<Self>::uninit();
+        unsafe {
+            ::std::ptr::write_bytes(s.as_mut_ptr(), 0, 1);
+            s.assume_init()
+        }
+    }
 }
 extern "C" {
     pub fn ma_log_callback_init(
@@ -2659,6 +2767,15 @@ fn bindgen_test_layout_ma_log() {
     }
     test_field_lock();
 }
+impl Default for ma_log {
+    fn default() -> Self {
+        let mut s = ::std::mem::MaybeUninit::<Self>::uninit();
+        unsafe {
+            ::std::ptr::write_bytes(s.as_mut_ptr(), 0, 1);
+            s.assume_init()
+        }
+    }
+}
 extern "C" {
     pub fn ma_log_init(
         pAllocationCallbacks: *const ma_allocation_callbacks,
@@ -2750,6 +2867,15 @@ fn bindgen_test_layout_ma_biquad_coefficient() {
         );
     }
     test_field_s32();
+}
+impl Default for ma_biquad_coefficient {
+    fn default() -> Self {
+        let mut s = ::std::mem::MaybeUninit::<Self>::uninit();
+        unsafe {
+            ::std::ptr::write_bytes(s.as_mut_ptr(), 0, 1);
+            s.assume_init()
+        }
+    }
 }
 impl ::std::fmt::Debug for ma_biquad_coefficient {
     fn fmt(&self, f: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
@@ -2916,6 +3042,15 @@ fn bindgen_test_layout_ma_biquad_config() {
         );
     }
     test_field_a2();
+}
+impl Default for ma_biquad_config {
+    fn default() -> Self {
+        let mut s = ::std::mem::MaybeUninit::<Self>::uninit();
+        unsafe {
+            ::std::ptr::write_bytes(s.as_mut_ptr(), 0, 1);
+            s.assume_init()
+        }
+    }
 }
 extern "C" {
     pub fn ma_biquad_config_init(
@@ -3144,6 +3279,15 @@ fn bindgen_test_layout_ma_biquad() {
     }
     test_field__ownsHeap();
 }
+impl Default for ma_biquad {
+    fn default() -> Self {
+        let mut s = ::std::mem::MaybeUninit::<Self>::uninit();
+        unsafe {
+            ::std::ptr::write_bytes(s.as_mut_ptr(), 0, 1);
+            s.assume_init()
+        }
+    }
+}
 impl ::std::fmt::Debug for ma_biquad {
     fn fmt(&self, f: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
         write ! (f , "ma_biquad {{ format: {:?}, channels: {:?}, b0: {:?}, b1: {:?}, b2: {:?}, a1: {:?}, a2: {:?}, pR1: {:?}, pR2: {:?}, _pHeap: {:?}, _ownsHeap: {:?} }}" , self . format , self . channels , self . b0 , self . b1 , self . b2 , self . a1 , self . a2 , self . pR1 , self . pR2 , self . _pHeap , self . _ownsHeap)
@@ -3300,6 +3444,15 @@ fn bindgen_test_layout_ma_lpf1_config() {
     }
     test_field_q();
 }
+impl Default for ma_lpf1_config {
+    fn default() -> Self {
+        let mut s = ::std::mem::MaybeUninit::<Self>::uninit();
+        unsafe {
+            ::std::ptr::write_bytes(s.as_mut_ptr(), 0, 1);
+            s.assume_init()
+        }
+    }
+}
 #[doc = "Low-Pass Filtering"]
 pub type ma_lpf2_config = ma_lpf1_config;
 extern "C" {
@@ -3444,6 +3597,15 @@ fn bindgen_test_layout_ma_lpf1() {
     }
     test_field__ownsHeap();
 }
+impl Default for ma_lpf1 {
+    fn default() -> Self {
+        let mut s = ::std::mem::MaybeUninit::<Self>::uninit();
+        unsafe {
+            ::std::ptr::write_bytes(s.as_mut_ptr(), 0, 1);
+            s.assume_init()
+        }
+    }
+}
 impl ::std::fmt::Debug for ma_lpf1 {
     fn fmt(&self, f: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
         write ! (f , "ma_lpf1 {{ format: {:?}, channels: {:?}, a: {:?}, pR1: {:?}, _pHeap: {:?}, _ownsHeap: {:?} }}" , self . format , self . channels , self . a , self . pR1 , self . _pHeap , self . _ownsHeap)
@@ -3523,6 +3685,15 @@ fn bindgen_test_layout_ma_lpf2() {
         );
     }
     test_field_bq();
+}
+impl Default for ma_lpf2 {
+    fn default() -> Self {
+        let mut s = ::std::mem::MaybeUninit::<Self>::uninit();
+        unsafe {
+            ::std::ptr::write_bytes(s.as_mut_ptr(), 0, 1);
+            s.assume_init()
+        }
+    }
 }
 impl ::std::fmt::Debug for ma_lpf2 {
     fn fmt(&self, f: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
@@ -3675,6 +3846,15 @@ fn bindgen_test_layout_ma_lpf_config() {
         );
     }
     test_field_order();
+}
+impl Default for ma_lpf_config {
+    fn default() -> Self {
+        let mut s = ::std::mem::MaybeUninit::<Self>::uninit();
+        unsafe {
+            ::std::ptr::write_bytes(s.as_mut_ptr(), 0, 1);
+            s.assume_init()
+        }
+    }
 }
 extern "C" {
     pub fn ma_lpf_config_init(
@@ -3864,6 +4044,15 @@ fn bindgen_test_layout_ma_lpf() {
     }
     test_field__ownsHeap();
 }
+impl Default for ma_lpf {
+    fn default() -> Self {
+        let mut s = ::std::mem::MaybeUninit::<Self>::uninit();
+        unsafe {
+            ::std::ptr::write_bytes(s.as_mut_ptr(), 0, 1);
+            s.assume_init()
+        }
+    }
+}
 extern "C" {
     pub fn ma_lpf_get_heap_size(
         pConfig: *const ma_lpf_config,
@@ -4012,6 +4201,15 @@ fn bindgen_test_layout_ma_hpf1_config() {
     }
     test_field_q();
 }
+impl Default for ma_hpf1_config {
+    fn default() -> Self {
+        let mut s = ::std::mem::MaybeUninit::<Self>::uninit();
+        unsafe {
+            ::std::ptr::write_bytes(s.as_mut_ptr(), 0, 1);
+            s.assume_init()
+        }
+    }
+}
 #[doc = "High-Pass Filtering"]
 pub type ma_hpf2_config = ma_hpf1_config;
 extern "C" {
@@ -4156,6 +4354,15 @@ fn bindgen_test_layout_ma_hpf1() {
     }
     test_field__ownsHeap();
 }
+impl Default for ma_hpf1 {
+    fn default() -> Self {
+        let mut s = ::std::mem::MaybeUninit::<Self>::uninit();
+        unsafe {
+            ::std::ptr::write_bytes(s.as_mut_ptr(), 0, 1);
+            s.assume_init()
+        }
+    }
+}
 impl ::std::fmt::Debug for ma_hpf1 {
     fn fmt(&self, f: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
         write ! (f , "ma_hpf1 {{ format: {:?}, channels: {:?}, a: {:?}, pR1: {:?}, _pHeap: {:?}, _ownsHeap: {:?} }}" , self . format , self . channels , self . a , self . pR1 , self . _pHeap , self . _ownsHeap)
@@ -4232,6 +4439,15 @@ fn bindgen_test_layout_ma_hpf2() {
         );
     }
     test_field_bq();
+}
+impl Default for ma_hpf2 {
+    fn default() -> Self {
+        let mut s = ::std::mem::MaybeUninit::<Self>::uninit();
+        unsafe {
+            ::std::ptr::write_bytes(s.as_mut_ptr(), 0, 1);
+            s.assume_init()
+        }
+    }
 }
 impl ::std::fmt::Debug for ma_hpf2 {
     fn fmt(&self, f: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
@@ -4381,6 +4597,15 @@ fn bindgen_test_layout_ma_hpf_config() {
         );
     }
     test_field_order();
+}
+impl Default for ma_hpf_config {
+    fn default() -> Self {
+        let mut s = ::std::mem::MaybeUninit::<Self>::uninit();
+        unsafe {
+            ::std::ptr::write_bytes(s.as_mut_ptr(), 0, 1);
+            s.assume_init()
+        }
+    }
 }
 extern "C" {
     pub fn ma_hpf_config_init(
@@ -4570,6 +4795,15 @@ fn bindgen_test_layout_ma_hpf() {
     }
     test_field__ownsHeap();
 }
+impl Default for ma_hpf {
+    fn default() -> Self {
+        let mut s = ::std::mem::MaybeUninit::<Self>::uninit();
+        unsafe {
+            ::std::ptr::write_bytes(s.as_mut_ptr(), 0, 1);
+            s.assume_init()
+        }
+    }
+}
 extern "C" {
     pub fn ma_hpf_get_heap_size(
         pConfig: *const ma_hpf_config,
@@ -4715,6 +4949,15 @@ fn bindgen_test_layout_ma_bpf2_config() {
     }
     test_field_q();
 }
+impl Default for ma_bpf2_config {
+    fn default() -> Self {
+        let mut s = ::std::mem::MaybeUninit::<Self>::uninit();
+        unsafe {
+            ::std::ptr::write_bytes(s.as_mut_ptr(), 0, 1);
+            s.assume_init()
+        }
+    }
+}
 extern "C" {
     pub fn ma_bpf2_config_init(
         format: ma_format,
@@ -4758,6 +5001,15 @@ fn bindgen_test_layout_ma_bpf2() {
         );
     }
     test_field_bq();
+}
+impl Default for ma_bpf2 {
+    fn default() -> Self {
+        let mut s = ::std::mem::MaybeUninit::<Self>::uninit();
+        unsafe {
+            ::std::ptr::write_bytes(s.as_mut_ptr(), 0, 1);
+            s.assume_init()
+        }
+    }
 }
 impl ::std::fmt::Debug for ma_bpf2 {
     fn fmt(&self, f: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
@@ -4908,6 +5160,15 @@ fn bindgen_test_layout_ma_bpf_config() {
     }
     test_field_order();
 }
+impl Default for ma_bpf_config {
+    fn default() -> Self {
+        let mut s = ::std::mem::MaybeUninit::<Self>::uninit();
+        unsafe {
+            ::std::ptr::write_bytes(s.as_mut_ptr(), 0, 1);
+            s.assume_init()
+        }
+    }
+}
 extern "C" {
     pub fn ma_bpf_config_init(
         format: ma_format,
@@ -5041,6 +5302,15 @@ fn bindgen_test_layout_ma_bpf() {
         );
     }
     test_field__ownsHeap();
+}
+impl Default for ma_bpf {
+    fn default() -> Self {
+        let mut s = ::std::mem::MaybeUninit::<Self>::uninit();
+        unsafe {
+            ::std::ptr::write_bytes(s.as_mut_ptr(), 0, 1);
+            s.assume_init()
+        }
+    }
 }
 extern "C" {
     pub fn ma_bpf_get_heap_size(
@@ -5187,6 +5457,15 @@ fn bindgen_test_layout_ma_notch2_config() {
     }
     test_field_frequency();
 }
+impl Default for ma_notch2_config {
+    fn default() -> Self {
+        let mut s = ::std::mem::MaybeUninit::<Self>::uninit();
+        unsafe {
+            ::std::ptr::write_bytes(s.as_mut_ptr(), 0, 1);
+            s.assume_init()
+        }
+    }
+}
 #[doc = "Notching Filter"]
 pub type ma_notch_config = ma_notch2_config;
 extern "C" {
@@ -5232,6 +5511,15 @@ fn bindgen_test_layout_ma_notch2() {
         );
     }
     test_field_bq();
+}
+impl Default for ma_notch2 {
+    fn default() -> Self {
+        let mut s = ::std::mem::MaybeUninit::<Self>::uninit();
+        unsafe {
+            ::std::ptr::write_bytes(s.as_mut_ptr(), 0, 1);
+            s.assume_init()
+        }
+    }
 }
 impl ::std::fmt::Debug for ma_notch2 {
     fn fmt(&self, f: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
@@ -5405,6 +5693,15 @@ fn bindgen_test_layout_ma_peak2_config() {
     }
     test_field_frequency();
 }
+impl Default for ma_peak2_config {
+    fn default() -> Self {
+        let mut s = ::std::mem::MaybeUninit::<Self>::uninit();
+        unsafe {
+            ::std::ptr::write_bytes(s.as_mut_ptr(), 0, 1);
+            s.assume_init()
+        }
+    }
+}
 #[doc = "Peaking EQ Filter"]
 pub type ma_peak_config = ma_peak2_config;
 extern "C" {
@@ -5451,6 +5748,15 @@ fn bindgen_test_layout_ma_peak2() {
         );
     }
     test_field_bq();
+}
+impl Default for ma_peak2 {
+    fn default() -> Self {
+        let mut s = ::std::mem::MaybeUninit::<Self>::uninit();
+        unsafe {
+            ::std::ptr::write_bytes(s.as_mut_ptr(), 0, 1);
+            s.assume_init()
+        }
+    }
 }
 impl ::std::fmt::Debug for ma_peak2 {
     fn fmt(&self, f: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
@@ -5623,6 +5929,15 @@ fn bindgen_test_layout_ma_loshelf2_config() {
     }
     test_field_frequency();
 }
+impl Default for ma_loshelf2_config {
+    fn default() -> Self {
+        let mut s = ::std::mem::MaybeUninit::<Self>::uninit();
+        unsafe {
+            ::std::ptr::write_bytes(s.as_mut_ptr(), 0, 1);
+            s.assume_init()
+        }
+    }
+}
 #[doc = "Low Shelf Filter"]
 pub type ma_loshelf_config = ma_loshelf2_config;
 extern "C" {
@@ -5669,6 +5984,15 @@ fn bindgen_test_layout_ma_loshelf2() {
         );
     }
     test_field_bq();
+}
+impl Default for ma_loshelf2 {
+    fn default() -> Self {
+        let mut s = ::std::mem::MaybeUninit::<Self>::uninit();
+        unsafe {
+            ::std::ptr::write_bytes(s.as_mut_ptr(), 0, 1);
+            s.assume_init()
+        }
+    }
 }
 impl ::std::fmt::Debug for ma_loshelf2 {
     fn fmt(&self, f: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
@@ -5844,6 +6168,15 @@ fn bindgen_test_layout_ma_hishelf2_config() {
     }
     test_field_frequency();
 }
+impl Default for ma_hishelf2_config {
+    fn default() -> Self {
+        let mut s = ::std::mem::MaybeUninit::<Self>::uninit();
+        unsafe {
+            ::std::ptr::write_bytes(s.as_mut_ptr(), 0, 1);
+            s.assume_init()
+        }
+    }
+}
 #[doc = "High Shelf Filter"]
 pub type ma_hishelf_config = ma_hishelf2_config;
 extern "C" {
@@ -5890,6 +6223,15 @@ fn bindgen_test_layout_ma_hishelf2() {
         );
     }
     test_field_bq();
+}
+impl Default for ma_hishelf2 {
+    fn default() -> Self {
+        let mut s = ::std::mem::MaybeUninit::<Self>::uninit();
+        unsafe {
+            ::std::ptr::write_bytes(s.as_mut_ptr(), 0, 1);
+            s.assume_init()
+        }
+    }
 }
 impl ::std::fmt::Debug for ma_hishelf2 {
     fn fmt(&self, f: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
@@ -5940,7 +6282,7 @@ extern "C" {
     pub fn ma_hishelf2_get_latency(pFilter: *const ma_hishelf2) -> ma_uint32;
 }
 #[repr(C)]
-#[derive(Debug, Copy, Clone)]
+#[derive(Debug, Default, Copy, Clone)]
 pub struct ma_delay_config {
     pub channels: ma_uint32,
     pub sampleRate: ma_uint32,
@@ -6179,6 +6521,15 @@ fn bindgen_test_layout_ma_delay() {
     }
     test_field_pBuffer();
 }
+impl Default for ma_delay {
+    fn default() -> Self {
+        let mut s = ::std::mem::MaybeUninit::<Self>::uninit();
+        unsafe {
+            ::std::ptr::write_bytes(s.as_mut_ptr(), 0, 1);
+            s.assume_init()
+        }
+    }
+}
 extern "C" {
     pub fn ma_delay_init(
         pConfig: *const ma_delay_config,
@@ -6219,7 +6570,7 @@ extern "C" {
     pub fn ma_delay_get_decay(pDelay: *const ma_delay) -> f32;
 }
 #[repr(C)]
-#[derive(Debug, Copy, Clone)]
+#[derive(Debug, Default, Copy, Clone)]
 pub struct ma_gainer_config {
     pub channels: ma_uint32,
     pub smoothTimeInFrames: ma_uint32,
@@ -6402,6 +6753,15 @@ fn bindgen_test_layout_ma_gainer() {
     }
     test_field__ownsHeap();
 }
+impl Default for ma_gainer {
+    fn default() -> Self {
+        let mut s = ::std::mem::MaybeUninit::<Self>::uninit();
+        unsafe {
+            ::std::ptr::write_bytes(s.as_mut_ptr(), 0, 1);
+            s.assume_init()
+        }
+    }
+}
 extern "C" {
     pub fn ma_gainer_get_heap_size(
         pConfig: *const ma_gainer_config,
@@ -6534,6 +6894,15 @@ fn bindgen_test_layout_ma_panner_config() {
     }
     test_field_pan();
 }
+impl Default for ma_panner_config {
+    fn default() -> Self {
+        let mut s = ::std::mem::MaybeUninit::<Self>::uninit();
+        unsafe {
+            ::std::ptr::write_bytes(s.as_mut_ptr(), 0, 1);
+            s.assume_init()
+        }
+    }
+}
 extern "C" {
     pub fn ma_panner_config_init(format: ma_format, channels: ma_uint32) -> ma_panner_config;
 }
@@ -6625,6 +6994,15 @@ fn bindgen_test_layout_ma_panner() {
         );
     }
     test_field_pan();
+}
+impl Default for ma_panner {
+    fn default() -> Self {
+        let mut s = ::std::mem::MaybeUninit::<Self>::uninit();
+        unsafe {
+            ::std::ptr::write_bytes(s.as_mut_ptr(), 0, 1);
+            s.assume_init()
+        }
+    }
 }
 extern "C" {
     pub fn ma_panner_init(pConfig: *const ma_panner_config, pPanner: *mut ma_panner) -> ma_result;
@@ -6719,6 +7097,15 @@ fn bindgen_test_layout_ma_fader_config() {
         );
     }
     test_field_sampleRate();
+}
+impl Default for ma_fader_config {
+    fn default() -> Self {
+        let mut s = ::std::mem::MaybeUninit::<Self>::uninit();
+        unsafe {
+            ::std::ptr::write_bytes(s.as_mut_ptr(), 0, 1);
+            s.assume_init()
+        }
+    }
 }
 extern "C" {
     pub fn ma_fader_config_init(
@@ -6834,6 +7221,15 @@ fn bindgen_test_layout_ma_fader() {
     }
     test_field_cursorInFrames();
 }
+impl Default for ma_fader {
+    fn default() -> Self {
+        let mut s = ::std::mem::MaybeUninit::<Self>::uninit();
+        unsafe {
+            ::std::ptr::write_bytes(s.as_mut_ptr(), 0, 1);
+            s.assume_init()
+        }
+    }
+}
 extern "C" {
     pub fn ma_fader_init(pConfig: *const ma_fader_config, pFader: *mut ma_fader) -> ma_result;
 }
@@ -6865,7 +7261,7 @@ extern "C" {
     pub fn ma_fader_get_current_volume(pFader: *mut ma_fader) -> f32;
 }
 #[repr(C)]
-#[derive(Debug, Copy, Clone)]
+#[derive(Debug, Default, Copy, Clone)]
 pub struct ma_vec3f {
     pub x: f32,
     pub y: f32,
@@ -7107,6 +7503,15 @@ fn bindgen_test_layout_ma_spatializer_listener_config() {
     }
     test_field_worldUp();
 }
+impl Default for ma_spatializer_listener_config {
+    fn default() -> Self {
+        let mut s = ::std::mem::MaybeUninit::<Self>::uninit();
+        unsafe {
+            ::std::ptr::write_bytes(s.as_mut_ptr(), 0, 1);
+            s.assume_init()
+        }
+    }
+}
 extern "C" {
     pub fn ma_spatializer_listener_config_init(
         channelsOut: ma_uint32,
@@ -7254,6 +7659,15 @@ fn bindgen_test_layout_ma_spatializer_listener() {
         );
     }
     test_field__pHeap();
+}
+impl Default for ma_spatializer_listener {
+    fn default() -> Self {
+        let mut s = ::std::mem::MaybeUninit::<Self>::uninit();
+        unsafe {
+            ::std::ptr::write_bytes(s.as_mut_ptr(), 0, 1);
+            s.assume_init()
+        }
+    }
 }
 extern "C" {
     pub fn ma_spatializer_listener_get_heap_size(
@@ -7698,6 +8112,15 @@ fn bindgen_test_layout_ma_spatializer_config() {
         );
     }
     test_field_gainSmoothTimeInFrames();
+}
+impl Default for ma_spatializer_config {
+    fn default() -> Self {
+        let mut s = ::std::mem::MaybeUninit::<Self>::uninit();
+        unsafe {
+            ::std::ptr::write_bytes(s.as_mut_ptr(), 0, 1);
+            s.assume_init()
+        }
+    }
 }
 extern "C" {
     pub fn ma_spatializer_config_init(
@@ -8172,6 +8595,15 @@ fn bindgen_test_layout_ma_spatializer() {
     }
     test_field__ownsHeap();
 }
+impl Default for ma_spatializer {
+    fn default() -> Self {
+        let mut s = ::std::mem::MaybeUninit::<Self>::uninit();
+        unsafe {
+            ::std::ptr::write_bytes(s.as_mut_ptr(), 0, 1);
+            s.assume_init()
+        }
+    }
+}
 extern "C" {
     pub fn ma_spatializer_get_heap_size(
         pConfig: *const ma_spatializer_config,
@@ -8448,6 +8880,15 @@ fn bindgen_test_layout_ma_linear_resampler_config() {
     }
     test_field_lpfNyquistFactor();
 }
+impl Default for ma_linear_resampler_config {
+    fn default() -> Self {
+        let mut s = ::std::mem::MaybeUninit::<Self>::uninit();
+        unsafe {
+            ::std::ptr::write_bytes(s.as_mut_ptr(), 0, 1);
+            s.assume_init()
+        }
+    }
+}
 extern "C" {
     pub fn ma_linear_resampler_config_init(
         format: ma_format,
@@ -8526,6 +8967,15 @@ fn bindgen_test_layout_ma_linear_resampler__bindgen_ty_1() {
     }
     test_field_s16();
 }
+impl Default for ma_linear_resampler__bindgen_ty_1 {
+    fn default() -> Self {
+        let mut s = ::std::mem::MaybeUninit::<Self>::uninit();
+        unsafe {
+            ::std::ptr::write_bytes(s.as_mut_ptr(), 0, 1);
+            s.assume_init()
+        }
+    }
+}
 impl ::std::fmt::Debug for ma_linear_resampler__bindgen_ty_1 {
     fn fmt(&self, f: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
         write!(f, "ma_linear_resampler__bindgen_ty_1 {{ union }}")
@@ -8586,6 +9036,15 @@ fn bindgen_test_layout_ma_linear_resampler__bindgen_ty_2() {
         );
     }
     test_field_s16();
+}
+impl Default for ma_linear_resampler__bindgen_ty_2 {
+    fn default() -> Self {
+        let mut s = ::std::mem::MaybeUninit::<Self>::uninit();
+        unsafe {
+            ::std::ptr::write_bytes(s.as_mut_ptr(), 0, 1);
+            s.assume_init()
+        }
+    }
 }
 impl ::std::fmt::Debug for ma_linear_resampler__bindgen_ty_2 {
     fn fmt(&self, f: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
@@ -8775,6 +9234,15 @@ fn bindgen_test_layout_ma_linear_resampler() {
     }
     test_field__ownsHeap();
 }
+impl Default for ma_linear_resampler {
+    fn default() -> Self {
+        let mut s = ::std::mem::MaybeUninit::<Self>::uninit();
+        unsafe {
+            ::std::ptr::write_bytes(s.as_mut_ptr(), 0, 1);
+            s.assume_init()
+        }
+    }
+}
 impl ::std::fmt::Debug for ma_linear_resampler {
     fn fmt(&self, f: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
         write ! (f , "ma_linear_resampler {{ config: {:?}, inAdvanceInt: {:?}, inAdvanceFrac: {:?}, inTimeInt: {:?}, inTimeFrac: {:?}, x0: {:?}, x1: {:?}, lpf: {:?}, _pHeap: {:?}, _ownsHeap: {:?} }}" , self . config , self . inAdvanceInt , self . inAdvanceFrac , self . inTimeInt , self . inTimeFrac , self . x0 , self . x1 , self . lpf , self . _pHeap , self . _ownsHeap)
@@ -8857,7 +9325,7 @@ extern "C" {
 }
 pub type ma_resampling_backend = ::std::os::raw::c_void;
 #[repr(C)]
-#[derive(Debug, Copy, Clone)]
+#[derive(Debug, Default, Copy, Clone)]
 pub struct ma_resampling_backend_vtable {
     pub onGetHeapSize: ::std::option::Option<
         unsafe extern "C" fn(
@@ -9133,7 +9601,7 @@ pub struct ma_resampler_config {
     pub linear: ma_resampler_config__bindgen_ty_1,
 }
 #[repr(C)]
-#[derive(Debug, Copy, Clone)]
+#[derive(Debug, Default, Copy, Clone)]
 pub struct ma_resampler_config__bindgen_ty_1 {
     pub lpfOrder: ma_uint32,
 }
@@ -9319,6 +9787,15 @@ fn bindgen_test_layout_ma_resampler_config() {
     }
     test_field_linear();
 }
+impl Default for ma_resampler_config {
+    fn default() -> Self {
+        let mut s = ::std::mem::MaybeUninit::<Self>::uninit();
+        unsafe {
+            ::std::ptr::write_bytes(s.as_mut_ptr(), 0, 1);
+            s.assume_init()
+        }
+    }
+}
 extern "C" {
     pub fn ma_resampler_config_init(
         format: ma_format,
@@ -9376,6 +9853,15 @@ fn bindgen_test_layout_ma_resampler__bindgen_ty_1() {
         );
     }
     test_field_linear();
+}
+impl Default for ma_resampler__bindgen_ty_1 {
+    fn default() -> Self {
+        let mut s = ::std::mem::MaybeUninit::<Self>::uninit();
+        unsafe {
+            ::std::ptr::write_bytes(s.as_mut_ptr(), 0, 1);
+            s.assume_init()
+        }
+    }
 }
 impl ::std::fmt::Debug for ma_resampler__bindgen_ty_1 {
     fn fmt(&self, f: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
@@ -9564,6 +10050,15 @@ fn bindgen_test_layout_ma_resampler() {
         );
     }
     test_field__ownsHeap();
+}
+impl Default for ma_resampler {
+    fn default() -> Self {
+        let mut s = ::std::mem::MaybeUninit::<Self>::uninit();
+        unsafe {
+            ::std::ptr::write_bytes(s.as_mut_ptr(), 0, 1);
+            s.assume_init()
+        }
+    }
 }
 impl ::std::fmt::Debug for ma_resampler {
     fn fmt(&self, f: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
@@ -9794,6 +10289,15 @@ fn bindgen_test_layout_ma_channel_converter_config() {
     }
     test_field_ppWeights();
 }
+impl Default for ma_channel_converter_config {
+    fn default() -> Self {
+        let mut s = ::std::mem::MaybeUninit::<Self>::uninit();
+        unsafe {
+            ::std::ptr::write_bytes(s.as_mut_ptr(), 0, 1);
+            s.assume_init()
+        }
+    }
+}
 extern "C" {
     pub fn ma_channel_converter_config_init(
         format: ma_format,
@@ -9876,6 +10380,15 @@ fn bindgen_test_layout_ma_channel_converter__bindgen_ty_1() {
         );
     }
     test_field_s16();
+}
+impl Default for ma_channel_converter__bindgen_ty_1 {
+    fn default() -> Self {
+        let mut s = ::std::mem::MaybeUninit::<Self>::uninit();
+        unsafe {
+            ::std::ptr::write_bytes(s.as_mut_ptr(), 0, 1);
+            s.assume_init()
+        }
+    }
 }
 impl ::std::fmt::Debug for ma_channel_converter__bindgen_ty_1 {
     fn fmt(&self, f: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
@@ -10081,6 +10594,15 @@ fn bindgen_test_layout_ma_channel_converter() {
         );
     }
     test_field__ownsHeap();
+}
+impl Default for ma_channel_converter {
+    fn default() -> Self {
+        let mut s = ::std::mem::MaybeUninit::<Self>::uninit();
+        unsafe {
+            ::std::ptr::write_bytes(s.as_mut_ptr(), 0, 1);
+            s.assume_init()
+        }
+    }
 }
 impl ::std::fmt::Debug for ma_channel_converter {
     fn fmt(&self, f: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
@@ -10386,6 +10908,15 @@ fn bindgen_test_layout_ma_data_converter_config() {
         );
     }
     test_field_resampling();
+}
+impl Default for ma_data_converter_config {
+    fn default() -> Self {
+        let mut s = ::std::mem::MaybeUninit::<Self>::uninit();
+        unsafe {
+            ::std::ptr::write_bytes(s.as_mut_ptr(), 0, 1);
+            s.assume_init()
+        }
+    }
 }
 extern "C" {
     pub fn ma_data_converter_config_init_default() -> ma_data_converter_config;
@@ -10729,6 +11260,15 @@ fn bindgen_test_layout_ma_data_converter() {
         );
     }
     test_field__pHeap();
+}
+impl Default for ma_data_converter {
+    fn default() -> Self {
+        let mut s = ::std::mem::MaybeUninit::<Self>::uninit();
+        unsafe {
+            ::std::ptr::write_bytes(s.as_mut_ptr(), 0, 1);
+            s.assume_init()
+        }
+    }
 }
 impl ::std::fmt::Debug for ma_data_converter {
     fn fmt(&self, f: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
@@ -11279,6 +11819,15 @@ fn bindgen_test_layout_ma_rb() {
     }
     test_field_allocationCallbacks();
 }
+impl Default for ma_rb {
+    fn default() -> Self {
+        let mut s = ::std::mem::MaybeUninit::<Self>::uninit();
+        unsafe {
+            ::std::ptr::write_bytes(s.as_mut_ptr(), 0, 1);
+            s.assume_init()
+        }
+    }
+}
 extern "C" {
     pub fn ma_rb_init_ex(
         subbufferSizeInBytes: usize,
@@ -11425,6 +11974,15 @@ fn bindgen_test_layout_ma_pcm_rb() {
     }
     test_field_channels();
 }
+impl Default for ma_pcm_rb {
+    fn default() -> Self {
+        let mut s = ::std::mem::MaybeUninit::<Self>::uninit();
+        unsafe {
+            ::std::ptr::write_bytes(s.as_mut_ptr(), 0, 1);
+            s.assume_init()
+        }
+    }
+}
 extern "C" {
     pub fn ma_pcm_rb_init_ex(
         format: ma_format,
@@ -11541,6 +12099,15 @@ fn bindgen_test_layout_ma_duplex_rb() {
         );
     }
     test_field_rb();
+}
+impl Default for ma_duplex_rb {
+    fn default() -> Self {
+        let mut s = ::std::mem::MaybeUninit::<Self>::uninit();
+        unsafe {
+            ::std::ptr::write_bytes(s.as_mut_ptr(), 0, 1);
+            s.assume_init()
+        }
+    }
 }
 extern "C" {
     pub fn ma_duplex_rb_init(
@@ -11703,6 +12270,15 @@ fn bindgen_test_layout_ma_fence() {
     }
     test_field_counter();
 }
+impl Default for ma_fence {
+    fn default() -> Self {
+        let mut s = ::std::mem::MaybeUninit::<Self>::uninit();
+        unsafe {
+            ::std::ptr::write_bytes(s.as_mut_ptr(), 0, 1);
+            s.assume_init()
+        }
+    }
+}
 extern "C" {
     pub fn ma_fence_init(pFence: *mut ma_fence) -> ma_result;
 }
@@ -11720,7 +12296,7 @@ extern "C" {
 }
 pub type ma_async_notification = ::std::os::raw::c_void;
 #[repr(C)]
-#[derive(Debug, Copy, Clone)]
+#[derive(Debug, Default, Copy, Clone)]
 pub struct ma_async_notification_callbacks {
     pub onSignal:
         ::std::option::Option<unsafe extern "C" fn(pNotification: *mut ma_async_notification)>,
@@ -11759,7 +12335,7 @@ extern "C" {
     pub fn ma_async_notification_signal(pNotification: *mut ma_async_notification) -> ma_result;
 }
 #[repr(C)]
-#[derive(Debug, Copy, Clone)]
+#[derive(Debug, Default, Copy, Clone)]
 pub struct ma_async_notification_poll {
     pub cb: ma_async_notification_callbacks,
     pub signalled: ma_bool32,
@@ -11874,6 +12450,15 @@ fn bindgen_test_layout_ma_async_notification_event() {
     }
     test_field_e();
 }
+impl Default for ma_async_notification_event {
+    fn default() -> Self {
+        let mut s = ::std::mem::MaybeUninit::<Self>::uninit();
+        unsafe {
+            ::std::ptr::write_bytes(s.as_mut_ptr(), 0, 1);
+            s.assume_init()
+        }
+    }
+}
 extern "C" {
     pub fn ma_async_notification_event_init(
         pNotificationEvent: *mut ma_async_notification_event,
@@ -11896,7 +12481,7 @@ extern "C" {
 }
 #[doc = "Job Queue"]
 #[repr(C)]
-#[derive(Debug, Copy, Clone)]
+#[derive(Debug, Default, Copy, Clone)]
 pub struct ma_slot_allocator_config {
     pub capacity: ma_uint32,
 }
@@ -11934,7 +12519,7 @@ extern "C" {
     pub fn ma_slot_allocator_config_init(capacity: ma_uint32) -> ma_slot_allocator_config;
 }
 #[repr(C)]
-#[derive(Debug, Copy, Clone)]
+#[derive(Debug, Default, Copy, Clone)]
 pub struct ma_slot_allocator_group {
     pub bitfield: ma_uint32,
 }
@@ -12093,6 +12678,15 @@ fn bindgen_test_layout_ma_slot_allocator() {
     }
     test_field__pHeap();
 }
+impl Default for ma_slot_allocator {
+    fn default() -> Self {
+        let mut s = ::std::mem::MaybeUninit::<Self>::uninit();
+        unsafe {
+            ::std::ptr::write_bytes(s.as_mut_ptr(), 0, 1);
+            s.assume_init()
+        }
+    }
+}
 extern "C" {
     pub fn ma_slot_allocator_get_heap_size(
         pConfig: *const ma_slot_allocator_config,
@@ -12159,7 +12753,7 @@ pub union ma_job__bindgen_ty_1 {
     pub allocation: ma_uint64,
 }
 #[repr(C)]
-#[derive(Debug, Copy, Clone)]
+#[derive(Debug, Default, Copy, Clone)]
 pub struct ma_job__bindgen_ty_1__bindgen_ty_1 {
     pub code: ma_uint16,
     pub slot: ma_uint16,
@@ -12282,6 +12876,15 @@ fn bindgen_test_layout_ma_job__bindgen_ty_1() {
     }
     test_field_allocation();
 }
+impl Default for ma_job__bindgen_ty_1 {
+    fn default() -> Self {
+        let mut s = ::std::mem::MaybeUninit::<Self>::uninit();
+        unsafe {
+            ::std::ptr::write_bytes(s.as_mut_ptr(), 0, 1);
+            s.assume_init()
+        }
+    }
+}
 impl ::std::fmt::Debug for ma_job__bindgen_ty_1 {
     fn fmt(&self, f: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
         write!(f, "ma_job__bindgen_ty_1 {{ union }}")
@@ -12295,7 +12898,7 @@ pub union ma_job__bindgen_ty_2 {
     pub device: ma_job__bindgen_ty_2__bindgen_ty_3,
 }
 #[repr(C)]
-#[derive(Debug, Copy, Clone)]
+#[derive(Debug, Default, Copy, Clone)]
 pub struct ma_job__bindgen_ty_2__bindgen_ty_1 {
     pub proc_: ma_job_proc,
     pub data0: ma_uintptr,
@@ -12587,6 +13190,15 @@ fn bindgen_test_layout_ma_job__bindgen_ty_2__bindgen_ty_2__bindgen_ty_1() {
     }
     test_field_pDoneFence();
 }
+impl Default for ma_job__bindgen_ty_2__bindgen_ty_2__bindgen_ty_1 {
+    fn default() -> Self {
+        let mut s = ::std::mem::MaybeUninit::<Self>::uninit();
+        unsafe {
+            ::std::ptr::write_bytes(s.as_mut_ptr(), 0, 1);
+            s.assume_init()
+        }
+    }
+}
 #[repr(C)]
 #[derive(Debug, Copy, Clone)]
 pub struct ma_job__bindgen_ty_2__bindgen_ty_2__bindgen_ty_2 {
@@ -12689,6 +13301,15 @@ fn bindgen_test_layout_ma_job__bindgen_ty_2__bindgen_ty_2__bindgen_ty_2() {
         );
     }
     test_field_pDoneFence();
+}
+impl Default for ma_job__bindgen_ty_2__bindgen_ty_2__bindgen_ty_2 {
+    fn default() -> Self {
+        let mut s = ::std::mem::MaybeUninit::<Self>::uninit();
+        unsafe {
+            ::std::ptr::write_bytes(s.as_mut_ptr(), 0, 1);
+            s.assume_init()
+        }
+    }
 }
 #[repr(C)]
 #[derive(Debug, Copy, Clone)]
@@ -12812,6 +13433,15 @@ fn bindgen_test_layout_ma_job__bindgen_ty_2__bindgen_ty_2__bindgen_ty_3() {
         );
     }
     test_field_pDoneFence();
+}
+impl Default for ma_job__bindgen_ty_2__bindgen_ty_2__bindgen_ty_3 {
+    fn default() -> Self {
+        let mut s = ::std::mem::MaybeUninit::<Self>::uninit();
+        unsafe {
+            ::std::ptr::write_bytes(s.as_mut_ptr(), 0, 1);
+            s.assume_init()
+        }
+    }
 }
 #[repr(C)]
 #[derive(Debug, Copy, Clone)]
@@ -13036,6 +13666,15 @@ fn bindgen_test_layout_ma_job__bindgen_ty_2__bindgen_ty_2__bindgen_ty_4() {
     }
     test_field_isLooping();
 }
+impl Default for ma_job__bindgen_ty_2__bindgen_ty_2__bindgen_ty_4 {
+    fn default() -> Self {
+        let mut s = ::std::mem::MaybeUninit::<Self>::uninit();
+        unsafe {
+            ::std::ptr::write_bytes(s.as_mut_ptr(), 0, 1);
+            s.assume_init()
+        }
+    }
+}
 #[repr(C)]
 #[derive(Debug, Copy, Clone)]
 pub struct ma_job__bindgen_ty_2__bindgen_ty_2__bindgen_ty_5 {
@@ -13118,6 +13757,15 @@ fn bindgen_test_layout_ma_job__bindgen_ty_2__bindgen_ty_2__bindgen_ty_5() {
         );
     }
     test_field_pDoneFence();
+}
+impl Default for ma_job__bindgen_ty_2__bindgen_ty_2__bindgen_ty_5 {
+    fn default() -> Self {
+        let mut s = ::std::mem::MaybeUninit::<Self>::uninit();
+        unsafe {
+            ::std::ptr::write_bytes(s.as_mut_ptr(), 0, 1);
+            s.assume_init()
+        }
+    }
 }
 #[repr(C)]
 #[derive(Debug, Copy, Clone)]
@@ -13262,6 +13910,15 @@ fn bindgen_test_layout_ma_job__bindgen_ty_2__bindgen_ty_2__bindgen_ty_6() {
     }
     test_field_pInitFence();
 }
+impl Default for ma_job__bindgen_ty_2__bindgen_ty_2__bindgen_ty_6 {
+    fn default() -> Self {
+        let mut s = ::std::mem::MaybeUninit::<Self>::uninit();
+        unsafe {
+            ::std::ptr::write_bytes(s.as_mut_ptr(), 0, 1);
+            s.assume_init()
+        }
+    }
+}
 #[repr(C)]
 #[derive(Debug, Copy, Clone)]
 pub struct ma_job__bindgen_ty_2__bindgen_ty_2__bindgen_ty_7 {
@@ -13345,6 +14002,15 @@ fn bindgen_test_layout_ma_job__bindgen_ty_2__bindgen_ty_2__bindgen_ty_7() {
     }
     test_field_pDoneFence();
 }
+impl Default for ma_job__bindgen_ty_2__bindgen_ty_2__bindgen_ty_7 {
+    fn default() -> Self {
+        let mut s = ::std::mem::MaybeUninit::<Self>::uninit();
+        unsafe {
+            ::std::ptr::write_bytes(s.as_mut_ptr(), 0, 1);
+            s.assume_init()
+        }
+    }
+}
 #[repr(C)]
 #[derive(Debug, Copy, Clone)]
 pub struct ma_job__bindgen_ty_2__bindgen_ty_2__bindgen_ty_8 {
@@ -13408,6 +14074,15 @@ fn bindgen_test_layout_ma_job__bindgen_ty_2__bindgen_ty_2__bindgen_ty_8() {
     }
     test_field_pageIndex();
 }
+impl Default for ma_job__bindgen_ty_2__bindgen_ty_2__bindgen_ty_8 {
+    fn default() -> Self {
+        let mut s = ::std::mem::MaybeUninit::<Self>::uninit();
+        unsafe {
+            ::std::ptr::write_bytes(s.as_mut_ptr(), 0, 1);
+            s.assume_init()
+        }
+    }
+}
 #[repr(C)]
 #[derive(Debug, Copy, Clone)]
 pub struct ma_job__bindgen_ty_2__bindgen_ty_2__bindgen_ty_9 {
@@ -13470,6 +14145,15 @@ fn bindgen_test_layout_ma_job__bindgen_ty_2__bindgen_ty_2__bindgen_ty_9() {
         );
     }
     test_field_frameIndex();
+}
+impl Default for ma_job__bindgen_ty_2__bindgen_ty_2__bindgen_ty_9 {
+    fn default() -> Self {
+        let mut s = ::std::mem::MaybeUninit::<Self>::uninit();
+        unsafe {
+            ::std::ptr::write_bytes(s.as_mut_ptr(), 0, 1);
+            s.assume_init()
+        }
+    }
 }
 #[test]
 fn bindgen_test_layout_ma_job__bindgen_ty_2__bindgen_ty_2() {
@@ -13649,6 +14333,15 @@ fn bindgen_test_layout_ma_job__bindgen_ty_2__bindgen_ty_2() {
     }
     test_field_seekDataStream();
 }
+impl Default for ma_job__bindgen_ty_2__bindgen_ty_2 {
+    fn default() -> Self {
+        let mut s = ::std::mem::MaybeUninit::<Self>::uninit();
+        unsafe {
+            ::std::ptr::write_bytes(s.as_mut_ptr(), 0, 1);
+            s.assume_init()
+        }
+    }
+}
 impl ::std::fmt::Debug for ma_job__bindgen_ty_2__bindgen_ty_2 {
     fn fmt(&self, f: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
         write!(f, "ma_job__bindgen_ty_2__bindgen_ty_2 {{ union }}")
@@ -13727,6 +14420,15 @@ fn bindgen_test_layout_ma_job__bindgen_ty_2__bindgen_ty_3__bindgen_ty_1__bindgen
     }
     test_field_deviceType();
 }
+impl Default for ma_job__bindgen_ty_2__bindgen_ty_3__bindgen_ty_1__bindgen_ty_1 {
+    fn default() -> Self {
+        let mut s = ::std::mem::MaybeUninit::<Self>::uninit();
+        unsafe {
+            ::std::ptr::write_bytes(s.as_mut_ptr(), 0, 1);
+            s.assume_init()
+        }
+    }
+}
 #[test]
 fn bindgen_test_layout_ma_job__bindgen_ty_2__bindgen_ty_3__bindgen_ty_1() {
     assert_eq!(
@@ -13764,6 +14466,15 @@ fn bindgen_test_layout_ma_job__bindgen_ty_2__bindgen_ty_3__bindgen_ty_1() {
         );
     }
     test_field_reroute();
+}
+impl Default for ma_job__bindgen_ty_2__bindgen_ty_3__bindgen_ty_1 {
+    fn default() -> Self {
+        let mut s = ::std::mem::MaybeUninit::<Self>::uninit();
+        unsafe {
+            ::std::ptr::write_bytes(s.as_mut_ptr(), 0, 1);
+            s.assume_init()
+        }
+    }
 }
 impl ::std::fmt::Debug for ma_job__bindgen_ty_2__bindgen_ty_3__bindgen_ty_1 {
     fn fmt(&self, f: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
@@ -13806,6 +14517,15 @@ fn bindgen_test_layout_ma_job__bindgen_ty_2__bindgen_ty_3() {
         );
     }
     test_field_aaudio();
+}
+impl Default for ma_job__bindgen_ty_2__bindgen_ty_3 {
+    fn default() -> Self {
+        let mut s = ::std::mem::MaybeUninit::<Self>::uninit();
+        unsafe {
+            ::std::ptr::write_bytes(s.as_mut_ptr(), 0, 1);
+            s.assume_init()
+        }
+    }
 }
 impl ::std::fmt::Debug for ma_job__bindgen_ty_2__bindgen_ty_3 {
     fn fmt(&self, f: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
@@ -13875,6 +14595,15 @@ fn bindgen_test_layout_ma_job__bindgen_ty_2() {
         );
     }
     test_field_device();
+}
+impl Default for ma_job__bindgen_ty_2 {
+    fn default() -> Self {
+        let mut s = ::std::mem::MaybeUninit::<Self>::uninit();
+        unsafe {
+            ::std::ptr::write_bytes(s.as_mut_ptr(), 0, 1);
+            s.assume_init()
+        }
+    }
 }
 impl ::std::fmt::Debug for ma_job__bindgen_ty_2 {
     fn fmt(&self, f: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
@@ -13962,6 +14691,15 @@ fn bindgen_test_layout_ma_job() {
     }
     test_field_data();
 }
+impl Default for ma_job {
+    fn default() -> Self {
+        let mut s = ::std::mem::MaybeUninit::<Self>::uninit();
+        unsafe {
+            ::std::ptr::write_bytes(s.as_mut_ptr(), 0, 1);
+            s.assume_init()
+        }
+    }
+}
 impl ::std::fmt::Debug for ma_job {
     fn fmt(&self, f: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
         write!(
@@ -13980,7 +14718,7 @@ extern "C" {
 pub const MA_JOB_QUEUE_FLAG_NON_BLOCKING: ma_job_queue_flags = 1;
 pub type ma_job_queue_flags = ::std::os::raw::c_uint;
 #[repr(C)]
-#[derive(Debug, Copy, Clone)]
+#[derive(Debug, Default, Copy, Clone)]
 pub struct ma_job_queue_config {
     pub flags: ma_uint32,
     pub capacity: ma_uint32,
@@ -14232,6 +14970,15 @@ fn bindgen_test_layout_ma_job_queue() {
     }
     test_field__ownsHeap();
 }
+impl Default for ma_job_queue {
+    fn default() -> Self {
+        let mut s = ::std::mem::MaybeUninit::<Self>::uninit();
+        unsafe {
+            ::std::ptr::write_bytes(s.as_mut_ptr(), 0, 1);
+            s.assume_init()
+        }
+    }
+}
 extern "C" {
     pub fn ma_job_queue_get_heap_size(
         pConfig: *const ma_job_queue_config,
@@ -14287,7 +15034,7 @@ pub const ma_backend_custom: ma_backend = 13;
 pub const ma_backend_null: ma_backend = 14;
 pub type ma_backend = ::std::os::raw::c_uint;
 #[repr(C)]
-#[derive(Debug, Copy, Clone)]
+#[derive(Debug, Default, Copy, Clone)]
 pub struct ma_device_job_thread_config {
     pub noThread: ma_bool32,
     pub jobQueueCapacity: ma_uint32,
@@ -14431,6 +15178,15 @@ fn bindgen_test_layout_ma_device_job_thread() {
     }
     test_field__hasThread();
 }
+impl Default for ma_device_job_thread {
+    fn default() -> Self {
+        let mut s = ::std::mem::MaybeUninit::<Self>::uninit();
+        unsafe {
+            ::std::ptr::write_bytes(s.as_mut_ptr(), 0, 1);
+            s.assume_init()
+        }
+    }
+}
 extern "C" {
     pub fn ma_device_job_thread_init(
         pConfig: *const ma_device_job_thread_config,
@@ -14478,7 +15234,7 @@ pub union ma_device_notification__bindgen_ty_1 {
     pub interruption: ma_device_notification__bindgen_ty_1__bindgen_ty_4,
 }
 #[repr(C)]
-#[derive(Debug, Copy, Clone)]
+#[derive(Debug, Default, Copy, Clone)]
 pub struct ma_device_notification__bindgen_ty_1__bindgen_ty_1 {
     pub _unused: ::std::os::raw::c_int,
 }
@@ -14521,7 +15277,7 @@ fn bindgen_test_layout_ma_device_notification__bindgen_ty_1__bindgen_ty_1() {
     test_field__unused();
 }
 #[repr(C)]
-#[derive(Debug, Copy, Clone)]
+#[derive(Debug, Default, Copy, Clone)]
 pub struct ma_device_notification__bindgen_ty_1__bindgen_ty_2 {
     pub _unused: ::std::os::raw::c_int,
 }
@@ -14564,7 +15320,7 @@ fn bindgen_test_layout_ma_device_notification__bindgen_ty_1__bindgen_ty_2() {
     test_field__unused();
 }
 #[repr(C)]
-#[derive(Debug, Copy, Clone)]
+#[derive(Debug, Default, Copy, Clone)]
 pub struct ma_device_notification__bindgen_ty_1__bindgen_ty_3 {
     pub _unused: ::std::os::raw::c_int,
 }
@@ -14607,7 +15363,7 @@ fn bindgen_test_layout_ma_device_notification__bindgen_ty_1__bindgen_ty_3() {
     test_field__unused();
 }
 #[repr(C)]
-#[derive(Debug, Copy, Clone)]
+#[derive(Debug, Default, Copy, Clone)]
 pub struct ma_device_notification__bindgen_ty_1__bindgen_ty_4 {
     pub _unused: ::std::os::raw::c_int,
 }
@@ -14740,6 +15496,15 @@ fn bindgen_test_layout_ma_device_notification__bindgen_ty_1() {
     }
     test_field_interruption();
 }
+impl Default for ma_device_notification__bindgen_ty_1 {
+    fn default() -> Self {
+        let mut s = ::std::mem::MaybeUninit::<Self>::uninit();
+        unsafe {
+            ::std::ptr::write_bytes(s.as_mut_ptr(), 0, 1);
+            s.assume_init()
+        }
+    }
+}
 impl ::std::fmt::Debug for ma_device_notification__bindgen_ty_1 {
     fn fmt(&self, f: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
         write!(f, "ma_device_notification__bindgen_ty_1 {{ union }}")
@@ -14808,6 +15573,15 @@ fn bindgen_test_layout_ma_device_notification() {
         );
     }
     test_field_data();
+}
+impl Default for ma_device_notification {
+    fn default() -> Self {
+        let mut s = ::std::mem::MaybeUninit::<Self>::uninit();
+        unsafe {
+            ::std::ptr::write_bytes(s.as_mut_ptr(), 0, 1);
+            s.assume_init()
+        }
+    }
 }
 impl ::std::fmt::Debug for ma_device_notification {
     fn fmt(&self, f: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
@@ -14955,6 +15729,15 @@ fn bindgen_test_layout_ma_timer() {
     }
     test_field_counterD();
 }
+impl Default for ma_timer {
+    fn default() -> Self {
+        let mut s = ::std::mem::MaybeUninit::<Self>::uninit();
+        unsafe {
+            ::std::ptr::write_bytes(s.as_mut_ptr(), 0, 1);
+            s.assume_init()
+        }
+    }
+}
 impl ::std::fmt::Debug for ma_timer {
     fn fmt(&self, f: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
         write!(f, "ma_timer {{ union }}")
@@ -15049,6 +15832,15 @@ fn bindgen_test_layout_ma_device_id__bindgen_ty_1() {
         );
     }
     test_field_p();
+}
+impl Default for ma_device_id__bindgen_ty_1 {
+    fn default() -> Self {
+        let mut s = ::std::mem::MaybeUninit::<Self>::uninit();
+        unsafe {
+            ::std::ptr::write_bytes(s.as_mut_ptr(), 0, 1);
+            s.assume_init()
+        }
+    }
 }
 impl ::std::fmt::Debug for ma_device_id__bindgen_ty_1 {
     fn fmt(&self, f: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
@@ -15323,6 +16115,15 @@ fn bindgen_test_layout_ma_device_id() {
     }
     test_field_nullbackend();
 }
+impl Default for ma_device_id {
+    fn default() -> Self {
+        let mut s = ::std::mem::MaybeUninit::<Self>::uninit();
+        unsafe {
+            ::std::ptr::write_bytes(s.as_mut_ptr(), 0, 1);
+            s.assume_init()
+        }
+    }
+}
 impl ::std::fmt::Debug for ma_device_id {
     fn fmt(&self, f: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
         write!(f, "ma_device_id {{ union }}")
@@ -15426,6 +16227,15 @@ fn bindgen_test_layout_ma_device_info__bindgen_ty_1() {
     }
     test_field_flags();
 }
+impl Default for ma_device_info__bindgen_ty_1 {
+    fn default() -> Self {
+        let mut s = ::std::mem::MaybeUninit::<Self>::uninit();
+        unsafe {
+            ::std::ptr::write_bytes(s.as_mut_ptr(), 0, 1);
+            s.assume_init()
+        }
+    }
+}
 #[test]
 fn bindgen_test_layout_ma_device_info() {
     assert_eq!(
@@ -15523,6 +16333,15 @@ fn bindgen_test_layout_ma_device_info() {
         );
     }
     test_field_nativeDataFormats();
+}
+impl Default for ma_device_info {
+    fn default() -> Self {
+        let mut s = ::std::mem::MaybeUninit::<Self>::uninit();
+        unsafe {
+            ::std::ptr::write_bytes(s.as_mut_ptr(), 0, 1);
+            s.assume_init()
+        }
+    }
 }
 impl ::std::fmt::Debug for ma_device_info {
     fn fmt(&self, f: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
@@ -15681,6 +16500,15 @@ fn bindgen_test_layout_ma_device_config__bindgen_ty_1() {
     }
     test_field_shareMode();
 }
+impl Default for ma_device_config__bindgen_ty_1 {
+    fn default() -> Self {
+        let mut s = ::std::mem::MaybeUninit::<Self>::uninit();
+        unsafe {
+            ::std::ptr::write_bytes(s.as_mut_ptr(), 0, 1);
+            s.assume_init()
+        }
+    }
+}
 #[repr(C)]
 #[derive(Debug, Copy, Clone)]
 pub struct ma_device_config__bindgen_ty_2 {
@@ -15806,8 +16634,17 @@ fn bindgen_test_layout_ma_device_config__bindgen_ty_2() {
     }
     test_field_shareMode();
 }
+impl Default for ma_device_config__bindgen_ty_2 {
+    fn default() -> Self {
+        let mut s = ::std::mem::MaybeUninit::<Self>::uninit();
+        unsafe {
+            ::std::ptr::write_bytes(s.as_mut_ptr(), 0, 1);
+            s.assume_init()
+        }
+    }
+}
 #[repr(C)]
-#[derive(Debug, Copy, Clone)]
+#[derive(Debug, Default, Copy, Clone)]
 pub struct ma_device_config__bindgen_ty_3 {
     pub noAutoConvertSRC: ma_bool8,
     pub noDefaultQualitySRC: ma_bool8,
@@ -15896,7 +16733,7 @@ fn bindgen_test_layout_ma_device_config__bindgen_ty_3() {
     test_field_noHardwareOffloading();
 }
 #[repr(C)]
-#[derive(Debug, Copy, Clone)]
+#[derive(Debug, Default, Copy, Clone)]
 pub struct ma_device_config__bindgen_ty_4 {
     pub noMMap: ma_bool32,
     pub noAutoFormat: ma_bool32,
@@ -16037,8 +16874,17 @@ fn bindgen_test_layout_ma_device_config__bindgen_ty_5() {
     }
     test_field_pStreamNameCapture();
 }
+impl Default for ma_device_config__bindgen_ty_5 {
+    fn default() -> Self {
+        let mut s = ::std::mem::MaybeUninit::<Self>::uninit();
+        unsafe {
+            ::std::ptr::write_bytes(s.as_mut_ptr(), 0, 1);
+            s.assume_init()
+        }
+    }
+}
 #[repr(C)]
-#[derive(Debug, Copy, Clone)]
+#[derive(Debug, Default, Copy, Clone)]
 pub struct ma_device_config__bindgen_ty_6 {
     pub allowNominalSampleRateChange: ma_bool32,
 }
@@ -16124,6 +16970,15 @@ fn bindgen_test_layout_ma_device_config__bindgen_ty_7() {
         );
     }
     test_field_recordingPreset();
+}
+impl Default for ma_device_config__bindgen_ty_7 {
+    fn default() -> Self {
+        let mut s = ::std::mem::MaybeUninit::<Self>::uninit();
+        unsafe {
+            ::std::ptr::write_bytes(s.as_mut_ptr(), 0, 1);
+            s.assume_init()
+        }
+    }
 }
 #[repr(C)]
 #[derive(Debug, Copy, Clone)]
@@ -16213,6 +17068,15 @@ fn bindgen_test_layout_ma_device_config__bindgen_ty_8() {
         );
     }
     test_field_noAutoStartAfterReroute();
+}
+impl Default for ma_device_config__bindgen_ty_8 {
+    fn default() -> Self {
+        let mut s = ::std::mem::MaybeUninit::<Self>::uninit();
+        unsafe {
+            ::std::ptr::write_bytes(s.as_mut_ptr(), 0, 1);
+            s.assume_init()
+        }
+    }
 }
 #[test]
 fn bindgen_test_layout_ma_device_config() {
@@ -16618,6 +17482,15 @@ fn bindgen_test_layout_ma_device_config() {
     }
     test_field_aaudio();
 }
+impl Default for ma_device_config {
+    fn default() -> Self {
+        let mut s = ::std::mem::MaybeUninit::<Self>::uninit();
+        unsafe {
+            ::std::ptr::write_bytes(s.as_mut_ptr(), 0, 1);
+            s.assume_init()
+        }
+    }
+}
 pub type ma_enum_devices_callback_proc = ::std::option::Option<
     unsafe extern "C" fn(
         pContext: *mut ma_context,
@@ -16805,8 +17678,17 @@ fn bindgen_test_layout_ma_device_descriptor() {
     }
     test_field_periodCount();
 }
+impl Default for ma_device_descriptor {
+    fn default() -> Self {
+        let mut s = ::std::mem::MaybeUninit::<Self>::uninit();
+        unsafe {
+            ::std::ptr::write_bytes(s.as_mut_ptr(), 0, 1);
+            s.assume_init()
+        }
+    }
+}
 #[repr(C)]
-#[derive(Debug, Copy, Clone)]
+#[derive(Debug, Default, Copy, Clone)]
 pub struct ma_backend_callbacks {
     pub onContextInit: ::std::option::Option<
         unsafe extern "C" fn(
@@ -17123,7 +18005,7 @@ pub struct ma_context_config {
     pub custom: ma_backend_callbacks,
 }
 #[repr(C)]
-#[derive(Debug, Copy, Clone)]
+#[derive(Debug, Default, Copy, Clone)]
 pub struct ma_context_config__bindgen_ty_1 {
     pub useVerboseDeviceEnumeration: ma_bool32,
 }
@@ -17228,6 +18110,15 @@ fn bindgen_test_layout_ma_context_config__bindgen_ty_2() {
     }
     test_field_tryAutoSpawn();
 }
+impl Default for ma_context_config__bindgen_ty_2 {
+    fn default() -> Self {
+        let mut s = ::std::mem::MaybeUninit::<Self>::uninit();
+        unsafe {
+            ::std::ptr::write_bytes(s.as_mut_ptr(), 0, 1);
+            s.assume_init()
+        }
+    }
+}
 #[repr(C)]
 #[derive(Debug, Copy, Clone)]
 pub struct ma_context_config__bindgen_ty_3 {
@@ -17317,6 +18208,15 @@ fn bindgen_test_layout_ma_context_config__bindgen_ty_3() {
     }
     test_field_noAudioSessionDeactivate();
 }
+impl Default for ma_context_config__bindgen_ty_3 {
+    fn default() -> Self {
+        let mut s = ::std::mem::MaybeUninit::<Self>::uninit();
+        unsafe {
+            ::std::ptr::write_bytes(s.as_mut_ptr(), 0, 1);
+            s.assume_init()
+        }
+    }
+}
 #[repr(C)]
 #[derive(Debug, Copy, Clone)]
 pub struct ma_context_config__bindgen_ty_4 {
@@ -17369,6 +18269,15 @@ fn bindgen_test_layout_ma_context_config__bindgen_ty_4() {
         );
     }
     test_field_tryStartServer();
+}
+impl Default for ma_context_config__bindgen_ty_4 {
+    fn default() -> Self {
+        let mut s = ::std::mem::MaybeUninit::<Self>::uninit();
+        unsafe {
+            ::std::ptr::write_bytes(s.as_mut_ptr(), 0, 1);
+            s.assume_init()
+        }
+    }
 }
 #[test]
 fn bindgen_test_layout_ma_context_config() {
@@ -17553,6 +18462,15 @@ fn bindgen_test_layout_ma_context_config() {
     }
     test_field_custom();
 }
+impl Default for ma_context_config {
+    fn default() -> Self {
+        let mut s = ::std::mem::MaybeUninit::<Self>::uninit();
+        unsafe {
+            ::std::ptr::write_bytes(s.as_mut_ptr(), 0, 1);
+            s.assume_init()
+        }
+    }
+}
 #[repr(C)]
 #[derive(Copy, Clone)]
 pub struct ma_context_command__wasapi {
@@ -17568,7 +18486,7 @@ pub union ma_context_command__wasapi__bindgen_ty_1 {
     pub releaseAudioClient: ma_context_command__wasapi__bindgen_ty_1__bindgen_ty_3,
 }
 #[repr(C)]
-#[derive(Debug, Copy, Clone)]
+#[derive(Debug, Default, Copy, Clone)]
 pub struct ma_context_command__wasapi__bindgen_ty_1__bindgen_ty_1 {
     pub _unused: ::std::os::raw::c_int,
 }
@@ -17713,6 +18631,15 @@ fn bindgen_test_layout_ma_context_command__wasapi__bindgen_ty_1__bindgen_ty_2() 
     }
     test_field_pResult();
 }
+impl Default for ma_context_command__wasapi__bindgen_ty_1__bindgen_ty_2 {
+    fn default() -> Self {
+        let mut s = ::std::mem::MaybeUninit::<Self>::uninit();
+        unsafe {
+            ::std::ptr::write_bytes(s.as_mut_ptr(), 0, 1);
+            s.assume_init()
+        }
+    }
+}
 #[repr(C)]
 #[derive(Debug, Copy, Clone)]
 pub struct ma_context_command__wasapi__bindgen_ty_1__bindgen_ty_3 {
@@ -17775,6 +18702,15 @@ fn bindgen_test_layout_ma_context_command__wasapi__bindgen_ty_1__bindgen_ty_3() 
         );
     }
     test_field_deviceType();
+}
+impl Default for ma_context_command__wasapi__bindgen_ty_1__bindgen_ty_3 {
+    fn default() -> Self {
+        let mut s = ::std::mem::MaybeUninit::<Self>::uninit();
+        unsafe {
+            ::std::ptr::write_bytes(s.as_mut_ptr(), 0, 1);
+            s.assume_init()
+        }
+    }
 }
 #[test]
 fn bindgen_test_layout_ma_context_command__wasapi__bindgen_ty_1() {
@@ -17849,6 +18785,15 @@ fn bindgen_test_layout_ma_context_command__wasapi__bindgen_ty_1() {
     }
     test_field_releaseAudioClient();
 }
+impl Default for ma_context_command__wasapi__bindgen_ty_1 {
+    fn default() -> Self {
+        let mut s = ::std::mem::MaybeUninit::<Self>::uninit();
+        unsafe {
+            ::std::ptr::write_bytes(s.as_mut_ptr(), 0, 1);
+            s.assume_init()
+        }
+    }
+}
 impl ::std::fmt::Debug for ma_context_command__wasapi__bindgen_ty_1 {
     fn fmt(&self, f: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
         write!(f, "ma_context_command__wasapi__bindgen_ty_1 {{ union }}")
@@ -17917,6 +18862,15 @@ fn bindgen_test_layout_ma_context_command__wasapi() {
         );
     }
     test_field_data();
+}
+impl Default for ma_context_command__wasapi {
+    fn default() -> Self {
+        let mut s = ::std::mem::MaybeUninit::<Self>::uninit();
+        unsafe {
+            ::std::ptr::write_bytes(s.as_mut_ptr(), 0, 1);
+            s.assume_init()
+        }
+    }
 }
 impl ::std::fmt::Debug for ma_context_command__wasapi {
     fn fmt(&self, f: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
@@ -18414,8 +19368,17 @@ fn bindgen_test_layout_ma_context__bindgen_ty_1__bindgen_ty_1() {
     }
     test_field_noAudioSessionDeactivate();
 }
+impl Default for ma_context__bindgen_ty_1__bindgen_ty_1 {
+    fn default() -> Self {
+        let mut s = ::std::mem::MaybeUninit::<Self>::uninit();
+        unsafe {
+            ::std::ptr::write_bytes(s.as_mut_ptr(), 0, 1);
+            s.assume_init()
+        }
+    }
+}
 #[repr(C)]
-#[derive(Debug, Copy, Clone)]
+#[derive(Debug, Default, Copy, Clone)]
 pub struct ma_context__bindgen_ty_1__bindgen_ty_2 {
     pub _unused: ::std::os::raw::c_int,
 }
@@ -18502,6 +19465,15 @@ fn bindgen_test_layout_ma_context__bindgen_ty_1() {
         );
     }
     test_field_null_backend();
+}
+impl Default for ma_context__bindgen_ty_1 {
+    fn default() -> Self {
+        let mut s = ::std::mem::MaybeUninit::<Self>::uninit();
+        unsafe {
+            ::std::ptr::write_bytes(s.as_mut_ptr(), 0, 1);
+            s.assume_init()
+        }
+    }
 }
 impl ::std::fmt::Debug for ma_context__bindgen_ty_1 {
     fn fmt(&self, f: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
@@ -18841,6 +19813,15 @@ fn bindgen_test_layout_ma_context__bindgen_ty_2__bindgen_ty_1() {
     }
     test_field_pthread_attr_setschedparam();
 }
+impl Default for ma_context__bindgen_ty_2__bindgen_ty_1 {
+    fn default() -> Self {
+        let mut s = ::std::mem::MaybeUninit::<Self>::uninit();
+        unsafe {
+            ::std::ptr::write_bytes(s.as_mut_ptr(), 0, 1);
+            s.assume_init()
+        }
+    }
+}
 #[test]
 fn bindgen_test_layout_ma_context__bindgen_ty_2() {
     assert_eq!(
@@ -18887,6 +19868,15 @@ fn bindgen_test_layout_ma_context__bindgen_ty_2() {
         );
     }
     test_field__unused();
+}
+impl Default for ma_context__bindgen_ty_2 {
+    fn default() -> Self {
+        let mut s = ::std::mem::MaybeUninit::<Self>::uninit();
+        unsafe {
+            ::std::ptr::write_bytes(s.as_mut_ptr(), 0, 1);
+            s.assume_init()
+        }
+    }
 }
 impl ::std::fmt::Debug for ma_context__bindgen_ty_2 {
     fn fmt(&self, f: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
@@ -19144,6 +20134,15 @@ fn bindgen_test_layout_ma_context() {
     }
     test_field_pDeviceInfos();
 }
+impl Default for ma_context {
+    fn default() -> Self {
+        let mut s = ::std::mem::MaybeUninit::<Self>::uninit();
+        unsafe {
+            ::std::ptr::write_bytes(s.as_mut_ptr(), 0, 1);
+            s.assume_init()
+        }
+    }
+}
 impl ::std::fmt::Debug for ma_context {
     fn fmt(&self, f: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
         write ! (f , "ma_context {{ callbacks: {:?}, backend: {:?}, pLog: {:?}, log: {:?}, threadPriority: {:?}, threadStackSize: {:?}, pUserData: {:?}, allocationCallbacks: {:?}, deviceEnumLock: {:?}, deviceInfoLock: {:?}, deviceInfoCapacity: {:?}, playbackDeviceInfoCount: {:?}, captureDeviceInfoCount: {:?}, pDeviceInfos: {:?}, __bindgen_anon_1: {:?}, __bindgen_anon_2: {:?} }}" , self . callbacks , self . backend , self . pLog , self . log , self . threadPriority , self . threadStackSize , self . pUserData , self . allocationCallbacks , self . deviceEnumLock , self . deviceInfoLock , self . deviceInfoCapacity , self . playbackDeviceInfoCount , self . captureDeviceInfoCount , self . pDeviceInfos , self . __bindgen_anon_1 , self . __bindgen_anon_2)
@@ -19187,7 +20186,7 @@ pub struct ma_device__bindgen_ty_1 {
     pub linear: ma_device__bindgen_ty_1__bindgen_ty_1,
 }
 #[repr(C)]
-#[derive(Debug, Copy, Clone)]
+#[derive(Debug, Default, Copy, Clone)]
 pub struct ma_device__bindgen_ty_1__bindgen_ty_1 {
     pub lpfOrder: ma_uint32,
 }
@@ -19308,6 +20307,15 @@ fn bindgen_test_layout_ma_device__bindgen_ty_1() {
         );
     }
     test_field_linear();
+}
+impl Default for ma_device__bindgen_ty_1 {
+    fn default() -> Self {
+        let mut s = ::std::mem::MaybeUninit::<Self>::uninit();
+        unsafe {
+            ::std::ptr::write_bytes(s.as_mut_ptr(), 0, 1);
+            s.assume_init()
+        }
+    }
 }
 #[repr(C)]
 #[derive(Copy, Clone)]
@@ -19722,6 +20730,15 @@ fn bindgen_test_layout_ma_device__bindgen_ty_2() {
     }
     test_field_inputCacheRemaining();
 }
+impl Default for ma_device__bindgen_ty_2 {
+    fn default() -> Self {
+        let mut s = ::std::mem::MaybeUninit::<Self>::uninit();
+        unsafe {
+            ::std::ptr::write_bytes(s.as_mut_ptr(), 0, 1);
+            s.assume_init()
+        }
+    }
+}
 impl ::std::fmt::Debug for ma_device__bindgen_ty_2 {
     fn fmt(&self, f: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
         write ! (f , "ma_device__bindgen_ty_2 {{ pID: {:?}, id: {:?}, name: {:?}, shareMode: {:?}, format: {:?}, channels: {:?}, channelMap: {:?}, internalFormat: {:?}, internalChannels: {:?}, internalSampleRate: {:?}, internalChannelMap: {:?}, internalPeriodSizeInFrames: {:?}, internalPeriods: {:?}, channelMixMode: {:?}, converter: {:?}, pIntermediaryBuffer: {:?}, intermediaryBufferCap: {:?}, intermediaryBufferLen: {:?}, pInputCache: {:?}, inputCacheCap: {:?}, inputCacheConsumed: {:?}, inputCacheRemaining: {:?} }}" , self . pID , self . id , self . name , self . shareMode , self . format , self . channels , self . channelMap , self . internalFormat , self . internalChannels , self . internalSampleRate , self . internalChannelMap , self . internalPeriodSizeInFrames , self . internalPeriods , self . channelMixMode , self . converter , self . pIntermediaryBuffer , self . intermediaryBufferCap , self . intermediaryBufferLen , self . pInputCache , self . inputCacheCap , self . inputCacheConsumed , self . inputCacheRemaining)
@@ -20068,6 +21085,15 @@ fn bindgen_test_layout_ma_device__bindgen_ty_3() {
     }
     test_field_intermediaryBufferLen();
 }
+impl Default for ma_device__bindgen_ty_3 {
+    fn default() -> Self {
+        let mut s = ::std::mem::MaybeUninit::<Self>::uninit();
+        unsafe {
+            ::std::ptr::write_bytes(s.as_mut_ptr(), 0, 1);
+            s.assume_init()
+        }
+    }
+}
 impl ::std::fmt::Debug for ma_device__bindgen_ty_3 {
     fn fmt(&self, f: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
         write ! (f , "ma_device__bindgen_ty_3 {{ pID: {:?}, id: {:?}, name: {:?}, shareMode: {:?}, format: {:?}, channels: {:?}, channelMap: {:?}, internalFormat: {:?}, internalChannels: {:?}, internalSampleRate: {:?}, internalChannelMap: {:?}, internalPeriodSizeInFrames: {:?}, internalPeriods: {:?}, channelMixMode: {:?}, converter: {:?}, pIntermediaryBuffer: {:?}, intermediaryBufferCap: {:?}, intermediaryBufferLen: {:?} }}" , self . pID , self . id , self . name , self . shareMode , self . format , self . channels , self . channelMap , self . internalFormat , self . internalChannels , self . internalSampleRate , self . internalChannelMap , self . internalPeriodSizeInFrames , self . internalPeriods , self . channelMixMode , self . converter , self . pIntermediaryBuffer , self . intermediaryBufferCap , self . intermediaryBufferLen)
@@ -20407,6 +21433,15 @@ fn bindgen_test_layout_ma_device__bindgen_ty_4__bindgen_ty_1() {
     }
     test_field_pNotificationHandler();
 }
+impl Default for ma_device__bindgen_ty_4__bindgen_ty_1 {
+    fn default() -> Self {
+        let mut s = ::std::mem::MaybeUninit::<Self>::uninit();
+        unsafe {
+            ::std::ptr::write_bytes(s.as_mut_ptr(), 0, 1);
+            s.assume_init()
+        }
+    }
+}
 #[repr(C)]
 #[derive(Copy, Clone)]
 pub struct ma_device__bindgen_ty_4__bindgen_ty_2 {
@@ -20679,6 +21714,15 @@ fn bindgen_test_layout_ma_device__bindgen_ty_4__bindgen_ty_2() {
     }
     test_field_isStarted();
 }
+impl Default for ma_device__bindgen_ty_4__bindgen_ty_2 {
+    fn default() -> Self {
+        let mut s = ::std::mem::MaybeUninit::<Self>::uninit();
+        unsafe {
+            ::std::ptr::write_bytes(s.as_mut_ptr(), 0, 1);
+            s.assume_init()
+        }
+    }
+}
 impl ::std::fmt::Debug for ma_device__bindgen_ty_4__bindgen_ty_2 {
     fn fmt(&self, f: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
         write ! (f , "ma_device__bindgen_ty_4__bindgen_ty_2 {{ deviceThread: {:?}, operationEvent: {:?}, operationCompletionEvent: {:?}, operationSemaphore: {:?}, operation: {:?}, operationResult: {:?}, timer: {:?}, priorRunTime: {:?}, currentPeriodFramesRemainingPlayback: {:?}, currentPeriodFramesRemainingCapture: {:?}, lastProcessedFramePlayback: {:?}, lastProcessedFrameCapture: {:?}, isStarted: {:?} }}" , self . deviceThread , self . operationEvent , self . operationCompletionEvent , self . operationSemaphore , self . operation , self . operationResult , self . timer , self . priorRunTime , self . currentPeriodFramesRemainingPlayback , self . currentPeriodFramesRemainingCapture , self . lastProcessedFramePlayback , self . lastProcessedFrameCapture , self . isStarted)
@@ -20730,6 +21774,15 @@ fn bindgen_test_layout_ma_device__bindgen_ty_4() {
         );
     }
     test_field_null_device();
+}
+impl Default for ma_device__bindgen_ty_4 {
+    fn default() -> Self {
+        let mut s = ::std::mem::MaybeUninit::<Self>::uninit();
+        unsafe {
+            ::std::ptr::write_bytes(s.as_mut_ptr(), 0, 1);
+            s.assume_init()
+        }
+    }
 }
 impl ::std::fmt::Debug for ma_device__bindgen_ty_4 {
     fn fmt(&self, f: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
@@ -21156,6 +22209,15 @@ fn bindgen_test_layout_ma_device() {
         );
     }
     test_field_capture();
+}
+impl Default for ma_device {
+    fn default() -> Self {
+        let mut s = ::std::mem::MaybeUninit::<Self>::uninit();
+        unsafe {
+            ::std::ptr::write_bytes(s.as_mut_ptr(), 0, 1);
+            s.assume_init()
+        }
+    }
 }
 impl ::std::fmt::Debug for ma_device {
     fn fmt(&self, f: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
@@ -21617,7 +22679,7 @@ extern "C" {
 #[doc = "Data Source"]
 pub type ma_data_source = ::std::os::raw::c_void;
 #[repr(C)]
-#[derive(Debug, Copy, Clone)]
+#[derive(Debug, Default, Copy, Clone)]
 pub struct ma_data_source_vtable {
     pub onRead: ::std::option::Option<
         unsafe extern "C" fn(
@@ -21827,6 +22889,15 @@ fn bindgen_test_layout_ma_data_source_config() {
     }
     test_field_vtable();
 }
+impl Default for ma_data_source_config {
+    fn default() -> Self {
+        let mut s = ::std::mem::MaybeUninit::<Self>::uninit();
+        unsafe {
+            ::std::ptr::write_bytes(s.as_mut_ptr(), 0, 1);
+            s.assume_init()
+        }
+    }
+}
 extern "C" {
     pub fn ma_data_source_config_init() -> ma_data_source_config;
 }
@@ -22008,6 +23079,15 @@ fn bindgen_test_layout_ma_data_source_base() {
         );
     }
     test_field_isLooping();
+}
+impl Default for ma_data_source_base {
+    fn default() -> Self {
+        let mut s = ::std::mem::MaybeUninit::<Self>::uninit();
+        unsafe {
+            ::std::ptr::write_bytes(s.as_mut_ptr(), 0, 1);
+            s.assume_init()
+        }
+    }
 }
 extern "C" {
     pub fn ma_data_source_init(
@@ -22282,6 +23362,15 @@ fn bindgen_test_layout_ma_audio_buffer_ref() {
     }
     test_field_pData();
 }
+impl Default for ma_audio_buffer_ref {
+    fn default() -> Self {
+        let mut s = ::std::mem::MaybeUninit::<Self>::uninit();
+        unsafe {
+            ::std::ptr::write_bytes(s.as_mut_ptr(), 0, 1);
+            s.assume_init()
+        }
+    }
+}
 extern "C" {
     pub fn ma_audio_buffer_ref_init(
         format: ma_format,
@@ -22474,6 +23563,15 @@ fn bindgen_test_layout_ma_audio_buffer_config() {
     }
     test_field_allocationCallbacks();
 }
+impl Default for ma_audio_buffer_config {
+    fn default() -> Self {
+        let mut s = ::std::mem::MaybeUninit::<Self>::uninit();
+        unsafe {
+            ::std::ptr::write_bytes(s.as_mut_ptr(), 0, 1);
+            s.assume_init()
+        }
+    }
+}
 extern "C" {
     pub fn ma_audio_buffer_config_init(
         format: ma_format,
@@ -22571,6 +23669,15 @@ fn bindgen_test_layout_ma_audio_buffer() {
         );
     }
     test_field__pExtraData();
+}
+impl Default for ma_audio_buffer {
+    fn default() -> Self {
+        let mut s = ::std::mem::MaybeUninit::<Self>::uninit();
+        unsafe {
+            ::std::ptr::write_bytes(s.as_mut_ptr(), 0, 1);
+            s.assume_init()
+        }
+    }
 }
 extern "C" {
     pub fn ma_audio_buffer_init(
@@ -22715,6 +23822,15 @@ fn bindgen_test_layout_ma_paged_audio_buffer_page() {
     }
     test_field_pAudioData();
 }
+impl Default for ma_paged_audio_buffer_page {
+    fn default() -> Self {
+        let mut s = ::std::mem::MaybeUninit::<Self>::uninit();
+        unsafe {
+            ::std::ptr::write_bytes(s.as_mut_ptr(), 0, 1);
+            s.assume_init()
+        }
+    }
+}
 #[repr(C)]
 #[derive(Debug, Copy, Clone)]
 pub struct ma_paged_audio_buffer_data {
@@ -22803,6 +23919,15 @@ fn bindgen_test_layout_ma_paged_audio_buffer_data() {
         );
     }
     test_field_pTail();
+}
+impl Default for ma_paged_audio_buffer_data {
+    fn default() -> Self {
+        let mut s = ::std::mem::MaybeUninit::<Self>::uninit();
+        unsafe {
+            ::std::ptr::write_bytes(s.as_mut_ptr(), 0, 1);
+            s.assume_init()
+        }
+    }
 }
 extern "C" {
     pub fn ma_paged_audio_buffer_data_init(
@@ -22897,6 +24022,15 @@ fn bindgen_test_layout_ma_paged_audio_buffer_config() {
         );
     }
     test_field_pData();
+}
+impl Default for ma_paged_audio_buffer_config {
+    fn default() -> Self {
+        let mut s = ::std::mem::MaybeUninit::<Self>::uninit();
+        unsafe {
+            ::std::ptr::write_bytes(s.as_mut_ptr(), 0, 1);
+            s.assume_init()
+        }
+    }
 }
 extern "C" {
     pub fn ma_paged_audio_buffer_config_init(
@@ -23010,6 +24144,15 @@ fn bindgen_test_layout_ma_paged_audio_buffer() {
     }
     test_field_absoluteCursor();
 }
+impl Default for ma_paged_audio_buffer {
+    fn default() -> Self {
+        let mut s = ::std::mem::MaybeUninit::<Self>::uninit();
+        unsafe {
+            ::std::ptr::write_bytes(s.as_mut_ptr(), 0, 1);
+            s.assume_init()
+        }
+    }
+}
 extern "C" {
     pub fn ma_paged_audio_buffer_init(
         pConfig: *const ma_paged_audio_buffer_config,
@@ -23060,7 +24203,7 @@ pub const ma_seek_origin_current: ma_seek_origin = 1;
 pub const ma_seek_origin_end: ma_seek_origin = 2;
 pub type ma_seek_origin = ::std::os::raw::c_uint;
 #[repr(C)]
-#[derive(Debug, Copy, Clone)]
+#[derive(Debug, Default, Copy, Clone)]
 pub struct ma_file_info {
     pub sizeInBytes: ma_uint64,
 }
@@ -23095,7 +24238,7 @@ fn bindgen_test_layout_ma_file_info() {
     test_field_sizeInBytes();
 }
 #[repr(C)]
-#[derive(Debug, Copy, Clone)]
+#[derive(Debug, Default, Copy, Clone)]
 pub struct ma_vfs_callbacks {
     pub onOpen: ::std::option::Option<
         unsafe extern "C" fn(
@@ -23420,6 +24563,15 @@ fn bindgen_test_layout_ma_default_vfs() {
     }
     test_field_allocationCallbacks();
 }
+impl Default for ma_default_vfs {
+    fn default() -> Self {
+        let mut s = ::std::mem::MaybeUninit::<Self>::uninit();
+        unsafe {
+            ::std::ptr::write_bytes(s.as_mut_ptr(), 0, 1);
+            s.assume_init()
+        }
+    }
+}
 extern "C" {
     pub fn ma_default_vfs_init(
         pVFS: *mut ma_default_vfs,
@@ -23506,6 +24658,15 @@ fn bindgen_test_layout_ma_decoding_backend_config() {
     }
     test_field_seekPointCount();
 }
+impl Default for ma_decoding_backend_config {
+    fn default() -> Self {
+        let mut s = ::std::mem::MaybeUninit::<Self>::uninit();
+        unsafe {
+            ::std::ptr::write_bytes(s.as_mut_ptr(), 0, 1);
+            s.assume_init()
+        }
+    }
+}
 extern "C" {
     pub fn ma_decoding_backend_config_init(
         preferredFormat: ma_format,
@@ -23513,7 +24674,7 @@ extern "C" {
     ) -> ma_decoding_backend_config;
 }
 #[repr(C)]
-#[derive(Debug, Copy, Clone)]
+#[derive(Debug, Default, Copy, Clone)]
 pub struct ma_decoding_backend_vtable {
     pub onInit: ::std::option::Option<
         unsafe extern "C" fn(
@@ -23930,6 +25091,15 @@ fn bindgen_test_layout_ma_decoder_config() {
     }
     test_field_pCustomBackendUserData();
 }
+impl Default for ma_decoder_config {
+    fn default() -> Self {
+        let mut s = ::std::mem::MaybeUninit::<Self>::uninit();
+        unsafe {
+            ::std::ptr::write_bytes(s.as_mut_ptr(), 0, 1);
+            s.assume_init()
+        }
+    }
+}
 #[repr(C)]
 #[derive(Copy, Clone)]
 pub struct ma_decoder {
@@ -24020,6 +25190,15 @@ fn bindgen_test_layout_ma_decoder__bindgen_ty_1__bindgen_ty_1() {
     }
     test_field_file();
 }
+impl Default for ma_decoder__bindgen_ty_1__bindgen_ty_1 {
+    fn default() -> Self {
+        let mut s = ::std::mem::MaybeUninit::<Self>::uninit();
+        unsafe {
+            ::std::ptr::write_bytes(s.as_mut_ptr(), 0, 1);
+            s.assume_init()
+        }
+    }
+}
 #[repr(C)]
 #[derive(Debug, Copy, Clone)]
 pub struct ma_decoder__bindgen_ty_1__bindgen_ty_2 {
@@ -24100,6 +25279,15 @@ fn bindgen_test_layout_ma_decoder__bindgen_ty_1__bindgen_ty_2() {
     }
     test_field_currentReadPos();
 }
+impl Default for ma_decoder__bindgen_ty_1__bindgen_ty_2 {
+    fn default() -> Self {
+        let mut s = ::std::mem::MaybeUninit::<Self>::uninit();
+        unsafe {
+            ::std::ptr::write_bytes(s.as_mut_ptr(), 0, 1);
+            s.assume_init()
+        }
+    }
+}
 #[test]
 fn bindgen_test_layout_ma_decoder__bindgen_ty_1() {
     assert_eq!(
@@ -24146,6 +25334,15 @@ fn bindgen_test_layout_ma_decoder__bindgen_ty_1() {
         );
     }
     test_field_memory();
+}
+impl Default for ma_decoder__bindgen_ty_1 {
+    fn default() -> Self {
+        let mut s = ::std::mem::MaybeUninit::<Self>::uninit();
+        unsafe {
+            ::std::ptr::write_bytes(s.as_mut_ptr(), 0, 1);
+            s.assume_init()
+        }
+    }
 }
 impl ::std::fmt::Debug for ma_decoder__bindgen_ty_1 {
     fn fmt(&self, f: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
@@ -24488,6 +25685,15 @@ fn bindgen_test_layout_ma_decoder() {
     }
     test_field_data();
 }
+impl Default for ma_decoder {
+    fn default() -> Self {
+        let mut s = ::std::mem::MaybeUninit::<Self>::uninit();
+        unsafe {
+            ::std::ptr::write_bytes(s.as_mut_ptr(), 0, 1);
+            s.assume_init()
+        }
+    }
+}
 impl ::std::fmt::Debug for ma_decoder {
     fn fmt(&self, f: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
         write ! (f , "ma_decoder {{ ds: {:?}, pBackend: {:?}, pBackendVTable: {:?}, pBackendUserData: {:?}, onRead: {:?}, onSeek: {:?}, onTell: {:?}, pUserData: {:?}, readPointerInPCMFrames: {:?}, outputFormat: {:?}, outputChannels: {:?}, outputSampleRate: {:?}, converter: {:?}, pInputCache: {:?}, inputCacheCap: {:?}, inputCacheConsumed: {:?}, inputCacheRemaining: {:?}, allocationCallbacks: {:?}, data: {:?} }}" , self . ds , self . pBackend , self . pBackendVTable , self . pBackendUserData , self . onRead , self . onSeek , self . onTell , self . pUserData , self . readPointerInPCMFrames , self . outputFormat , self . outputChannels , self . outputSampleRate , self . converter , self . pInputCache , self . inputCacheCap , self . inputCacheConsumed , self . inputCacheRemaining , self . allocationCallbacks , self . data)
@@ -24755,6 +25961,15 @@ fn bindgen_test_layout_ma_encoder_config() {
     }
     test_field_allocationCallbacks();
 }
+impl Default for ma_encoder_config {
+    fn default() -> Self {
+        let mut s = ::std::mem::MaybeUninit::<Self>::uninit();
+        unsafe {
+            ::std::ptr::write_bytes(s.as_mut_ptr(), 0, 1);
+            s.assume_init()
+        }
+    }
+}
 extern "C" {
     pub fn ma_encoder_config_init(
         encodingFormat: ma_encoding_format,
@@ -24842,6 +26057,15 @@ fn bindgen_test_layout_ma_encoder__bindgen_ty_1__bindgen_ty_1() {
     }
     test_field_file();
 }
+impl Default for ma_encoder__bindgen_ty_1__bindgen_ty_1 {
+    fn default() -> Self {
+        let mut s = ::std::mem::MaybeUninit::<Self>::uninit();
+        unsafe {
+            ::std::ptr::write_bytes(s.as_mut_ptr(), 0, 1);
+            s.assume_init()
+        }
+    }
+}
 #[test]
 fn bindgen_test_layout_ma_encoder__bindgen_ty_1() {
     assert_eq!(
@@ -24871,6 +26095,15 @@ fn bindgen_test_layout_ma_encoder__bindgen_ty_1() {
         );
     }
     test_field_vfs();
+}
+impl Default for ma_encoder__bindgen_ty_1 {
+    fn default() -> Self {
+        let mut s = ::std::mem::MaybeUninit::<Self>::uninit();
+        unsafe {
+            ::std::ptr::write_bytes(s.as_mut_ptr(), 0, 1);
+            s.assume_init()
+        }
+    }
 }
 impl ::std::fmt::Debug for ma_encoder__bindgen_ty_1 {
     fn fmt(&self, f: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
@@ -25042,6 +26275,15 @@ fn bindgen_test_layout_ma_encoder() {
         );
     }
     test_field_data();
+}
+impl Default for ma_encoder {
+    fn default() -> Self {
+        let mut s = ::std::mem::MaybeUninit::<Self>::uninit();
+        unsafe {
+            ::std::ptr::write_bytes(s.as_mut_ptr(), 0, 1);
+            s.assume_init()
+        }
+    }
 }
 impl ::std::fmt::Debug for ma_encoder {
     fn fmt(&self, f: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
@@ -25228,6 +26470,15 @@ fn bindgen_test_layout_ma_waveform_config() {
     }
     test_field_frequency();
 }
+impl Default for ma_waveform_config {
+    fn default() -> Self {
+        let mut s = ::std::mem::MaybeUninit::<Self>::uninit();
+        unsafe {
+            ::std::ptr::write_bytes(s.as_mut_ptr(), 0, 1);
+            s.assume_init()
+        }
+    }
+}
 extern "C" {
     pub fn ma_waveform_config_init(
         format: ma_format,
@@ -25326,6 +26577,15 @@ fn bindgen_test_layout_ma_waveform() {
         );
     }
     test_field_time();
+}
+impl Default for ma_waveform {
+    fn default() -> Self {
+        let mut s = ::std::mem::MaybeUninit::<Self>::uninit();
+        unsafe {
+            ::std::ptr::write_bytes(s.as_mut_ptr(), 0, 1);
+            s.assume_init()
+        }
+    }
 }
 extern "C" {
     pub fn ma_waveform_init(
@@ -25494,6 +26754,15 @@ fn bindgen_test_layout_ma_noise_config() {
     }
     test_field_duplicateChannels();
 }
+impl Default for ma_noise_config {
+    fn default() -> Self {
+        let mut s = ::std::mem::MaybeUninit::<Self>::uninit();
+        unsafe {
+            ::std::ptr::write_bytes(s.as_mut_ptr(), 0, 1);
+            s.assume_init()
+        }
+    }
+}
 extern "C" {
     pub fn ma_noise_config_init(
         format: ma_format,
@@ -25599,6 +26868,15 @@ fn bindgen_test_layout_ma_noise__bindgen_ty_1__bindgen_ty_1() {
     }
     test_field_counter();
 }
+impl Default for ma_noise__bindgen_ty_1__bindgen_ty_1 {
+    fn default() -> Self {
+        let mut s = ::std::mem::MaybeUninit::<Self>::uninit();
+        unsafe {
+            ::std::ptr::write_bytes(s.as_mut_ptr(), 0, 1);
+            s.assume_init()
+        }
+    }
+}
 #[repr(C)]
 #[derive(Debug, Copy, Clone)]
 pub struct ma_noise__bindgen_ty_1__bindgen_ty_2 {
@@ -25640,6 +26918,15 @@ fn bindgen_test_layout_ma_noise__bindgen_ty_1__bindgen_ty_2() {
         );
     }
     test_field_accumulation();
+}
+impl Default for ma_noise__bindgen_ty_1__bindgen_ty_2 {
+    fn default() -> Self {
+        let mut s = ::std::mem::MaybeUninit::<Self>::uninit();
+        unsafe {
+            ::std::ptr::write_bytes(s.as_mut_ptr(), 0, 1);
+            s.assume_init()
+        }
+    }
 }
 #[test]
 fn bindgen_test_layout_ma_noise__bindgen_ty_1() {
@@ -25687,6 +26974,15 @@ fn bindgen_test_layout_ma_noise__bindgen_ty_1() {
         );
     }
     test_field_brownian();
+}
+impl Default for ma_noise__bindgen_ty_1 {
+    fn default() -> Self {
+        let mut s = ::std::mem::MaybeUninit::<Self>::uninit();
+        unsafe {
+            ::std::ptr::write_bytes(s.as_mut_ptr(), 0, 1);
+            s.assume_init()
+        }
+    }
 }
 impl ::std::fmt::Debug for ma_noise__bindgen_ty_1 {
     fn fmt(&self, f: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
@@ -25808,6 +27104,15 @@ fn bindgen_test_layout_ma_noise() {
     }
     test_field__ownsHeap();
 }
+impl Default for ma_noise {
+    fn default() -> Self {
+        let mut s = ::std::mem::MaybeUninit::<Self>::uninit();
+        unsafe {
+            ::std::ptr::write_bytes(s.as_mut_ptr(), 0, 1);
+            s.assume_init()
+        }
+    }
+}
 impl ::std::fmt::Debug for ma_noise {
     fn fmt(&self, f: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
         write ! (f , "ma_noise {{ ds: {:?}, config: {:?}, lcg: {:?}, state: {:?}, _pHeap: {:?}, _ownsHeap: {:?} }}" , self . ds , self . config , self . lcg , self . state , self . _pHeap , self . _ownsHeap)
@@ -25926,6 +27231,15 @@ fn bindgen_test_layout_ma_resource_manager_pipeline_stage_notification() {
     }
     test_field_pFence();
 }
+impl Default for ma_resource_manager_pipeline_stage_notification {
+    fn default() -> Self {
+        let mut s = ::std::mem::MaybeUninit::<Self>::uninit();
+        unsafe {
+            ::std::ptr::write_bytes(s.as_mut_ptr(), 0, 1);
+            s.assume_init()
+        }
+    }
+}
 #[repr(C)]
 #[derive(Debug, Copy, Clone)]
 pub struct ma_resource_manager_pipeline_notifications {
@@ -25986,6 +27300,15 @@ fn bindgen_test_layout_ma_resource_manager_pipeline_notifications() {
         );
     }
     test_field_done();
+}
+impl Default for ma_resource_manager_pipeline_notifications {
+    fn default() -> Self {
+        let mut s = ::std::mem::MaybeUninit::<Self>::uninit();
+        unsafe {
+            ::std::ptr::write_bytes(s.as_mut_ptr(), 0, 1);
+            s.assume_init()
+        }
+    }
 }
 extern "C" {
     pub fn ma_resource_manager_pipeline_notifications_init(
@@ -26207,6 +27530,15 @@ fn bindgen_test_layout_ma_resource_manager_data_source_config() {
     }
     test_field_flags();
 }
+impl Default for ma_resource_manager_data_source_config {
+    fn default() -> Self {
+        let mut s = ::std::mem::MaybeUninit::<Self>::uninit();
+        unsafe {
+            ::std::ptr::write_bytes(s.as_mut_ptr(), 0, 1);
+            s.assume_init()
+        }
+    }
+}
 extern "C" {
     pub fn ma_resource_manager_data_source_config_init() -> ma_resource_manager_data_source_config;
 }
@@ -26291,6 +27623,15 @@ fn bindgen_test_layout_ma_resource_manager_data_supply__bindgen_ty_1__bindgen_ty
         );
     }
     test_field_sizeInBytes();
+}
+impl Default for ma_resource_manager_data_supply__bindgen_ty_1__bindgen_ty_1 {
+    fn default() -> Self {
+        let mut s = ::std::mem::MaybeUninit::<Self>::uninit();
+        unsafe {
+            ::std::ptr::write_bytes(s.as_mut_ptr(), 0, 1);
+            s.assume_init()
+        }
+    }
 }
 #[repr(C)]
 #[derive(Debug, Copy, Clone)]
@@ -26435,6 +27776,15 @@ fn bindgen_test_layout_ma_resource_manager_data_supply__bindgen_ty_1__bindgen_ty
     }
     test_field_sampleRate();
 }
+impl Default for ma_resource_manager_data_supply__bindgen_ty_1__bindgen_ty_2 {
+    fn default() -> Self {
+        let mut s = ::std::mem::MaybeUninit::<Self>::uninit();
+        unsafe {
+            ::std::ptr::write_bytes(s.as_mut_ptr(), 0, 1);
+            s.assume_init()
+        }
+    }
+}
 #[repr(C)]
 #[derive(Debug, Copy, Clone)]
 pub struct ma_resource_manager_data_supply__bindgen_ty_1__bindgen_ty_3 {
@@ -26518,6 +27868,15 @@ fn bindgen_test_layout_ma_resource_manager_data_supply__bindgen_ty_1__bindgen_ty
     }
     test_field_sampleRate();
 }
+impl Default for ma_resource_manager_data_supply__bindgen_ty_1__bindgen_ty_3 {
+    fn default() -> Self {
+        let mut s = ::std::mem::MaybeUninit::<Self>::uninit();
+        unsafe {
+            ::std::ptr::write_bytes(s.as_mut_ptr(), 0, 1);
+            s.assume_init()
+        }
+    }
+}
 #[test]
 fn bindgen_test_layout_ma_resource_manager_data_supply__bindgen_ty_1() {
     assert_eq!(
@@ -26588,6 +27947,15 @@ fn bindgen_test_layout_ma_resource_manager_data_supply__bindgen_ty_1() {
     }
     test_field_decodedPaged();
 }
+impl Default for ma_resource_manager_data_supply__bindgen_ty_1 {
+    fn default() -> Self {
+        let mut s = ::std::mem::MaybeUninit::<Self>::uninit();
+        unsafe {
+            ::std::ptr::write_bytes(s.as_mut_ptr(), 0, 1);
+            s.assume_init()
+        }
+    }
+}
 impl ::std::fmt::Debug for ma_resource_manager_data_supply__bindgen_ty_1 {
     fn fmt(&self, f: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
         write!(
@@ -26642,6 +28010,15 @@ fn bindgen_test_layout_ma_resource_manager_data_supply() {
         );
     }
     test_field_backend();
+}
+impl Default for ma_resource_manager_data_supply {
+    fn default() -> Self {
+        let mut s = ::std::mem::MaybeUninit::<Self>::uninit();
+        unsafe {
+            ::std::ptr::write_bytes(s.as_mut_ptr(), 0, 1);
+            s.assume_init()
+        }
+    }
 }
 impl ::std::fmt::Debug for ma_resource_manager_data_supply {
     fn fmt(&self, f: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
@@ -26865,6 +28242,15 @@ fn bindgen_test_layout_ma_resource_manager_data_buffer_node() {
     }
     test_field_pChildHi();
 }
+impl Default for ma_resource_manager_data_buffer_node {
+    fn default() -> Self {
+        let mut s = ::std::mem::MaybeUninit::<Self>::uninit();
+        unsafe {
+            ::std::ptr::write_bytes(s.as_mut_ptr(), 0, 1);
+            s.assume_init()
+        }
+    }
+}
 impl ::std::fmt::Debug for ma_resource_manager_data_buffer_node {
     fn fmt(&self, f: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
         write ! (f , "ma_resource_manager_data_buffer_node {{ hashedName32: {:?}, refCount: {:?}, result: {:?}, executionCounter: {:?}, executionPointer: {:?}, isDataOwnedByResourceManager: {:?}, data: {:?}, pParent: {:?}, pChildLo: {:?}, pChildHi: {:?} }}" , self . hashedName32 , self . refCount , self . result , self . executionCounter , self . executionPointer , self . isDataOwnedByResourceManager , self . data , self . pParent , self . pChildLo , self . pChildHi)
@@ -26962,6 +28348,15 @@ fn bindgen_test_layout_ma_resource_manager_data_buffer__bindgen_ty_1() {
         );
     }
     test_field_pagedBuffer();
+}
+impl Default for ma_resource_manager_data_buffer__bindgen_ty_1 {
+    fn default() -> Self {
+        let mut s = ::std::mem::MaybeUninit::<Self>::uninit();
+        unsafe {
+            ::std::ptr::write_bytes(s.as_mut_ptr(), 0, 1);
+            s.assume_init()
+        }
+    }
 }
 impl ::std::fmt::Debug for ma_resource_manager_data_buffer__bindgen_ty_1 {
     fn fmt(&self, f: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
@@ -27187,6 +28582,15 @@ fn bindgen_test_layout_ma_resource_manager_data_buffer() {
         );
     }
     test_field_connector();
+}
+impl Default for ma_resource_manager_data_buffer {
+    fn default() -> Self {
+        let mut s = ::std::mem::MaybeUninit::<Self>::uninit();
+        unsafe {
+            ::std::ptr::write_bytes(s.as_mut_ptr(), 0, 1);
+            s.assume_init()
+        }
+    }
 }
 impl ::std::fmt::Debug for ma_resource_manager_data_buffer {
     fn fmt(&self, f: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
@@ -27534,6 +28938,15 @@ fn bindgen_test_layout_ma_resource_manager_data_stream() {
     }
     test_field_seekCounter();
 }
+impl Default for ma_resource_manager_data_stream {
+    fn default() -> Self {
+        let mut s = ::std::mem::MaybeUninit::<Self>::uninit();
+        unsafe {
+            ::std::ptr::write_bytes(s.as_mut_ptr(), 0, 1);
+            s.assume_init()
+        }
+    }
+}
 impl ::std::fmt::Debug for ma_resource_manager_data_stream {
     fn fmt(&self, f: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
         write ! (f , "ma_resource_manager_data_stream {{ ds: {:?}, pResourceManager: {:?}, flags: {:?}, decoder: {:?}, isDecoderInitialized: {:?}, totalLengthInPCMFrames: {:?}, relativeCursor: {:?}, absoluteCursor: {:?}, currentPageIndex: {:?}, executionCounter: {:?}, executionPointer: {:?}, isLooping: {:?}, pPageData: {:?}, pageFrameCount: {:?}, result: {:?}, isDecoderAtEnd: {:?}, isPageValid: {:?}, seekCounter: {:?} }}" , self . ds , self . pResourceManager , self . flags , self . decoder , self . isDecoderInitialized , self . totalLengthInPCMFrames , self . relativeCursor , self . absoluteCursor , self . currentPageIndex , self . executionCounter , self . executionPointer , self . isLooping , self . pPageData , self . pageFrameCount , self . result , self . isDecoderAtEnd , self . isPageValid , self . seekCounter)
@@ -27605,6 +29018,15 @@ fn bindgen_test_layout_ma_resource_manager_data_source__bindgen_ty_1() {
         );
     }
     test_field_stream();
+}
+impl Default for ma_resource_manager_data_source__bindgen_ty_1 {
+    fn default() -> Self {
+        let mut s = ::std::mem::MaybeUninit::<Self>::uninit();
+        unsafe {
+            ::std::ptr::write_bytes(s.as_mut_ptr(), 0, 1);
+            s.assume_init()
+        }
+    }
 }
 impl ::std::fmt::Debug for ma_resource_manager_data_source__bindgen_ty_1 {
     fn fmt(&self, f: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
@@ -27694,6 +29116,15 @@ fn bindgen_test_layout_ma_resource_manager_data_source() {
         );
     }
     test_field_executionPointer();
+}
+impl Default for ma_resource_manager_data_source {
+    fn default() -> Self {
+        let mut s = ::std::mem::MaybeUninit::<Self>::uninit();
+        unsafe {
+            ::std::ptr::write_bytes(s.as_mut_ptr(), 0, 1);
+            s.assume_init()
+        }
+    }
 }
 impl ::std::fmt::Debug for ma_resource_manager_data_source {
     fn fmt(&self, f: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
@@ -27933,6 +29364,15 @@ fn bindgen_test_layout_ma_resource_manager_config() {
     }
     test_field_pCustomDecodingBackendUserData();
 }
+impl Default for ma_resource_manager_config {
+    fn default() -> Self {
+        let mut s = ::std::mem::MaybeUninit::<Self>::uninit();
+        unsafe {
+            ::std::ptr::write_bytes(s.as_mut_ptr(), 0, 1);
+            s.assume_init()
+        }
+    }
+}
 extern "C" {
     pub fn ma_resource_manager_config_init() -> ma_resource_manager_config;
 }
@@ -28078,6 +29518,15 @@ fn bindgen_test_layout_ma_resource_manager() {
         );
     }
     test_field_log();
+}
+impl Default for ma_resource_manager {
+    fn default() -> Self {
+        let mut s = ::std::mem::MaybeUninit::<Self>::uninit();
+        unsafe {
+            ::std::ptr::write_bytes(s.as_mut_ptr(), 0, 1);
+            s.assume_init()
+        }
+    }
 }
 extern "C" {
     pub fn ma_resource_manager_init(
@@ -28484,7 +29933,7 @@ pub const ma_node_state_started: ma_node_state = 0;
 pub const ma_node_state_stopped: ma_node_state = 1;
 pub type ma_node_state = ::std::os::raw::c_uint;
 #[repr(C)]
-#[derive(Debug, Copy, Clone)]
+#[derive(Debug, Default, Copy, Clone)]
 pub struct ma_node_vtable {
     pub onProcess: ::std::option::Option<
         unsafe extern "C" fn(
@@ -28729,6 +30178,15 @@ fn bindgen_test_layout_ma_node_config() {
     }
     test_field_pOutputChannels();
 }
+impl Default for ma_node_config {
+    fn default() -> Self {
+        let mut s = ::std::mem::MaybeUninit::<Self>::uninit();
+        unsafe {
+            ::std::ptr::write_bytes(s.as_mut_ptr(), 0, 1);
+            s.assume_init()
+        }
+    }
+}
 extern "C" {
     pub fn ma_node_config_init() -> ma_node_config;
 }
@@ -28965,6 +30423,15 @@ fn bindgen_test_layout_ma_node_output_bus() {
     }
     test_field_pInputNode();
 }
+impl Default for ma_node_output_bus {
+    fn default() -> Self {
+        let mut s = ::std::mem::MaybeUninit::<Self>::uninit();
+        unsafe {
+            ::std::ptr::write_bytes(s.as_mut_ptr(), 0, 1);
+            s.assume_init()
+        }
+    }
+}
 #[repr(C)]
 #[derive(Debug, Copy, Clone)]
 pub struct ma_node_input_bus {
@@ -29053,6 +30520,15 @@ fn bindgen_test_layout_ma_node_input_bus() {
         );
     }
     test_field_channels();
+}
+impl Default for ma_node_input_bus {
+    fn default() -> Self {
+        let mut s = ::std::mem::MaybeUninit::<Self>::uninit();
+        unsafe {
+            ::std::ptr::write_bytes(s.as_mut_ptr(), 0, 1);
+            s.assume_init()
+        }
+    }
 }
 #[repr(C)]
 #[derive(Debug, Copy, Clone)]
@@ -29395,6 +30871,15 @@ fn bindgen_test_layout_ma_node_base() {
     }
     test_field__ownsHeap();
 }
+impl Default for ma_node_base {
+    fn default() -> Self {
+        let mut s = ::std::mem::MaybeUninit::<Self>::uninit();
+        unsafe {
+            ::std::ptr::write_bytes(s.as_mut_ptr(), 0, 1);
+            s.assume_init()
+        }
+    }
+}
 extern "C" {
     pub fn ma_node_get_heap_size(
         pNodeGraph: *mut ma_node_graph,
@@ -29501,7 +30986,7 @@ extern "C" {
     pub fn ma_node_set_time(pNode: *mut ma_node, localTime: ma_uint64) -> ma_result;
 }
 #[repr(C)]
-#[derive(Debug, Copy, Clone)]
+#[derive(Debug, Default, Copy, Clone)]
 pub struct ma_node_graph_config {
     pub channels: ma_uint32,
     pub nodeCacheCapInFrames: ma_uint16,
@@ -29645,6 +31130,15 @@ fn bindgen_test_layout_ma_node_graph() {
     }
     test_field_isReading();
 }
+impl Default for ma_node_graph {
+    fn default() -> Self {
+        let mut s = ::std::mem::MaybeUninit::<Self>::uninit();
+        unsafe {
+            ::std::ptr::write_bytes(s.as_mut_ptr(), 0, 1);
+            s.assume_init()
+        }
+    }
+}
 extern "C" {
     pub fn ma_node_graph_init(
         pConfig: *const ma_node_graph_config,
@@ -29734,6 +31228,15 @@ fn bindgen_test_layout_ma_data_source_node_config() {
     }
     test_field_pDataSource();
 }
+impl Default for ma_data_source_node_config {
+    fn default() -> Self {
+        let mut s = ::std::mem::MaybeUninit::<Self>::uninit();
+        unsafe {
+            ::std::ptr::write_bytes(s.as_mut_ptr(), 0, 1);
+            s.assume_init()
+        }
+    }
+}
 extern "C" {
     pub fn ma_data_source_node_config_init(
         pDataSource: *mut ma_data_source,
@@ -29791,6 +31294,15 @@ fn bindgen_test_layout_ma_data_source_node() {
         );
     }
     test_field_pDataSource();
+}
+impl Default for ma_data_source_node {
+    fn default() -> Self {
+        let mut s = ::std::mem::MaybeUninit::<Self>::uninit();
+        unsafe {
+            ::std::ptr::write_bytes(s.as_mut_ptr(), 0, 1);
+            s.assume_init()
+        }
+    }
 }
 extern "C" {
     pub fn ma_data_source_node_init(
@@ -29868,6 +31380,15 @@ fn bindgen_test_layout_ma_splitter_node_config() {
     }
     test_field_channels();
 }
+impl Default for ma_splitter_node_config {
+    fn default() -> Self {
+        let mut s = ::std::mem::MaybeUninit::<Self>::uninit();
+        unsafe {
+            ::std::ptr::write_bytes(s.as_mut_ptr(), 0, 1);
+            s.assume_init()
+        }
+    }
+}
 extern "C" {
     pub fn ma_splitter_node_config_init(channels: ma_uint32) -> ma_splitter_node_config;
 }
@@ -29905,6 +31426,15 @@ fn bindgen_test_layout_ma_splitter_node() {
         );
     }
     test_field_base();
+}
+impl Default for ma_splitter_node {
+    fn default() -> Self {
+        let mut s = ::std::mem::MaybeUninit::<Self>::uninit();
+        unsafe {
+            ::std::ptr::write_bytes(s.as_mut_ptr(), 0, 1);
+            s.assume_init()
+        }
+    }
 }
 extern "C" {
     pub fn ma_splitter_node_init(
@@ -29973,6 +31503,15 @@ fn bindgen_test_layout_ma_biquad_node_config() {
     }
     test_field_biquad();
 }
+impl Default for ma_biquad_node_config {
+    fn default() -> Self {
+        let mut s = ::std::mem::MaybeUninit::<Self>::uninit();
+        unsafe {
+            ::std::ptr::write_bytes(s.as_mut_ptr(), 0, 1);
+            s.assume_init()
+        }
+    }
+}
 extern "C" {
     pub fn ma_biquad_node_config_init(
         channels: ma_uint32,
@@ -30036,6 +31575,15 @@ fn bindgen_test_layout_ma_biquad_node() {
         );
     }
     test_field_biquad();
+}
+impl Default for ma_biquad_node {
+    fn default() -> Self {
+        let mut s = ::std::mem::MaybeUninit::<Self>::uninit();
+        unsafe {
+            ::std::ptr::write_bytes(s.as_mut_ptr(), 0, 1);
+            s.assume_init()
+        }
+    }
 }
 impl ::std::fmt::Debug for ma_biquad_node {
     fn fmt(&self, f: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
@@ -30119,6 +31667,15 @@ fn bindgen_test_layout_ma_lpf_node_config() {
     }
     test_field_lpf();
 }
+impl Default for ma_lpf_node_config {
+    fn default() -> Self {
+        let mut s = ::std::mem::MaybeUninit::<Self>::uninit();
+        unsafe {
+            ::std::ptr::write_bytes(s.as_mut_ptr(), 0, 1);
+            s.assume_init()
+        }
+    }
+}
 extern "C" {
     pub fn ma_lpf_node_config_init(
         channels: ma_uint32,
@@ -30179,6 +31736,15 @@ fn bindgen_test_layout_ma_lpf_node() {
         );
     }
     test_field_lpf();
+}
+impl Default for ma_lpf_node {
+    fn default() -> Self {
+        let mut s = ::std::mem::MaybeUninit::<Self>::uninit();
+        unsafe {
+            ::std::ptr::write_bytes(s.as_mut_ptr(), 0, 1);
+            s.assume_init()
+        }
+    }
 }
 extern "C" {
     pub fn ma_lpf_node_init(
@@ -30250,6 +31816,15 @@ fn bindgen_test_layout_ma_hpf_node_config() {
     }
     test_field_hpf();
 }
+impl Default for ma_hpf_node_config {
+    fn default() -> Self {
+        let mut s = ::std::mem::MaybeUninit::<Self>::uninit();
+        unsafe {
+            ::std::ptr::write_bytes(s.as_mut_ptr(), 0, 1);
+            s.assume_init()
+        }
+    }
+}
 extern "C" {
     pub fn ma_hpf_node_config_init(
         channels: ma_uint32,
@@ -30310,6 +31885,15 @@ fn bindgen_test_layout_ma_hpf_node() {
         );
     }
     test_field_hpf();
+}
+impl Default for ma_hpf_node {
+    fn default() -> Self {
+        let mut s = ::std::mem::MaybeUninit::<Self>::uninit();
+        unsafe {
+            ::std::ptr::write_bytes(s.as_mut_ptr(), 0, 1);
+            s.assume_init()
+        }
+    }
 }
 extern "C" {
     pub fn ma_hpf_node_init(
@@ -30381,6 +31965,15 @@ fn bindgen_test_layout_ma_bpf_node_config() {
     }
     test_field_bpf();
 }
+impl Default for ma_bpf_node_config {
+    fn default() -> Self {
+        let mut s = ::std::mem::MaybeUninit::<Self>::uninit();
+        unsafe {
+            ::std::ptr::write_bytes(s.as_mut_ptr(), 0, 1);
+            s.assume_init()
+        }
+    }
+}
 extern "C" {
     pub fn ma_bpf_node_config_init(
         channels: ma_uint32,
@@ -30441,6 +32034,15 @@ fn bindgen_test_layout_ma_bpf_node() {
         );
     }
     test_field_bpf();
+}
+impl Default for ma_bpf_node {
+    fn default() -> Self {
+        let mut s = ::std::mem::MaybeUninit::<Self>::uninit();
+        unsafe {
+            ::std::ptr::write_bytes(s.as_mut_ptr(), 0, 1);
+            s.assume_init()
+        }
+    }
 }
 extern "C" {
     pub fn ma_bpf_node_init(
@@ -30512,6 +32114,15 @@ fn bindgen_test_layout_ma_notch_node_config() {
     }
     test_field_notch();
 }
+impl Default for ma_notch_node_config {
+    fn default() -> Self {
+        let mut s = ::std::mem::MaybeUninit::<Self>::uninit();
+        unsafe {
+            ::std::ptr::write_bytes(s.as_mut_ptr(), 0, 1);
+            s.assume_init()
+        }
+    }
+}
 extern "C" {
     pub fn ma_notch_node_config_init(
         channels: ma_uint32,
@@ -30572,6 +32183,15 @@ fn bindgen_test_layout_ma_notch_node() {
         );
     }
     test_field_notch();
+}
+impl Default for ma_notch_node {
+    fn default() -> Self {
+        let mut s = ::std::mem::MaybeUninit::<Self>::uninit();
+        unsafe {
+            ::std::ptr::write_bytes(s.as_mut_ptr(), 0, 1);
+            s.assume_init()
+        }
+    }
 }
 impl ::std::fmt::Debug for ma_notch_node {
     fn fmt(&self, f: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
@@ -30655,6 +32275,15 @@ fn bindgen_test_layout_ma_peak_node_config() {
     }
     test_field_peak();
 }
+impl Default for ma_peak_node_config {
+    fn default() -> Self {
+        let mut s = ::std::mem::MaybeUninit::<Self>::uninit();
+        unsafe {
+            ::std::ptr::write_bytes(s.as_mut_ptr(), 0, 1);
+            s.assume_init()
+        }
+    }
+}
 extern "C" {
     pub fn ma_peak_node_config_init(
         channels: ma_uint32,
@@ -30716,6 +32345,15 @@ fn bindgen_test_layout_ma_peak_node() {
         );
     }
     test_field_peak();
+}
+impl Default for ma_peak_node {
+    fn default() -> Self {
+        let mut s = ::std::mem::MaybeUninit::<Self>::uninit();
+        unsafe {
+            ::std::ptr::write_bytes(s.as_mut_ptr(), 0, 1);
+            s.assume_init()
+        }
+    }
 }
 impl ::std::fmt::Debug for ma_peak_node {
     fn fmt(&self, f: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
@@ -30799,6 +32437,15 @@ fn bindgen_test_layout_ma_loshelf_node_config() {
     }
     test_field_loshelf();
 }
+impl Default for ma_loshelf_node_config {
+    fn default() -> Self {
+        let mut s = ::std::mem::MaybeUninit::<Self>::uninit();
+        unsafe {
+            ::std::ptr::write_bytes(s.as_mut_ptr(), 0, 1);
+            s.assume_init()
+        }
+    }
+}
 extern "C" {
     pub fn ma_loshelf_node_config_init(
         channels: ma_uint32,
@@ -30860,6 +32507,15 @@ fn bindgen_test_layout_ma_loshelf_node() {
         );
     }
     test_field_loshelf();
+}
+impl Default for ma_loshelf_node {
+    fn default() -> Self {
+        let mut s = ::std::mem::MaybeUninit::<Self>::uninit();
+        unsafe {
+            ::std::ptr::write_bytes(s.as_mut_ptr(), 0, 1);
+            s.assume_init()
+        }
+    }
 }
 impl ::std::fmt::Debug for ma_loshelf_node {
     fn fmt(&self, f: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
@@ -30943,6 +32599,15 @@ fn bindgen_test_layout_ma_hishelf_node_config() {
     }
     test_field_hishelf();
 }
+impl Default for ma_hishelf_node_config {
+    fn default() -> Self {
+        let mut s = ::std::mem::MaybeUninit::<Self>::uninit();
+        unsafe {
+            ::std::ptr::write_bytes(s.as_mut_ptr(), 0, 1);
+            s.assume_init()
+        }
+    }
+}
 extern "C" {
     pub fn ma_hishelf_node_config_init(
         channels: ma_uint32,
@@ -31004,6 +32669,15 @@ fn bindgen_test_layout_ma_hishelf_node() {
         );
     }
     test_field_hishelf();
+}
+impl Default for ma_hishelf_node {
+    fn default() -> Self {
+        let mut s = ::std::mem::MaybeUninit::<Self>::uninit();
+        unsafe {
+            ::std::ptr::write_bytes(s.as_mut_ptr(), 0, 1);
+            s.assume_init()
+        }
+    }
 }
 impl ::std::fmt::Debug for ma_hishelf_node {
     fn fmt(&self, f: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
@@ -31087,6 +32761,15 @@ fn bindgen_test_layout_ma_delay_node_config() {
     }
     test_field_delay();
 }
+impl Default for ma_delay_node_config {
+    fn default() -> Self {
+        let mut s = ::std::mem::MaybeUninit::<Self>::uninit();
+        unsafe {
+            ::std::ptr::write_bytes(s.as_mut_ptr(), 0, 1);
+            s.assume_init()
+        }
+    }
+}
 extern "C" {
     pub fn ma_delay_node_config_init(
         channels: ma_uint32,
@@ -31147,6 +32830,15 @@ fn bindgen_test_layout_ma_delay_node() {
         );
     }
     test_field_delay();
+}
+impl Default for ma_delay_node {
+    fn default() -> Self {
+        let mut s = ::std::mem::MaybeUninit::<Self>::uninit();
+        unsafe {
+            ::std::ptr::write_bytes(s.as_mut_ptr(), 0, 1);
+            s.assume_init()
+        }
+    }
 }
 extern "C" {
     pub fn ma_delay_node_init(
@@ -31351,6 +33043,15 @@ fn bindgen_test_layout_ma_engine_node_config() {
         );
     }
     test_field_pinnedListenerIndex();
+}
+impl Default for ma_engine_node_config {
+    fn default() -> Self {
+        let mut s = ::std::mem::MaybeUninit::<Self>::uninit();
+        unsafe {
+            ::std::ptr::write_bytes(s.as_mut_ptr(), 0, 1);
+            s.assume_init()
+        }
+    }
 }
 extern "C" {
     pub fn ma_engine_node_config_init(
@@ -31645,6 +33346,15 @@ fn bindgen_test_layout_ma_engine_node() {
         );
     }
     test_field__pHeap();
+}
+impl Default for ma_engine_node {
+    fn default() -> Self {
+        let mut s = ::std::mem::MaybeUninit::<Self>::uninit();
+        unsafe {
+            ::std::ptr::write_bytes(s.as_mut_ptr(), 0, 1);
+            s.assume_init()
+        }
+    }
 }
 impl ::std::fmt::Debug for ma_engine_node {
     fn fmt(&self, f: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
@@ -31964,6 +33674,15 @@ fn bindgen_test_layout_ma_sound_config() {
     }
     test_field_pDoneFence();
 }
+impl Default for ma_sound_config {
+    fn default() -> Self {
+        let mut s = ::std::mem::MaybeUninit::<Self>::uninit();
+        unsafe {
+            ::std::ptr::write_bytes(s.as_mut_ptr(), 0, 1);
+            s.assume_init()
+        }
+    }
+}
 extern "C" {
     pub fn ma_sound_config_init() -> ma_sound_config;
 }
@@ -32092,6 +33811,15 @@ fn bindgen_test_layout_ma_sound() {
     }
     test_field_pResourceManagerDataSource();
 }
+impl Default for ma_sound {
+    fn default() -> Self {
+        let mut s = ::std::mem::MaybeUninit::<Self>::uninit();
+        unsafe {
+            ::std::ptr::write_bytes(s.as_mut_ptr(), 0, 1);
+            s.assume_init()
+        }
+    }
+}
 impl ::std::fmt::Debug for ma_sound {
     fn fmt(&self, f: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
         write ! (f , "ma_sound {{ engineNode: {:?}, pDataSource: {:?}, seekTarget: {:?}, atEnd: {:?}, ownsDataSource: {:?}, pResourceManagerDataSource: {:?} }}" , self . engineNode , self . pDataSource , self . seekTarget , self . atEnd , self . ownsDataSource , self . pResourceManagerDataSource)
@@ -32167,6 +33895,15 @@ fn bindgen_test_layout_ma_sound_inlined() {
         );
     }
     test_field_pPrev();
+}
+impl Default for ma_sound_inlined {
+    fn default() -> Self {
+        let mut s = ::std::mem::MaybeUninit::<Self>::uninit();
+        unsafe {
+            ::std::ptr::write_bytes(s.as_mut_ptr(), 0, 1);
+            s.assume_init()
+        }
+    }
 }
 impl ::std::fmt::Debug for ma_sound_inlined {
     fn fmt(&self, f: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
@@ -32505,6 +34242,15 @@ fn bindgen_test_layout_ma_engine_config() {
     }
     test_field_pResourceManagerVFS();
 }
+impl Default for ma_engine_config {
+    fn default() -> Self {
+        let mut s = ::std::mem::MaybeUninit::<Self>::uninit();
+        unsafe {
+            ::std::ptr::write_bytes(s.as_mut_ptr(), 0, 1);
+            s.assume_init()
+        }
+    }
+}
 extern "C" {
     pub fn ma_engine_config_init() -> ma_engine_config;
 }
@@ -32794,6 +34540,15 @@ fn bindgen_test_layout_ma_engine() {
         );
     }
     test_field_monoExpansionMode();
+}
+impl Default for ma_engine {
+    fn default() -> Self {
+        let mut s = ::std::mem::MaybeUninit::<Self>::uninit();
+        unsafe {
+            ::std::ptr::write_bytes(s.as_mut_ptr(), 0, 1);
+            s.assume_init()
+        }
+    }
 }
 extern "C" {
     pub fn ma_engine_init(pConfig: *const ma_engine_config, pEngine: *mut ma_engine) -> ma_result;

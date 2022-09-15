@@ -1,6 +1,5 @@
 use miniaudio_sys::*;
 
-#[allow(dead_code)]
 #[repr(i32)]
 #[derive(Debug, Clone, Copy, PartialEq, Eq)]
 pub enum MiniaudioError {
@@ -72,4 +71,11 @@ pub enum MiniaudioError {
     FailedToOpenBackendDevice = MA_FAILED_TO_OPEN_BACKEND_DEVICE,
     FailedToStartBackendDevice = MA_FAILED_TO_START_BACKEND_DEVICE,
     FailedToStopBackendDevice = MA_FAILED_TO_STOP_BACKEND_DEVICE,
+}
+
+pub fn to_result(ma_result: ma_result) -> Result<(), MiniaudioError> {
+    match ma_result {
+        MA_SUCCESS => Ok(()),
+        _ => Err(unsafe { std::mem::transmute(ma_result) }),
+    }
 }

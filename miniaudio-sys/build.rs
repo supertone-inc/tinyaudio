@@ -21,6 +21,7 @@ fn generate_bindings() {
         .raw_line("#![allow(non_upper_case_globals)]")
         .raw_line("#![allow(non_camel_case_types)]")
         .raw_line("#![allow(non_snake_case)]")
+        .derive_default(true)
         .impl_debug(true)
         .prepend_enum_name(false)
         .rustfmt_bindings(true)
