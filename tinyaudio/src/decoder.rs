@@ -217,7 +217,7 @@ mod tests {
             frames_read += decoder.read(&mut frames).unwrap();
         }
 
-        assert_eq!(frames_read, decoder.total_frame_count());
+        assert!(frames_read >= decoder.total_frame_count());
 
         decoder.seek(0).unwrap();
 
