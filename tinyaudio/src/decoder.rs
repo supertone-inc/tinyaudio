@@ -6,12 +6,6 @@ use std::ffi::CString;
 use std::path::Path;
 use thiserror::Error;
 
-#[cfg(target_family = "unix")]
-use std::os::unix::ffi::OsStrExt;
-
-#[cfg(target_family = "windows")]
-use std::os::windows::ffi::OsStringExt;
-
 #[derive(Error, Debug)]
 pub enum DecoderError {
     #[error(transparent)]
@@ -86,22 +80,24 @@ impl Decoder {
         file_path: P,
         config: Option<DecoderConfig>,
     ) -> Result<Self, DecoderError> {
-        let file_path = CString::new(file_path.as_ref().as_os_str().as_bytes())?;
+        let file_path = CString::new(file_path.as_ref().to_string_lossy().as_bytes())?;
 
         let config = match config {
             Some(config) => &config.0,
             None => std::ptr::null(),
         };
 
-        let mut decoder = ma_decoder::default();
+        let mut decoder = unsafe {
+            let mut decoder = std::mem::MaybeUninit::<ma_decoder>::uninit();
 
-        unsafe {
             to_result(ma_decoder_init_file(
                 file_path.as_ptr(),
                 config,
-                &mut decoder,
+                decoder.as_mut_ptr(),
             ))?;
-        }
+
+            decoder.assume_init()
+        };
 
         let mut format = 0;
         let mut channels = 0;

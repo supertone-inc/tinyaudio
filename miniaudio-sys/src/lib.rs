@@ -11,277 +11,6 @@ pub const MA_SIZEOF_PTR: u32 = 8;
 pub const MA_TRUE: u32 = 1;
 pub const MA_FALSE: u32 = 0;
 pub const MA_SIZE_MAX: u32 = 4294967295;
-pub const __DARWIN_ONLY_64_BIT_INO_T: u32 = 1;
-pub const __DARWIN_ONLY_UNIX_CONFORMANCE: u32 = 1;
-pub const __DARWIN_ONLY_VERS_1050: u32 = 1;
-pub const __DARWIN_UNIX03: u32 = 1;
-pub const __DARWIN_64_BIT_INO_T: u32 = 1;
-pub const __DARWIN_VERS_1050: u32 = 1;
-pub const __DARWIN_NON_CANCELABLE: u32 = 0;
-pub const __DARWIN_SUF_EXTSN: &[u8; 14usize] = b"$DARWIN_EXTSN\0";
-pub const __DARWIN_C_ANSI: u32 = 4096;
-pub const __DARWIN_C_FULL: u32 = 900000;
-pub const __DARWIN_C_LEVEL: u32 = 900000;
-pub const __STDC_WANT_LIB_EXT1__: u32 = 1;
-pub const __DARWIN_NO_LONG_LONG: u32 = 0;
-pub const _DARWIN_FEATURE_64_BIT_INODE: u32 = 1;
-pub const _DARWIN_FEATURE_ONLY_64_BIT_INODE: u32 = 1;
-pub const _DARWIN_FEATURE_ONLY_VERS_1050: u32 = 1;
-pub const _DARWIN_FEATURE_ONLY_UNIX_CONFORMANCE: u32 = 1;
-pub const _DARWIN_FEATURE_UNIX_CONFORMANCE: u32 = 3;
-pub const __has_ptrcheck: u32 = 0;
-pub const __PTHREAD_SIZE__: u32 = 8176;
-pub const __PTHREAD_ATTR_SIZE__: u32 = 56;
-pub const __PTHREAD_MUTEXATTR_SIZE__: u32 = 8;
-pub const __PTHREAD_MUTEX_SIZE__: u32 = 56;
-pub const __PTHREAD_CONDATTR_SIZE__: u32 = 8;
-pub const __PTHREAD_COND_SIZE__: u32 = 40;
-pub const __PTHREAD_ONCE_SIZE__: u32 = 8;
-pub const __PTHREAD_RWLOCK_SIZE__: u32 = 192;
-pub const __PTHREAD_RWLOCKATTR_SIZE__: u32 = 16;
-pub const __DARWIN_WCHAR_MIN: i32 = -2147483648;
-pub const _FORTIFY_SOURCE: u32 = 2;
-pub const _PTHREAD_MUTEX_SIG_init: u32 = 850045863;
-pub const _PTHREAD_ERRORCHECK_MUTEX_SIG_init: u32 = 850045857;
-pub const _PTHREAD_RECURSIVE_MUTEX_SIG_init: u32 = 850045858;
-pub const _PTHREAD_FIRSTFIT_MUTEX_SIG_init: u32 = 850045859;
-pub const _PTHREAD_COND_SIG_init: u32 = 1018212795;
-pub const _PTHREAD_ONCE_SIG_init: u32 = 816954554;
-pub const _PTHREAD_RWLOCK_SIG_init: u32 = 766030772;
-pub const SCHED_OTHER: u32 = 1;
-pub const SCHED_FIFO: u32 = 4;
-pub const SCHED_RR: u32 = 2;
-pub const __SCHED_PARAM_SIZE__: u32 = 4;
-pub const __API_TO_BE_DEPRECATED: u32 = 100000;
-pub const __MAC_10_0: u32 = 1000;
-pub const __MAC_10_1: u32 = 1010;
-pub const __MAC_10_2: u32 = 1020;
-pub const __MAC_10_3: u32 = 1030;
-pub const __MAC_10_4: u32 = 1040;
-pub const __MAC_10_5: u32 = 1050;
-pub const __MAC_10_6: u32 = 1060;
-pub const __MAC_10_7: u32 = 1070;
-pub const __MAC_10_8: u32 = 1080;
-pub const __MAC_10_9: u32 = 1090;
-pub const __MAC_10_10: u32 = 101000;
-pub const __MAC_10_10_2: u32 = 101002;
-pub const __MAC_10_10_3: u32 = 101003;
-pub const __MAC_10_11: u32 = 101100;
-pub const __MAC_10_11_2: u32 = 101102;
-pub const __MAC_10_11_3: u32 = 101103;
-pub const __MAC_10_11_4: u32 = 101104;
-pub const __MAC_10_12: u32 = 101200;
-pub const __MAC_10_12_1: u32 = 101201;
-pub const __MAC_10_12_2: u32 = 101202;
-pub const __MAC_10_12_4: u32 = 101204;
-pub const __MAC_10_13: u32 = 101300;
-pub const __MAC_10_13_1: u32 = 101301;
-pub const __MAC_10_13_2: u32 = 101302;
-pub const __MAC_10_13_4: u32 = 101304;
-pub const __MAC_10_14: u32 = 101400;
-pub const __MAC_10_14_1: u32 = 101401;
-pub const __MAC_10_14_4: u32 = 101404;
-pub const __MAC_10_14_6: u32 = 101406;
-pub const __MAC_10_15: u32 = 101500;
-pub const __MAC_10_15_1: u32 = 101501;
-pub const __MAC_10_15_4: u32 = 101504;
-pub const __MAC_10_16: u32 = 101600;
-pub const __MAC_11_0: u32 = 110000;
-pub const __MAC_11_1: u32 = 110100;
-pub const __MAC_11_3: u32 = 110300;
-pub const __MAC_11_4: u32 = 110400;
-pub const __MAC_11_5: u32 = 110500;
-pub const __MAC_11_6: u32 = 110600;
-pub const __MAC_12_0: u32 = 120000;
-pub const __MAC_12_1: u32 = 120100;
-pub const __MAC_12_2: u32 = 120200;
-pub const __MAC_12_3: u32 = 120300;
-pub const __IPHONE_2_0: u32 = 20000;
-pub const __IPHONE_2_1: u32 = 20100;
-pub const __IPHONE_2_2: u32 = 20200;
-pub const __IPHONE_3_0: u32 = 30000;
-pub const __IPHONE_3_1: u32 = 30100;
-pub const __IPHONE_3_2: u32 = 30200;
-pub const __IPHONE_4_0: u32 = 40000;
-pub const __IPHONE_4_1: u32 = 40100;
-pub const __IPHONE_4_2: u32 = 40200;
-pub const __IPHONE_4_3: u32 = 40300;
-pub const __IPHONE_5_0: u32 = 50000;
-pub const __IPHONE_5_1: u32 = 50100;
-pub const __IPHONE_6_0: u32 = 60000;
-pub const __IPHONE_6_1: u32 = 60100;
-pub const __IPHONE_7_0: u32 = 70000;
-pub const __IPHONE_7_1: u32 = 70100;
-pub const __IPHONE_8_0: u32 = 80000;
-pub const __IPHONE_8_1: u32 = 80100;
-pub const __IPHONE_8_2: u32 = 80200;
-pub const __IPHONE_8_3: u32 = 80300;
-pub const __IPHONE_8_4: u32 = 80400;
-pub const __IPHONE_9_0: u32 = 90000;
-pub const __IPHONE_9_1: u32 = 90100;
-pub const __IPHONE_9_2: u32 = 90200;
-pub const __IPHONE_9_3: u32 = 90300;
-pub const __IPHONE_10_0: u32 = 100000;
-pub const __IPHONE_10_1: u32 = 100100;
-pub const __IPHONE_10_2: u32 = 100200;
-pub const __IPHONE_10_3: u32 = 100300;
-pub const __IPHONE_11_0: u32 = 110000;
-pub const __IPHONE_11_1: u32 = 110100;
-pub const __IPHONE_11_2: u32 = 110200;
-pub const __IPHONE_11_3: u32 = 110300;
-pub const __IPHONE_11_4: u32 = 110400;
-pub const __IPHONE_12_0: u32 = 120000;
-pub const __IPHONE_12_1: u32 = 120100;
-pub const __IPHONE_12_2: u32 = 120200;
-pub const __IPHONE_12_3: u32 = 120300;
-pub const __IPHONE_12_4: u32 = 120400;
-pub const __IPHONE_13_0: u32 = 130000;
-pub const __IPHONE_13_1: u32 = 130100;
-pub const __IPHONE_13_2: u32 = 130200;
-pub const __IPHONE_13_3: u32 = 130300;
-pub const __IPHONE_13_4: u32 = 130400;
-pub const __IPHONE_13_5: u32 = 130500;
-pub const __IPHONE_13_6: u32 = 130600;
-pub const __IPHONE_13_7: u32 = 130700;
-pub const __IPHONE_14_0: u32 = 140000;
-pub const __IPHONE_14_1: u32 = 140100;
-pub const __IPHONE_14_2: u32 = 140200;
-pub const __IPHONE_14_3: u32 = 140300;
-pub const __IPHONE_14_5: u32 = 140500;
-pub const __IPHONE_14_6: u32 = 140600;
-pub const __IPHONE_14_7: u32 = 140700;
-pub const __IPHONE_14_8: u32 = 140800;
-pub const __IPHONE_15_0: u32 = 150000;
-pub const __IPHONE_15_1: u32 = 150100;
-pub const __IPHONE_15_2: u32 = 150200;
-pub const __IPHONE_15_3: u32 = 150300;
-pub const __IPHONE_15_4: u32 = 150400;
-pub const __TVOS_9_0: u32 = 90000;
-pub const __TVOS_9_1: u32 = 90100;
-pub const __TVOS_9_2: u32 = 90200;
-pub const __TVOS_10_0: u32 = 100000;
-pub const __TVOS_10_0_1: u32 = 100001;
-pub const __TVOS_10_1: u32 = 100100;
-pub const __TVOS_10_2: u32 = 100200;
-pub const __TVOS_11_0: u32 = 110000;
-pub const __TVOS_11_1: u32 = 110100;
-pub const __TVOS_11_2: u32 = 110200;
-pub const __TVOS_11_3: u32 = 110300;
-pub const __TVOS_11_4: u32 = 110400;
-pub const __TVOS_12_0: u32 = 120000;
-pub const __TVOS_12_1: u32 = 120100;
-pub const __TVOS_12_2: u32 = 120200;
-pub const __TVOS_12_3: u32 = 120300;
-pub const __TVOS_12_4: u32 = 120400;
-pub const __TVOS_13_0: u32 = 130000;
-pub const __TVOS_13_2: u32 = 130200;
-pub const __TVOS_13_3: u32 = 130300;
-pub const __TVOS_13_4: u32 = 130400;
-pub const __TVOS_14_0: u32 = 140000;
-pub const __TVOS_14_1: u32 = 140100;
-pub const __TVOS_14_2: u32 = 140200;
-pub const __TVOS_14_3: u32 = 140300;
-pub const __TVOS_14_5: u32 = 140500;
-pub const __TVOS_14_6: u32 = 140600;
-pub const __TVOS_14_7: u32 = 140700;
-pub const __TVOS_15_0: u32 = 150000;
-pub const __TVOS_15_1: u32 = 150100;
-pub const __TVOS_15_2: u32 = 150200;
-pub const __TVOS_15_3: u32 = 150300;
-pub const __TVOS_15_4: u32 = 150400;
-pub const __WATCHOS_1_0: u32 = 10000;
-pub const __WATCHOS_2_0: u32 = 20000;
-pub const __WATCHOS_2_1: u32 = 20100;
-pub const __WATCHOS_2_2: u32 = 20200;
-pub const __WATCHOS_3_0: u32 = 30000;
-pub const __WATCHOS_3_1: u32 = 30100;
-pub const __WATCHOS_3_1_1: u32 = 30101;
-pub const __WATCHOS_3_2: u32 = 30200;
-pub const __WATCHOS_4_0: u32 = 40000;
-pub const __WATCHOS_4_1: u32 = 40100;
-pub const __WATCHOS_4_2: u32 = 40200;
-pub const __WATCHOS_4_3: u32 = 40300;
-pub const __WATCHOS_5_0: u32 = 50000;
-pub const __WATCHOS_5_1: u32 = 50100;
-pub const __WATCHOS_5_2: u32 = 50200;
-pub const __WATCHOS_5_3: u32 = 50300;
-pub const __WATCHOS_6_0: u32 = 60000;
-pub const __WATCHOS_6_1: u32 = 60100;
-pub const __WATCHOS_6_2: u32 = 60200;
-pub const __WATCHOS_7_0: u32 = 70000;
-pub const __WATCHOS_7_1: u32 = 70100;
-pub const __WATCHOS_7_2: u32 = 70200;
-pub const __WATCHOS_7_3: u32 = 70300;
-pub const __WATCHOS_7_4: u32 = 70400;
-pub const __WATCHOS_7_5: u32 = 70500;
-pub const __WATCHOS_7_6: u32 = 70600;
-pub const __WATCHOS_8_0: u32 = 80000;
-pub const __WATCHOS_8_1: u32 = 80100;
-pub const __WATCHOS_8_3: u32 = 80300;
-pub const __WATCHOS_8_4: u32 = 80400;
-pub const __WATCHOS_8_5: u32 = 80500;
-pub const MAC_OS_X_VERSION_10_0: u32 = 1000;
-pub const MAC_OS_X_VERSION_10_1: u32 = 1010;
-pub const MAC_OS_X_VERSION_10_2: u32 = 1020;
-pub const MAC_OS_X_VERSION_10_3: u32 = 1030;
-pub const MAC_OS_X_VERSION_10_4: u32 = 1040;
-pub const MAC_OS_X_VERSION_10_5: u32 = 1050;
-pub const MAC_OS_X_VERSION_10_6: u32 = 1060;
-pub const MAC_OS_X_VERSION_10_7: u32 = 1070;
-pub const MAC_OS_X_VERSION_10_8: u32 = 1080;
-pub const MAC_OS_X_VERSION_10_9: u32 = 1090;
-pub const MAC_OS_X_VERSION_10_10: u32 = 101000;
-pub const MAC_OS_X_VERSION_10_10_2: u32 = 101002;
-pub const MAC_OS_X_VERSION_10_10_3: u32 = 101003;
-pub const MAC_OS_X_VERSION_10_11: u32 = 101100;
-pub const MAC_OS_X_VERSION_10_11_2: u32 = 101102;
-pub const MAC_OS_X_VERSION_10_11_3: u32 = 101103;
-pub const MAC_OS_X_VERSION_10_11_4: u32 = 101104;
-pub const MAC_OS_X_VERSION_10_12: u32 = 101200;
-pub const MAC_OS_X_VERSION_10_12_1: u32 = 101201;
-pub const MAC_OS_X_VERSION_10_12_2: u32 = 101202;
-pub const MAC_OS_X_VERSION_10_12_4: u32 = 101204;
-pub const MAC_OS_X_VERSION_10_13: u32 = 101300;
-pub const MAC_OS_X_VERSION_10_13_1: u32 = 101301;
-pub const MAC_OS_X_VERSION_10_13_2: u32 = 101302;
-pub const MAC_OS_X_VERSION_10_13_4: u32 = 101304;
-pub const MAC_OS_X_VERSION_10_14: u32 = 101400;
-pub const MAC_OS_X_VERSION_10_14_1: u32 = 101401;
-pub const MAC_OS_X_VERSION_10_14_4: u32 = 101404;
-pub const MAC_OS_X_VERSION_10_14_6: u32 = 101406;
-pub const MAC_OS_X_VERSION_10_15: u32 = 101500;
-pub const MAC_OS_X_VERSION_10_15_1: u32 = 101501;
-pub const MAC_OS_X_VERSION_10_16: u32 = 101600;
-pub const MAC_OS_VERSION_11_0: u32 = 110000;
-pub const MAC_OS_VERSION_12_0: u32 = 120000;
-pub const __DRIVERKIT_19_0: u32 = 190000;
-pub const __DRIVERKIT_20_0: u32 = 200000;
-pub const __DRIVERKIT_21_0: u32 = 210000;
-pub const __MAC_OS_X_VERSION_MAX_ALLOWED: u32 = 120300;
-pub const __ENABLE_LEGACY_MAC_AVAILABILITY: u32 = 1;
-pub const TIME_UTC: u32 = 1;
-pub const QOS_MIN_RELATIVE_PRIORITY: i32 = -15;
-pub const PTHREAD_CREATE_JOINABLE: u32 = 1;
-pub const PTHREAD_CREATE_DETACHED: u32 = 2;
-pub const PTHREAD_INHERIT_SCHED: u32 = 1;
-pub const PTHREAD_EXPLICIT_SCHED: u32 = 2;
-pub const PTHREAD_CANCEL_ENABLE: u32 = 1;
-pub const PTHREAD_CANCEL_DISABLE: u32 = 0;
-pub const PTHREAD_CANCEL_DEFERRED: u32 = 2;
-pub const PTHREAD_CANCEL_ASYNCHRONOUS: u32 = 0;
-pub const PTHREAD_SCOPE_SYSTEM: u32 = 1;
-pub const PTHREAD_SCOPE_PROCESS: u32 = 2;
-pub const PTHREAD_PROCESS_SHARED: u32 = 1;
-pub const PTHREAD_PROCESS_PRIVATE: u32 = 2;
-pub const PTHREAD_PRIO_NONE: u32 = 0;
-pub const PTHREAD_PRIO_INHERIT: u32 = 1;
-pub const PTHREAD_PRIO_PROTECT: u32 = 2;
-pub const PTHREAD_MUTEX_NORMAL: u32 = 0;
-pub const PTHREAD_MUTEX_ERRORCHECK: u32 = 1;
-pub const PTHREAD_MUTEX_RECURSIVE: u32 = 2;
-pub const PTHREAD_MUTEX_DEFAULT: u32 = 0;
-pub const PTHREAD_MUTEX_POLICY_FAIRSHARE_NP: u32 = 1;
-pub const PTHREAD_MUTEX_POLICY_FIRSTFIT_NP: u32 = 3;
 pub const MA_SIMD_ALIGNMENT: u32 = 32;
 pub const __alignas_is_defined: u32 = 1;
 pub const __alignof_is_defined: u32 = 1;
@@ -300,7 +29,7 @@ pub const MA_MAX_NODE_LOCAL_BUS_COUNT: u32 = 2;
 pub const MA_NODE_BUS_COUNT_UNKNOWN: u32 = 255;
 pub const MA_ENGINE_MAX_LISTENERS: u32 = 4;
 pub const MA_SOUND_SOURCE_CHANNEL_COUNT: u32 = 4294967295;
-pub type wchar_t = ::std::os::raw::c_int;
+pub type wchar_t = ::std::os::raw::c_ushort;
 pub type max_align_t = f64;
 pub type ma_int8 = ::std::os::raw::c_schar;
 pub type ma_uint8 = ::std::os::raw::c_uchar;
@@ -316,1784 +45,11 @@ pub type ma_bool32 = ma_uint32;
 pub type ma_handle = *mut ::std::os::raw::c_void;
 pub type ma_ptr = *mut ::std::os::raw::c_void;
 pub type ma_proc = ::std::option::Option<unsafe extern "C" fn()>;
-pub type __int8_t = ::std::os::raw::c_schar;
-pub type __uint8_t = ::std::os::raw::c_uchar;
-pub type __int16_t = ::std::os::raw::c_short;
-pub type __uint16_t = ::std::os::raw::c_ushort;
-pub type __int32_t = ::std::os::raw::c_int;
-pub type __uint32_t = ::std::os::raw::c_uint;
-pub type __int64_t = ::std::os::raw::c_longlong;
-pub type __uint64_t = ::std::os::raw::c_ulonglong;
-pub type __darwin_intptr_t = ::std::os::raw::c_long;
-pub type __darwin_natural_t = ::std::os::raw::c_uint;
-pub type __darwin_ct_rune_t = ::std::os::raw::c_int;
-#[repr(C)]
-#[derive(Copy, Clone)]
-pub union __mbstate_t {
-    pub __mbstate8: [::std::os::raw::c_char; 128usize],
-    pub _mbstateL: ::std::os::raw::c_longlong,
-}
-#[test]
-fn bindgen_test_layout___mbstate_t() {
-    assert_eq!(
-        ::std::mem::size_of::<__mbstate_t>(),
-        128usize,
-        concat!("Size of: ", stringify!(__mbstate_t))
-    );
-    assert_eq!(
-        ::std::mem::align_of::<__mbstate_t>(),
-        8usize,
-        concat!("Alignment of ", stringify!(__mbstate_t))
-    );
-    fn test_field___mbstate8() {
-        assert_eq!(
-            unsafe {
-                let uninit = ::std::mem::MaybeUninit::<__mbstate_t>::uninit();
-                let ptr = uninit.as_ptr();
-                ::std::ptr::addr_of!((*ptr).__mbstate8) as usize - ptr as usize
-            },
-            0usize,
-            concat!(
-                "Offset of field: ",
-                stringify!(__mbstate_t),
-                "::",
-                stringify!(__mbstate8)
-            )
-        );
-    }
-    test_field___mbstate8();
-    fn test_field__mbstateL() {
-        assert_eq!(
-            unsafe {
-                let uninit = ::std::mem::MaybeUninit::<__mbstate_t>::uninit();
-                let ptr = uninit.as_ptr();
-                ::std::ptr::addr_of!((*ptr)._mbstateL) as usize - ptr as usize
-            },
-            0usize,
-            concat!(
-                "Offset of field: ",
-                stringify!(__mbstate_t),
-                "::",
-                stringify!(_mbstateL)
-            )
-        );
-    }
-    test_field__mbstateL();
-}
-impl Default for __mbstate_t {
-    fn default() -> Self {
-        let mut s = ::std::mem::MaybeUninit::<Self>::uninit();
-        unsafe {
-            ::std::ptr::write_bytes(s.as_mut_ptr(), 0, 1);
-            s.assume_init()
-        }
-    }
-}
-impl ::std::fmt::Debug for __mbstate_t {
-    fn fmt(&self, f: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        write!(f, "__mbstate_t {{ union }}")
-    }
-}
-pub type __darwin_mbstate_t = __mbstate_t;
-pub type __darwin_ptrdiff_t = ::std::os::raw::c_long;
-pub type __darwin_size_t = ::std::os::raw::c_ulong;
-pub type __darwin_va_list = __builtin_va_list;
-pub type __darwin_wchar_t = ::std::os::raw::c_int;
-pub type __darwin_rune_t = __darwin_wchar_t;
-pub type __darwin_wint_t = ::std::os::raw::c_int;
-pub type __darwin_clock_t = ::std::os::raw::c_ulong;
-pub type __darwin_socklen_t = __uint32_t;
-pub type __darwin_ssize_t = ::std::os::raw::c_long;
-pub type __darwin_time_t = ::std::os::raw::c_long;
-pub type __darwin_blkcnt_t = __int64_t;
-pub type __darwin_blksize_t = __int32_t;
-pub type __darwin_dev_t = __int32_t;
-pub type __darwin_fsblkcnt_t = ::std::os::raw::c_uint;
-pub type __darwin_fsfilcnt_t = ::std::os::raw::c_uint;
-pub type __darwin_gid_t = __uint32_t;
-pub type __darwin_id_t = __uint32_t;
-pub type __darwin_ino64_t = __uint64_t;
-pub type __darwin_ino_t = __darwin_ino64_t;
-pub type __darwin_mach_port_name_t = __darwin_natural_t;
-pub type __darwin_mach_port_t = __darwin_mach_port_name_t;
-pub type __darwin_mode_t = __uint16_t;
-pub type __darwin_off_t = __int64_t;
-pub type __darwin_pid_t = __int32_t;
-pub type __darwin_sigset_t = __uint32_t;
-pub type __darwin_suseconds_t = __int32_t;
-pub type __darwin_uid_t = __uint32_t;
-pub type __darwin_useconds_t = __uint32_t;
-pub type __darwin_uuid_t = [::std::os::raw::c_uchar; 16usize];
-pub type __darwin_uuid_string_t = [::std::os::raw::c_char; 37usize];
-#[repr(C)]
-#[derive(Debug, Copy, Clone)]
-pub struct __darwin_pthread_handler_rec {
-    pub __routine: ::std::option::Option<unsafe extern "C" fn(arg1: *mut ::std::os::raw::c_void)>,
-    pub __arg: *mut ::std::os::raw::c_void,
-    pub __next: *mut __darwin_pthread_handler_rec,
-}
-#[test]
-fn bindgen_test_layout___darwin_pthread_handler_rec() {
-    assert_eq!(
-        ::std::mem::size_of::<__darwin_pthread_handler_rec>(),
-        24usize,
-        concat!("Size of: ", stringify!(__darwin_pthread_handler_rec))
-    );
-    assert_eq!(
-        ::std::mem::align_of::<__darwin_pthread_handler_rec>(),
-        8usize,
-        concat!("Alignment of ", stringify!(__darwin_pthread_handler_rec))
-    );
-    fn test_field___routine() {
-        assert_eq!(
-            unsafe {
-                let uninit = ::std::mem::MaybeUninit::<__darwin_pthread_handler_rec>::uninit();
-                let ptr = uninit.as_ptr();
-                ::std::ptr::addr_of!((*ptr).__routine) as usize - ptr as usize
-            },
-            0usize,
-            concat!(
-                "Offset of field: ",
-                stringify!(__darwin_pthread_handler_rec),
-                "::",
-                stringify!(__routine)
-            )
-        );
-    }
-    test_field___routine();
-    fn test_field___arg() {
-        assert_eq!(
-            unsafe {
-                let uninit = ::std::mem::MaybeUninit::<__darwin_pthread_handler_rec>::uninit();
-                let ptr = uninit.as_ptr();
-                ::std::ptr::addr_of!((*ptr).__arg) as usize - ptr as usize
-            },
-            8usize,
-            concat!(
-                "Offset of field: ",
-                stringify!(__darwin_pthread_handler_rec),
-                "::",
-                stringify!(__arg)
-            )
-        );
-    }
-    test_field___arg();
-    fn test_field___next() {
-        assert_eq!(
-            unsafe {
-                let uninit = ::std::mem::MaybeUninit::<__darwin_pthread_handler_rec>::uninit();
-                let ptr = uninit.as_ptr();
-                ::std::ptr::addr_of!((*ptr).__next) as usize - ptr as usize
-            },
-            16usize,
-            concat!(
-                "Offset of field: ",
-                stringify!(__darwin_pthread_handler_rec),
-                "::",
-                stringify!(__next)
-            )
-        );
-    }
-    test_field___next();
-}
-impl Default for __darwin_pthread_handler_rec {
-    fn default() -> Self {
-        let mut s = ::std::mem::MaybeUninit::<Self>::uninit();
-        unsafe {
-            ::std::ptr::write_bytes(s.as_mut_ptr(), 0, 1);
-            s.assume_init()
-        }
-    }
-}
-#[repr(C)]
-#[derive(Debug, Copy, Clone)]
-pub struct _opaque_pthread_attr_t {
-    pub __sig: ::std::os::raw::c_long,
-    pub __opaque: [::std::os::raw::c_char; 56usize],
-}
-#[test]
-fn bindgen_test_layout__opaque_pthread_attr_t() {
-    assert_eq!(
-        ::std::mem::size_of::<_opaque_pthread_attr_t>(),
-        64usize,
-        concat!("Size of: ", stringify!(_opaque_pthread_attr_t))
-    );
-    assert_eq!(
-        ::std::mem::align_of::<_opaque_pthread_attr_t>(),
-        8usize,
-        concat!("Alignment of ", stringify!(_opaque_pthread_attr_t))
-    );
-    fn test_field___sig() {
-        assert_eq!(
-            unsafe {
-                let uninit = ::std::mem::MaybeUninit::<_opaque_pthread_attr_t>::uninit();
-                let ptr = uninit.as_ptr();
-                ::std::ptr::addr_of!((*ptr).__sig) as usize - ptr as usize
-            },
-            0usize,
-            concat!(
-                "Offset of field: ",
-                stringify!(_opaque_pthread_attr_t),
-                "::",
-                stringify!(__sig)
-            )
-        );
-    }
-    test_field___sig();
-    fn test_field___opaque() {
-        assert_eq!(
-            unsafe {
-                let uninit = ::std::mem::MaybeUninit::<_opaque_pthread_attr_t>::uninit();
-                let ptr = uninit.as_ptr();
-                ::std::ptr::addr_of!((*ptr).__opaque) as usize - ptr as usize
-            },
-            8usize,
-            concat!(
-                "Offset of field: ",
-                stringify!(_opaque_pthread_attr_t),
-                "::",
-                stringify!(__opaque)
-            )
-        );
-    }
-    test_field___opaque();
-}
-impl Default for _opaque_pthread_attr_t {
-    fn default() -> Self {
-        let mut s = ::std::mem::MaybeUninit::<Self>::uninit();
-        unsafe {
-            ::std::ptr::write_bytes(s.as_mut_ptr(), 0, 1);
-            s.assume_init()
-        }
-    }
-}
-#[repr(C)]
-#[derive(Debug, Copy, Clone)]
-pub struct _opaque_pthread_cond_t {
-    pub __sig: ::std::os::raw::c_long,
-    pub __opaque: [::std::os::raw::c_char; 40usize],
-}
-#[test]
-fn bindgen_test_layout__opaque_pthread_cond_t() {
-    assert_eq!(
-        ::std::mem::size_of::<_opaque_pthread_cond_t>(),
-        48usize,
-        concat!("Size of: ", stringify!(_opaque_pthread_cond_t))
-    );
-    assert_eq!(
-        ::std::mem::align_of::<_opaque_pthread_cond_t>(),
-        8usize,
-        concat!("Alignment of ", stringify!(_opaque_pthread_cond_t))
-    );
-    fn test_field___sig() {
-        assert_eq!(
-            unsafe {
-                let uninit = ::std::mem::MaybeUninit::<_opaque_pthread_cond_t>::uninit();
-                let ptr = uninit.as_ptr();
-                ::std::ptr::addr_of!((*ptr).__sig) as usize - ptr as usize
-            },
-            0usize,
-            concat!(
-                "Offset of field: ",
-                stringify!(_opaque_pthread_cond_t),
-                "::",
-                stringify!(__sig)
-            )
-        );
-    }
-    test_field___sig();
-    fn test_field___opaque() {
-        assert_eq!(
-            unsafe {
-                let uninit = ::std::mem::MaybeUninit::<_opaque_pthread_cond_t>::uninit();
-                let ptr = uninit.as_ptr();
-                ::std::ptr::addr_of!((*ptr).__opaque) as usize - ptr as usize
-            },
-            8usize,
-            concat!(
-                "Offset of field: ",
-                stringify!(_opaque_pthread_cond_t),
-                "::",
-                stringify!(__opaque)
-            )
-        );
-    }
-    test_field___opaque();
-}
-impl Default for _opaque_pthread_cond_t {
-    fn default() -> Self {
-        let mut s = ::std::mem::MaybeUninit::<Self>::uninit();
-        unsafe {
-            ::std::ptr::write_bytes(s.as_mut_ptr(), 0, 1);
-            s.assume_init()
-        }
-    }
-}
-#[repr(C)]
-#[derive(Debug, Default, Copy, Clone)]
-pub struct _opaque_pthread_condattr_t {
-    pub __sig: ::std::os::raw::c_long,
-    pub __opaque: [::std::os::raw::c_char; 8usize],
-}
-#[test]
-fn bindgen_test_layout__opaque_pthread_condattr_t() {
-    assert_eq!(
-        ::std::mem::size_of::<_opaque_pthread_condattr_t>(),
-        16usize,
-        concat!("Size of: ", stringify!(_opaque_pthread_condattr_t))
-    );
-    assert_eq!(
-        ::std::mem::align_of::<_opaque_pthread_condattr_t>(),
-        8usize,
-        concat!("Alignment of ", stringify!(_opaque_pthread_condattr_t))
-    );
-    fn test_field___sig() {
-        assert_eq!(
-            unsafe {
-                let uninit = ::std::mem::MaybeUninit::<_opaque_pthread_condattr_t>::uninit();
-                let ptr = uninit.as_ptr();
-                ::std::ptr::addr_of!((*ptr).__sig) as usize - ptr as usize
-            },
-            0usize,
-            concat!(
-                "Offset of field: ",
-                stringify!(_opaque_pthread_condattr_t),
-                "::",
-                stringify!(__sig)
-            )
-        );
-    }
-    test_field___sig();
-    fn test_field___opaque() {
-        assert_eq!(
-            unsafe {
-                let uninit = ::std::mem::MaybeUninit::<_opaque_pthread_condattr_t>::uninit();
-                let ptr = uninit.as_ptr();
-                ::std::ptr::addr_of!((*ptr).__opaque) as usize - ptr as usize
-            },
-            8usize,
-            concat!(
-                "Offset of field: ",
-                stringify!(_opaque_pthread_condattr_t),
-                "::",
-                stringify!(__opaque)
-            )
-        );
-    }
-    test_field___opaque();
-}
-#[repr(C)]
-#[derive(Debug, Copy, Clone)]
-pub struct _opaque_pthread_mutex_t {
-    pub __sig: ::std::os::raw::c_long,
-    pub __opaque: [::std::os::raw::c_char; 56usize],
-}
-#[test]
-fn bindgen_test_layout__opaque_pthread_mutex_t() {
-    assert_eq!(
-        ::std::mem::size_of::<_opaque_pthread_mutex_t>(),
-        64usize,
-        concat!("Size of: ", stringify!(_opaque_pthread_mutex_t))
-    );
-    assert_eq!(
-        ::std::mem::align_of::<_opaque_pthread_mutex_t>(),
-        8usize,
-        concat!("Alignment of ", stringify!(_opaque_pthread_mutex_t))
-    );
-    fn test_field___sig() {
-        assert_eq!(
-            unsafe {
-                let uninit = ::std::mem::MaybeUninit::<_opaque_pthread_mutex_t>::uninit();
-                let ptr = uninit.as_ptr();
-                ::std::ptr::addr_of!((*ptr).__sig) as usize - ptr as usize
-            },
-            0usize,
-            concat!(
-                "Offset of field: ",
-                stringify!(_opaque_pthread_mutex_t),
-                "::",
-                stringify!(__sig)
-            )
-        );
-    }
-    test_field___sig();
-    fn test_field___opaque() {
-        assert_eq!(
-            unsafe {
-                let uninit = ::std::mem::MaybeUninit::<_opaque_pthread_mutex_t>::uninit();
-                let ptr = uninit.as_ptr();
-                ::std::ptr::addr_of!((*ptr).__opaque) as usize - ptr as usize
-            },
-            8usize,
-            concat!(
-                "Offset of field: ",
-                stringify!(_opaque_pthread_mutex_t),
-                "::",
-                stringify!(__opaque)
-            )
-        );
-    }
-    test_field___opaque();
-}
-impl Default for _opaque_pthread_mutex_t {
-    fn default() -> Self {
-        let mut s = ::std::mem::MaybeUninit::<Self>::uninit();
-        unsafe {
-            ::std::ptr::write_bytes(s.as_mut_ptr(), 0, 1);
-            s.assume_init()
-        }
-    }
-}
-#[repr(C)]
-#[derive(Debug, Default, Copy, Clone)]
-pub struct _opaque_pthread_mutexattr_t {
-    pub __sig: ::std::os::raw::c_long,
-    pub __opaque: [::std::os::raw::c_char; 8usize],
-}
-#[test]
-fn bindgen_test_layout__opaque_pthread_mutexattr_t() {
-    assert_eq!(
-        ::std::mem::size_of::<_opaque_pthread_mutexattr_t>(),
-        16usize,
-        concat!("Size of: ", stringify!(_opaque_pthread_mutexattr_t))
-    );
-    assert_eq!(
-        ::std::mem::align_of::<_opaque_pthread_mutexattr_t>(),
-        8usize,
-        concat!("Alignment of ", stringify!(_opaque_pthread_mutexattr_t))
-    );
-    fn test_field___sig() {
-        assert_eq!(
-            unsafe {
-                let uninit = ::std::mem::MaybeUninit::<_opaque_pthread_mutexattr_t>::uninit();
-                let ptr = uninit.as_ptr();
-                ::std::ptr::addr_of!((*ptr).__sig) as usize - ptr as usize
-            },
-            0usize,
-            concat!(
-                "Offset of field: ",
-                stringify!(_opaque_pthread_mutexattr_t),
-                "::",
-                stringify!(__sig)
-            )
-        );
-    }
-    test_field___sig();
-    fn test_field___opaque() {
-        assert_eq!(
-            unsafe {
-                let uninit = ::std::mem::MaybeUninit::<_opaque_pthread_mutexattr_t>::uninit();
-                let ptr = uninit.as_ptr();
-                ::std::ptr::addr_of!((*ptr).__opaque) as usize - ptr as usize
-            },
-            8usize,
-            concat!(
-                "Offset of field: ",
-                stringify!(_opaque_pthread_mutexattr_t),
-                "::",
-                stringify!(__opaque)
-            )
-        );
-    }
-    test_field___opaque();
-}
-#[repr(C)]
-#[derive(Debug, Default, Copy, Clone)]
-pub struct _opaque_pthread_once_t {
-    pub __sig: ::std::os::raw::c_long,
-    pub __opaque: [::std::os::raw::c_char; 8usize],
-}
-#[test]
-fn bindgen_test_layout__opaque_pthread_once_t() {
-    assert_eq!(
-        ::std::mem::size_of::<_opaque_pthread_once_t>(),
-        16usize,
-        concat!("Size of: ", stringify!(_opaque_pthread_once_t))
-    );
-    assert_eq!(
-        ::std::mem::align_of::<_opaque_pthread_once_t>(),
-        8usize,
-        concat!("Alignment of ", stringify!(_opaque_pthread_once_t))
-    );
-    fn test_field___sig() {
-        assert_eq!(
-            unsafe {
-                let uninit = ::std::mem::MaybeUninit::<_opaque_pthread_once_t>::uninit();
-                let ptr = uninit.as_ptr();
-                ::std::ptr::addr_of!((*ptr).__sig) as usize - ptr as usize
-            },
-            0usize,
-            concat!(
-                "Offset of field: ",
-                stringify!(_opaque_pthread_once_t),
-                "::",
-                stringify!(__sig)
-            )
-        );
-    }
-    test_field___sig();
-    fn test_field___opaque() {
-        assert_eq!(
-            unsafe {
-                let uninit = ::std::mem::MaybeUninit::<_opaque_pthread_once_t>::uninit();
-                let ptr = uninit.as_ptr();
-                ::std::ptr::addr_of!((*ptr).__opaque) as usize - ptr as usize
-            },
-            8usize,
-            concat!(
-                "Offset of field: ",
-                stringify!(_opaque_pthread_once_t),
-                "::",
-                stringify!(__opaque)
-            )
-        );
-    }
-    test_field___opaque();
-}
-#[repr(C)]
-#[derive(Debug, Copy, Clone)]
-pub struct _opaque_pthread_rwlock_t {
-    pub __sig: ::std::os::raw::c_long,
-    pub __opaque: [::std::os::raw::c_char; 192usize],
-}
-#[test]
-fn bindgen_test_layout__opaque_pthread_rwlock_t() {
-    assert_eq!(
-        ::std::mem::size_of::<_opaque_pthread_rwlock_t>(),
-        200usize,
-        concat!("Size of: ", stringify!(_opaque_pthread_rwlock_t))
-    );
-    assert_eq!(
-        ::std::mem::align_of::<_opaque_pthread_rwlock_t>(),
-        8usize,
-        concat!("Alignment of ", stringify!(_opaque_pthread_rwlock_t))
-    );
-    fn test_field___sig() {
-        assert_eq!(
-            unsafe {
-                let uninit = ::std::mem::MaybeUninit::<_opaque_pthread_rwlock_t>::uninit();
-                let ptr = uninit.as_ptr();
-                ::std::ptr::addr_of!((*ptr).__sig) as usize - ptr as usize
-            },
-            0usize,
-            concat!(
-                "Offset of field: ",
-                stringify!(_opaque_pthread_rwlock_t),
-                "::",
-                stringify!(__sig)
-            )
-        );
-    }
-    test_field___sig();
-    fn test_field___opaque() {
-        assert_eq!(
-            unsafe {
-                let uninit = ::std::mem::MaybeUninit::<_opaque_pthread_rwlock_t>::uninit();
-                let ptr = uninit.as_ptr();
-                ::std::ptr::addr_of!((*ptr).__opaque) as usize - ptr as usize
-            },
-            8usize,
-            concat!(
-                "Offset of field: ",
-                stringify!(_opaque_pthread_rwlock_t),
-                "::",
-                stringify!(__opaque)
-            )
-        );
-    }
-    test_field___opaque();
-}
-impl Default for _opaque_pthread_rwlock_t {
-    fn default() -> Self {
-        let mut s = ::std::mem::MaybeUninit::<Self>::uninit();
-        unsafe {
-            ::std::ptr::write_bytes(s.as_mut_ptr(), 0, 1);
-            s.assume_init()
-        }
-    }
-}
-#[repr(C)]
-#[derive(Debug, Default, Copy, Clone)]
-pub struct _opaque_pthread_rwlockattr_t {
-    pub __sig: ::std::os::raw::c_long,
-    pub __opaque: [::std::os::raw::c_char; 16usize],
-}
-#[test]
-fn bindgen_test_layout__opaque_pthread_rwlockattr_t() {
-    assert_eq!(
-        ::std::mem::size_of::<_opaque_pthread_rwlockattr_t>(),
-        24usize,
-        concat!("Size of: ", stringify!(_opaque_pthread_rwlockattr_t))
-    );
-    assert_eq!(
-        ::std::mem::align_of::<_opaque_pthread_rwlockattr_t>(),
-        8usize,
-        concat!("Alignment of ", stringify!(_opaque_pthread_rwlockattr_t))
-    );
-    fn test_field___sig() {
-        assert_eq!(
-            unsafe {
-                let uninit = ::std::mem::MaybeUninit::<_opaque_pthread_rwlockattr_t>::uninit();
-                let ptr = uninit.as_ptr();
-                ::std::ptr::addr_of!((*ptr).__sig) as usize - ptr as usize
-            },
-            0usize,
-            concat!(
-                "Offset of field: ",
-                stringify!(_opaque_pthread_rwlockattr_t),
-                "::",
-                stringify!(__sig)
-            )
-        );
-    }
-    test_field___sig();
-    fn test_field___opaque() {
-        assert_eq!(
-            unsafe {
-                let uninit = ::std::mem::MaybeUninit::<_opaque_pthread_rwlockattr_t>::uninit();
-                let ptr = uninit.as_ptr();
-                ::std::ptr::addr_of!((*ptr).__opaque) as usize - ptr as usize
-            },
-            8usize,
-            concat!(
-                "Offset of field: ",
-                stringify!(_opaque_pthread_rwlockattr_t),
-                "::",
-                stringify!(__opaque)
-            )
-        );
-    }
-    test_field___opaque();
-}
-#[repr(C)]
-#[derive(Debug, Copy, Clone)]
-pub struct _opaque_pthread_t {
-    pub __sig: ::std::os::raw::c_long,
-    pub __cleanup_stack: *mut __darwin_pthread_handler_rec,
-    pub __opaque: [::std::os::raw::c_char; 8176usize],
-}
-#[test]
-fn bindgen_test_layout__opaque_pthread_t() {
-    assert_eq!(
-        ::std::mem::size_of::<_opaque_pthread_t>(),
-        8192usize,
-        concat!("Size of: ", stringify!(_opaque_pthread_t))
-    );
-    assert_eq!(
-        ::std::mem::align_of::<_opaque_pthread_t>(),
-        8usize,
-        concat!("Alignment of ", stringify!(_opaque_pthread_t))
-    );
-    fn test_field___sig() {
-        assert_eq!(
-            unsafe {
-                let uninit = ::std::mem::MaybeUninit::<_opaque_pthread_t>::uninit();
-                let ptr = uninit.as_ptr();
-                ::std::ptr::addr_of!((*ptr).__sig) as usize - ptr as usize
-            },
-            0usize,
-            concat!(
-                "Offset of field: ",
-                stringify!(_opaque_pthread_t),
-                "::",
-                stringify!(__sig)
-            )
-        );
-    }
-    test_field___sig();
-    fn test_field___cleanup_stack() {
-        assert_eq!(
-            unsafe {
-                let uninit = ::std::mem::MaybeUninit::<_opaque_pthread_t>::uninit();
-                let ptr = uninit.as_ptr();
-                ::std::ptr::addr_of!((*ptr).__cleanup_stack) as usize - ptr as usize
-            },
-            8usize,
-            concat!(
-                "Offset of field: ",
-                stringify!(_opaque_pthread_t),
-                "::",
-                stringify!(__cleanup_stack)
-            )
-        );
-    }
-    test_field___cleanup_stack();
-    fn test_field___opaque() {
-        assert_eq!(
-            unsafe {
-                let uninit = ::std::mem::MaybeUninit::<_opaque_pthread_t>::uninit();
-                let ptr = uninit.as_ptr();
-                ::std::ptr::addr_of!((*ptr).__opaque) as usize - ptr as usize
-            },
-            16usize,
-            concat!(
-                "Offset of field: ",
-                stringify!(_opaque_pthread_t),
-                "::",
-                stringify!(__opaque)
-            )
-        );
-    }
-    test_field___opaque();
-}
-impl Default for _opaque_pthread_t {
-    fn default() -> Self {
-        let mut s = ::std::mem::MaybeUninit::<Self>::uninit();
-        unsafe {
-            ::std::ptr::write_bytes(s.as_mut_ptr(), 0, 1);
-            s.assume_init()
-        }
-    }
-}
-pub type __darwin_pthread_attr_t = _opaque_pthread_attr_t;
-pub type __darwin_pthread_cond_t = _opaque_pthread_cond_t;
-pub type __darwin_pthread_condattr_t = _opaque_pthread_condattr_t;
-pub type __darwin_pthread_key_t = ::std::os::raw::c_ulong;
-pub type __darwin_pthread_mutex_t = _opaque_pthread_mutex_t;
-pub type __darwin_pthread_mutexattr_t = _opaque_pthread_mutexattr_t;
-pub type __darwin_pthread_once_t = _opaque_pthread_once_t;
-pub type __darwin_pthread_rwlock_t = _opaque_pthread_rwlock_t;
-pub type __darwin_pthread_rwlockattr_t = _opaque_pthread_rwlockattr_t;
-pub type __darwin_pthread_t = *mut _opaque_pthread_t;
-pub type __darwin_nl_item = ::std::os::raw::c_int;
-pub type __darwin_wctrans_t = ::std::os::raw::c_int;
-pub type __darwin_wctype_t = __uint32_t;
-#[repr(C)]
-#[derive(Debug, Default, Copy, Clone)]
-pub struct sched_param {
-    pub sched_priority: ::std::os::raw::c_int,
-    pub __opaque: [::std::os::raw::c_char; 4usize],
-}
-#[test]
-fn bindgen_test_layout_sched_param() {
-    assert_eq!(
-        ::std::mem::size_of::<sched_param>(),
-        8usize,
-        concat!("Size of: ", stringify!(sched_param))
-    );
-    assert_eq!(
-        ::std::mem::align_of::<sched_param>(),
-        4usize,
-        concat!("Alignment of ", stringify!(sched_param))
-    );
-    fn test_field_sched_priority() {
-        assert_eq!(
-            unsafe {
-                let uninit = ::std::mem::MaybeUninit::<sched_param>::uninit();
-                let ptr = uninit.as_ptr();
-                ::std::ptr::addr_of!((*ptr).sched_priority) as usize - ptr as usize
-            },
-            0usize,
-            concat!(
-                "Offset of field: ",
-                stringify!(sched_param),
-                "::",
-                stringify!(sched_priority)
-            )
-        );
-    }
-    test_field_sched_priority();
-    fn test_field___opaque() {
-        assert_eq!(
-            unsafe {
-                let uninit = ::std::mem::MaybeUninit::<sched_param>::uninit();
-                let ptr = uninit.as_ptr();
-                ::std::ptr::addr_of!((*ptr).__opaque) as usize - ptr as usize
-            },
-            4usize,
-            concat!(
-                "Offset of field: ",
-                stringify!(sched_param),
-                "::",
-                stringify!(__opaque)
-            )
-        );
-    }
-    test_field___opaque();
-}
-extern "C" {
-    pub fn sched_yield() -> ::std::os::raw::c_int;
-}
-extern "C" {
-    pub fn sched_get_priority_min(arg1: ::std::os::raw::c_int) -> ::std::os::raw::c_int;
-}
-extern "C" {
-    pub fn sched_get_priority_max(arg1: ::std::os::raw::c_int) -> ::std::os::raw::c_int;
-}
-pub type u_int8_t = ::std::os::raw::c_uchar;
-pub type u_int16_t = ::std::os::raw::c_ushort;
-pub type u_int32_t = ::std::os::raw::c_uint;
-pub type u_int64_t = ::std::os::raw::c_ulonglong;
-pub type register_t = i64;
-pub type user_addr_t = u_int64_t;
-pub type user_size_t = u_int64_t;
-pub type user_ssize_t = i64;
-pub type user_long_t = i64;
-pub type user_ulong_t = u_int64_t;
-pub type user_time_t = i64;
-pub type user_off_t = i64;
-pub type syscall_arg_t = u_int64_t;
-pub type clock_t = __darwin_clock_t;
-pub type time_t = __darwin_time_t;
-#[repr(C)]
-#[derive(Debug, Default, Copy, Clone)]
-pub struct timespec {
-    pub tv_sec: __darwin_time_t,
-    pub tv_nsec: ::std::os::raw::c_long,
-}
-#[test]
-fn bindgen_test_layout_timespec() {
-    assert_eq!(
-        ::std::mem::size_of::<timespec>(),
-        16usize,
-        concat!("Size of: ", stringify!(timespec))
-    );
-    assert_eq!(
-        ::std::mem::align_of::<timespec>(),
-        8usize,
-        concat!("Alignment of ", stringify!(timespec))
-    );
-    fn test_field_tv_sec() {
-        assert_eq!(
-            unsafe {
-                let uninit = ::std::mem::MaybeUninit::<timespec>::uninit();
-                let ptr = uninit.as_ptr();
-                ::std::ptr::addr_of!((*ptr).tv_sec) as usize - ptr as usize
-            },
-            0usize,
-            concat!(
-                "Offset of field: ",
-                stringify!(timespec),
-                "::",
-                stringify!(tv_sec)
-            )
-        );
-    }
-    test_field_tv_sec();
-    fn test_field_tv_nsec() {
-        assert_eq!(
-            unsafe {
-                let uninit = ::std::mem::MaybeUninit::<timespec>::uninit();
-                let ptr = uninit.as_ptr();
-                ::std::ptr::addr_of!((*ptr).tv_nsec) as usize - ptr as usize
-            },
-            8usize,
-            concat!(
-                "Offset of field: ",
-                stringify!(timespec),
-                "::",
-                stringify!(tv_nsec)
-            )
-        );
-    }
-    test_field_tv_nsec();
-}
-#[repr(C)]
-#[derive(Debug, Copy, Clone)]
-pub struct tm {
-    pub tm_sec: ::std::os::raw::c_int,
-    pub tm_min: ::std::os::raw::c_int,
-    pub tm_hour: ::std::os::raw::c_int,
-    pub tm_mday: ::std::os::raw::c_int,
-    pub tm_mon: ::std::os::raw::c_int,
-    pub tm_year: ::std::os::raw::c_int,
-    pub tm_wday: ::std::os::raw::c_int,
-    pub tm_yday: ::std::os::raw::c_int,
-    pub tm_isdst: ::std::os::raw::c_int,
-    pub tm_gmtoff: ::std::os::raw::c_long,
-    pub tm_zone: *mut ::std::os::raw::c_char,
-}
-#[test]
-fn bindgen_test_layout_tm() {
-    assert_eq!(
-        ::std::mem::size_of::<tm>(),
-        56usize,
-        concat!("Size of: ", stringify!(tm))
-    );
-    assert_eq!(
-        ::std::mem::align_of::<tm>(),
-        8usize,
-        concat!("Alignment of ", stringify!(tm))
-    );
-    fn test_field_tm_sec() {
-        assert_eq!(
-            unsafe {
-                let uninit = ::std::mem::MaybeUninit::<tm>::uninit();
-                let ptr = uninit.as_ptr();
-                ::std::ptr::addr_of!((*ptr).tm_sec) as usize - ptr as usize
-            },
-            0usize,
-            concat!(
-                "Offset of field: ",
-                stringify!(tm),
-                "::",
-                stringify!(tm_sec)
-            )
-        );
-    }
-    test_field_tm_sec();
-    fn test_field_tm_min() {
-        assert_eq!(
-            unsafe {
-                let uninit = ::std::mem::MaybeUninit::<tm>::uninit();
-                let ptr = uninit.as_ptr();
-                ::std::ptr::addr_of!((*ptr).tm_min) as usize - ptr as usize
-            },
-            4usize,
-            concat!(
-                "Offset of field: ",
-                stringify!(tm),
-                "::",
-                stringify!(tm_min)
-            )
-        );
-    }
-    test_field_tm_min();
-    fn test_field_tm_hour() {
-        assert_eq!(
-            unsafe {
-                let uninit = ::std::mem::MaybeUninit::<tm>::uninit();
-                let ptr = uninit.as_ptr();
-                ::std::ptr::addr_of!((*ptr).tm_hour) as usize - ptr as usize
-            },
-            8usize,
-            concat!(
-                "Offset of field: ",
-                stringify!(tm),
-                "::",
-                stringify!(tm_hour)
-            )
-        );
-    }
-    test_field_tm_hour();
-    fn test_field_tm_mday() {
-        assert_eq!(
-            unsafe {
-                let uninit = ::std::mem::MaybeUninit::<tm>::uninit();
-                let ptr = uninit.as_ptr();
-                ::std::ptr::addr_of!((*ptr).tm_mday) as usize - ptr as usize
-            },
-            12usize,
-            concat!(
-                "Offset of field: ",
-                stringify!(tm),
-                "::",
-                stringify!(tm_mday)
-            )
-        );
-    }
-    test_field_tm_mday();
-    fn test_field_tm_mon() {
-        assert_eq!(
-            unsafe {
-                let uninit = ::std::mem::MaybeUninit::<tm>::uninit();
-                let ptr = uninit.as_ptr();
-                ::std::ptr::addr_of!((*ptr).tm_mon) as usize - ptr as usize
-            },
-            16usize,
-            concat!(
-                "Offset of field: ",
-                stringify!(tm),
-                "::",
-                stringify!(tm_mon)
-            )
-        );
-    }
-    test_field_tm_mon();
-    fn test_field_tm_year() {
-        assert_eq!(
-            unsafe {
-                let uninit = ::std::mem::MaybeUninit::<tm>::uninit();
-                let ptr = uninit.as_ptr();
-                ::std::ptr::addr_of!((*ptr).tm_year) as usize - ptr as usize
-            },
-            20usize,
-            concat!(
-                "Offset of field: ",
-                stringify!(tm),
-                "::",
-                stringify!(tm_year)
-            )
-        );
-    }
-    test_field_tm_year();
-    fn test_field_tm_wday() {
-        assert_eq!(
-            unsafe {
-                let uninit = ::std::mem::MaybeUninit::<tm>::uninit();
-                let ptr = uninit.as_ptr();
-                ::std::ptr::addr_of!((*ptr).tm_wday) as usize - ptr as usize
-            },
-            24usize,
-            concat!(
-                "Offset of field: ",
-                stringify!(tm),
-                "::",
-                stringify!(tm_wday)
-            )
-        );
-    }
-    test_field_tm_wday();
-    fn test_field_tm_yday() {
-        assert_eq!(
-            unsafe {
-                let uninit = ::std::mem::MaybeUninit::<tm>::uninit();
-                let ptr = uninit.as_ptr();
-                ::std::ptr::addr_of!((*ptr).tm_yday) as usize - ptr as usize
-            },
-            28usize,
-            concat!(
-                "Offset of field: ",
-                stringify!(tm),
-                "::",
-                stringify!(tm_yday)
-            )
-        );
-    }
-    test_field_tm_yday();
-    fn test_field_tm_isdst() {
-        assert_eq!(
-            unsafe {
-                let uninit = ::std::mem::MaybeUninit::<tm>::uninit();
-                let ptr = uninit.as_ptr();
-                ::std::ptr::addr_of!((*ptr).tm_isdst) as usize - ptr as usize
-            },
-            32usize,
-            concat!(
-                "Offset of field: ",
-                stringify!(tm),
-                "::",
-                stringify!(tm_isdst)
-            )
-        );
-    }
-    test_field_tm_isdst();
-    fn test_field_tm_gmtoff() {
-        assert_eq!(
-            unsafe {
-                let uninit = ::std::mem::MaybeUninit::<tm>::uninit();
-                let ptr = uninit.as_ptr();
-                ::std::ptr::addr_of!((*ptr).tm_gmtoff) as usize - ptr as usize
-            },
-            40usize,
-            concat!(
-                "Offset of field: ",
-                stringify!(tm),
-                "::",
-                stringify!(tm_gmtoff)
-            )
-        );
-    }
-    test_field_tm_gmtoff();
-    fn test_field_tm_zone() {
-        assert_eq!(
-            unsafe {
-                let uninit = ::std::mem::MaybeUninit::<tm>::uninit();
-                let ptr = uninit.as_ptr();
-                ::std::ptr::addr_of!((*ptr).tm_zone) as usize - ptr as usize
-            },
-            48usize,
-            concat!(
-                "Offset of field: ",
-                stringify!(tm),
-                "::",
-                stringify!(tm_zone)
-            )
-        );
-    }
-    test_field_tm_zone();
-}
-impl Default for tm {
-    fn default() -> Self {
-        let mut s = ::std::mem::MaybeUninit::<Self>::uninit();
-        unsafe {
-            ::std::ptr::write_bytes(s.as_mut_ptr(), 0, 1);
-            s.assume_init()
-        }
-    }
-}
-extern "C" {
-    pub static mut tzname: [*mut ::std::os::raw::c_char; 0usize];
-}
-extern "C" {
-    pub static mut getdate_err: ::std::os::raw::c_int;
-}
-extern "C" {
-    pub static mut timezone: ::std::os::raw::c_long;
-}
-extern "C" {
-    pub static mut daylight: ::std::os::raw::c_int;
-}
-extern "C" {
-    pub fn asctime(arg1: *const tm) -> *mut ::std::os::raw::c_char;
-}
-extern "C" {
-    pub fn clock() -> clock_t;
-}
-extern "C" {
-    pub fn ctime(arg1: *const time_t) -> *mut ::std::os::raw::c_char;
-}
-extern "C" {
-    pub fn difftime(arg1: time_t, arg2: time_t) -> f64;
-}
-extern "C" {
-    pub fn getdate(arg1: *const ::std::os::raw::c_char) -> *mut tm;
-}
-extern "C" {
-    pub fn gmtime(arg1: *const time_t) -> *mut tm;
-}
-extern "C" {
-    pub fn localtime(arg1: *const time_t) -> *mut tm;
-}
-extern "C" {
-    pub fn mktime(arg1: *mut tm) -> time_t;
-}
-extern "C" {
-    pub fn strftime(
-        arg1: *mut ::std::os::raw::c_char,
-        arg2: usize,
-        arg3: *const ::std::os::raw::c_char,
-        arg4: *const tm,
-    ) -> usize;
-}
-extern "C" {
-    pub fn strptime(
-        arg1: *const ::std::os::raw::c_char,
-        arg2: *const ::std::os::raw::c_char,
-        arg3: *mut tm,
-    ) -> *mut ::std::os::raw::c_char;
-}
-extern "C" {
-    pub fn time(arg1: *mut time_t) -> time_t;
-}
-extern "C" {
-    pub fn tzset();
-}
-extern "C" {
-    pub fn asctime_r(
-        arg1: *const tm,
-        arg2: *mut ::std::os::raw::c_char,
-    ) -> *mut ::std::os::raw::c_char;
-}
-extern "C" {
-    pub fn ctime_r(
-        arg1: *const time_t,
-        arg2: *mut ::std::os::raw::c_char,
-    ) -> *mut ::std::os::raw::c_char;
-}
-extern "C" {
-    pub fn gmtime_r(arg1: *const time_t, arg2: *mut tm) -> *mut tm;
-}
-extern "C" {
-    pub fn localtime_r(arg1: *const time_t, arg2: *mut tm) -> *mut tm;
-}
-extern "C" {
-    pub fn posix2time(arg1: time_t) -> time_t;
-}
-extern "C" {
-    pub fn tzsetwall();
-}
-extern "C" {
-    pub fn time2posix(arg1: time_t) -> time_t;
-}
-extern "C" {
-    pub fn timelocal(arg1: *mut tm) -> time_t;
-}
-extern "C" {
-    pub fn timegm(arg1: *mut tm) -> time_t;
-}
-extern "C" {
-    pub fn nanosleep(__rqtp: *const timespec, __rmtp: *mut timespec) -> ::std::os::raw::c_int;
-}
-pub const _CLOCK_REALTIME: clockid_t = 0;
-pub const _CLOCK_MONOTONIC: clockid_t = 6;
-pub const _CLOCK_MONOTONIC_RAW: clockid_t = 4;
-pub const _CLOCK_MONOTONIC_RAW_APPROX: clockid_t = 5;
-pub const _CLOCK_UPTIME_RAW: clockid_t = 8;
-pub const _CLOCK_UPTIME_RAW_APPROX: clockid_t = 9;
-pub const _CLOCK_PROCESS_CPUTIME_ID: clockid_t = 12;
-pub const _CLOCK_THREAD_CPUTIME_ID: clockid_t = 16;
-pub type clockid_t = ::std::os::raw::c_uint;
-extern "C" {
-    pub fn clock_getres(__clock_id: clockid_t, __res: *mut timespec) -> ::std::os::raw::c_int;
-}
-extern "C" {
-    pub fn clock_gettime(__clock_id: clockid_t, __tp: *mut timespec) -> ::std::os::raw::c_int;
-}
-extern "C" {
-    pub fn clock_gettime_nsec_np(__clock_id: clockid_t) -> __uint64_t;
-}
-extern "C" {
-    pub fn clock_settime(__clock_id: clockid_t, __tp: *const timespec) -> ::std::os::raw::c_int;
-}
-extern "C" {
-    pub fn timespec_get(ts: *mut timespec, base: ::std::os::raw::c_int) -> ::std::os::raw::c_int;
-}
-pub type pthread_attr_t = __darwin_pthread_attr_t;
-pub type pthread_cond_t = __darwin_pthread_cond_t;
-pub type pthread_condattr_t = __darwin_pthread_condattr_t;
-pub type pthread_key_t = __darwin_pthread_key_t;
-pub type pthread_mutex_t = __darwin_pthread_mutex_t;
-pub type pthread_mutexattr_t = __darwin_pthread_mutexattr_t;
-pub type pthread_once_t = __darwin_pthread_once_t;
-pub type pthread_rwlock_t = __darwin_pthread_rwlock_t;
-pub type pthread_rwlockattr_t = __darwin_pthread_rwlockattr_t;
-pub type pthread_t = __darwin_pthread_t;
-pub const QOS_CLASS_USER_INTERACTIVE: _bindgen_ty_1 = 33;
-pub const QOS_CLASS_USER_INITIATED: _bindgen_ty_1 = 25;
-pub const QOS_CLASS_DEFAULT: _bindgen_ty_1 = 21;
-pub const QOS_CLASS_UTILITY: _bindgen_ty_1 = 17;
-pub const QOS_CLASS_BACKGROUND: _bindgen_ty_1 = 9;
-pub const QOS_CLASS_UNSPECIFIED: _bindgen_ty_1 = 0;
-pub type _bindgen_ty_1 = ::std::os::raw::c_uint;
-pub type qos_class_t = ::std::os::raw::c_uint;
-extern "C" {
-    pub fn qos_class_self() -> qos_class_t;
-}
-extern "C" {
-    pub fn qos_class_main() -> qos_class_t;
-}
-extern "C" {
-    pub fn pthread_attr_set_qos_class_np(
-        __attr: *mut pthread_attr_t,
-        __qos_class: qos_class_t,
-        __relative_priority: ::std::os::raw::c_int,
-    ) -> ::std::os::raw::c_int;
-}
-extern "C" {
-    pub fn pthread_attr_get_qos_class_np(
-        __attr: *mut pthread_attr_t,
-        __qos_class: *mut qos_class_t,
-        __relative_priority: *mut ::std::os::raw::c_int,
-    ) -> ::std::os::raw::c_int;
-}
-extern "C" {
-    pub fn pthread_set_qos_class_self_np(
-        __qos_class: qos_class_t,
-        __relative_priority: ::std::os::raw::c_int,
-    ) -> ::std::os::raw::c_int;
-}
-extern "C" {
-    pub fn pthread_get_qos_class_np(
-        __pthread: pthread_t,
-        __qos_class: *mut qos_class_t,
-        __relative_priority: *mut ::std::os::raw::c_int,
-    ) -> ::std::os::raw::c_int;
-}
-#[repr(C)]
-#[derive(Debug, Copy, Clone)]
-pub struct pthread_override_s {
-    _unused: [u8; 0],
-}
-pub type pthread_override_t = *mut pthread_override_s;
-extern "C" {
-    pub fn pthread_override_qos_class_start_np(
-        __pthread: pthread_t,
-        __qos_class: qos_class_t,
-        __relative_priority: ::std::os::raw::c_int,
-    ) -> pthread_override_t;
-}
-extern "C" {
-    pub fn pthread_override_qos_class_end_np(
-        __override: pthread_override_t,
-    ) -> ::std::os::raw::c_int;
-}
-pub type mach_port_t = __darwin_mach_port_t;
-pub type sigset_t = __darwin_sigset_t;
-extern "C" {
-    pub fn pthread_atfork(
-        arg1: ::std::option::Option<unsafe extern "C" fn()>,
-        arg2: ::std::option::Option<unsafe extern "C" fn()>,
-        arg3: ::std::option::Option<unsafe extern "C" fn()>,
-    ) -> ::std::os::raw::c_int;
-}
-extern "C" {
-    pub fn pthread_attr_destroy(arg1: *mut pthread_attr_t) -> ::std::os::raw::c_int;
-}
-extern "C" {
-    pub fn pthread_attr_getdetachstate(
-        arg1: *const pthread_attr_t,
-        arg2: *mut ::std::os::raw::c_int,
-    ) -> ::std::os::raw::c_int;
-}
-extern "C" {
-    pub fn pthread_attr_getguardsize(
-        arg1: *const pthread_attr_t,
-        arg2: *mut usize,
-    ) -> ::std::os::raw::c_int;
-}
-extern "C" {
-    pub fn pthread_attr_getinheritsched(
-        arg1: *const pthread_attr_t,
-        arg2: *mut ::std::os::raw::c_int,
-    ) -> ::std::os::raw::c_int;
-}
-extern "C" {
-    pub fn pthread_attr_getschedparam(
-        arg1: *const pthread_attr_t,
-        arg2: *mut sched_param,
-    ) -> ::std::os::raw::c_int;
-}
-extern "C" {
-    pub fn pthread_attr_getschedpolicy(
-        arg1: *const pthread_attr_t,
-        arg2: *mut ::std::os::raw::c_int,
-    ) -> ::std::os::raw::c_int;
-}
-extern "C" {
-    pub fn pthread_attr_getscope(
-        arg1: *const pthread_attr_t,
-        arg2: *mut ::std::os::raw::c_int,
-    ) -> ::std::os::raw::c_int;
-}
-extern "C" {
-    pub fn pthread_attr_getstack(
-        arg1: *const pthread_attr_t,
-        arg2: *mut *mut ::std::os::raw::c_void,
-        arg3: *mut usize,
-    ) -> ::std::os::raw::c_int;
-}
-extern "C" {
-    pub fn pthread_attr_getstackaddr(
-        arg1: *const pthread_attr_t,
-        arg2: *mut *mut ::std::os::raw::c_void,
-    ) -> ::std::os::raw::c_int;
-}
-extern "C" {
-    pub fn pthread_attr_getstacksize(
-        arg1: *const pthread_attr_t,
-        arg2: *mut usize,
-    ) -> ::std::os::raw::c_int;
-}
-extern "C" {
-    pub fn pthread_attr_init(arg1: *mut pthread_attr_t) -> ::std::os::raw::c_int;
-}
-extern "C" {
-    pub fn pthread_attr_setdetachstate(
-        arg1: *mut pthread_attr_t,
-        arg2: ::std::os::raw::c_int,
-    ) -> ::std::os::raw::c_int;
-}
-extern "C" {
-    pub fn pthread_attr_setguardsize(
-        arg1: *mut pthread_attr_t,
-        arg2: usize,
-    ) -> ::std::os::raw::c_int;
-}
-extern "C" {
-    pub fn pthread_attr_setinheritsched(
-        arg1: *mut pthread_attr_t,
-        arg2: ::std::os::raw::c_int,
-    ) -> ::std::os::raw::c_int;
-}
-extern "C" {
-    pub fn pthread_attr_setschedparam(
-        arg1: *mut pthread_attr_t,
-        arg2: *const sched_param,
-    ) -> ::std::os::raw::c_int;
-}
-extern "C" {
-    pub fn pthread_attr_setschedpolicy(
-        arg1: *mut pthread_attr_t,
-        arg2: ::std::os::raw::c_int,
-    ) -> ::std::os::raw::c_int;
-}
-extern "C" {
-    pub fn pthread_attr_setscope(
-        arg1: *mut pthread_attr_t,
-        arg2: ::std::os::raw::c_int,
-    ) -> ::std::os::raw::c_int;
-}
-extern "C" {
-    pub fn pthread_attr_setstack(
-        arg1: *mut pthread_attr_t,
-        arg2: *mut ::std::os::raw::c_void,
-        arg3: usize,
-    ) -> ::std::os::raw::c_int;
-}
-extern "C" {
-    pub fn pthread_attr_setstackaddr(
-        arg1: *mut pthread_attr_t,
-        arg2: *mut ::std::os::raw::c_void,
-    ) -> ::std::os::raw::c_int;
-}
-extern "C" {
-    pub fn pthread_attr_setstacksize(
-        arg1: *mut pthread_attr_t,
-        arg2: usize,
-    ) -> ::std::os::raw::c_int;
-}
-extern "C" {
-    pub fn pthread_cancel(arg1: pthread_t) -> ::std::os::raw::c_int;
-}
-extern "C" {
-    pub fn pthread_cond_broadcast(arg1: *mut pthread_cond_t) -> ::std::os::raw::c_int;
-}
-extern "C" {
-    pub fn pthread_cond_destroy(arg1: *mut pthread_cond_t) -> ::std::os::raw::c_int;
-}
-extern "C" {
-    pub fn pthread_cond_init(
-        arg1: *mut pthread_cond_t,
-        arg2: *const pthread_condattr_t,
-    ) -> ::std::os::raw::c_int;
-}
-extern "C" {
-    pub fn pthread_cond_signal(arg1: *mut pthread_cond_t) -> ::std::os::raw::c_int;
-}
-extern "C" {
-    pub fn pthread_cond_timedwait(
-        arg1: *mut pthread_cond_t,
-        arg2: *mut pthread_mutex_t,
-        arg3: *const timespec,
-    ) -> ::std::os::raw::c_int;
-}
-extern "C" {
-    pub fn pthread_cond_wait(
-        arg1: *mut pthread_cond_t,
-        arg2: *mut pthread_mutex_t,
-    ) -> ::std::os::raw::c_int;
-}
-extern "C" {
-    pub fn pthread_condattr_destroy(arg1: *mut pthread_condattr_t) -> ::std::os::raw::c_int;
-}
-extern "C" {
-    pub fn pthread_condattr_init(arg1: *mut pthread_condattr_t) -> ::std::os::raw::c_int;
-}
-extern "C" {
-    pub fn pthread_condattr_getpshared(
-        arg1: *const pthread_condattr_t,
-        arg2: *mut ::std::os::raw::c_int,
-    ) -> ::std::os::raw::c_int;
-}
-extern "C" {
-    pub fn pthread_condattr_setpshared(
-        arg1: *mut pthread_condattr_t,
-        arg2: ::std::os::raw::c_int,
-    ) -> ::std::os::raw::c_int;
-}
-extern "C" {
-    pub fn pthread_create(
-        arg1: *mut pthread_t,
-        arg2: *const pthread_attr_t,
-        arg3: ::std::option::Option<
-            unsafe extern "C" fn(arg1: *mut ::std::os::raw::c_void) -> *mut ::std::os::raw::c_void,
-        >,
-        arg4: *mut ::std::os::raw::c_void,
-    ) -> ::std::os::raw::c_int;
-}
-extern "C" {
-    pub fn pthread_detach(arg1: pthread_t) -> ::std::os::raw::c_int;
-}
-extern "C" {
-    pub fn pthread_equal(arg1: pthread_t, arg2: pthread_t) -> ::std::os::raw::c_int;
-}
-extern "C" {
-    pub fn pthread_exit(arg1: *mut ::std::os::raw::c_void);
-}
-extern "C" {
-    pub fn pthread_getconcurrency() -> ::std::os::raw::c_int;
-}
-extern "C" {
-    pub fn pthread_getschedparam(
-        arg1: pthread_t,
-        arg2: *mut ::std::os::raw::c_int,
-        arg3: *mut sched_param,
-    ) -> ::std::os::raw::c_int;
-}
-extern "C" {
-    pub fn pthread_getspecific(arg1: pthread_key_t) -> *mut ::std::os::raw::c_void;
-}
-extern "C" {
-    pub fn pthread_join(
-        arg1: pthread_t,
-        arg2: *mut *mut ::std::os::raw::c_void,
-    ) -> ::std::os::raw::c_int;
-}
-extern "C" {
-    pub fn pthread_key_create(
-        arg1: *mut pthread_key_t,
-        arg2: ::std::option::Option<unsafe extern "C" fn(arg1: *mut ::std::os::raw::c_void)>,
-    ) -> ::std::os::raw::c_int;
-}
-extern "C" {
-    pub fn pthread_key_delete(arg1: pthread_key_t) -> ::std::os::raw::c_int;
-}
-extern "C" {
-    pub fn pthread_mutex_destroy(arg1: *mut pthread_mutex_t) -> ::std::os::raw::c_int;
-}
-extern "C" {
-    pub fn pthread_mutex_getprioceiling(
-        arg1: *const pthread_mutex_t,
-        arg2: *mut ::std::os::raw::c_int,
-    ) -> ::std::os::raw::c_int;
-}
-extern "C" {
-    pub fn pthread_mutex_init(
-        arg1: *mut pthread_mutex_t,
-        arg2: *const pthread_mutexattr_t,
-    ) -> ::std::os::raw::c_int;
-}
-extern "C" {
-    pub fn pthread_mutex_lock(arg1: *mut pthread_mutex_t) -> ::std::os::raw::c_int;
-}
-extern "C" {
-    pub fn pthread_mutex_setprioceiling(
-        arg1: *mut pthread_mutex_t,
-        arg2: ::std::os::raw::c_int,
-        arg3: *mut ::std::os::raw::c_int,
-    ) -> ::std::os::raw::c_int;
-}
-extern "C" {
-    pub fn pthread_mutex_trylock(arg1: *mut pthread_mutex_t) -> ::std::os::raw::c_int;
-}
-extern "C" {
-    pub fn pthread_mutex_unlock(arg1: *mut pthread_mutex_t) -> ::std::os::raw::c_int;
-}
-extern "C" {
-    pub fn pthread_mutexattr_destroy(arg1: *mut pthread_mutexattr_t) -> ::std::os::raw::c_int;
-}
-extern "C" {
-    pub fn pthread_mutexattr_getprioceiling(
-        arg1: *const pthread_mutexattr_t,
-        arg2: *mut ::std::os::raw::c_int,
-    ) -> ::std::os::raw::c_int;
-}
-extern "C" {
-    pub fn pthread_mutexattr_getprotocol(
-        arg1: *const pthread_mutexattr_t,
-        arg2: *mut ::std::os::raw::c_int,
-    ) -> ::std::os::raw::c_int;
-}
-extern "C" {
-    pub fn pthread_mutexattr_getpshared(
-        arg1: *const pthread_mutexattr_t,
-        arg2: *mut ::std::os::raw::c_int,
-    ) -> ::std::os::raw::c_int;
-}
-extern "C" {
-    pub fn pthread_mutexattr_gettype(
-        arg1: *const pthread_mutexattr_t,
-        arg2: *mut ::std::os::raw::c_int,
-    ) -> ::std::os::raw::c_int;
-}
-extern "C" {
-    pub fn pthread_mutexattr_getpolicy_np(
-        arg1: *const pthread_mutexattr_t,
-        arg2: *mut ::std::os::raw::c_int,
-    ) -> ::std::os::raw::c_int;
-}
-extern "C" {
-    pub fn pthread_mutexattr_init(arg1: *mut pthread_mutexattr_t) -> ::std::os::raw::c_int;
-}
-extern "C" {
-    pub fn pthread_mutexattr_setprioceiling(
-        arg1: *mut pthread_mutexattr_t,
-        arg2: ::std::os::raw::c_int,
-    ) -> ::std::os::raw::c_int;
-}
-extern "C" {
-    pub fn pthread_mutexattr_setprotocol(
-        arg1: *mut pthread_mutexattr_t,
-        arg2: ::std::os::raw::c_int,
-    ) -> ::std::os::raw::c_int;
-}
-extern "C" {
-    pub fn pthread_mutexattr_setpshared(
-        arg1: *mut pthread_mutexattr_t,
-        arg2: ::std::os::raw::c_int,
-    ) -> ::std::os::raw::c_int;
-}
-extern "C" {
-    pub fn pthread_mutexattr_settype(
-        arg1: *mut pthread_mutexattr_t,
-        arg2: ::std::os::raw::c_int,
-    ) -> ::std::os::raw::c_int;
-}
-extern "C" {
-    pub fn pthread_mutexattr_setpolicy_np(
-        arg1: *mut pthread_mutexattr_t,
-        arg2: ::std::os::raw::c_int,
-    ) -> ::std::os::raw::c_int;
-}
-extern "C" {
-    pub fn pthread_once(
-        arg1: *mut pthread_once_t,
-        arg2: ::std::option::Option<unsafe extern "C" fn()>,
-    ) -> ::std::os::raw::c_int;
-}
-extern "C" {
-    pub fn pthread_rwlock_destroy(arg1: *mut pthread_rwlock_t) -> ::std::os::raw::c_int;
-}
-extern "C" {
-    pub fn pthread_rwlock_init(
-        arg1: *mut pthread_rwlock_t,
-        arg2: *const pthread_rwlockattr_t,
-    ) -> ::std::os::raw::c_int;
-}
-extern "C" {
-    pub fn pthread_rwlock_rdlock(arg1: *mut pthread_rwlock_t) -> ::std::os::raw::c_int;
-}
-extern "C" {
-    pub fn pthread_rwlock_tryrdlock(arg1: *mut pthread_rwlock_t) -> ::std::os::raw::c_int;
-}
-extern "C" {
-    pub fn pthread_rwlock_trywrlock(arg1: *mut pthread_rwlock_t) -> ::std::os::raw::c_int;
-}
-extern "C" {
-    pub fn pthread_rwlock_wrlock(arg1: *mut pthread_rwlock_t) -> ::std::os::raw::c_int;
-}
-extern "C" {
-    pub fn pthread_rwlock_unlock(arg1: *mut pthread_rwlock_t) -> ::std::os::raw::c_int;
-}
-extern "C" {
-    pub fn pthread_rwlockattr_destroy(arg1: *mut pthread_rwlockattr_t) -> ::std::os::raw::c_int;
-}
-extern "C" {
-    pub fn pthread_rwlockattr_getpshared(
-        arg1: *const pthread_rwlockattr_t,
-        arg2: *mut ::std::os::raw::c_int,
-    ) -> ::std::os::raw::c_int;
-}
-extern "C" {
-    pub fn pthread_rwlockattr_init(arg1: *mut pthread_rwlockattr_t) -> ::std::os::raw::c_int;
-}
-extern "C" {
-    pub fn pthread_rwlockattr_setpshared(
-        arg1: *mut pthread_rwlockattr_t,
-        arg2: ::std::os::raw::c_int,
-    ) -> ::std::os::raw::c_int;
-}
-extern "C" {
-    pub fn pthread_self() -> pthread_t;
-}
-extern "C" {
-    pub fn pthread_setcancelstate(
-        arg1: ::std::os::raw::c_int,
-        arg2: *mut ::std::os::raw::c_int,
-    ) -> ::std::os::raw::c_int;
-}
-extern "C" {
-    pub fn pthread_setcanceltype(
-        arg1: ::std::os::raw::c_int,
-        arg2: *mut ::std::os::raw::c_int,
-    ) -> ::std::os::raw::c_int;
-}
-extern "C" {
-    pub fn pthread_setconcurrency(arg1: ::std::os::raw::c_int) -> ::std::os::raw::c_int;
-}
-extern "C" {
-    pub fn pthread_setschedparam(
-        arg1: pthread_t,
-        arg2: ::std::os::raw::c_int,
-        arg3: *const sched_param,
-    ) -> ::std::os::raw::c_int;
-}
-extern "C" {
-    pub fn pthread_setspecific(
-        arg1: pthread_key_t,
-        arg2: *const ::std::os::raw::c_void,
-    ) -> ::std::os::raw::c_int;
-}
-extern "C" {
-    pub fn pthread_testcancel();
-}
-extern "C" {
-    pub fn pthread_is_threaded_np() -> ::std::os::raw::c_int;
-}
-extern "C" {
-    pub fn pthread_threadid_np(arg1: pthread_t, arg2: *mut __uint64_t) -> ::std::os::raw::c_int;
-}
-extern "C" {
-    pub fn pthread_getname_np(
-        arg1: pthread_t,
-        arg2: *mut ::std::os::raw::c_char,
-        arg3: usize,
-    ) -> ::std::os::raw::c_int;
-}
-extern "C" {
-    pub fn pthread_setname_np(arg1: *const ::std::os::raw::c_char) -> ::std::os::raw::c_int;
-}
-extern "C" {
-    pub fn pthread_main_np() -> ::std::os::raw::c_int;
-}
-extern "C" {
-    pub fn pthread_mach_thread_np(arg1: pthread_t) -> mach_port_t;
-}
-extern "C" {
-    pub fn pthread_get_stacksize_np(arg1: pthread_t) -> usize;
-}
-extern "C" {
-    pub fn pthread_get_stackaddr_np(arg1: pthread_t) -> *mut ::std::os::raw::c_void;
-}
-extern "C" {
-    pub fn pthread_cond_signal_thread_np(
-        arg1: *mut pthread_cond_t,
-        arg2: pthread_t,
-    ) -> ::std::os::raw::c_int;
-}
-extern "C" {
-    pub fn pthread_cond_timedwait_relative_np(
-        arg1: *mut pthread_cond_t,
-        arg2: *mut pthread_mutex_t,
-        arg3: *const timespec,
-    ) -> ::std::os::raw::c_int;
-}
-extern "C" {
-    pub fn pthread_create_suspended_np(
-        arg1: *mut pthread_t,
-        arg2: *const pthread_attr_t,
-        arg3: ::std::option::Option<
-            unsafe extern "C" fn(arg1: *mut ::std::os::raw::c_void) -> *mut ::std::os::raw::c_void,
-        >,
-        arg4: *mut ::std::os::raw::c_void,
-    ) -> ::std::os::raw::c_int;
-}
-extern "C" {
-    pub fn pthread_kill(arg1: pthread_t, arg2: ::std::os::raw::c_int) -> ::std::os::raw::c_int;
-}
-extern "C" {
-    pub fn pthread_from_mach_thread_np(arg1: mach_port_t) -> pthread_t;
-}
-extern "C" {
-    pub fn pthread_sigmask(
-        arg1: ::std::os::raw::c_int,
-        arg2: *const sigset_t,
-        arg3: *mut sigset_t,
-    ) -> ::std::os::raw::c_int;
-}
-extern "C" {
-    pub fn pthread_yield_np();
-}
-extern "C" {
-    pub fn pthread_jit_write_protect_np(enabled: ::std::os::raw::c_int);
-}
-extern "C" {
-    pub fn pthread_jit_write_protect_supported_np() -> ::std::os::raw::c_int;
-}
-pub type pthread_jit_write_callback_t = ::std::option::Option<
-    unsafe extern "C" fn(ctx: *mut ::std::os::raw::c_void) -> ::std::os::raw::c_int,
->;
-extern "C" {
-    pub fn pthread_jit_write_with_callback_np(
-        callback: pthread_jit_write_callback_t,
-        ctx: *mut ::std::os::raw::c_void,
-    ) -> ::std::os::raw::c_int;
-}
-extern "C" {
-    pub fn pthread_jit_write_freeze_callbacks_np();
-}
-extern "C" {
-    pub fn pthread_cpu_number_np(cpu_number_out: *mut usize) -> ::std::os::raw::c_int;
-}
-pub type ma_pthread_t = pthread_t;
-pub type ma_pthread_mutex_t = pthread_mutex_t;
-pub type ma_pthread_cond_t = pthread_cond_t;
 pub const MA_LOG_LEVEL_DEBUG: ma_log_level = 4;
 pub const MA_LOG_LEVEL_INFO: ma_log_level = 3;
 pub const MA_LOG_LEVEL_WARNING: ma_log_level = 2;
 pub const MA_LOG_LEVEL_ERROR: ma_log_level = 1;
-pub type ma_log_level = ::std::os::raw::c_uint;
+pub type ma_log_level = ::std::os::raw::c_int;
 pub type ma_channel = ma_uint8;
 pub const MA_CHANNEL_NONE: _ma_channel_position = 0;
 pub const MA_CHANNEL_MONO: _ma_channel_position = 1;
@@ -2150,7 +106,7 @@ pub const MA_CHANNEL_AUX_31: _ma_channel_position = 51;
 pub const MA_CHANNEL_LEFT: _ma_channel_position = 2;
 pub const MA_CHANNEL_RIGHT: _ma_channel_position = 3;
 pub const MA_CHANNEL_POSITION_COUNT: _ma_channel_position = 52;
-pub type _ma_channel_position = ::std::os::raw::c_uint;
+pub type _ma_channel_position = ::std::os::raw::c_int;
 pub const MA_SUCCESS: ma_result = 0;
 pub const MA_ERROR: ma_result = -1;
 pub const MA_INVALID_ARGS: ma_result = -2;
@@ -2222,14 +178,14 @@ pub const MA_FAILED_TO_START_BACKEND_DEVICE: ma_result = -302;
 pub const MA_FAILED_TO_STOP_BACKEND_DEVICE: ma_result = -303;
 pub type ma_result = ::std::os::raw::c_int;
 pub const ma_stream_format_pcm: ma_stream_format = 0;
-pub type ma_stream_format = ::std::os::raw::c_uint;
+pub type ma_stream_format = ::std::os::raw::c_int;
 pub const ma_stream_layout_interleaved: ma_stream_layout = 0;
 pub const ma_stream_layout_deinterleaved: ma_stream_layout = 1;
-pub type ma_stream_layout = ::std::os::raw::c_uint;
+pub type ma_stream_layout = ::std::os::raw::c_int;
 pub const ma_dither_mode_none: ma_dither_mode = 0;
 pub const ma_dither_mode_rectangle: ma_dither_mode = 1;
 pub const ma_dither_mode_triangle: ma_dither_mode = 2;
-pub type ma_dither_mode = ::std::os::raw::c_uint;
+pub type ma_dither_mode = ::std::os::raw::c_int;
 pub const ma_format_unknown: ma_format = 0;
 pub const ma_format_u8: ma_format = 1;
 pub const ma_format_s16: ma_format = 2;
@@ -2237,7 +193,7 @@ pub const ma_format_s24: ma_format = 3;
 pub const ma_format_s32: ma_format = 4;
 pub const ma_format_f32: ma_format = 5;
 pub const ma_format_count: ma_format = 6;
-pub type ma_format = ::std::os::raw::c_uint;
+pub type ma_format = ::std::os::raw::c_int;
 pub const ma_standard_sample_rate_48000: ma_standard_sample_rate = 48000;
 pub const ma_standard_sample_rate_44100: ma_standard_sample_rate = 44100;
 pub const ma_standard_sample_rate_32000: ma_standard_sample_rate = 32000;
@@ -2255,12 +211,12 @@ pub const ma_standard_sample_rate_384000: ma_standard_sample_rate = 384000;
 pub const ma_standard_sample_rate_min: ma_standard_sample_rate = 8000;
 pub const ma_standard_sample_rate_max: ma_standard_sample_rate = 384000;
 pub const ma_standard_sample_rate_count: ma_standard_sample_rate = 14;
-pub type ma_standard_sample_rate = ::std::os::raw::c_uint;
+pub type ma_standard_sample_rate = ::std::os::raw::c_int;
 pub const ma_channel_mix_mode_rectangular: ma_channel_mix_mode = 0;
 pub const ma_channel_mix_mode_simple: ma_channel_mix_mode = 1;
 pub const ma_channel_mix_mode_custom_weights: ma_channel_mix_mode = 2;
 pub const ma_channel_mix_mode_default: ma_channel_mix_mode = 0;
-pub type ma_channel_mix_mode = ::std::os::raw::c_uint;
+pub type ma_channel_mix_mode = ::std::os::raw::c_int;
 pub const ma_standard_channel_map_microsoft: ma_standard_channel_map = 0;
 pub const ma_standard_channel_map_alsa: ma_standard_channel_map = 1;
 pub const ma_standard_channel_map_rfc3551: ma_standard_channel_map = 2;
@@ -2270,10 +226,10 @@ pub const ma_standard_channel_map_sound4: ma_standard_channel_map = 5;
 pub const ma_standard_channel_map_sndio: ma_standard_channel_map = 6;
 pub const ma_standard_channel_map_webaudio: ma_standard_channel_map = 3;
 pub const ma_standard_channel_map_default: ma_standard_channel_map = 0;
-pub type ma_standard_channel_map = ::std::os::raw::c_uint;
+pub type ma_standard_channel_map = ::std::os::raw::c_int;
 pub const ma_performance_profile_low_latency: ma_performance_profile = 0;
 pub const ma_performance_profile_conservative: ma_performance_profile = 1;
-pub type ma_performance_profile = ::std::os::raw::c_uint;
+pub type ma_performance_profile = ::std::os::raw::c_int;
 #[repr(C)]
 #[derive(Debug, Copy, Clone)]
 pub struct ma_allocation_callbacks {
@@ -2379,17 +335,8 @@ fn bindgen_test_layout_ma_allocation_callbacks() {
     }
     test_field_onFree();
 }
-impl Default for ma_allocation_callbacks {
-    fn default() -> Self {
-        let mut s = ::std::mem::MaybeUninit::<Self>::uninit();
-        unsafe {
-            ::std::ptr::write_bytes(s.as_mut_ptr(), 0, 1);
-            s.assume_init()
-        }
-    }
-}
 #[repr(C)]
-#[derive(Debug, Default, Copy, Clone)]
+#[derive(Debug, Copy, Clone)]
 pub struct ma_lcg {
     pub state: ma_int32,
 }
@@ -2433,168 +380,10 @@ pub const ma_thread_priority_highest: ma_thread_priority = 0;
 pub const ma_thread_priority_realtime: ma_thread_priority = 1;
 pub const ma_thread_priority_default: ma_thread_priority = 0;
 pub type ma_thread_priority = ::std::os::raw::c_int;
-pub type ma_thread = ma_pthread_t;
-pub type ma_mutex = ma_pthread_mutex_t;
-#[repr(C)]
-#[derive(Debug, Copy, Clone)]
-pub struct ma_event {
-    pub value: ma_uint32,
-    pub lock: ma_pthread_mutex_t,
-    pub cond: ma_pthread_cond_t,
-}
-#[test]
-fn bindgen_test_layout_ma_event() {
-    assert_eq!(
-        ::std::mem::size_of::<ma_event>(),
-        120usize,
-        concat!("Size of: ", stringify!(ma_event))
-    );
-    assert_eq!(
-        ::std::mem::align_of::<ma_event>(),
-        8usize,
-        concat!("Alignment of ", stringify!(ma_event))
-    );
-    fn test_field_value() {
-        assert_eq!(
-            unsafe {
-                let uninit = ::std::mem::MaybeUninit::<ma_event>::uninit();
-                let ptr = uninit.as_ptr();
-                ::std::ptr::addr_of!((*ptr).value) as usize - ptr as usize
-            },
-            0usize,
-            concat!(
-                "Offset of field: ",
-                stringify!(ma_event),
-                "::",
-                stringify!(value)
-            )
-        );
-    }
-    test_field_value();
-    fn test_field_lock() {
-        assert_eq!(
-            unsafe {
-                let uninit = ::std::mem::MaybeUninit::<ma_event>::uninit();
-                let ptr = uninit.as_ptr();
-                ::std::ptr::addr_of!((*ptr).lock) as usize - ptr as usize
-            },
-            8usize,
-            concat!(
-                "Offset of field: ",
-                stringify!(ma_event),
-                "::",
-                stringify!(lock)
-            )
-        );
-    }
-    test_field_lock();
-    fn test_field_cond() {
-        assert_eq!(
-            unsafe {
-                let uninit = ::std::mem::MaybeUninit::<ma_event>::uninit();
-                let ptr = uninit.as_ptr();
-                ::std::ptr::addr_of!((*ptr).cond) as usize - ptr as usize
-            },
-            72usize,
-            concat!(
-                "Offset of field: ",
-                stringify!(ma_event),
-                "::",
-                stringify!(cond)
-            )
-        );
-    }
-    test_field_cond();
-}
-impl Default for ma_event {
-    fn default() -> Self {
-        let mut s = ::std::mem::MaybeUninit::<Self>::uninit();
-        unsafe {
-            ::std::ptr::write_bytes(s.as_mut_ptr(), 0, 1);
-            s.assume_init()
-        }
-    }
-}
-#[repr(C)]
-#[derive(Debug, Copy, Clone)]
-pub struct ma_semaphore {
-    pub value: ::std::os::raw::c_int,
-    pub lock: ma_pthread_mutex_t,
-    pub cond: ma_pthread_cond_t,
-}
-#[test]
-fn bindgen_test_layout_ma_semaphore() {
-    assert_eq!(
-        ::std::mem::size_of::<ma_semaphore>(),
-        120usize,
-        concat!("Size of: ", stringify!(ma_semaphore))
-    );
-    assert_eq!(
-        ::std::mem::align_of::<ma_semaphore>(),
-        8usize,
-        concat!("Alignment of ", stringify!(ma_semaphore))
-    );
-    fn test_field_value() {
-        assert_eq!(
-            unsafe {
-                let uninit = ::std::mem::MaybeUninit::<ma_semaphore>::uninit();
-                let ptr = uninit.as_ptr();
-                ::std::ptr::addr_of!((*ptr).value) as usize - ptr as usize
-            },
-            0usize,
-            concat!(
-                "Offset of field: ",
-                stringify!(ma_semaphore),
-                "::",
-                stringify!(value)
-            )
-        );
-    }
-    test_field_value();
-    fn test_field_lock() {
-        assert_eq!(
-            unsafe {
-                let uninit = ::std::mem::MaybeUninit::<ma_semaphore>::uninit();
-                let ptr = uninit.as_ptr();
-                ::std::ptr::addr_of!((*ptr).lock) as usize - ptr as usize
-            },
-            8usize,
-            concat!(
-                "Offset of field: ",
-                stringify!(ma_semaphore),
-                "::",
-                stringify!(lock)
-            )
-        );
-    }
-    test_field_lock();
-    fn test_field_cond() {
-        assert_eq!(
-            unsafe {
-                let uninit = ::std::mem::MaybeUninit::<ma_semaphore>::uninit();
-                let ptr = uninit.as_ptr();
-                ::std::ptr::addr_of!((*ptr).cond) as usize - ptr as usize
-            },
-            72usize,
-            concat!(
-                "Offset of field: ",
-                stringify!(ma_semaphore),
-                "::",
-                stringify!(cond)
-            )
-        );
-    }
-    test_field_cond();
-}
-impl Default for ma_semaphore {
-    fn default() -> Self {
-        let mut s = ::std::mem::MaybeUninit::<Self>::uninit();
-        unsafe {
-            ::std::ptr::write_bytes(s.as_mut_ptr(), 0, 1);
-            s.assume_init()
-        }
-    }
-}
+pub type ma_thread = ma_handle;
+pub type ma_mutex = ma_handle;
+pub type ma_event = ma_handle;
+pub type ma_semaphore = ma_handle;
 extern "C" {
     pub fn ma_version(pMajor: *mut ma_uint32, pMinor: *mut ma_uint32, pRevision: *mut ma_uint32);
 }
@@ -2663,15 +452,6 @@ fn bindgen_test_layout_ma_log_callback() {
     }
     test_field_pUserData();
 }
-impl Default for ma_log_callback {
-    fn default() -> Self {
-        let mut s = ::std::mem::MaybeUninit::<Self>::uninit();
-        unsafe {
-            ::std::ptr::write_bytes(s.as_mut_ptr(), 0, 1);
-            s.assume_init()
-        }
-    }
-}
 extern "C" {
     pub fn ma_log_callback_init(
         onLog: ma_log_callback_proc,
@@ -2690,7 +470,7 @@ pub struct ma_log {
 fn bindgen_test_layout_ma_log() {
     assert_eq!(
         ::std::mem::size_of::<ma_log>(),
-        168usize,
+        112usize,
         concat!("Size of: ", stringify!(ma_log))
     );
     assert_eq!(
@@ -2766,15 +546,6 @@ fn bindgen_test_layout_ma_log() {
         );
     }
     test_field_lock();
-}
-impl Default for ma_log {
-    fn default() -> Self {
-        let mut s = ::std::mem::MaybeUninit::<Self>::uninit();
-        unsafe {
-            ::std::ptr::write_bytes(s.as_mut_ptr(), 0, 1);
-            s.assume_init()
-        }
-    }
 }
 extern "C" {
     pub fn ma_log_init(
@@ -2867,15 +638,6 @@ fn bindgen_test_layout_ma_biquad_coefficient() {
         );
     }
     test_field_s32();
-}
-impl Default for ma_biquad_coefficient {
-    fn default() -> Self {
-        let mut s = ::std::mem::MaybeUninit::<Self>::uninit();
-        unsafe {
-            ::std::ptr::write_bytes(s.as_mut_ptr(), 0, 1);
-            s.assume_init()
-        }
-    }
 }
 impl ::std::fmt::Debug for ma_biquad_coefficient {
     fn fmt(&self, f: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
@@ -3042,15 +804,6 @@ fn bindgen_test_layout_ma_biquad_config() {
         );
     }
     test_field_a2();
-}
-impl Default for ma_biquad_config {
-    fn default() -> Self {
-        let mut s = ::std::mem::MaybeUninit::<Self>::uninit();
-        unsafe {
-            ::std::ptr::write_bytes(s.as_mut_ptr(), 0, 1);
-            s.assume_init()
-        }
-    }
 }
 extern "C" {
     pub fn ma_biquad_config_init(
@@ -3279,15 +1032,6 @@ fn bindgen_test_layout_ma_biquad() {
     }
     test_field__ownsHeap();
 }
-impl Default for ma_biquad {
-    fn default() -> Self {
-        let mut s = ::std::mem::MaybeUninit::<Self>::uninit();
-        unsafe {
-            ::std::ptr::write_bytes(s.as_mut_ptr(), 0, 1);
-            s.assume_init()
-        }
-    }
-}
 impl ::std::fmt::Debug for ma_biquad {
     fn fmt(&self, f: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
         write ! (f , "ma_biquad {{ format: {:?}, channels: {:?}, b0: {:?}, b1: {:?}, b2: {:?}, a1: {:?}, a2: {:?}, pR1: {:?}, pR2: {:?}, _pHeap: {:?}, _ownsHeap: {:?} }}" , self . format , self . channels , self . b0 , self . b1 , self . b2 , self . a1 , self . a2 , self . pR1 , self . pR2 , self . _pHeap , self . _ownsHeap)
@@ -3444,15 +1188,6 @@ fn bindgen_test_layout_ma_lpf1_config() {
     }
     test_field_q();
 }
-impl Default for ma_lpf1_config {
-    fn default() -> Self {
-        let mut s = ::std::mem::MaybeUninit::<Self>::uninit();
-        unsafe {
-            ::std::ptr::write_bytes(s.as_mut_ptr(), 0, 1);
-            s.assume_init()
-        }
-    }
-}
 #[doc = "Low-Pass Filtering"]
 pub type ma_lpf2_config = ma_lpf1_config;
 extern "C" {
@@ -3597,15 +1332,6 @@ fn bindgen_test_layout_ma_lpf1() {
     }
     test_field__ownsHeap();
 }
-impl Default for ma_lpf1 {
-    fn default() -> Self {
-        let mut s = ::std::mem::MaybeUninit::<Self>::uninit();
-        unsafe {
-            ::std::ptr::write_bytes(s.as_mut_ptr(), 0, 1);
-            s.assume_init()
-        }
-    }
-}
 impl ::std::fmt::Debug for ma_lpf1 {
     fn fmt(&self, f: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
         write ! (f , "ma_lpf1 {{ format: {:?}, channels: {:?}, a: {:?}, pR1: {:?}, _pHeap: {:?}, _ownsHeap: {:?} }}" , self . format , self . channels , self . a , self . pR1 , self . _pHeap , self . _ownsHeap)
@@ -3685,15 +1411,6 @@ fn bindgen_test_layout_ma_lpf2() {
         );
     }
     test_field_bq();
-}
-impl Default for ma_lpf2 {
-    fn default() -> Self {
-        let mut s = ::std::mem::MaybeUninit::<Self>::uninit();
-        unsafe {
-            ::std::ptr::write_bytes(s.as_mut_ptr(), 0, 1);
-            s.assume_init()
-        }
-    }
 }
 impl ::std::fmt::Debug for ma_lpf2 {
     fn fmt(&self, f: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
@@ -3846,15 +1563,6 @@ fn bindgen_test_layout_ma_lpf_config() {
         );
     }
     test_field_order();
-}
-impl Default for ma_lpf_config {
-    fn default() -> Self {
-        let mut s = ::std::mem::MaybeUninit::<Self>::uninit();
-        unsafe {
-            ::std::ptr::write_bytes(s.as_mut_ptr(), 0, 1);
-            s.assume_init()
-        }
-    }
 }
 extern "C" {
     pub fn ma_lpf_config_init(
@@ -4044,15 +1752,6 @@ fn bindgen_test_layout_ma_lpf() {
     }
     test_field__ownsHeap();
 }
-impl Default for ma_lpf {
-    fn default() -> Self {
-        let mut s = ::std::mem::MaybeUninit::<Self>::uninit();
-        unsafe {
-            ::std::ptr::write_bytes(s.as_mut_ptr(), 0, 1);
-            s.assume_init()
-        }
-    }
-}
 extern "C" {
     pub fn ma_lpf_get_heap_size(
         pConfig: *const ma_lpf_config,
@@ -4201,15 +1900,6 @@ fn bindgen_test_layout_ma_hpf1_config() {
     }
     test_field_q();
 }
-impl Default for ma_hpf1_config {
-    fn default() -> Self {
-        let mut s = ::std::mem::MaybeUninit::<Self>::uninit();
-        unsafe {
-            ::std::ptr::write_bytes(s.as_mut_ptr(), 0, 1);
-            s.assume_init()
-        }
-    }
-}
 #[doc = "High-Pass Filtering"]
 pub type ma_hpf2_config = ma_hpf1_config;
 extern "C" {
@@ -4354,15 +2044,6 @@ fn bindgen_test_layout_ma_hpf1() {
     }
     test_field__ownsHeap();
 }
-impl Default for ma_hpf1 {
-    fn default() -> Self {
-        let mut s = ::std::mem::MaybeUninit::<Self>::uninit();
-        unsafe {
-            ::std::ptr::write_bytes(s.as_mut_ptr(), 0, 1);
-            s.assume_init()
-        }
-    }
-}
 impl ::std::fmt::Debug for ma_hpf1 {
     fn fmt(&self, f: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
         write ! (f , "ma_hpf1 {{ format: {:?}, channels: {:?}, a: {:?}, pR1: {:?}, _pHeap: {:?}, _ownsHeap: {:?} }}" , self . format , self . channels , self . a , self . pR1 , self . _pHeap , self . _ownsHeap)
@@ -4439,15 +2120,6 @@ fn bindgen_test_layout_ma_hpf2() {
         );
     }
     test_field_bq();
-}
-impl Default for ma_hpf2 {
-    fn default() -> Self {
-        let mut s = ::std::mem::MaybeUninit::<Self>::uninit();
-        unsafe {
-            ::std::ptr::write_bytes(s.as_mut_ptr(), 0, 1);
-            s.assume_init()
-        }
-    }
 }
 impl ::std::fmt::Debug for ma_hpf2 {
     fn fmt(&self, f: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
@@ -4597,15 +2269,6 @@ fn bindgen_test_layout_ma_hpf_config() {
         );
     }
     test_field_order();
-}
-impl Default for ma_hpf_config {
-    fn default() -> Self {
-        let mut s = ::std::mem::MaybeUninit::<Self>::uninit();
-        unsafe {
-            ::std::ptr::write_bytes(s.as_mut_ptr(), 0, 1);
-            s.assume_init()
-        }
-    }
 }
 extern "C" {
     pub fn ma_hpf_config_init(
@@ -4795,15 +2458,6 @@ fn bindgen_test_layout_ma_hpf() {
     }
     test_field__ownsHeap();
 }
-impl Default for ma_hpf {
-    fn default() -> Self {
-        let mut s = ::std::mem::MaybeUninit::<Self>::uninit();
-        unsafe {
-            ::std::ptr::write_bytes(s.as_mut_ptr(), 0, 1);
-            s.assume_init()
-        }
-    }
-}
 extern "C" {
     pub fn ma_hpf_get_heap_size(
         pConfig: *const ma_hpf_config,
@@ -4949,15 +2603,6 @@ fn bindgen_test_layout_ma_bpf2_config() {
     }
     test_field_q();
 }
-impl Default for ma_bpf2_config {
-    fn default() -> Self {
-        let mut s = ::std::mem::MaybeUninit::<Self>::uninit();
-        unsafe {
-            ::std::ptr::write_bytes(s.as_mut_ptr(), 0, 1);
-            s.assume_init()
-        }
-    }
-}
 extern "C" {
     pub fn ma_bpf2_config_init(
         format: ma_format,
@@ -5001,15 +2646,6 @@ fn bindgen_test_layout_ma_bpf2() {
         );
     }
     test_field_bq();
-}
-impl Default for ma_bpf2 {
-    fn default() -> Self {
-        let mut s = ::std::mem::MaybeUninit::<Self>::uninit();
-        unsafe {
-            ::std::ptr::write_bytes(s.as_mut_ptr(), 0, 1);
-            s.assume_init()
-        }
-    }
 }
 impl ::std::fmt::Debug for ma_bpf2 {
     fn fmt(&self, f: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
@@ -5160,15 +2796,6 @@ fn bindgen_test_layout_ma_bpf_config() {
     }
     test_field_order();
 }
-impl Default for ma_bpf_config {
-    fn default() -> Self {
-        let mut s = ::std::mem::MaybeUninit::<Self>::uninit();
-        unsafe {
-            ::std::ptr::write_bytes(s.as_mut_ptr(), 0, 1);
-            s.assume_init()
-        }
-    }
-}
 extern "C" {
     pub fn ma_bpf_config_init(
         format: ma_format,
@@ -5302,15 +2929,6 @@ fn bindgen_test_layout_ma_bpf() {
         );
     }
     test_field__ownsHeap();
-}
-impl Default for ma_bpf {
-    fn default() -> Self {
-        let mut s = ::std::mem::MaybeUninit::<Self>::uninit();
-        unsafe {
-            ::std::ptr::write_bytes(s.as_mut_ptr(), 0, 1);
-            s.assume_init()
-        }
-    }
 }
 extern "C" {
     pub fn ma_bpf_get_heap_size(
@@ -5457,15 +3075,6 @@ fn bindgen_test_layout_ma_notch2_config() {
     }
     test_field_frequency();
 }
-impl Default for ma_notch2_config {
-    fn default() -> Self {
-        let mut s = ::std::mem::MaybeUninit::<Self>::uninit();
-        unsafe {
-            ::std::ptr::write_bytes(s.as_mut_ptr(), 0, 1);
-            s.assume_init()
-        }
-    }
-}
 #[doc = "Notching Filter"]
 pub type ma_notch_config = ma_notch2_config;
 extern "C" {
@@ -5511,15 +3120,6 @@ fn bindgen_test_layout_ma_notch2() {
         );
     }
     test_field_bq();
-}
-impl Default for ma_notch2 {
-    fn default() -> Self {
-        let mut s = ::std::mem::MaybeUninit::<Self>::uninit();
-        unsafe {
-            ::std::ptr::write_bytes(s.as_mut_ptr(), 0, 1);
-            s.assume_init()
-        }
-    }
 }
 impl ::std::fmt::Debug for ma_notch2 {
     fn fmt(&self, f: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
@@ -5693,15 +3293,6 @@ fn bindgen_test_layout_ma_peak2_config() {
     }
     test_field_frequency();
 }
-impl Default for ma_peak2_config {
-    fn default() -> Self {
-        let mut s = ::std::mem::MaybeUninit::<Self>::uninit();
-        unsafe {
-            ::std::ptr::write_bytes(s.as_mut_ptr(), 0, 1);
-            s.assume_init()
-        }
-    }
-}
 #[doc = "Peaking EQ Filter"]
 pub type ma_peak_config = ma_peak2_config;
 extern "C" {
@@ -5748,15 +3339,6 @@ fn bindgen_test_layout_ma_peak2() {
         );
     }
     test_field_bq();
-}
-impl Default for ma_peak2 {
-    fn default() -> Self {
-        let mut s = ::std::mem::MaybeUninit::<Self>::uninit();
-        unsafe {
-            ::std::ptr::write_bytes(s.as_mut_ptr(), 0, 1);
-            s.assume_init()
-        }
-    }
 }
 impl ::std::fmt::Debug for ma_peak2 {
     fn fmt(&self, f: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
@@ -5929,15 +3511,6 @@ fn bindgen_test_layout_ma_loshelf2_config() {
     }
     test_field_frequency();
 }
-impl Default for ma_loshelf2_config {
-    fn default() -> Self {
-        let mut s = ::std::mem::MaybeUninit::<Self>::uninit();
-        unsafe {
-            ::std::ptr::write_bytes(s.as_mut_ptr(), 0, 1);
-            s.assume_init()
-        }
-    }
-}
 #[doc = "Low Shelf Filter"]
 pub type ma_loshelf_config = ma_loshelf2_config;
 extern "C" {
@@ -5984,15 +3557,6 @@ fn bindgen_test_layout_ma_loshelf2() {
         );
     }
     test_field_bq();
-}
-impl Default for ma_loshelf2 {
-    fn default() -> Self {
-        let mut s = ::std::mem::MaybeUninit::<Self>::uninit();
-        unsafe {
-            ::std::ptr::write_bytes(s.as_mut_ptr(), 0, 1);
-            s.assume_init()
-        }
-    }
 }
 impl ::std::fmt::Debug for ma_loshelf2 {
     fn fmt(&self, f: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
@@ -6168,15 +3732,6 @@ fn bindgen_test_layout_ma_hishelf2_config() {
     }
     test_field_frequency();
 }
-impl Default for ma_hishelf2_config {
-    fn default() -> Self {
-        let mut s = ::std::mem::MaybeUninit::<Self>::uninit();
-        unsafe {
-            ::std::ptr::write_bytes(s.as_mut_ptr(), 0, 1);
-            s.assume_init()
-        }
-    }
-}
 #[doc = "High Shelf Filter"]
 pub type ma_hishelf_config = ma_hishelf2_config;
 extern "C" {
@@ -6223,15 +3778,6 @@ fn bindgen_test_layout_ma_hishelf2() {
         );
     }
     test_field_bq();
-}
-impl Default for ma_hishelf2 {
-    fn default() -> Self {
-        let mut s = ::std::mem::MaybeUninit::<Self>::uninit();
-        unsafe {
-            ::std::ptr::write_bytes(s.as_mut_ptr(), 0, 1);
-            s.assume_init()
-        }
-    }
 }
 impl ::std::fmt::Debug for ma_hishelf2 {
     fn fmt(&self, f: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
@@ -6282,7 +3828,7 @@ extern "C" {
     pub fn ma_hishelf2_get_latency(pFilter: *const ma_hishelf2) -> ma_uint32;
 }
 #[repr(C)]
-#[derive(Debug, Default, Copy, Clone)]
+#[derive(Debug, Copy, Clone)]
 pub struct ma_delay_config {
     pub channels: ma_uint32,
     pub sampleRate: ma_uint32,
@@ -6521,15 +4067,6 @@ fn bindgen_test_layout_ma_delay() {
     }
     test_field_pBuffer();
 }
-impl Default for ma_delay {
-    fn default() -> Self {
-        let mut s = ::std::mem::MaybeUninit::<Self>::uninit();
-        unsafe {
-            ::std::ptr::write_bytes(s.as_mut_ptr(), 0, 1);
-            s.assume_init()
-        }
-    }
-}
 extern "C" {
     pub fn ma_delay_init(
         pConfig: *const ma_delay_config,
@@ -6570,7 +4107,7 @@ extern "C" {
     pub fn ma_delay_get_decay(pDelay: *const ma_delay) -> f32;
 }
 #[repr(C)]
-#[derive(Debug, Default, Copy, Clone)]
+#[derive(Debug, Copy, Clone)]
 pub struct ma_gainer_config {
     pub channels: ma_uint32,
     pub smoothTimeInFrames: ma_uint32,
@@ -6753,15 +4290,6 @@ fn bindgen_test_layout_ma_gainer() {
     }
     test_field__ownsHeap();
 }
-impl Default for ma_gainer {
-    fn default() -> Self {
-        let mut s = ::std::mem::MaybeUninit::<Self>::uninit();
-        unsafe {
-            ::std::ptr::write_bytes(s.as_mut_ptr(), 0, 1);
-            s.assume_init()
-        }
-    }
-}
 extern "C" {
     pub fn ma_gainer_get_heap_size(
         pConfig: *const ma_gainer_config,
@@ -6804,7 +4332,7 @@ extern "C" {
 }
 pub const ma_pan_mode_balance: ma_pan_mode = 0;
 pub const ma_pan_mode_pan: ma_pan_mode = 1;
-pub type ma_pan_mode = ::std::os::raw::c_uint;
+pub type ma_pan_mode = ::std::os::raw::c_int;
 #[repr(C)]
 #[derive(Debug, Copy, Clone)]
 pub struct ma_panner_config {
@@ -6893,15 +4421,6 @@ fn bindgen_test_layout_ma_panner_config() {
         );
     }
     test_field_pan();
-}
-impl Default for ma_panner_config {
-    fn default() -> Self {
-        let mut s = ::std::mem::MaybeUninit::<Self>::uninit();
-        unsafe {
-            ::std::ptr::write_bytes(s.as_mut_ptr(), 0, 1);
-            s.assume_init()
-        }
-    }
 }
 extern "C" {
     pub fn ma_panner_config_init(format: ma_format, channels: ma_uint32) -> ma_panner_config;
@@ -6994,15 +4513,6 @@ fn bindgen_test_layout_ma_panner() {
         );
     }
     test_field_pan();
-}
-impl Default for ma_panner {
-    fn default() -> Self {
-        let mut s = ::std::mem::MaybeUninit::<Self>::uninit();
-        unsafe {
-            ::std::ptr::write_bytes(s.as_mut_ptr(), 0, 1);
-            s.assume_init()
-        }
-    }
 }
 extern "C" {
     pub fn ma_panner_init(pConfig: *const ma_panner_config, pPanner: *mut ma_panner) -> ma_result;
@@ -7097,15 +4607,6 @@ fn bindgen_test_layout_ma_fader_config() {
         );
     }
     test_field_sampleRate();
-}
-impl Default for ma_fader_config {
-    fn default() -> Self {
-        let mut s = ::std::mem::MaybeUninit::<Self>::uninit();
-        unsafe {
-            ::std::ptr::write_bytes(s.as_mut_ptr(), 0, 1);
-            s.assume_init()
-        }
-    }
 }
 extern "C" {
     pub fn ma_fader_config_init(
@@ -7221,15 +4722,6 @@ fn bindgen_test_layout_ma_fader() {
     }
     test_field_cursorInFrames();
 }
-impl Default for ma_fader {
-    fn default() -> Self {
-        let mut s = ::std::mem::MaybeUninit::<Self>::uninit();
-        unsafe {
-            ::std::ptr::write_bytes(s.as_mut_ptr(), 0, 1);
-            s.assume_init()
-        }
-    }
-}
 extern "C" {
     pub fn ma_fader_init(pConfig: *const ma_fader_config, pFader: *mut ma_fader) -> ma_result;
 }
@@ -7261,7 +4753,7 @@ extern "C" {
     pub fn ma_fader_get_current_volume(pFader: *mut ma_fader) -> f32;
 }
 #[repr(C)]
-#[derive(Debug, Default, Copy, Clone)]
+#[derive(Debug, Copy, Clone)]
 pub struct ma_vec3f {
     pub x: f32,
     pub y: f32,
@@ -7335,13 +4827,13 @@ pub const ma_attenuation_model_none: ma_attenuation_model = 0;
 pub const ma_attenuation_model_inverse: ma_attenuation_model = 1;
 pub const ma_attenuation_model_linear: ma_attenuation_model = 2;
 pub const ma_attenuation_model_exponential: ma_attenuation_model = 3;
-pub type ma_attenuation_model = ::std::os::raw::c_uint;
+pub type ma_attenuation_model = ::std::os::raw::c_int;
 pub const ma_positioning_absolute: ma_positioning = 0;
 pub const ma_positioning_relative: ma_positioning = 1;
-pub type ma_positioning = ::std::os::raw::c_uint;
+pub type ma_positioning = ::std::os::raw::c_int;
 pub const ma_handedness_right: ma_handedness = 0;
 pub const ma_handedness_left: ma_handedness = 1;
-pub type ma_handedness = ::std::os::raw::c_uint;
+pub type ma_handedness = ::std::os::raw::c_int;
 #[repr(C)]
 #[derive(Debug, Copy, Clone)]
 pub struct ma_spatializer_listener_config {
@@ -7503,15 +4995,6 @@ fn bindgen_test_layout_ma_spatializer_listener_config() {
     }
     test_field_worldUp();
 }
-impl Default for ma_spatializer_listener_config {
-    fn default() -> Self {
-        let mut s = ::std::mem::MaybeUninit::<Self>::uninit();
-        unsafe {
-            ::std::ptr::write_bytes(s.as_mut_ptr(), 0, 1);
-            s.assume_init()
-        }
-    }
-}
 extern "C" {
     pub fn ma_spatializer_listener_config_init(
         channelsOut: ma_uint32,
@@ -7659,15 +5142,6 @@ fn bindgen_test_layout_ma_spatializer_listener() {
         );
     }
     test_field__pHeap();
-}
-impl Default for ma_spatializer_listener {
-    fn default() -> Self {
-        let mut s = ::std::mem::MaybeUninit::<Self>::uninit();
-        unsafe {
-            ::std::ptr::write_bytes(s.as_mut_ptr(), 0, 1);
-            s.assume_init()
-        }
-    }
 }
 extern "C" {
     pub fn ma_spatializer_listener_get_heap_size(
@@ -8112,15 +5586,6 @@ fn bindgen_test_layout_ma_spatializer_config() {
         );
     }
     test_field_gainSmoothTimeInFrames();
-}
-impl Default for ma_spatializer_config {
-    fn default() -> Self {
-        let mut s = ::std::mem::MaybeUninit::<Self>::uninit();
-        unsafe {
-            ::std::ptr::write_bytes(s.as_mut_ptr(), 0, 1);
-            s.assume_init()
-        }
-    }
 }
 extern "C" {
     pub fn ma_spatializer_config_init(
@@ -8595,15 +6060,6 @@ fn bindgen_test_layout_ma_spatializer() {
     }
     test_field__ownsHeap();
 }
-impl Default for ma_spatializer {
-    fn default() -> Self {
-        let mut s = ::std::mem::MaybeUninit::<Self>::uninit();
-        unsafe {
-            ::std::ptr::write_bytes(s.as_mut_ptr(), 0, 1);
-            s.assume_init()
-        }
-    }
-}
 extern "C" {
     pub fn ma_spatializer_get_heap_size(
         pConfig: *const ma_spatializer_config,
@@ -8880,15 +6336,6 @@ fn bindgen_test_layout_ma_linear_resampler_config() {
     }
     test_field_lpfNyquistFactor();
 }
-impl Default for ma_linear_resampler_config {
-    fn default() -> Self {
-        let mut s = ::std::mem::MaybeUninit::<Self>::uninit();
-        unsafe {
-            ::std::ptr::write_bytes(s.as_mut_ptr(), 0, 1);
-            s.assume_init()
-        }
-    }
-}
 extern "C" {
     pub fn ma_linear_resampler_config_init(
         format: ma_format,
@@ -8967,15 +6414,6 @@ fn bindgen_test_layout_ma_linear_resampler__bindgen_ty_1() {
     }
     test_field_s16();
 }
-impl Default for ma_linear_resampler__bindgen_ty_1 {
-    fn default() -> Self {
-        let mut s = ::std::mem::MaybeUninit::<Self>::uninit();
-        unsafe {
-            ::std::ptr::write_bytes(s.as_mut_ptr(), 0, 1);
-            s.assume_init()
-        }
-    }
-}
 impl ::std::fmt::Debug for ma_linear_resampler__bindgen_ty_1 {
     fn fmt(&self, f: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
         write!(f, "ma_linear_resampler__bindgen_ty_1 {{ union }}")
@@ -9036,15 +6474,6 @@ fn bindgen_test_layout_ma_linear_resampler__bindgen_ty_2() {
         );
     }
     test_field_s16();
-}
-impl Default for ma_linear_resampler__bindgen_ty_2 {
-    fn default() -> Self {
-        let mut s = ::std::mem::MaybeUninit::<Self>::uninit();
-        unsafe {
-            ::std::ptr::write_bytes(s.as_mut_ptr(), 0, 1);
-            s.assume_init()
-        }
-    }
 }
 impl ::std::fmt::Debug for ma_linear_resampler__bindgen_ty_2 {
     fn fmt(&self, f: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
@@ -9234,15 +6663,6 @@ fn bindgen_test_layout_ma_linear_resampler() {
     }
     test_field__ownsHeap();
 }
-impl Default for ma_linear_resampler {
-    fn default() -> Self {
-        let mut s = ::std::mem::MaybeUninit::<Self>::uninit();
-        unsafe {
-            ::std::ptr::write_bytes(s.as_mut_ptr(), 0, 1);
-            s.assume_init()
-        }
-    }
-}
 impl ::std::fmt::Debug for ma_linear_resampler {
     fn fmt(&self, f: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
         write ! (f , "ma_linear_resampler {{ config: {:?}, inAdvanceInt: {:?}, inAdvanceFrac: {:?}, inTimeInt: {:?}, inTimeFrac: {:?}, x0: {:?}, x1: {:?}, lpf: {:?}, _pHeap: {:?}, _ownsHeap: {:?} }}" , self . config , self . inAdvanceInt , self . inAdvanceFrac , self . inTimeInt , self . inTimeFrac , self . x0 , self . x1 , self . lpf , self . _pHeap , self . _ownsHeap)
@@ -9325,7 +6745,7 @@ extern "C" {
 }
 pub type ma_resampling_backend = ::std::os::raw::c_void;
 #[repr(C)]
-#[derive(Debug, Default, Copy, Clone)]
+#[derive(Debug, Copy, Clone)]
 pub struct ma_resampling_backend_vtable {
     pub onGetHeapSize: ::std::option::Option<
         unsafe extern "C" fn(
@@ -9587,7 +7007,7 @@ fn bindgen_test_layout_ma_resampling_backend_vtable() {
 }
 pub const ma_resample_algorithm_linear: ma_resample_algorithm = 0;
 pub const ma_resample_algorithm_custom: ma_resample_algorithm = 1;
-pub type ma_resample_algorithm = ::std::os::raw::c_uint;
+pub type ma_resample_algorithm = ::std::os::raw::c_int;
 #[repr(C)]
 #[derive(Debug, Copy, Clone)]
 pub struct ma_resampler_config {
@@ -9601,7 +7021,7 @@ pub struct ma_resampler_config {
     pub linear: ma_resampler_config__bindgen_ty_1,
 }
 #[repr(C)]
-#[derive(Debug, Default, Copy, Clone)]
+#[derive(Debug, Copy, Clone)]
 pub struct ma_resampler_config__bindgen_ty_1 {
     pub lpfOrder: ma_uint32,
 }
@@ -9787,15 +7207,6 @@ fn bindgen_test_layout_ma_resampler_config() {
     }
     test_field_linear();
 }
-impl Default for ma_resampler_config {
-    fn default() -> Self {
-        let mut s = ::std::mem::MaybeUninit::<Self>::uninit();
-        unsafe {
-            ::std::ptr::write_bytes(s.as_mut_ptr(), 0, 1);
-            s.assume_init()
-        }
-    }
-}
 extern "C" {
     pub fn ma_resampler_config_init(
         format: ma_format,
@@ -9853,15 +7264,6 @@ fn bindgen_test_layout_ma_resampler__bindgen_ty_1() {
         );
     }
     test_field_linear();
-}
-impl Default for ma_resampler__bindgen_ty_1 {
-    fn default() -> Self {
-        let mut s = ::std::mem::MaybeUninit::<Self>::uninit();
-        unsafe {
-            ::std::ptr::write_bytes(s.as_mut_ptr(), 0, 1);
-            s.assume_init()
-        }
-    }
 }
 impl ::std::fmt::Debug for ma_resampler__bindgen_ty_1 {
     fn fmt(&self, f: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
@@ -10051,15 +7453,6 @@ fn bindgen_test_layout_ma_resampler() {
     }
     test_field__ownsHeap();
 }
-impl Default for ma_resampler {
-    fn default() -> Self {
-        let mut s = ::std::mem::MaybeUninit::<Self>::uninit();
-        unsafe {
-            ::std::ptr::write_bytes(s.as_mut_ptr(), 0, 1);
-            s.assume_init()
-        }
-    }
-}
 impl ::std::fmt::Debug for ma_resampler {
     fn fmt(&self, f: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
         write ! (f , "ma_resampler {{ pBackend: {:?}, pBackendVTable: {:?}, pBackendUserData: {:?}, format: {:?}, channels: {:?}, sampleRateIn: {:?}, sampleRateOut: {:?}, state: {:?}, _pHeap: {:?}, _ownsHeap: {:?} }}" , self . pBackend , self . pBackendVTable , self . pBackendUserData , self . format , self . channels , self . sampleRateIn , self . sampleRateOut , self . state , self . _pHeap , self . _ownsHeap)
@@ -10140,12 +7533,12 @@ pub const ma_channel_conversion_path_mono_in: ma_channel_conversion_path = 3;
 pub const ma_channel_conversion_path_shuffle: ma_channel_conversion_path = 4;
 pub const ma_channel_conversion_path_weights: ma_channel_conversion_path = 5;
 #[doc = "Channel Conversion"]
-pub type ma_channel_conversion_path = ::std::os::raw::c_uint;
+pub type ma_channel_conversion_path = ::std::os::raw::c_int;
 pub const ma_mono_expansion_mode_duplicate: ma_mono_expansion_mode = 0;
 pub const ma_mono_expansion_mode_average: ma_mono_expansion_mode = 1;
 pub const ma_mono_expansion_mode_stereo_only: ma_mono_expansion_mode = 2;
 pub const ma_mono_expansion_mode_default: ma_mono_expansion_mode = 0;
-pub type ma_mono_expansion_mode = ::std::os::raw::c_uint;
+pub type ma_mono_expansion_mode = ::std::os::raw::c_int;
 #[repr(C)]
 #[derive(Debug, Copy, Clone)]
 pub struct ma_channel_converter_config {
@@ -10289,15 +7682,6 @@ fn bindgen_test_layout_ma_channel_converter_config() {
     }
     test_field_ppWeights();
 }
-impl Default for ma_channel_converter_config {
-    fn default() -> Self {
-        let mut s = ::std::mem::MaybeUninit::<Self>::uninit();
-        unsafe {
-            ::std::ptr::write_bytes(s.as_mut_ptr(), 0, 1);
-            s.assume_init()
-        }
-    }
-}
 extern "C" {
     pub fn ma_channel_converter_config_init(
         format: ma_format,
@@ -10380,15 +7764,6 @@ fn bindgen_test_layout_ma_channel_converter__bindgen_ty_1() {
         );
     }
     test_field_s16();
-}
-impl Default for ma_channel_converter__bindgen_ty_1 {
-    fn default() -> Self {
-        let mut s = ::std::mem::MaybeUninit::<Self>::uninit();
-        unsafe {
-            ::std::ptr::write_bytes(s.as_mut_ptr(), 0, 1);
-            s.assume_init()
-        }
-    }
 }
 impl ::std::fmt::Debug for ma_channel_converter__bindgen_ty_1 {
     fn fmt(&self, f: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
@@ -10594,15 +7969,6 @@ fn bindgen_test_layout_ma_channel_converter() {
         );
     }
     test_field__ownsHeap();
-}
-impl Default for ma_channel_converter {
-    fn default() -> Self {
-        let mut s = ::std::mem::MaybeUninit::<Self>::uninit();
-        unsafe {
-            ::std::ptr::write_bytes(s.as_mut_ptr(), 0, 1);
-            s.assume_init()
-        }
-    }
 }
 impl ::std::fmt::Debug for ma_channel_converter {
     fn fmt(&self, f: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
@@ -10909,15 +8275,6 @@ fn bindgen_test_layout_ma_data_converter_config() {
     }
     test_field_resampling();
 }
-impl Default for ma_data_converter_config {
-    fn default() -> Self {
-        let mut s = ::std::mem::MaybeUninit::<Self>::uninit();
-        unsafe {
-            ::std::ptr::write_bytes(s.as_mut_ptr(), 0, 1);
-            s.assume_init()
-        }
-    }
-}
 extern "C" {
     pub fn ma_data_converter_config_init_default() -> ma_data_converter_config;
 }
@@ -10937,7 +8294,7 @@ pub const ma_data_converter_execution_path_channels_only: ma_data_converter_exec
 pub const ma_data_converter_execution_path_resample_only: ma_data_converter_execution_path = 3;
 pub const ma_data_converter_execution_path_resample_first: ma_data_converter_execution_path = 4;
 pub const ma_data_converter_execution_path_channels_first: ma_data_converter_execution_path = 5;
-pub type ma_data_converter_execution_path = ::std::os::raw::c_uint;
+pub type ma_data_converter_execution_path = ::std::os::raw::c_int;
 #[repr(C)]
 #[derive(Copy, Clone)]
 pub struct ma_data_converter {
@@ -11260,15 +8617,6 @@ fn bindgen_test_layout_ma_data_converter() {
         );
     }
     test_field__pHeap();
-}
-impl Default for ma_data_converter {
-    fn default() -> Self {
-        let mut s = ::std::mem::MaybeUninit::<Self>::uninit();
-        unsafe {
-            ::std::ptr::write_bytes(s.as_mut_ptr(), 0, 1);
-            s.assume_init()
-        }
-    }
 }
 impl ::std::fmt::Debug for ma_data_converter {
     fn fmt(&self, f: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
@@ -11819,15 +9167,6 @@ fn bindgen_test_layout_ma_rb() {
     }
     test_field_allocationCallbacks();
 }
-impl Default for ma_rb {
-    fn default() -> Self {
-        let mut s = ::std::mem::MaybeUninit::<Self>::uninit();
-        unsafe {
-            ::std::ptr::write_bytes(s.as_mut_ptr(), 0, 1);
-            s.assume_init()
-        }
-    }
-}
 extern "C" {
     pub fn ma_rb_init_ex(
         subbufferSizeInBytes: usize,
@@ -11974,15 +9313,6 @@ fn bindgen_test_layout_ma_pcm_rb() {
     }
     test_field_channels();
 }
-impl Default for ma_pcm_rb {
-    fn default() -> Self {
-        let mut s = ::std::mem::MaybeUninit::<Self>::uninit();
-        unsafe {
-            ::std::ptr::write_bytes(s.as_mut_ptr(), 0, 1);
-            s.assume_init()
-        }
-    }
-}
 extern "C" {
     pub fn ma_pcm_rb_init_ex(
         format: ma_format,
@@ -12099,15 +9429,6 @@ fn bindgen_test_layout_ma_duplex_rb() {
         );
     }
     test_field_rb();
-}
-impl Default for ma_duplex_rb {
-    fn default() -> Self {
-        let mut s = ::std::mem::MaybeUninit::<Self>::uninit();
-        unsafe {
-            ::std::ptr::write_bytes(s.as_mut_ptr(), 0, 1);
-            s.assume_init()
-        }
-    }
 }
 extern "C" {
     pub fn ma_duplex_rb_init(
@@ -12227,7 +9548,7 @@ pub struct ma_fence {
 fn bindgen_test_layout_ma_fence() {
     assert_eq!(
         ::std::mem::size_of::<ma_fence>(),
-        128usize,
+        16usize,
         concat!("Size of: ", stringify!(ma_fence))
     );
     assert_eq!(
@@ -12259,7 +9580,7 @@ fn bindgen_test_layout_ma_fence() {
                 let ptr = uninit.as_ptr();
                 ::std::ptr::addr_of!((*ptr).counter) as usize - ptr as usize
             },
-            120usize,
+            8usize,
             concat!(
                 "Offset of field: ",
                 stringify!(ma_fence),
@@ -12269,15 +9590,6 @@ fn bindgen_test_layout_ma_fence() {
         );
     }
     test_field_counter();
-}
-impl Default for ma_fence {
-    fn default() -> Self {
-        let mut s = ::std::mem::MaybeUninit::<Self>::uninit();
-        unsafe {
-            ::std::ptr::write_bytes(s.as_mut_ptr(), 0, 1);
-            s.assume_init()
-        }
-    }
 }
 extern "C" {
     pub fn ma_fence_init(pFence: *mut ma_fence) -> ma_result;
@@ -12296,7 +9608,7 @@ extern "C" {
 }
 pub type ma_async_notification = ::std::os::raw::c_void;
 #[repr(C)]
-#[derive(Debug, Default, Copy, Clone)]
+#[derive(Debug, Copy, Clone)]
 pub struct ma_async_notification_callbacks {
     pub onSignal:
         ::std::option::Option<unsafe extern "C" fn(pNotification: *mut ma_async_notification)>,
@@ -12335,7 +9647,7 @@ extern "C" {
     pub fn ma_async_notification_signal(pNotification: *mut ma_async_notification) -> ma_result;
 }
 #[repr(C)]
-#[derive(Debug, Default, Copy, Clone)]
+#[derive(Debug, Copy, Clone)]
 pub struct ma_async_notification_poll {
     pub cb: ma_async_notification_callbacks,
     pub signalled: ma_bool32,
@@ -12407,7 +9719,7 @@ pub struct ma_async_notification_event {
 fn bindgen_test_layout_ma_async_notification_event() {
     assert_eq!(
         ::std::mem::size_of::<ma_async_notification_event>(),
-        128usize,
+        16usize,
         concat!("Size of: ", stringify!(ma_async_notification_event))
     );
     assert_eq!(
@@ -12450,15 +9762,6 @@ fn bindgen_test_layout_ma_async_notification_event() {
     }
     test_field_e();
 }
-impl Default for ma_async_notification_event {
-    fn default() -> Self {
-        let mut s = ::std::mem::MaybeUninit::<Self>::uninit();
-        unsafe {
-            ::std::ptr::write_bytes(s.as_mut_ptr(), 0, 1);
-            s.assume_init()
-        }
-    }
-}
 extern "C" {
     pub fn ma_async_notification_event_init(
         pNotificationEvent: *mut ma_async_notification_event,
@@ -12481,7 +9784,7 @@ extern "C" {
 }
 #[doc = "Job Queue"]
 #[repr(C)]
-#[derive(Debug, Default, Copy, Clone)]
+#[derive(Debug, Copy, Clone)]
 pub struct ma_slot_allocator_config {
     pub capacity: ma_uint32,
 }
@@ -12519,7 +9822,7 @@ extern "C" {
     pub fn ma_slot_allocator_config_init(capacity: ma_uint32) -> ma_slot_allocator_config;
 }
 #[repr(C)]
-#[derive(Debug, Default, Copy, Clone)]
+#[derive(Debug, Copy, Clone)]
 pub struct ma_slot_allocator_group {
     pub bitfield: ma_uint32,
 }
@@ -12678,15 +9981,6 @@ fn bindgen_test_layout_ma_slot_allocator() {
     }
     test_field__pHeap();
 }
-impl Default for ma_slot_allocator {
-    fn default() -> Self {
-        let mut s = ::std::mem::MaybeUninit::<Self>::uninit();
-        unsafe {
-            ::std::ptr::write_bytes(s.as_mut_ptr(), 0, 1);
-            s.assume_init()
-        }
-    }
-}
 extern "C" {
     pub fn ma_slot_allocator_get_heap_size(
         pConfig: *const ma_slot_allocator_config,
@@ -12737,7 +10031,7 @@ pub const MA_JOB_TYPE_RESOURCE_MANAGER_PAGE_DATA_STREAM: ma_job_type = 9;
 pub const MA_JOB_TYPE_RESOURCE_MANAGER_SEEK_DATA_STREAM: ma_job_type = 10;
 pub const MA_JOB_TYPE_DEVICE_AAUDIO_REROUTE: ma_job_type = 11;
 pub const MA_JOB_TYPE_COUNT: ma_job_type = 12;
-pub type ma_job_type = ::std::os::raw::c_uint;
+pub type ma_job_type = ::std::os::raw::c_int;
 #[repr(C)]
 #[derive(Copy, Clone)]
 pub struct ma_job {
@@ -12753,7 +10047,7 @@ pub union ma_job__bindgen_ty_1 {
     pub allocation: ma_uint64,
 }
 #[repr(C)]
-#[derive(Debug, Default, Copy, Clone)]
+#[derive(Debug, Copy, Clone)]
 pub struct ma_job__bindgen_ty_1__bindgen_ty_1 {
     pub code: ma_uint16,
     pub slot: ma_uint16,
@@ -12876,15 +10170,6 @@ fn bindgen_test_layout_ma_job__bindgen_ty_1() {
     }
     test_field_allocation();
 }
-impl Default for ma_job__bindgen_ty_1 {
-    fn default() -> Self {
-        let mut s = ::std::mem::MaybeUninit::<Self>::uninit();
-        unsafe {
-            ::std::ptr::write_bytes(s.as_mut_ptr(), 0, 1);
-            s.assume_init()
-        }
-    }
-}
 impl ::std::fmt::Debug for ma_job__bindgen_ty_1 {
     fn fmt(&self, f: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
         write!(f, "ma_job__bindgen_ty_1 {{ union }}")
@@ -12898,7 +10183,7 @@ pub union ma_job__bindgen_ty_2 {
     pub device: ma_job__bindgen_ty_2__bindgen_ty_3,
 }
 #[repr(C)]
-#[derive(Debug, Default, Copy, Clone)]
+#[derive(Debug, Copy, Clone)]
 pub struct ma_job__bindgen_ty_2__bindgen_ty_1 {
     pub proc_: ma_job_proc,
     pub data0: ma_uintptr,
@@ -13190,15 +10475,6 @@ fn bindgen_test_layout_ma_job__bindgen_ty_2__bindgen_ty_2__bindgen_ty_1() {
     }
     test_field_pDoneFence();
 }
-impl Default for ma_job__bindgen_ty_2__bindgen_ty_2__bindgen_ty_1 {
-    fn default() -> Self {
-        let mut s = ::std::mem::MaybeUninit::<Self>::uninit();
-        unsafe {
-            ::std::ptr::write_bytes(s.as_mut_ptr(), 0, 1);
-            s.assume_init()
-        }
-    }
-}
 #[repr(C)]
 #[derive(Debug, Copy, Clone)]
 pub struct ma_job__bindgen_ty_2__bindgen_ty_2__bindgen_ty_2 {
@@ -13301,15 +10577,6 @@ fn bindgen_test_layout_ma_job__bindgen_ty_2__bindgen_ty_2__bindgen_ty_2() {
         );
     }
     test_field_pDoneFence();
-}
-impl Default for ma_job__bindgen_ty_2__bindgen_ty_2__bindgen_ty_2 {
-    fn default() -> Self {
-        let mut s = ::std::mem::MaybeUninit::<Self>::uninit();
-        unsafe {
-            ::std::ptr::write_bytes(s.as_mut_ptr(), 0, 1);
-            s.assume_init()
-        }
-    }
 }
 #[repr(C)]
 #[derive(Debug, Copy, Clone)]
@@ -13433,15 +10700,6 @@ fn bindgen_test_layout_ma_job__bindgen_ty_2__bindgen_ty_2__bindgen_ty_3() {
         );
     }
     test_field_pDoneFence();
-}
-impl Default for ma_job__bindgen_ty_2__bindgen_ty_2__bindgen_ty_3 {
-    fn default() -> Self {
-        let mut s = ::std::mem::MaybeUninit::<Self>::uninit();
-        unsafe {
-            ::std::ptr::write_bytes(s.as_mut_ptr(), 0, 1);
-            s.assume_init()
-        }
-    }
 }
 #[repr(C)]
 #[derive(Debug, Copy, Clone)]
@@ -13666,15 +10924,6 @@ fn bindgen_test_layout_ma_job__bindgen_ty_2__bindgen_ty_2__bindgen_ty_4() {
     }
     test_field_isLooping();
 }
-impl Default for ma_job__bindgen_ty_2__bindgen_ty_2__bindgen_ty_4 {
-    fn default() -> Self {
-        let mut s = ::std::mem::MaybeUninit::<Self>::uninit();
-        unsafe {
-            ::std::ptr::write_bytes(s.as_mut_ptr(), 0, 1);
-            s.assume_init()
-        }
-    }
-}
 #[repr(C)]
 #[derive(Debug, Copy, Clone)]
 pub struct ma_job__bindgen_ty_2__bindgen_ty_2__bindgen_ty_5 {
@@ -13757,15 +11006,6 @@ fn bindgen_test_layout_ma_job__bindgen_ty_2__bindgen_ty_2__bindgen_ty_5() {
         );
     }
     test_field_pDoneFence();
-}
-impl Default for ma_job__bindgen_ty_2__bindgen_ty_2__bindgen_ty_5 {
-    fn default() -> Self {
-        let mut s = ::std::mem::MaybeUninit::<Self>::uninit();
-        unsafe {
-            ::std::ptr::write_bytes(s.as_mut_ptr(), 0, 1);
-            s.assume_init()
-        }
-    }
 }
 #[repr(C)]
 #[derive(Debug, Copy, Clone)]
@@ -13910,15 +11150,6 @@ fn bindgen_test_layout_ma_job__bindgen_ty_2__bindgen_ty_2__bindgen_ty_6() {
     }
     test_field_pInitFence();
 }
-impl Default for ma_job__bindgen_ty_2__bindgen_ty_2__bindgen_ty_6 {
-    fn default() -> Self {
-        let mut s = ::std::mem::MaybeUninit::<Self>::uninit();
-        unsafe {
-            ::std::ptr::write_bytes(s.as_mut_ptr(), 0, 1);
-            s.assume_init()
-        }
-    }
-}
 #[repr(C)]
 #[derive(Debug, Copy, Clone)]
 pub struct ma_job__bindgen_ty_2__bindgen_ty_2__bindgen_ty_7 {
@@ -14002,15 +11233,6 @@ fn bindgen_test_layout_ma_job__bindgen_ty_2__bindgen_ty_2__bindgen_ty_7() {
     }
     test_field_pDoneFence();
 }
-impl Default for ma_job__bindgen_ty_2__bindgen_ty_2__bindgen_ty_7 {
-    fn default() -> Self {
-        let mut s = ::std::mem::MaybeUninit::<Self>::uninit();
-        unsafe {
-            ::std::ptr::write_bytes(s.as_mut_ptr(), 0, 1);
-            s.assume_init()
-        }
-    }
-}
 #[repr(C)]
 #[derive(Debug, Copy, Clone)]
 pub struct ma_job__bindgen_ty_2__bindgen_ty_2__bindgen_ty_8 {
@@ -14074,15 +11296,6 @@ fn bindgen_test_layout_ma_job__bindgen_ty_2__bindgen_ty_2__bindgen_ty_8() {
     }
     test_field_pageIndex();
 }
-impl Default for ma_job__bindgen_ty_2__bindgen_ty_2__bindgen_ty_8 {
-    fn default() -> Self {
-        let mut s = ::std::mem::MaybeUninit::<Self>::uninit();
-        unsafe {
-            ::std::ptr::write_bytes(s.as_mut_ptr(), 0, 1);
-            s.assume_init()
-        }
-    }
-}
 #[repr(C)]
 #[derive(Debug, Copy, Clone)]
 pub struct ma_job__bindgen_ty_2__bindgen_ty_2__bindgen_ty_9 {
@@ -14145,15 +11358,6 @@ fn bindgen_test_layout_ma_job__bindgen_ty_2__bindgen_ty_2__bindgen_ty_9() {
         );
     }
     test_field_frameIndex();
-}
-impl Default for ma_job__bindgen_ty_2__bindgen_ty_2__bindgen_ty_9 {
-    fn default() -> Self {
-        let mut s = ::std::mem::MaybeUninit::<Self>::uninit();
-        unsafe {
-            ::std::ptr::write_bytes(s.as_mut_ptr(), 0, 1);
-            s.assume_init()
-        }
-    }
 }
 #[test]
 fn bindgen_test_layout_ma_job__bindgen_ty_2__bindgen_ty_2() {
@@ -14333,15 +11537,6 @@ fn bindgen_test_layout_ma_job__bindgen_ty_2__bindgen_ty_2() {
     }
     test_field_seekDataStream();
 }
-impl Default for ma_job__bindgen_ty_2__bindgen_ty_2 {
-    fn default() -> Self {
-        let mut s = ::std::mem::MaybeUninit::<Self>::uninit();
-        unsafe {
-            ::std::ptr::write_bytes(s.as_mut_ptr(), 0, 1);
-            s.assume_init()
-        }
-    }
-}
 impl ::std::fmt::Debug for ma_job__bindgen_ty_2__bindgen_ty_2 {
     fn fmt(&self, f: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
         write!(f, "ma_job__bindgen_ty_2__bindgen_ty_2 {{ union }}")
@@ -14420,15 +11615,6 @@ fn bindgen_test_layout_ma_job__bindgen_ty_2__bindgen_ty_3__bindgen_ty_1__bindgen
     }
     test_field_deviceType();
 }
-impl Default for ma_job__bindgen_ty_2__bindgen_ty_3__bindgen_ty_1__bindgen_ty_1 {
-    fn default() -> Self {
-        let mut s = ::std::mem::MaybeUninit::<Self>::uninit();
-        unsafe {
-            ::std::ptr::write_bytes(s.as_mut_ptr(), 0, 1);
-            s.assume_init()
-        }
-    }
-}
 #[test]
 fn bindgen_test_layout_ma_job__bindgen_ty_2__bindgen_ty_3__bindgen_ty_1() {
     assert_eq!(
@@ -14466,15 +11652,6 @@ fn bindgen_test_layout_ma_job__bindgen_ty_2__bindgen_ty_3__bindgen_ty_1() {
         );
     }
     test_field_reroute();
-}
-impl Default for ma_job__bindgen_ty_2__bindgen_ty_3__bindgen_ty_1 {
-    fn default() -> Self {
-        let mut s = ::std::mem::MaybeUninit::<Self>::uninit();
-        unsafe {
-            ::std::ptr::write_bytes(s.as_mut_ptr(), 0, 1);
-            s.assume_init()
-        }
-    }
 }
 impl ::std::fmt::Debug for ma_job__bindgen_ty_2__bindgen_ty_3__bindgen_ty_1 {
     fn fmt(&self, f: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
@@ -14517,15 +11694,6 @@ fn bindgen_test_layout_ma_job__bindgen_ty_2__bindgen_ty_3() {
         );
     }
     test_field_aaudio();
-}
-impl Default for ma_job__bindgen_ty_2__bindgen_ty_3 {
-    fn default() -> Self {
-        let mut s = ::std::mem::MaybeUninit::<Self>::uninit();
-        unsafe {
-            ::std::ptr::write_bytes(s.as_mut_ptr(), 0, 1);
-            s.assume_init()
-        }
-    }
 }
 impl ::std::fmt::Debug for ma_job__bindgen_ty_2__bindgen_ty_3 {
     fn fmt(&self, f: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
@@ -14595,15 +11763,6 @@ fn bindgen_test_layout_ma_job__bindgen_ty_2() {
         );
     }
     test_field_device();
-}
-impl Default for ma_job__bindgen_ty_2 {
-    fn default() -> Self {
-        let mut s = ::std::mem::MaybeUninit::<Self>::uninit();
-        unsafe {
-            ::std::ptr::write_bytes(s.as_mut_ptr(), 0, 1);
-            s.assume_init()
-        }
-    }
 }
 impl ::std::fmt::Debug for ma_job__bindgen_ty_2 {
     fn fmt(&self, f: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
@@ -14691,15 +11850,6 @@ fn bindgen_test_layout_ma_job() {
     }
     test_field_data();
 }
-impl Default for ma_job {
-    fn default() -> Self {
-        let mut s = ::std::mem::MaybeUninit::<Self>::uninit();
-        unsafe {
-            ::std::ptr::write_bytes(s.as_mut_ptr(), 0, 1);
-            s.assume_init()
-        }
-    }
-}
 impl ::std::fmt::Debug for ma_job {
     fn fmt(&self, f: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
         write!(
@@ -14716,9 +11866,9 @@ extern "C" {
     pub fn ma_job_process(pJob: *mut ma_job) -> ma_result;
 }
 pub const MA_JOB_QUEUE_FLAG_NON_BLOCKING: ma_job_queue_flags = 1;
-pub type ma_job_queue_flags = ::std::os::raw::c_uint;
+pub type ma_job_queue_flags = ::std::os::raw::c_int;
 #[repr(C)]
-#[derive(Debug, Default, Copy, Clone)]
+#[derive(Debug, Copy, Clone)]
 pub struct ma_job_queue_config {
     pub flags: ma_uint32,
     pub capacity: ma_uint32,
@@ -14791,7 +11941,7 @@ pub struct ma_job_queue {
 fn bindgen_test_layout_ma_job_queue() {
     assert_eq!(
         ::std::mem::size_of::<ma_job_queue>(),
-        216usize,
+        104usize,
         concat!("Size of: ", stringify!(ma_job_queue))
     );
     assert_eq!(
@@ -14891,7 +12041,7 @@ fn bindgen_test_layout_ma_job_queue() {
                 let ptr = uninit.as_ptr();
                 ::std::ptr::addr_of!((*ptr).allocator) as usize - ptr as usize
             },
-            144usize,
+            32usize,
             concat!(
                 "Offset of field: ",
                 stringify!(ma_job_queue),
@@ -14908,7 +12058,7 @@ fn bindgen_test_layout_ma_job_queue() {
                 let ptr = uninit.as_ptr();
                 ::std::ptr::addr_of!((*ptr).pJobs) as usize - ptr as usize
             },
-            184usize,
+            72usize,
             concat!(
                 "Offset of field: ",
                 stringify!(ma_job_queue),
@@ -14925,7 +12075,7 @@ fn bindgen_test_layout_ma_job_queue() {
                 let ptr = uninit.as_ptr();
                 ::std::ptr::addr_of!((*ptr).lock) as usize - ptr as usize
             },
-            192usize,
+            80usize,
             concat!(
                 "Offset of field: ",
                 stringify!(ma_job_queue),
@@ -14942,7 +12092,7 @@ fn bindgen_test_layout_ma_job_queue() {
                 let ptr = uninit.as_ptr();
                 ::std::ptr::addr_of!((*ptr)._pHeap) as usize - ptr as usize
             },
-            200usize,
+            88usize,
             concat!(
                 "Offset of field: ",
                 stringify!(ma_job_queue),
@@ -14959,7 +12109,7 @@ fn bindgen_test_layout_ma_job_queue() {
                 let ptr = uninit.as_ptr();
                 ::std::ptr::addr_of!((*ptr)._ownsHeap) as usize - ptr as usize
             },
-            208usize,
+            96usize,
             concat!(
                 "Offset of field: ",
                 stringify!(ma_job_queue),
@@ -14969,15 +12119,6 @@ fn bindgen_test_layout_ma_job_queue() {
         );
     }
     test_field__ownsHeap();
-}
-impl Default for ma_job_queue {
-    fn default() -> Self {
-        let mut s = ::std::mem::MaybeUninit::<Self>::uninit();
-        unsafe {
-            ::std::ptr::write_bytes(s.as_mut_ptr(), 0, 1);
-            s.assume_init()
-        }
-    }
 }
 extern "C" {
     pub fn ma_job_queue_get_heap_size(
@@ -15016,7 +12157,78 @@ pub const ma_device_state_stopped: ma_device_state = 1;
 pub const ma_device_state_started: ma_device_state = 2;
 pub const ma_device_state_starting: ma_device_state = 3;
 pub const ma_device_state_stopping: ma_device_state = 4;
-pub type ma_device_state = ::std::os::raw::c_uint;
+pub type ma_device_state = ::std::os::raw::c_int;
+#[repr(C)]
+#[derive(Debug, Copy, Clone)]
+pub struct ma_IMMNotificationClient {
+    pub lpVtbl: *mut ::std::os::raw::c_void,
+    pub counter: ma_uint32,
+    pub pDevice: *mut ma_device,
+}
+#[test]
+fn bindgen_test_layout_ma_IMMNotificationClient() {
+    assert_eq!(
+        ::std::mem::size_of::<ma_IMMNotificationClient>(),
+        24usize,
+        concat!("Size of: ", stringify!(ma_IMMNotificationClient))
+    );
+    assert_eq!(
+        ::std::mem::align_of::<ma_IMMNotificationClient>(),
+        8usize,
+        concat!("Alignment of ", stringify!(ma_IMMNotificationClient))
+    );
+    fn test_field_lpVtbl() {
+        assert_eq!(
+            unsafe {
+                let uninit = ::std::mem::MaybeUninit::<ma_IMMNotificationClient>::uninit();
+                let ptr = uninit.as_ptr();
+                ::std::ptr::addr_of!((*ptr).lpVtbl) as usize - ptr as usize
+            },
+            0usize,
+            concat!(
+                "Offset of field: ",
+                stringify!(ma_IMMNotificationClient),
+                "::",
+                stringify!(lpVtbl)
+            )
+        );
+    }
+    test_field_lpVtbl();
+    fn test_field_counter() {
+        assert_eq!(
+            unsafe {
+                let uninit = ::std::mem::MaybeUninit::<ma_IMMNotificationClient>::uninit();
+                let ptr = uninit.as_ptr();
+                ::std::ptr::addr_of!((*ptr).counter) as usize - ptr as usize
+            },
+            8usize,
+            concat!(
+                "Offset of field: ",
+                stringify!(ma_IMMNotificationClient),
+                "::",
+                stringify!(counter)
+            )
+        );
+    }
+    test_field_counter();
+    fn test_field_pDevice() {
+        assert_eq!(
+            unsafe {
+                let uninit = ::std::mem::MaybeUninit::<ma_IMMNotificationClient>::uninit();
+                let ptr = uninit.as_ptr();
+                ::std::ptr::addr_of!((*ptr).pDevice) as usize - ptr as usize
+            },
+            16usize,
+            concat!(
+                "Offset of field: ",
+                stringify!(ma_IMMNotificationClient),
+                "::",
+                stringify!(pDevice)
+            )
+        );
+    }
+    test_field_pDevice();
+}
 pub const ma_backend_wasapi: ma_backend = 0;
 pub const ma_backend_dsound: ma_backend = 1;
 pub const ma_backend_winmm: ma_backend = 2;
@@ -15032,9 +12244,9 @@ pub const ma_backend_opensl: ma_backend = 11;
 pub const ma_backend_webaudio: ma_backend = 12;
 pub const ma_backend_custom: ma_backend = 13;
 pub const ma_backend_null: ma_backend = 14;
-pub type ma_backend = ::std::os::raw::c_uint;
+pub type ma_backend = ::std::os::raw::c_int;
 #[repr(C)]
-#[derive(Debug, Default, Copy, Clone)]
+#[derive(Debug, Copy, Clone)]
 pub struct ma_device_job_thread_config {
     pub noThread: ma_bool32,
     pub jobQueueCapacity: ma_uint32,
@@ -15118,7 +12330,7 @@ pub struct ma_device_job_thread {
 fn bindgen_test_layout_ma_device_job_thread() {
     assert_eq!(
         ::std::mem::size_of::<ma_device_job_thread>(),
-        232usize,
+        120usize,
         concat!("Size of: ", stringify!(ma_device_job_thread))
     );
     assert_eq!(
@@ -15167,7 +12379,7 @@ fn bindgen_test_layout_ma_device_job_thread() {
                 let ptr = uninit.as_ptr();
                 ::std::ptr::addr_of!((*ptr)._hasThread) as usize - ptr as usize
             },
-            224usize,
+            112usize,
             concat!(
                 "Offset of field: ",
                 stringify!(ma_device_job_thread),
@@ -15177,15 +12389,6 @@ fn bindgen_test_layout_ma_device_job_thread() {
         );
     }
     test_field__hasThread();
-}
-impl Default for ma_device_job_thread {
-    fn default() -> Self {
-        let mut s = ::std::mem::MaybeUninit::<Self>::uninit();
-        unsafe {
-            ::std::ptr::write_bytes(s.as_mut_ptr(), 0, 1);
-            s.assume_init()
-        }
-    }
 }
 extern "C" {
     pub fn ma_device_job_thread_init(
@@ -15217,7 +12420,7 @@ pub const ma_device_notification_type_stopped: ma_device_notification_type = 1;
 pub const ma_device_notification_type_rerouted: ma_device_notification_type = 2;
 pub const ma_device_notification_type_interruption_began: ma_device_notification_type = 3;
 pub const ma_device_notification_type_interruption_ended: ma_device_notification_type = 4;
-pub type ma_device_notification_type = ::std::os::raw::c_uint;
+pub type ma_device_notification_type = ::std::os::raw::c_int;
 #[repr(C)]
 #[derive(Copy, Clone)]
 pub struct ma_device_notification {
@@ -15234,7 +12437,7 @@ pub union ma_device_notification__bindgen_ty_1 {
     pub interruption: ma_device_notification__bindgen_ty_1__bindgen_ty_4,
 }
 #[repr(C)]
-#[derive(Debug, Default, Copy, Clone)]
+#[derive(Debug, Copy, Clone)]
 pub struct ma_device_notification__bindgen_ty_1__bindgen_ty_1 {
     pub _unused: ::std::os::raw::c_int,
 }
@@ -15277,7 +12480,7 @@ fn bindgen_test_layout_ma_device_notification__bindgen_ty_1__bindgen_ty_1() {
     test_field__unused();
 }
 #[repr(C)]
-#[derive(Debug, Default, Copy, Clone)]
+#[derive(Debug, Copy, Clone)]
 pub struct ma_device_notification__bindgen_ty_1__bindgen_ty_2 {
     pub _unused: ::std::os::raw::c_int,
 }
@@ -15320,7 +12523,7 @@ fn bindgen_test_layout_ma_device_notification__bindgen_ty_1__bindgen_ty_2() {
     test_field__unused();
 }
 #[repr(C)]
-#[derive(Debug, Default, Copy, Clone)]
+#[derive(Debug, Copy, Clone)]
 pub struct ma_device_notification__bindgen_ty_1__bindgen_ty_3 {
     pub _unused: ::std::os::raw::c_int,
 }
@@ -15363,7 +12566,7 @@ fn bindgen_test_layout_ma_device_notification__bindgen_ty_1__bindgen_ty_3() {
     test_field__unused();
 }
 #[repr(C)]
-#[derive(Debug, Default, Copy, Clone)]
+#[derive(Debug, Copy, Clone)]
 pub struct ma_device_notification__bindgen_ty_1__bindgen_ty_4 {
     pub _unused: ::std::os::raw::c_int,
 }
@@ -15496,15 +12699,6 @@ fn bindgen_test_layout_ma_device_notification__bindgen_ty_1() {
     }
     test_field_interruption();
 }
-impl Default for ma_device_notification__bindgen_ty_1 {
-    fn default() -> Self {
-        let mut s = ::std::mem::MaybeUninit::<Self>::uninit();
-        unsafe {
-            ::std::ptr::write_bytes(s.as_mut_ptr(), 0, 1);
-            s.assume_init()
-        }
-    }
-}
 impl ::std::fmt::Debug for ma_device_notification__bindgen_ty_1 {
     fn fmt(&self, f: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
         write!(f, "ma_device_notification__bindgen_ty_1 {{ union }}")
@@ -15574,15 +12768,6 @@ fn bindgen_test_layout_ma_device_notification() {
     }
     test_field_data();
 }
-impl Default for ma_device_notification {
-    fn default() -> Self {
-        let mut s = ::std::mem::MaybeUninit::<Self>::uninit();
-        unsafe {
-            ::std::ptr::write_bytes(s.as_mut_ptr(), 0, 1);
-            s.assume_init()
-        }
-    }
-}
 impl ::std::fmt::Debug for ma_device_notification {
     fn fmt(&self, f: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
         write!(
@@ -15607,10 +12792,10 @@ pub const ma_device_type_playback: ma_device_type = 1;
 pub const ma_device_type_capture: ma_device_type = 2;
 pub const ma_device_type_duplex: ma_device_type = 3;
 pub const ma_device_type_loopback: ma_device_type = 4;
-pub type ma_device_type = ::std::os::raw::c_uint;
+pub type ma_device_type = ::std::os::raw::c_int;
 pub const ma_share_mode_shared: ma_share_mode = 0;
 pub const ma_share_mode_exclusive: ma_share_mode = 1;
-pub type ma_share_mode = ::std::os::raw::c_uint;
+pub type ma_share_mode = ::std::os::raw::c_int;
 pub const ma_ios_session_category_default: ma_ios_session_category = 0;
 pub const ma_ios_session_category_none: ma_ios_session_category = 1;
 pub const ma_ios_session_category_ambient: ma_ios_session_category = 2;
@@ -15619,7 +12804,7 @@ pub const ma_ios_session_category_playback: ma_ios_session_category = 4;
 pub const ma_ios_session_category_record: ma_ios_session_category = 5;
 pub const ma_ios_session_category_play_and_record: ma_ios_session_category = 6;
 pub const ma_ios_session_category_multi_route: ma_ios_session_category = 7;
-pub type ma_ios_session_category = ::std::os::raw::c_uint;
+pub type ma_ios_session_category = ::std::os::raw::c_int;
 pub const ma_ios_session_category_option_mix_with_others: ma_ios_session_category_option = 1;
 pub const ma_ios_session_category_option_duck_others: ma_ios_session_category_option = 2;
 pub const ma_ios_session_category_option_allow_bluetooth: ma_ios_session_category_option = 4;
@@ -15628,7 +12813,7 @@ pub const ma_ios_session_category_option_interrupt_spoken_audio_and_mix_with_oth
     ma_ios_session_category_option = 17;
 pub const ma_ios_session_category_option_allow_bluetooth_a2dp: ma_ios_session_category_option = 32;
 pub const ma_ios_session_category_option_allow_air_play: ma_ios_session_category_option = 64;
-pub type ma_ios_session_category_option = ::std::os::raw::c_uint;
+pub type ma_ios_session_category_option = ::std::os::raw::c_int;
 pub const ma_opensl_stream_type_default: ma_opensl_stream_type = 0;
 pub const ma_opensl_stream_type_voice: ma_opensl_stream_type = 1;
 pub const ma_opensl_stream_type_system: ma_opensl_stream_type = 2;
@@ -15636,14 +12821,14 @@ pub const ma_opensl_stream_type_ring: ma_opensl_stream_type = 3;
 pub const ma_opensl_stream_type_media: ma_opensl_stream_type = 4;
 pub const ma_opensl_stream_type_alarm: ma_opensl_stream_type = 5;
 pub const ma_opensl_stream_type_notification: ma_opensl_stream_type = 6;
-pub type ma_opensl_stream_type = ::std::os::raw::c_uint;
+pub type ma_opensl_stream_type = ::std::os::raw::c_int;
 pub const ma_opensl_recording_preset_default: ma_opensl_recording_preset = 0;
 pub const ma_opensl_recording_preset_generic: ma_opensl_recording_preset = 1;
 pub const ma_opensl_recording_preset_camcorder: ma_opensl_recording_preset = 2;
 pub const ma_opensl_recording_preset_voice_recognition: ma_opensl_recording_preset = 3;
 pub const ma_opensl_recording_preset_voice_communication: ma_opensl_recording_preset = 4;
 pub const ma_opensl_recording_preset_voice_unprocessed: ma_opensl_recording_preset = 5;
-pub type ma_opensl_recording_preset = ::std::os::raw::c_uint;
+pub type ma_opensl_recording_preset = ::std::os::raw::c_int;
 pub const ma_aaudio_usage_default: ma_aaudio_usage = 0;
 pub const ma_aaudio_usage_announcement: ma_aaudio_usage = 1;
 pub const ma_aaudio_usage_emergency: ma_aaudio_usage = 2;
@@ -15661,13 +12846,13 @@ pub const ma_aaudio_usage_notification_event: ma_aaudio_usage = 13;
 pub const ma_aaudio_usage_notification_ringtone: ma_aaudio_usage = 14;
 pub const ma_aaudio_usage_voice_communication: ma_aaudio_usage = 15;
 pub const ma_aaudio_usage_voice_communication_signalling: ma_aaudio_usage = 16;
-pub type ma_aaudio_usage = ::std::os::raw::c_uint;
+pub type ma_aaudio_usage = ::std::os::raw::c_int;
 pub const ma_aaudio_content_type_default: ma_aaudio_content_type = 0;
 pub const ma_aaudio_content_type_movie: ma_aaudio_content_type = 1;
 pub const ma_aaudio_content_type_music: ma_aaudio_content_type = 2;
 pub const ma_aaudio_content_type_sonification: ma_aaudio_content_type = 3;
 pub const ma_aaudio_content_type_speech: ma_aaudio_content_type = 4;
-pub type ma_aaudio_content_type = ::std::os::raw::c_uint;
+pub type ma_aaudio_content_type = ::std::os::raw::c_int;
 pub const ma_aaudio_input_preset_default: ma_aaudio_input_preset = 0;
 pub const ma_aaudio_input_preset_generic: ma_aaudio_input_preset = 1;
 pub const ma_aaudio_input_preset_camcorder: ma_aaudio_input_preset = 2;
@@ -15675,7 +12860,7 @@ pub const ma_aaudio_input_preset_unprocessed: ma_aaudio_input_preset = 3;
 pub const ma_aaudio_input_preset_voice_recognition: ma_aaudio_input_preset = 4;
 pub const ma_aaudio_input_preset_voice_communication: ma_aaudio_input_preset = 5;
 pub const ma_aaudio_input_preset_voice_performance: ma_aaudio_input_preset = 6;
-pub type ma_aaudio_input_preset = ::std::os::raw::c_uint;
+pub type ma_aaudio_input_preset = ::std::os::raw::c_int;
 #[repr(C)]
 #[derive(Copy, Clone)]
 pub union ma_timer {
@@ -15728,15 +12913,6 @@ fn bindgen_test_layout_ma_timer() {
         );
     }
     test_field_counterD();
-}
-impl Default for ma_timer {
-    fn default() -> Self {
-        let mut s = ::std::mem::MaybeUninit::<Self>::uninit();
-        unsafe {
-            ::std::ptr::write_bytes(s.as_mut_ptr(), 0, 1);
-            s.assume_init()
-        }
-    }
 }
 impl ::std::fmt::Debug for ma_timer {
     fn fmt(&self, f: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
@@ -15832,15 +13008,6 @@ fn bindgen_test_layout_ma_device_id__bindgen_ty_1() {
         );
     }
     test_field_p();
-}
-impl Default for ma_device_id__bindgen_ty_1 {
-    fn default() -> Self {
-        let mut s = ::std::mem::MaybeUninit::<Self>::uninit();
-        unsafe {
-            ::std::ptr::write_bytes(s.as_mut_ptr(), 0, 1);
-            s.assume_init()
-        }
-    }
 }
 impl ::std::fmt::Debug for ma_device_id__bindgen_ty_1 {
     fn fmt(&self, f: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
@@ -16115,15 +13282,6 @@ fn bindgen_test_layout_ma_device_id() {
     }
     test_field_nullbackend();
 }
-impl Default for ma_device_id {
-    fn default() -> Self {
-        let mut s = ::std::mem::MaybeUninit::<Self>::uninit();
-        unsafe {
-            ::std::ptr::write_bytes(s.as_mut_ptr(), 0, 1);
-            s.assume_init()
-        }
-    }
-}
 impl ::std::fmt::Debug for ma_device_id {
     fn fmt(&self, f: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
         write!(f, "ma_device_id {{ union }}")
@@ -16227,15 +13385,6 @@ fn bindgen_test_layout_ma_device_info__bindgen_ty_1() {
     }
     test_field_flags();
 }
-impl Default for ma_device_info__bindgen_ty_1 {
-    fn default() -> Self {
-        let mut s = ::std::mem::MaybeUninit::<Self>::uninit();
-        unsafe {
-            ::std::ptr::write_bytes(s.as_mut_ptr(), 0, 1);
-            s.assume_init()
-        }
-    }
-}
 #[test]
 fn bindgen_test_layout_ma_device_info() {
     assert_eq!(
@@ -16333,15 +13482,6 @@ fn bindgen_test_layout_ma_device_info() {
         );
     }
     test_field_nativeDataFormats();
-}
-impl Default for ma_device_info {
-    fn default() -> Self {
-        let mut s = ::std::mem::MaybeUninit::<Self>::uninit();
-        unsafe {
-            ::std::ptr::write_bytes(s.as_mut_ptr(), 0, 1);
-            s.assume_init()
-        }
-    }
 }
 impl ::std::fmt::Debug for ma_device_info {
     fn fmt(&self, f: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
@@ -16500,15 +13640,6 @@ fn bindgen_test_layout_ma_device_config__bindgen_ty_1() {
     }
     test_field_shareMode();
 }
-impl Default for ma_device_config__bindgen_ty_1 {
-    fn default() -> Self {
-        let mut s = ::std::mem::MaybeUninit::<Self>::uninit();
-        unsafe {
-            ::std::ptr::write_bytes(s.as_mut_ptr(), 0, 1);
-            s.assume_init()
-        }
-    }
-}
 #[repr(C)]
 #[derive(Debug, Copy, Clone)]
 pub struct ma_device_config__bindgen_ty_2 {
@@ -16634,17 +13765,8 @@ fn bindgen_test_layout_ma_device_config__bindgen_ty_2() {
     }
     test_field_shareMode();
 }
-impl Default for ma_device_config__bindgen_ty_2 {
-    fn default() -> Self {
-        let mut s = ::std::mem::MaybeUninit::<Self>::uninit();
-        unsafe {
-            ::std::ptr::write_bytes(s.as_mut_ptr(), 0, 1);
-            s.assume_init()
-        }
-    }
-}
 #[repr(C)]
-#[derive(Debug, Default, Copy, Clone)]
+#[derive(Debug, Copy, Clone)]
 pub struct ma_device_config__bindgen_ty_3 {
     pub noAutoConvertSRC: ma_bool8,
     pub noDefaultQualitySRC: ma_bool8,
@@ -16733,7 +13855,7 @@ fn bindgen_test_layout_ma_device_config__bindgen_ty_3() {
     test_field_noHardwareOffloading();
 }
 #[repr(C)]
-#[derive(Debug, Default, Copy, Clone)]
+#[derive(Debug, Copy, Clone)]
 pub struct ma_device_config__bindgen_ty_4 {
     pub noMMap: ma_bool32,
     pub noAutoFormat: ma_bool32,
@@ -16874,17 +13996,8 @@ fn bindgen_test_layout_ma_device_config__bindgen_ty_5() {
     }
     test_field_pStreamNameCapture();
 }
-impl Default for ma_device_config__bindgen_ty_5 {
-    fn default() -> Self {
-        let mut s = ::std::mem::MaybeUninit::<Self>::uninit();
-        unsafe {
-            ::std::ptr::write_bytes(s.as_mut_ptr(), 0, 1);
-            s.assume_init()
-        }
-    }
-}
 #[repr(C)]
-#[derive(Debug, Default, Copy, Clone)]
+#[derive(Debug, Copy, Clone)]
 pub struct ma_device_config__bindgen_ty_6 {
     pub allowNominalSampleRateChange: ma_bool32,
 }
@@ -16970,15 +14083,6 @@ fn bindgen_test_layout_ma_device_config__bindgen_ty_7() {
         );
     }
     test_field_recordingPreset();
-}
-impl Default for ma_device_config__bindgen_ty_7 {
-    fn default() -> Self {
-        let mut s = ::std::mem::MaybeUninit::<Self>::uninit();
-        unsafe {
-            ::std::ptr::write_bytes(s.as_mut_ptr(), 0, 1);
-            s.assume_init()
-        }
-    }
 }
 #[repr(C)]
 #[derive(Debug, Copy, Clone)]
@@ -17068,15 +14172,6 @@ fn bindgen_test_layout_ma_device_config__bindgen_ty_8() {
         );
     }
     test_field_noAutoStartAfterReroute();
-}
-impl Default for ma_device_config__bindgen_ty_8 {
-    fn default() -> Self {
-        let mut s = ::std::mem::MaybeUninit::<Self>::uninit();
-        unsafe {
-            ::std::ptr::write_bytes(s.as_mut_ptr(), 0, 1);
-            s.assume_init()
-        }
-    }
 }
 #[test]
 fn bindgen_test_layout_ma_device_config() {
@@ -17482,15 +14577,6 @@ fn bindgen_test_layout_ma_device_config() {
     }
     test_field_aaudio();
 }
-impl Default for ma_device_config {
-    fn default() -> Self {
-        let mut s = ::std::mem::MaybeUninit::<Self>::uninit();
-        unsafe {
-            ::std::ptr::write_bytes(s.as_mut_ptr(), 0, 1);
-            s.assume_init()
-        }
-    }
-}
 pub type ma_enum_devices_callback_proc = ::std::option::Option<
     unsafe extern "C" fn(
         pContext: *mut ma_context,
@@ -17678,17 +14764,8 @@ fn bindgen_test_layout_ma_device_descriptor() {
     }
     test_field_periodCount();
 }
-impl Default for ma_device_descriptor {
-    fn default() -> Self {
-        let mut s = ::std::mem::MaybeUninit::<Self>::uninit();
-        unsafe {
-            ::std::ptr::write_bytes(s.as_mut_ptr(), 0, 1);
-            s.assume_init()
-        }
-    }
-}
 #[repr(C)]
-#[derive(Debug, Default, Copy, Clone)]
+#[derive(Debug, Copy, Clone)]
 pub struct ma_backend_callbacks {
     pub onContextInit: ::std::option::Option<
         unsafe extern "C" fn(
@@ -18005,7 +15082,7 @@ pub struct ma_context_config {
     pub custom: ma_backend_callbacks,
 }
 #[repr(C)]
-#[derive(Debug, Default, Copy, Clone)]
+#[derive(Debug, Copy, Clone)]
 pub struct ma_context_config__bindgen_ty_1 {
     pub useVerboseDeviceEnumeration: ma_bool32,
 }
@@ -18110,15 +15187,6 @@ fn bindgen_test_layout_ma_context_config__bindgen_ty_2() {
     }
     test_field_tryAutoSpawn();
 }
-impl Default for ma_context_config__bindgen_ty_2 {
-    fn default() -> Self {
-        let mut s = ::std::mem::MaybeUninit::<Self>::uninit();
-        unsafe {
-            ::std::ptr::write_bytes(s.as_mut_ptr(), 0, 1);
-            s.assume_init()
-        }
-    }
-}
 #[repr(C)]
 #[derive(Debug, Copy, Clone)]
 pub struct ma_context_config__bindgen_ty_3 {
@@ -18208,15 +15276,6 @@ fn bindgen_test_layout_ma_context_config__bindgen_ty_3() {
     }
     test_field_noAudioSessionDeactivate();
 }
-impl Default for ma_context_config__bindgen_ty_3 {
-    fn default() -> Self {
-        let mut s = ::std::mem::MaybeUninit::<Self>::uninit();
-        unsafe {
-            ::std::ptr::write_bytes(s.as_mut_ptr(), 0, 1);
-            s.assume_init()
-        }
-    }
-}
 #[repr(C)]
 #[derive(Debug, Copy, Clone)]
 pub struct ma_context_config__bindgen_ty_4 {
@@ -18269,15 +15328,6 @@ fn bindgen_test_layout_ma_context_config__bindgen_ty_4() {
         );
     }
     test_field_tryStartServer();
-}
-impl Default for ma_context_config__bindgen_ty_4 {
-    fn default() -> Self {
-        let mut s = ::std::mem::MaybeUninit::<Self>::uninit();
-        unsafe {
-            ::std::ptr::write_bytes(s.as_mut_ptr(), 0, 1);
-            s.assume_init()
-        }
-    }
 }
 #[test]
 fn bindgen_test_layout_ma_context_config() {
@@ -18462,15 +15512,6 @@ fn bindgen_test_layout_ma_context_config() {
     }
     test_field_custom();
 }
-impl Default for ma_context_config {
-    fn default() -> Self {
-        let mut s = ::std::mem::MaybeUninit::<Self>::uninit();
-        unsafe {
-            ::std::ptr::write_bytes(s.as_mut_ptr(), 0, 1);
-            s.assume_init()
-        }
-    }
-}
 #[repr(C)]
 #[derive(Copy, Clone)]
 pub struct ma_context_command__wasapi {
@@ -18486,7 +15527,7 @@ pub union ma_context_command__wasapi__bindgen_ty_1 {
     pub releaseAudioClient: ma_context_command__wasapi__bindgen_ty_1__bindgen_ty_3,
 }
 #[repr(C)]
-#[derive(Debug, Default, Copy, Clone)]
+#[derive(Debug, Copy, Clone)]
 pub struct ma_context_command__wasapi__bindgen_ty_1__bindgen_ty_1 {
     pub _unused: ::std::os::raw::c_int,
 }
@@ -18631,15 +15672,6 @@ fn bindgen_test_layout_ma_context_command__wasapi__bindgen_ty_1__bindgen_ty_2() 
     }
     test_field_pResult();
 }
-impl Default for ma_context_command__wasapi__bindgen_ty_1__bindgen_ty_2 {
-    fn default() -> Self {
-        let mut s = ::std::mem::MaybeUninit::<Self>::uninit();
-        unsafe {
-            ::std::ptr::write_bytes(s.as_mut_ptr(), 0, 1);
-            s.assume_init()
-        }
-    }
-}
 #[repr(C)]
 #[derive(Debug, Copy, Clone)]
 pub struct ma_context_command__wasapi__bindgen_ty_1__bindgen_ty_3 {
@@ -18702,15 +15734,6 @@ fn bindgen_test_layout_ma_context_command__wasapi__bindgen_ty_1__bindgen_ty_3() 
         );
     }
     test_field_deviceType();
-}
-impl Default for ma_context_command__wasapi__bindgen_ty_1__bindgen_ty_3 {
-    fn default() -> Self {
-        let mut s = ::std::mem::MaybeUninit::<Self>::uninit();
-        unsafe {
-            ::std::ptr::write_bytes(s.as_mut_ptr(), 0, 1);
-            s.assume_init()
-        }
-    }
 }
 #[test]
 fn bindgen_test_layout_ma_context_command__wasapi__bindgen_ty_1() {
@@ -18785,15 +15808,6 @@ fn bindgen_test_layout_ma_context_command__wasapi__bindgen_ty_1() {
     }
     test_field_releaseAudioClient();
 }
-impl Default for ma_context_command__wasapi__bindgen_ty_1 {
-    fn default() -> Self {
-        let mut s = ::std::mem::MaybeUninit::<Self>::uninit();
-        unsafe {
-            ::std::ptr::write_bytes(s.as_mut_ptr(), 0, 1);
-            s.assume_init()
-        }
-    }
-}
 impl ::std::fmt::Debug for ma_context_command__wasapi__bindgen_ty_1 {
     fn fmt(&self, f: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
         write!(f, "ma_context_command__wasapi__bindgen_ty_1 {{ union }}")
@@ -18863,15 +15877,6 @@ fn bindgen_test_layout_ma_context_command__wasapi() {
     }
     test_field_data();
 }
-impl Default for ma_context_command__wasapi {
-    fn default() -> Self {
-        let mut s = ::std::mem::MaybeUninit::<Self>::uninit();
-        unsafe {
-            ::std::ptr::write_bytes(s.as_mut_ptr(), 0, 1);
-            s.assume_init()
-        }
-    }
-}
 impl ::std::fmt::Debug for ma_context_command__wasapi {
     fn fmt(&self, f: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
         write!(
@@ -18904,41 +15909,27 @@ pub struct ma_context {
 #[repr(C)]
 #[derive(Copy, Clone)]
 pub union ma_context__bindgen_ty_1 {
-    pub coreaudio: ma_context__bindgen_ty_1__bindgen_ty_1,
-    pub null_backend: ma_context__bindgen_ty_1__bindgen_ty_2,
+    pub wasapi: ma_context__bindgen_ty_1__bindgen_ty_1,
+    pub dsound: ma_context__bindgen_ty_1__bindgen_ty_2,
+    pub winmm: ma_context__bindgen_ty_1__bindgen_ty_3,
+    pub jack: ma_context__bindgen_ty_1__bindgen_ty_4,
+    pub null_backend: ma_context__bindgen_ty_1__bindgen_ty_5,
 }
 #[repr(C)]
-#[derive(Debug, Copy, Clone)]
+#[derive(Copy, Clone)]
 pub struct ma_context__bindgen_ty_1__bindgen_ty_1 {
-    pub hCoreFoundation: ma_handle,
-    pub CFStringGetCString: ma_proc,
-    pub CFRelease: ma_proc,
-    pub hCoreAudio: ma_handle,
-    pub AudioObjectGetPropertyData: ma_proc,
-    pub AudioObjectGetPropertyDataSize: ma_proc,
-    pub AudioObjectSetPropertyData: ma_proc,
-    pub AudioObjectAddPropertyListener: ma_proc,
-    pub AudioObjectRemovePropertyListener: ma_proc,
-    pub hAudioUnit: ma_handle,
-    pub AudioComponentFindNext: ma_proc,
-    pub AudioComponentInstanceDispose: ma_proc,
-    pub AudioComponentInstanceNew: ma_proc,
-    pub AudioOutputUnitStart: ma_proc,
-    pub AudioOutputUnitStop: ma_proc,
-    pub AudioUnitAddPropertyListener: ma_proc,
-    pub AudioUnitGetPropertyInfo: ma_proc,
-    pub AudioUnitGetProperty: ma_proc,
-    pub AudioUnitSetProperty: ma_proc,
-    pub AudioUnitInitialize: ma_proc,
-    pub AudioUnitRender: ma_proc,
-    pub component: ma_ptr,
-    pub noAudioSessionDeactivate: ma_bool32,
+    pub commandThread: ma_thread,
+    pub commandLock: ma_mutex,
+    pub commandSem: ma_semaphore,
+    pub commandIndex: ma_uint32,
+    pub commandCount: ma_uint32,
+    pub commands: [ma_context_command__wasapi; 4usize],
 }
 #[test]
 fn bindgen_test_layout_ma_context__bindgen_ty_1__bindgen_ty_1() {
     assert_eq!(
         ::std::mem::size_of::<ma_context__bindgen_ty_1__bindgen_ty_1>(),
-        184usize,
+        224usize,
         concat!(
             "Size of: ",
             stringify!(ma_context__bindgen_ty_1__bindgen_ty_1)
@@ -18952,441 +15943,134 @@ fn bindgen_test_layout_ma_context__bindgen_ty_1__bindgen_ty_1() {
             stringify!(ma_context__bindgen_ty_1__bindgen_ty_1)
         )
     );
-    fn test_field_hCoreFoundation() {
+    fn test_field_commandThread() {
         assert_eq!(
             unsafe {
                 let uninit =
                     ::std::mem::MaybeUninit::<ma_context__bindgen_ty_1__bindgen_ty_1>::uninit();
                 let ptr = uninit.as_ptr();
-                ::std::ptr::addr_of!((*ptr).hCoreFoundation) as usize - ptr as usize
+                ::std::ptr::addr_of!((*ptr).commandThread) as usize - ptr as usize
             },
             0usize,
             concat!(
                 "Offset of field: ",
                 stringify!(ma_context__bindgen_ty_1__bindgen_ty_1),
                 "::",
-                stringify!(hCoreFoundation)
+                stringify!(commandThread)
             )
         );
     }
-    test_field_hCoreFoundation();
-    fn test_field_CFStringGetCString() {
+    test_field_commandThread();
+    fn test_field_commandLock() {
         assert_eq!(
             unsafe {
                 let uninit =
                     ::std::mem::MaybeUninit::<ma_context__bindgen_ty_1__bindgen_ty_1>::uninit();
                 let ptr = uninit.as_ptr();
-                ::std::ptr::addr_of!((*ptr).CFStringGetCString) as usize - ptr as usize
+                ::std::ptr::addr_of!((*ptr).commandLock) as usize - ptr as usize
             },
             8usize,
             concat!(
                 "Offset of field: ",
                 stringify!(ma_context__bindgen_ty_1__bindgen_ty_1),
                 "::",
-                stringify!(CFStringGetCString)
+                stringify!(commandLock)
             )
         );
     }
-    test_field_CFStringGetCString();
-    fn test_field_CFRelease() {
+    test_field_commandLock();
+    fn test_field_commandSem() {
         assert_eq!(
             unsafe {
                 let uninit =
                     ::std::mem::MaybeUninit::<ma_context__bindgen_ty_1__bindgen_ty_1>::uninit();
                 let ptr = uninit.as_ptr();
-                ::std::ptr::addr_of!((*ptr).CFRelease) as usize - ptr as usize
+                ::std::ptr::addr_of!((*ptr).commandSem) as usize - ptr as usize
             },
             16usize,
             concat!(
                 "Offset of field: ",
                 stringify!(ma_context__bindgen_ty_1__bindgen_ty_1),
                 "::",
-                stringify!(CFRelease)
+                stringify!(commandSem)
             )
         );
     }
-    test_field_CFRelease();
-    fn test_field_hCoreAudio() {
+    test_field_commandSem();
+    fn test_field_commandIndex() {
         assert_eq!(
             unsafe {
                 let uninit =
                     ::std::mem::MaybeUninit::<ma_context__bindgen_ty_1__bindgen_ty_1>::uninit();
                 let ptr = uninit.as_ptr();
-                ::std::ptr::addr_of!((*ptr).hCoreAudio) as usize - ptr as usize
+                ::std::ptr::addr_of!((*ptr).commandIndex) as usize - ptr as usize
             },
             24usize,
             concat!(
                 "Offset of field: ",
                 stringify!(ma_context__bindgen_ty_1__bindgen_ty_1),
                 "::",
-                stringify!(hCoreAudio)
+                stringify!(commandIndex)
             )
         );
     }
-    test_field_hCoreAudio();
-    fn test_field_AudioObjectGetPropertyData() {
+    test_field_commandIndex();
+    fn test_field_commandCount() {
         assert_eq!(
             unsafe {
                 let uninit =
                     ::std::mem::MaybeUninit::<ma_context__bindgen_ty_1__bindgen_ty_1>::uninit();
                 let ptr = uninit.as_ptr();
-                ::std::ptr::addr_of!((*ptr).AudioObjectGetPropertyData) as usize - ptr as usize
+                ::std::ptr::addr_of!((*ptr).commandCount) as usize - ptr as usize
+            },
+            28usize,
+            concat!(
+                "Offset of field: ",
+                stringify!(ma_context__bindgen_ty_1__bindgen_ty_1),
+                "::",
+                stringify!(commandCount)
+            )
+        );
+    }
+    test_field_commandCount();
+    fn test_field_commands() {
+        assert_eq!(
+            unsafe {
+                let uninit =
+                    ::std::mem::MaybeUninit::<ma_context__bindgen_ty_1__bindgen_ty_1>::uninit();
+                let ptr = uninit.as_ptr();
+                ::std::ptr::addr_of!((*ptr).commands) as usize - ptr as usize
             },
             32usize,
             concat!(
                 "Offset of field: ",
                 stringify!(ma_context__bindgen_ty_1__bindgen_ty_1),
                 "::",
-                stringify!(AudioObjectGetPropertyData)
+                stringify!(commands)
             )
         );
     }
-    test_field_AudioObjectGetPropertyData();
-    fn test_field_AudioObjectGetPropertyDataSize() {
-        assert_eq!(
-            unsafe {
-                let uninit =
-                    ::std::mem::MaybeUninit::<ma_context__bindgen_ty_1__bindgen_ty_1>::uninit();
-                let ptr = uninit.as_ptr();
-                ::std::ptr::addr_of!((*ptr).AudioObjectGetPropertyDataSize) as usize - ptr as usize
-            },
-            40usize,
-            concat!(
-                "Offset of field: ",
-                stringify!(ma_context__bindgen_ty_1__bindgen_ty_1),
-                "::",
-                stringify!(AudioObjectGetPropertyDataSize)
-            )
-        );
-    }
-    test_field_AudioObjectGetPropertyDataSize();
-    fn test_field_AudioObjectSetPropertyData() {
-        assert_eq!(
-            unsafe {
-                let uninit =
-                    ::std::mem::MaybeUninit::<ma_context__bindgen_ty_1__bindgen_ty_1>::uninit();
-                let ptr = uninit.as_ptr();
-                ::std::ptr::addr_of!((*ptr).AudioObjectSetPropertyData) as usize - ptr as usize
-            },
-            48usize,
-            concat!(
-                "Offset of field: ",
-                stringify!(ma_context__bindgen_ty_1__bindgen_ty_1),
-                "::",
-                stringify!(AudioObjectSetPropertyData)
-            )
-        );
-    }
-    test_field_AudioObjectSetPropertyData();
-    fn test_field_AudioObjectAddPropertyListener() {
-        assert_eq!(
-            unsafe {
-                let uninit =
-                    ::std::mem::MaybeUninit::<ma_context__bindgen_ty_1__bindgen_ty_1>::uninit();
-                let ptr = uninit.as_ptr();
-                ::std::ptr::addr_of!((*ptr).AudioObjectAddPropertyListener) as usize - ptr as usize
-            },
-            56usize,
-            concat!(
-                "Offset of field: ",
-                stringify!(ma_context__bindgen_ty_1__bindgen_ty_1),
-                "::",
-                stringify!(AudioObjectAddPropertyListener)
-            )
-        );
-    }
-    test_field_AudioObjectAddPropertyListener();
-    fn test_field_AudioObjectRemovePropertyListener() {
-        assert_eq!(
-            unsafe {
-                let uninit =
-                    ::std::mem::MaybeUninit::<ma_context__bindgen_ty_1__bindgen_ty_1>::uninit();
-                let ptr = uninit.as_ptr();
-                ::std::ptr::addr_of!((*ptr).AudioObjectRemovePropertyListener) as usize
-                    - ptr as usize
-            },
-            64usize,
-            concat!(
-                "Offset of field: ",
-                stringify!(ma_context__bindgen_ty_1__bindgen_ty_1),
-                "::",
-                stringify!(AudioObjectRemovePropertyListener)
-            )
-        );
-    }
-    test_field_AudioObjectRemovePropertyListener();
-    fn test_field_hAudioUnit() {
-        assert_eq!(
-            unsafe {
-                let uninit =
-                    ::std::mem::MaybeUninit::<ma_context__bindgen_ty_1__bindgen_ty_1>::uninit();
-                let ptr = uninit.as_ptr();
-                ::std::ptr::addr_of!((*ptr).hAudioUnit) as usize - ptr as usize
-            },
-            72usize,
-            concat!(
-                "Offset of field: ",
-                stringify!(ma_context__bindgen_ty_1__bindgen_ty_1),
-                "::",
-                stringify!(hAudioUnit)
-            )
-        );
-    }
-    test_field_hAudioUnit();
-    fn test_field_AudioComponentFindNext() {
-        assert_eq!(
-            unsafe {
-                let uninit =
-                    ::std::mem::MaybeUninit::<ma_context__bindgen_ty_1__bindgen_ty_1>::uninit();
-                let ptr = uninit.as_ptr();
-                ::std::ptr::addr_of!((*ptr).AudioComponentFindNext) as usize - ptr as usize
-            },
-            80usize,
-            concat!(
-                "Offset of field: ",
-                stringify!(ma_context__bindgen_ty_1__bindgen_ty_1),
-                "::",
-                stringify!(AudioComponentFindNext)
-            )
-        );
-    }
-    test_field_AudioComponentFindNext();
-    fn test_field_AudioComponentInstanceDispose() {
-        assert_eq!(
-            unsafe {
-                let uninit =
-                    ::std::mem::MaybeUninit::<ma_context__bindgen_ty_1__bindgen_ty_1>::uninit();
-                let ptr = uninit.as_ptr();
-                ::std::ptr::addr_of!((*ptr).AudioComponentInstanceDispose) as usize - ptr as usize
-            },
-            88usize,
-            concat!(
-                "Offset of field: ",
-                stringify!(ma_context__bindgen_ty_1__bindgen_ty_1),
-                "::",
-                stringify!(AudioComponentInstanceDispose)
-            )
-        );
-    }
-    test_field_AudioComponentInstanceDispose();
-    fn test_field_AudioComponentInstanceNew() {
-        assert_eq!(
-            unsafe {
-                let uninit =
-                    ::std::mem::MaybeUninit::<ma_context__bindgen_ty_1__bindgen_ty_1>::uninit();
-                let ptr = uninit.as_ptr();
-                ::std::ptr::addr_of!((*ptr).AudioComponentInstanceNew) as usize - ptr as usize
-            },
-            96usize,
-            concat!(
-                "Offset of field: ",
-                stringify!(ma_context__bindgen_ty_1__bindgen_ty_1),
-                "::",
-                stringify!(AudioComponentInstanceNew)
-            )
-        );
-    }
-    test_field_AudioComponentInstanceNew();
-    fn test_field_AudioOutputUnitStart() {
-        assert_eq!(
-            unsafe {
-                let uninit =
-                    ::std::mem::MaybeUninit::<ma_context__bindgen_ty_1__bindgen_ty_1>::uninit();
-                let ptr = uninit.as_ptr();
-                ::std::ptr::addr_of!((*ptr).AudioOutputUnitStart) as usize - ptr as usize
-            },
-            104usize,
-            concat!(
-                "Offset of field: ",
-                stringify!(ma_context__bindgen_ty_1__bindgen_ty_1),
-                "::",
-                stringify!(AudioOutputUnitStart)
-            )
-        );
-    }
-    test_field_AudioOutputUnitStart();
-    fn test_field_AudioOutputUnitStop() {
-        assert_eq!(
-            unsafe {
-                let uninit =
-                    ::std::mem::MaybeUninit::<ma_context__bindgen_ty_1__bindgen_ty_1>::uninit();
-                let ptr = uninit.as_ptr();
-                ::std::ptr::addr_of!((*ptr).AudioOutputUnitStop) as usize - ptr as usize
-            },
-            112usize,
-            concat!(
-                "Offset of field: ",
-                stringify!(ma_context__bindgen_ty_1__bindgen_ty_1),
-                "::",
-                stringify!(AudioOutputUnitStop)
-            )
-        );
-    }
-    test_field_AudioOutputUnitStop();
-    fn test_field_AudioUnitAddPropertyListener() {
-        assert_eq!(
-            unsafe {
-                let uninit =
-                    ::std::mem::MaybeUninit::<ma_context__bindgen_ty_1__bindgen_ty_1>::uninit();
-                let ptr = uninit.as_ptr();
-                ::std::ptr::addr_of!((*ptr).AudioUnitAddPropertyListener) as usize - ptr as usize
-            },
-            120usize,
-            concat!(
-                "Offset of field: ",
-                stringify!(ma_context__bindgen_ty_1__bindgen_ty_1),
-                "::",
-                stringify!(AudioUnitAddPropertyListener)
-            )
-        );
-    }
-    test_field_AudioUnitAddPropertyListener();
-    fn test_field_AudioUnitGetPropertyInfo() {
-        assert_eq!(
-            unsafe {
-                let uninit =
-                    ::std::mem::MaybeUninit::<ma_context__bindgen_ty_1__bindgen_ty_1>::uninit();
-                let ptr = uninit.as_ptr();
-                ::std::ptr::addr_of!((*ptr).AudioUnitGetPropertyInfo) as usize - ptr as usize
-            },
-            128usize,
-            concat!(
-                "Offset of field: ",
-                stringify!(ma_context__bindgen_ty_1__bindgen_ty_1),
-                "::",
-                stringify!(AudioUnitGetPropertyInfo)
-            )
-        );
-    }
-    test_field_AudioUnitGetPropertyInfo();
-    fn test_field_AudioUnitGetProperty() {
-        assert_eq!(
-            unsafe {
-                let uninit =
-                    ::std::mem::MaybeUninit::<ma_context__bindgen_ty_1__bindgen_ty_1>::uninit();
-                let ptr = uninit.as_ptr();
-                ::std::ptr::addr_of!((*ptr).AudioUnitGetProperty) as usize - ptr as usize
-            },
-            136usize,
-            concat!(
-                "Offset of field: ",
-                stringify!(ma_context__bindgen_ty_1__bindgen_ty_1),
-                "::",
-                stringify!(AudioUnitGetProperty)
-            )
-        );
-    }
-    test_field_AudioUnitGetProperty();
-    fn test_field_AudioUnitSetProperty() {
-        assert_eq!(
-            unsafe {
-                let uninit =
-                    ::std::mem::MaybeUninit::<ma_context__bindgen_ty_1__bindgen_ty_1>::uninit();
-                let ptr = uninit.as_ptr();
-                ::std::ptr::addr_of!((*ptr).AudioUnitSetProperty) as usize - ptr as usize
-            },
-            144usize,
-            concat!(
-                "Offset of field: ",
-                stringify!(ma_context__bindgen_ty_1__bindgen_ty_1),
-                "::",
-                stringify!(AudioUnitSetProperty)
-            )
-        );
-    }
-    test_field_AudioUnitSetProperty();
-    fn test_field_AudioUnitInitialize() {
-        assert_eq!(
-            unsafe {
-                let uninit =
-                    ::std::mem::MaybeUninit::<ma_context__bindgen_ty_1__bindgen_ty_1>::uninit();
-                let ptr = uninit.as_ptr();
-                ::std::ptr::addr_of!((*ptr).AudioUnitInitialize) as usize - ptr as usize
-            },
-            152usize,
-            concat!(
-                "Offset of field: ",
-                stringify!(ma_context__bindgen_ty_1__bindgen_ty_1),
-                "::",
-                stringify!(AudioUnitInitialize)
-            )
-        );
-    }
-    test_field_AudioUnitInitialize();
-    fn test_field_AudioUnitRender() {
-        assert_eq!(
-            unsafe {
-                let uninit =
-                    ::std::mem::MaybeUninit::<ma_context__bindgen_ty_1__bindgen_ty_1>::uninit();
-                let ptr = uninit.as_ptr();
-                ::std::ptr::addr_of!((*ptr).AudioUnitRender) as usize - ptr as usize
-            },
-            160usize,
-            concat!(
-                "Offset of field: ",
-                stringify!(ma_context__bindgen_ty_1__bindgen_ty_1),
-                "::",
-                stringify!(AudioUnitRender)
-            )
-        );
-    }
-    test_field_AudioUnitRender();
-    fn test_field_component() {
-        assert_eq!(
-            unsafe {
-                let uninit =
-                    ::std::mem::MaybeUninit::<ma_context__bindgen_ty_1__bindgen_ty_1>::uninit();
-                let ptr = uninit.as_ptr();
-                ::std::ptr::addr_of!((*ptr).component) as usize - ptr as usize
-            },
-            168usize,
-            concat!(
-                "Offset of field: ",
-                stringify!(ma_context__bindgen_ty_1__bindgen_ty_1),
-                "::",
-                stringify!(component)
-            )
-        );
-    }
-    test_field_component();
-    fn test_field_noAudioSessionDeactivate() {
-        assert_eq!(
-            unsafe {
-                let uninit =
-                    ::std::mem::MaybeUninit::<ma_context__bindgen_ty_1__bindgen_ty_1>::uninit();
-                let ptr = uninit.as_ptr();
-                ::std::ptr::addr_of!((*ptr).noAudioSessionDeactivate) as usize - ptr as usize
-            },
-            176usize,
-            concat!(
-                "Offset of field: ",
-                stringify!(ma_context__bindgen_ty_1__bindgen_ty_1),
-                "::",
-                stringify!(noAudioSessionDeactivate)
-            )
-        );
-    }
-    test_field_noAudioSessionDeactivate();
+    test_field_commands();
 }
-impl Default for ma_context__bindgen_ty_1__bindgen_ty_1 {
-    fn default() -> Self {
-        let mut s = ::std::mem::MaybeUninit::<Self>::uninit();
-        unsafe {
-            ::std::ptr::write_bytes(s.as_mut_ptr(), 0, 1);
-            s.assume_init()
-        }
+impl ::std::fmt::Debug for ma_context__bindgen_ty_1__bindgen_ty_1 {
+    fn fmt(&self, f: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+        write ! (f , "ma_context__bindgen_ty_1__bindgen_ty_1 {{ commandThread: {:?}, commandLock: {:?}, commandSem: {:?}, commandIndex: {:?}, commandCount: {:?}, commands: {:?} }}" , self . commandThread , self . commandLock , self . commandSem , self . commandIndex , self . commandCount , self . commands)
     }
 }
 #[repr(C)]
-#[derive(Debug, Default, Copy, Clone)]
+#[derive(Debug, Copy, Clone)]
 pub struct ma_context__bindgen_ty_1__bindgen_ty_2 {
-    pub _unused: ::std::os::raw::c_int,
+    pub hDSoundDLL: ma_handle,
+    pub DirectSoundCreate: ma_proc,
+    pub DirectSoundEnumerateA: ma_proc,
+    pub DirectSoundCaptureCreate: ma_proc,
+    pub DirectSoundCaptureEnumerateA: ma_proc,
 }
 #[test]
 fn bindgen_test_layout_ma_context__bindgen_ty_1__bindgen_ty_2() {
     assert_eq!(
         ::std::mem::size_of::<ma_context__bindgen_ty_1__bindgen_ty_2>(),
-        4usize,
+        40usize,
         concat!(
             "Size of: ",
             stringify!(ma_context__bindgen_ty_1__bindgen_ty_2)
@@ -19394,24 +16078,887 @@ fn bindgen_test_layout_ma_context__bindgen_ty_1__bindgen_ty_2() {
     );
     assert_eq!(
         ::std::mem::align_of::<ma_context__bindgen_ty_1__bindgen_ty_2>(),
-        4usize,
+        8usize,
         concat!(
             "Alignment of ",
             stringify!(ma_context__bindgen_ty_1__bindgen_ty_2)
+        )
+    );
+    fn test_field_hDSoundDLL() {
+        assert_eq!(
+            unsafe {
+                let uninit =
+                    ::std::mem::MaybeUninit::<ma_context__bindgen_ty_1__bindgen_ty_2>::uninit();
+                let ptr = uninit.as_ptr();
+                ::std::ptr::addr_of!((*ptr).hDSoundDLL) as usize - ptr as usize
+            },
+            0usize,
+            concat!(
+                "Offset of field: ",
+                stringify!(ma_context__bindgen_ty_1__bindgen_ty_2),
+                "::",
+                stringify!(hDSoundDLL)
+            )
+        );
+    }
+    test_field_hDSoundDLL();
+    fn test_field_DirectSoundCreate() {
+        assert_eq!(
+            unsafe {
+                let uninit =
+                    ::std::mem::MaybeUninit::<ma_context__bindgen_ty_1__bindgen_ty_2>::uninit();
+                let ptr = uninit.as_ptr();
+                ::std::ptr::addr_of!((*ptr).DirectSoundCreate) as usize - ptr as usize
+            },
+            8usize,
+            concat!(
+                "Offset of field: ",
+                stringify!(ma_context__bindgen_ty_1__bindgen_ty_2),
+                "::",
+                stringify!(DirectSoundCreate)
+            )
+        );
+    }
+    test_field_DirectSoundCreate();
+    fn test_field_DirectSoundEnumerateA() {
+        assert_eq!(
+            unsafe {
+                let uninit =
+                    ::std::mem::MaybeUninit::<ma_context__bindgen_ty_1__bindgen_ty_2>::uninit();
+                let ptr = uninit.as_ptr();
+                ::std::ptr::addr_of!((*ptr).DirectSoundEnumerateA) as usize - ptr as usize
+            },
+            16usize,
+            concat!(
+                "Offset of field: ",
+                stringify!(ma_context__bindgen_ty_1__bindgen_ty_2),
+                "::",
+                stringify!(DirectSoundEnumerateA)
+            )
+        );
+    }
+    test_field_DirectSoundEnumerateA();
+    fn test_field_DirectSoundCaptureCreate() {
+        assert_eq!(
+            unsafe {
+                let uninit =
+                    ::std::mem::MaybeUninit::<ma_context__bindgen_ty_1__bindgen_ty_2>::uninit();
+                let ptr = uninit.as_ptr();
+                ::std::ptr::addr_of!((*ptr).DirectSoundCaptureCreate) as usize - ptr as usize
+            },
+            24usize,
+            concat!(
+                "Offset of field: ",
+                stringify!(ma_context__bindgen_ty_1__bindgen_ty_2),
+                "::",
+                stringify!(DirectSoundCaptureCreate)
+            )
+        );
+    }
+    test_field_DirectSoundCaptureCreate();
+    fn test_field_DirectSoundCaptureEnumerateA() {
+        assert_eq!(
+            unsafe {
+                let uninit =
+                    ::std::mem::MaybeUninit::<ma_context__bindgen_ty_1__bindgen_ty_2>::uninit();
+                let ptr = uninit.as_ptr();
+                ::std::ptr::addr_of!((*ptr).DirectSoundCaptureEnumerateA) as usize - ptr as usize
+            },
+            32usize,
+            concat!(
+                "Offset of field: ",
+                stringify!(ma_context__bindgen_ty_1__bindgen_ty_2),
+                "::",
+                stringify!(DirectSoundCaptureEnumerateA)
+            )
+        );
+    }
+    test_field_DirectSoundCaptureEnumerateA();
+}
+#[repr(C)]
+#[derive(Debug, Copy, Clone)]
+pub struct ma_context__bindgen_ty_1__bindgen_ty_3 {
+    pub hWinMM: ma_handle,
+    pub waveOutGetNumDevs: ma_proc,
+    pub waveOutGetDevCapsA: ma_proc,
+    pub waveOutOpen: ma_proc,
+    pub waveOutClose: ma_proc,
+    pub waveOutPrepareHeader: ma_proc,
+    pub waveOutUnprepareHeader: ma_proc,
+    pub waveOutWrite: ma_proc,
+    pub waveOutReset: ma_proc,
+    pub waveInGetNumDevs: ma_proc,
+    pub waveInGetDevCapsA: ma_proc,
+    pub waveInOpen: ma_proc,
+    pub waveInClose: ma_proc,
+    pub waveInPrepareHeader: ma_proc,
+    pub waveInUnprepareHeader: ma_proc,
+    pub waveInAddBuffer: ma_proc,
+    pub waveInStart: ma_proc,
+    pub waveInReset: ma_proc,
+}
+#[test]
+fn bindgen_test_layout_ma_context__bindgen_ty_1__bindgen_ty_3() {
+    assert_eq!(
+        ::std::mem::size_of::<ma_context__bindgen_ty_1__bindgen_ty_3>(),
+        144usize,
+        concat!(
+            "Size of: ",
+            stringify!(ma_context__bindgen_ty_1__bindgen_ty_3)
+        )
+    );
+    assert_eq!(
+        ::std::mem::align_of::<ma_context__bindgen_ty_1__bindgen_ty_3>(),
+        8usize,
+        concat!(
+            "Alignment of ",
+            stringify!(ma_context__bindgen_ty_1__bindgen_ty_3)
+        )
+    );
+    fn test_field_hWinMM() {
+        assert_eq!(
+            unsafe {
+                let uninit =
+                    ::std::mem::MaybeUninit::<ma_context__bindgen_ty_1__bindgen_ty_3>::uninit();
+                let ptr = uninit.as_ptr();
+                ::std::ptr::addr_of!((*ptr).hWinMM) as usize - ptr as usize
+            },
+            0usize,
+            concat!(
+                "Offset of field: ",
+                stringify!(ma_context__bindgen_ty_1__bindgen_ty_3),
+                "::",
+                stringify!(hWinMM)
+            )
+        );
+    }
+    test_field_hWinMM();
+    fn test_field_waveOutGetNumDevs() {
+        assert_eq!(
+            unsafe {
+                let uninit =
+                    ::std::mem::MaybeUninit::<ma_context__bindgen_ty_1__bindgen_ty_3>::uninit();
+                let ptr = uninit.as_ptr();
+                ::std::ptr::addr_of!((*ptr).waveOutGetNumDevs) as usize - ptr as usize
+            },
+            8usize,
+            concat!(
+                "Offset of field: ",
+                stringify!(ma_context__bindgen_ty_1__bindgen_ty_3),
+                "::",
+                stringify!(waveOutGetNumDevs)
+            )
+        );
+    }
+    test_field_waveOutGetNumDevs();
+    fn test_field_waveOutGetDevCapsA() {
+        assert_eq!(
+            unsafe {
+                let uninit =
+                    ::std::mem::MaybeUninit::<ma_context__bindgen_ty_1__bindgen_ty_3>::uninit();
+                let ptr = uninit.as_ptr();
+                ::std::ptr::addr_of!((*ptr).waveOutGetDevCapsA) as usize - ptr as usize
+            },
+            16usize,
+            concat!(
+                "Offset of field: ",
+                stringify!(ma_context__bindgen_ty_1__bindgen_ty_3),
+                "::",
+                stringify!(waveOutGetDevCapsA)
+            )
+        );
+    }
+    test_field_waveOutGetDevCapsA();
+    fn test_field_waveOutOpen() {
+        assert_eq!(
+            unsafe {
+                let uninit =
+                    ::std::mem::MaybeUninit::<ma_context__bindgen_ty_1__bindgen_ty_3>::uninit();
+                let ptr = uninit.as_ptr();
+                ::std::ptr::addr_of!((*ptr).waveOutOpen) as usize - ptr as usize
+            },
+            24usize,
+            concat!(
+                "Offset of field: ",
+                stringify!(ma_context__bindgen_ty_1__bindgen_ty_3),
+                "::",
+                stringify!(waveOutOpen)
+            )
+        );
+    }
+    test_field_waveOutOpen();
+    fn test_field_waveOutClose() {
+        assert_eq!(
+            unsafe {
+                let uninit =
+                    ::std::mem::MaybeUninit::<ma_context__bindgen_ty_1__bindgen_ty_3>::uninit();
+                let ptr = uninit.as_ptr();
+                ::std::ptr::addr_of!((*ptr).waveOutClose) as usize - ptr as usize
+            },
+            32usize,
+            concat!(
+                "Offset of field: ",
+                stringify!(ma_context__bindgen_ty_1__bindgen_ty_3),
+                "::",
+                stringify!(waveOutClose)
+            )
+        );
+    }
+    test_field_waveOutClose();
+    fn test_field_waveOutPrepareHeader() {
+        assert_eq!(
+            unsafe {
+                let uninit =
+                    ::std::mem::MaybeUninit::<ma_context__bindgen_ty_1__bindgen_ty_3>::uninit();
+                let ptr = uninit.as_ptr();
+                ::std::ptr::addr_of!((*ptr).waveOutPrepareHeader) as usize - ptr as usize
+            },
+            40usize,
+            concat!(
+                "Offset of field: ",
+                stringify!(ma_context__bindgen_ty_1__bindgen_ty_3),
+                "::",
+                stringify!(waveOutPrepareHeader)
+            )
+        );
+    }
+    test_field_waveOutPrepareHeader();
+    fn test_field_waveOutUnprepareHeader() {
+        assert_eq!(
+            unsafe {
+                let uninit =
+                    ::std::mem::MaybeUninit::<ma_context__bindgen_ty_1__bindgen_ty_3>::uninit();
+                let ptr = uninit.as_ptr();
+                ::std::ptr::addr_of!((*ptr).waveOutUnprepareHeader) as usize - ptr as usize
+            },
+            48usize,
+            concat!(
+                "Offset of field: ",
+                stringify!(ma_context__bindgen_ty_1__bindgen_ty_3),
+                "::",
+                stringify!(waveOutUnprepareHeader)
+            )
+        );
+    }
+    test_field_waveOutUnprepareHeader();
+    fn test_field_waveOutWrite() {
+        assert_eq!(
+            unsafe {
+                let uninit =
+                    ::std::mem::MaybeUninit::<ma_context__bindgen_ty_1__bindgen_ty_3>::uninit();
+                let ptr = uninit.as_ptr();
+                ::std::ptr::addr_of!((*ptr).waveOutWrite) as usize - ptr as usize
+            },
+            56usize,
+            concat!(
+                "Offset of field: ",
+                stringify!(ma_context__bindgen_ty_1__bindgen_ty_3),
+                "::",
+                stringify!(waveOutWrite)
+            )
+        );
+    }
+    test_field_waveOutWrite();
+    fn test_field_waveOutReset() {
+        assert_eq!(
+            unsafe {
+                let uninit =
+                    ::std::mem::MaybeUninit::<ma_context__bindgen_ty_1__bindgen_ty_3>::uninit();
+                let ptr = uninit.as_ptr();
+                ::std::ptr::addr_of!((*ptr).waveOutReset) as usize - ptr as usize
+            },
+            64usize,
+            concat!(
+                "Offset of field: ",
+                stringify!(ma_context__bindgen_ty_1__bindgen_ty_3),
+                "::",
+                stringify!(waveOutReset)
+            )
+        );
+    }
+    test_field_waveOutReset();
+    fn test_field_waveInGetNumDevs() {
+        assert_eq!(
+            unsafe {
+                let uninit =
+                    ::std::mem::MaybeUninit::<ma_context__bindgen_ty_1__bindgen_ty_3>::uninit();
+                let ptr = uninit.as_ptr();
+                ::std::ptr::addr_of!((*ptr).waveInGetNumDevs) as usize - ptr as usize
+            },
+            72usize,
+            concat!(
+                "Offset of field: ",
+                stringify!(ma_context__bindgen_ty_1__bindgen_ty_3),
+                "::",
+                stringify!(waveInGetNumDevs)
+            )
+        );
+    }
+    test_field_waveInGetNumDevs();
+    fn test_field_waveInGetDevCapsA() {
+        assert_eq!(
+            unsafe {
+                let uninit =
+                    ::std::mem::MaybeUninit::<ma_context__bindgen_ty_1__bindgen_ty_3>::uninit();
+                let ptr = uninit.as_ptr();
+                ::std::ptr::addr_of!((*ptr).waveInGetDevCapsA) as usize - ptr as usize
+            },
+            80usize,
+            concat!(
+                "Offset of field: ",
+                stringify!(ma_context__bindgen_ty_1__bindgen_ty_3),
+                "::",
+                stringify!(waveInGetDevCapsA)
+            )
+        );
+    }
+    test_field_waveInGetDevCapsA();
+    fn test_field_waveInOpen() {
+        assert_eq!(
+            unsafe {
+                let uninit =
+                    ::std::mem::MaybeUninit::<ma_context__bindgen_ty_1__bindgen_ty_3>::uninit();
+                let ptr = uninit.as_ptr();
+                ::std::ptr::addr_of!((*ptr).waveInOpen) as usize - ptr as usize
+            },
+            88usize,
+            concat!(
+                "Offset of field: ",
+                stringify!(ma_context__bindgen_ty_1__bindgen_ty_3),
+                "::",
+                stringify!(waveInOpen)
+            )
+        );
+    }
+    test_field_waveInOpen();
+    fn test_field_waveInClose() {
+        assert_eq!(
+            unsafe {
+                let uninit =
+                    ::std::mem::MaybeUninit::<ma_context__bindgen_ty_1__bindgen_ty_3>::uninit();
+                let ptr = uninit.as_ptr();
+                ::std::ptr::addr_of!((*ptr).waveInClose) as usize - ptr as usize
+            },
+            96usize,
+            concat!(
+                "Offset of field: ",
+                stringify!(ma_context__bindgen_ty_1__bindgen_ty_3),
+                "::",
+                stringify!(waveInClose)
+            )
+        );
+    }
+    test_field_waveInClose();
+    fn test_field_waveInPrepareHeader() {
+        assert_eq!(
+            unsafe {
+                let uninit =
+                    ::std::mem::MaybeUninit::<ma_context__bindgen_ty_1__bindgen_ty_3>::uninit();
+                let ptr = uninit.as_ptr();
+                ::std::ptr::addr_of!((*ptr).waveInPrepareHeader) as usize - ptr as usize
+            },
+            104usize,
+            concat!(
+                "Offset of field: ",
+                stringify!(ma_context__bindgen_ty_1__bindgen_ty_3),
+                "::",
+                stringify!(waveInPrepareHeader)
+            )
+        );
+    }
+    test_field_waveInPrepareHeader();
+    fn test_field_waveInUnprepareHeader() {
+        assert_eq!(
+            unsafe {
+                let uninit =
+                    ::std::mem::MaybeUninit::<ma_context__bindgen_ty_1__bindgen_ty_3>::uninit();
+                let ptr = uninit.as_ptr();
+                ::std::ptr::addr_of!((*ptr).waveInUnprepareHeader) as usize - ptr as usize
+            },
+            112usize,
+            concat!(
+                "Offset of field: ",
+                stringify!(ma_context__bindgen_ty_1__bindgen_ty_3),
+                "::",
+                stringify!(waveInUnprepareHeader)
+            )
+        );
+    }
+    test_field_waveInUnprepareHeader();
+    fn test_field_waveInAddBuffer() {
+        assert_eq!(
+            unsafe {
+                let uninit =
+                    ::std::mem::MaybeUninit::<ma_context__bindgen_ty_1__bindgen_ty_3>::uninit();
+                let ptr = uninit.as_ptr();
+                ::std::ptr::addr_of!((*ptr).waveInAddBuffer) as usize - ptr as usize
+            },
+            120usize,
+            concat!(
+                "Offset of field: ",
+                stringify!(ma_context__bindgen_ty_1__bindgen_ty_3),
+                "::",
+                stringify!(waveInAddBuffer)
+            )
+        );
+    }
+    test_field_waveInAddBuffer();
+    fn test_field_waveInStart() {
+        assert_eq!(
+            unsafe {
+                let uninit =
+                    ::std::mem::MaybeUninit::<ma_context__bindgen_ty_1__bindgen_ty_3>::uninit();
+                let ptr = uninit.as_ptr();
+                ::std::ptr::addr_of!((*ptr).waveInStart) as usize - ptr as usize
+            },
+            128usize,
+            concat!(
+                "Offset of field: ",
+                stringify!(ma_context__bindgen_ty_1__bindgen_ty_3),
+                "::",
+                stringify!(waveInStart)
+            )
+        );
+    }
+    test_field_waveInStart();
+    fn test_field_waveInReset() {
+        assert_eq!(
+            unsafe {
+                let uninit =
+                    ::std::mem::MaybeUninit::<ma_context__bindgen_ty_1__bindgen_ty_3>::uninit();
+                let ptr = uninit.as_ptr();
+                ::std::ptr::addr_of!((*ptr).waveInReset) as usize - ptr as usize
+            },
+            136usize,
+            concat!(
+                "Offset of field: ",
+                stringify!(ma_context__bindgen_ty_1__bindgen_ty_3),
+                "::",
+                stringify!(waveInReset)
+            )
+        );
+    }
+    test_field_waveInReset();
+}
+#[repr(C)]
+#[derive(Debug, Copy, Clone)]
+pub struct ma_context__bindgen_ty_1__bindgen_ty_4 {
+    pub jackSO: ma_handle,
+    pub jack_client_open: ma_proc,
+    pub jack_client_close: ma_proc,
+    pub jack_client_name_size: ma_proc,
+    pub jack_set_process_callback: ma_proc,
+    pub jack_set_buffer_size_callback: ma_proc,
+    pub jack_on_shutdown: ma_proc,
+    pub jack_get_sample_rate: ma_proc,
+    pub jack_get_buffer_size: ma_proc,
+    pub jack_get_ports: ma_proc,
+    pub jack_activate: ma_proc,
+    pub jack_deactivate: ma_proc,
+    pub jack_connect: ma_proc,
+    pub jack_port_register: ma_proc,
+    pub jack_port_name: ma_proc,
+    pub jack_port_get_buffer: ma_proc,
+    pub jack_free: ma_proc,
+    pub pClientName: *mut ::std::os::raw::c_char,
+    pub tryStartServer: ma_bool32,
+}
+#[test]
+fn bindgen_test_layout_ma_context__bindgen_ty_1__bindgen_ty_4() {
+    assert_eq!(
+        ::std::mem::size_of::<ma_context__bindgen_ty_1__bindgen_ty_4>(),
+        152usize,
+        concat!(
+            "Size of: ",
+            stringify!(ma_context__bindgen_ty_1__bindgen_ty_4)
+        )
+    );
+    assert_eq!(
+        ::std::mem::align_of::<ma_context__bindgen_ty_1__bindgen_ty_4>(),
+        8usize,
+        concat!(
+            "Alignment of ",
+            stringify!(ma_context__bindgen_ty_1__bindgen_ty_4)
+        )
+    );
+    fn test_field_jackSO() {
+        assert_eq!(
+            unsafe {
+                let uninit =
+                    ::std::mem::MaybeUninit::<ma_context__bindgen_ty_1__bindgen_ty_4>::uninit();
+                let ptr = uninit.as_ptr();
+                ::std::ptr::addr_of!((*ptr).jackSO) as usize - ptr as usize
+            },
+            0usize,
+            concat!(
+                "Offset of field: ",
+                stringify!(ma_context__bindgen_ty_1__bindgen_ty_4),
+                "::",
+                stringify!(jackSO)
+            )
+        );
+    }
+    test_field_jackSO();
+    fn test_field_jack_client_open() {
+        assert_eq!(
+            unsafe {
+                let uninit =
+                    ::std::mem::MaybeUninit::<ma_context__bindgen_ty_1__bindgen_ty_4>::uninit();
+                let ptr = uninit.as_ptr();
+                ::std::ptr::addr_of!((*ptr).jack_client_open) as usize - ptr as usize
+            },
+            8usize,
+            concat!(
+                "Offset of field: ",
+                stringify!(ma_context__bindgen_ty_1__bindgen_ty_4),
+                "::",
+                stringify!(jack_client_open)
+            )
+        );
+    }
+    test_field_jack_client_open();
+    fn test_field_jack_client_close() {
+        assert_eq!(
+            unsafe {
+                let uninit =
+                    ::std::mem::MaybeUninit::<ma_context__bindgen_ty_1__bindgen_ty_4>::uninit();
+                let ptr = uninit.as_ptr();
+                ::std::ptr::addr_of!((*ptr).jack_client_close) as usize - ptr as usize
+            },
+            16usize,
+            concat!(
+                "Offset of field: ",
+                stringify!(ma_context__bindgen_ty_1__bindgen_ty_4),
+                "::",
+                stringify!(jack_client_close)
+            )
+        );
+    }
+    test_field_jack_client_close();
+    fn test_field_jack_client_name_size() {
+        assert_eq!(
+            unsafe {
+                let uninit =
+                    ::std::mem::MaybeUninit::<ma_context__bindgen_ty_1__bindgen_ty_4>::uninit();
+                let ptr = uninit.as_ptr();
+                ::std::ptr::addr_of!((*ptr).jack_client_name_size) as usize - ptr as usize
+            },
+            24usize,
+            concat!(
+                "Offset of field: ",
+                stringify!(ma_context__bindgen_ty_1__bindgen_ty_4),
+                "::",
+                stringify!(jack_client_name_size)
+            )
+        );
+    }
+    test_field_jack_client_name_size();
+    fn test_field_jack_set_process_callback() {
+        assert_eq!(
+            unsafe {
+                let uninit =
+                    ::std::mem::MaybeUninit::<ma_context__bindgen_ty_1__bindgen_ty_4>::uninit();
+                let ptr = uninit.as_ptr();
+                ::std::ptr::addr_of!((*ptr).jack_set_process_callback) as usize - ptr as usize
+            },
+            32usize,
+            concat!(
+                "Offset of field: ",
+                stringify!(ma_context__bindgen_ty_1__bindgen_ty_4),
+                "::",
+                stringify!(jack_set_process_callback)
+            )
+        );
+    }
+    test_field_jack_set_process_callback();
+    fn test_field_jack_set_buffer_size_callback() {
+        assert_eq!(
+            unsafe {
+                let uninit =
+                    ::std::mem::MaybeUninit::<ma_context__bindgen_ty_1__bindgen_ty_4>::uninit();
+                let ptr = uninit.as_ptr();
+                ::std::ptr::addr_of!((*ptr).jack_set_buffer_size_callback) as usize - ptr as usize
+            },
+            40usize,
+            concat!(
+                "Offset of field: ",
+                stringify!(ma_context__bindgen_ty_1__bindgen_ty_4),
+                "::",
+                stringify!(jack_set_buffer_size_callback)
+            )
+        );
+    }
+    test_field_jack_set_buffer_size_callback();
+    fn test_field_jack_on_shutdown() {
+        assert_eq!(
+            unsafe {
+                let uninit =
+                    ::std::mem::MaybeUninit::<ma_context__bindgen_ty_1__bindgen_ty_4>::uninit();
+                let ptr = uninit.as_ptr();
+                ::std::ptr::addr_of!((*ptr).jack_on_shutdown) as usize - ptr as usize
+            },
+            48usize,
+            concat!(
+                "Offset of field: ",
+                stringify!(ma_context__bindgen_ty_1__bindgen_ty_4),
+                "::",
+                stringify!(jack_on_shutdown)
+            )
+        );
+    }
+    test_field_jack_on_shutdown();
+    fn test_field_jack_get_sample_rate() {
+        assert_eq!(
+            unsafe {
+                let uninit =
+                    ::std::mem::MaybeUninit::<ma_context__bindgen_ty_1__bindgen_ty_4>::uninit();
+                let ptr = uninit.as_ptr();
+                ::std::ptr::addr_of!((*ptr).jack_get_sample_rate) as usize - ptr as usize
+            },
+            56usize,
+            concat!(
+                "Offset of field: ",
+                stringify!(ma_context__bindgen_ty_1__bindgen_ty_4),
+                "::",
+                stringify!(jack_get_sample_rate)
+            )
+        );
+    }
+    test_field_jack_get_sample_rate();
+    fn test_field_jack_get_buffer_size() {
+        assert_eq!(
+            unsafe {
+                let uninit =
+                    ::std::mem::MaybeUninit::<ma_context__bindgen_ty_1__bindgen_ty_4>::uninit();
+                let ptr = uninit.as_ptr();
+                ::std::ptr::addr_of!((*ptr).jack_get_buffer_size) as usize - ptr as usize
+            },
+            64usize,
+            concat!(
+                "Offset of field: ",
+                stringify!(ma_context__bindgen_ty_1__bindgen_ty_4),
+                "::",
+                stringify!(jack_get_buffer_size)
+            )
+        );
+    }
+    test_field_jack_get_buffer_size();
+    fn test_field_jack_get_ports() {
+        assert_eq!(
+            unsafe {
+                let uninit =
+                    ::std::mem::MaybeUninit::<ma_context__bindgen_ty_1__bindgen_ty_4>::uninit();
+                let ptr = uninit.as_ptr();
+                ::std::ptr::addr_of!((*ptr).jack_get_ports) as usize - ptr as usize
+            },
+            72usize,
+            concat!(
+                "Offset of field: ",
+                stringify!(ma_context__bindgen_ty_1__bindgen_ty_4),
+                "::",
+                stringify!(jack_get_ports)
+            )
+        );
+    }
+    test_field_jack_get_ports();
+    fn test_field_jack_activate() {
+        assert_eq!(
+            unsafe {
+                let uninit =
+                    ::std::mem::MaybeUninit::<ma_context__bindgen_ty_1__bindgen_ty_4>::uninit();
+                let ptr = uninit.as_ptr();
+                ::std::ptr::addr_of!((*ptr).jack_activate) as usize - ptr as usize
+            },
+            80usize,
+            concat!(
+                "Offset of field: ",
+                stringify!(ma_context__bindgen_ty_1__bindgen_ty_4),
+                "::",
+                stringify!(jack_activate)
+            )
+        );
+    }
+    test_field_jack_activate();
+    fn test_field_jack_deactivate() {
+        assert_eq!(
+            unsafe {
+                let uninit =
+                    ::std::mem::MaybeUninit::<ma_context__bindgen_ty_1__bindgen_ty_4>::uninit();
+                let ptr = uninit.as_ptr();
+                ::std::ptr::addr_of!((*ptr).jack_deactivate) as usize - ptr as usize
+            },
+            88usize,
+            concat!(
+                "Offset of field: ",
+                stringify!(ma_context__bindgen_ty_1__bindgen_ty_4),
+                "::",
+                stringify!(jack_deactivate)
+            )
+        );
+    }
+    test_field_jack_deactivate();
+    fn test_field_jack_connect() {
+        assert_eq!(
+            unsafe {
+                let uninit =
+                    ::std::mem::MaybeUninit::<ma_context__bindgen_ty_1__bindgen_ty_4>::uninit();
+                let ptr = uninit.as_ptr();
+                ::std::ptr::addr_of!((*ptr).jack_connect) as usize - ptr as usize
+            },
+            96usize,
+            concat!(
+                "Offset of field: ",
+                stringify!(ma_context__bindgen_ty_1__bindgen_ty_4),
+                "::",
+                stringify!(jack_connect)
+            )
+        );
+    }
+    test_field_jack_connect();
+    fn test_field_jack_port_register() {
+        assert_eq!(
+            unsafe {
+                let uninit =
+                    ::std::mem::MaybeUninit::<ma_context__bindgen_ty_1__bindgen_ty_4>::uninit();
+                let ptr = uninit.as_ptr();
+                ::std::ptr::addr_of!((*ptr).jack_port_register) as usize - ptr as usize
+            },
+            104usize,
+            concat!(
+                "Offset of field: ",
+                stringify!(ma_context__bindgen_ty_1__bindgen_ty_4),
+                "::",
+                stringify!(jack_port_register)
+            )
+        );
+    }
+    test_field_jack_port_register();
+    fn test_field_jack_port_name() {
+        assert_eq!(
+            unsafe {
+                let uninit =
+                    ::std::mem::MaybeUninit::<ma_context__bindgen_ty_1__bindgen_ty_4>::uninit();
+                let ptr = uninit.as_ptr();
+                ::std::ptr::addr_of!((*ptr).jack_port_name) as usize - ptr as usize
+            },
+            112usize,
+            concat!(
+                "Offset of field: ",
+                stringify!(ma_context__bindgen_ty_1__bindgen_ty_4),
+                "::",
+                stringify!(jack_port_name)
+            )
+        );
+    }
+    test_field_jack_port_name();
+    fn test_field_jack_port_get_buffer() {
+        assert_eq!(
+            unsafe {
+                let uninit =
+                    ::std::mem::MaybeUninit::<ma_context__bindgen_ty_1__bindgen_ty_4>::uninit();
+                let ptr = uninit.as_ptr();
+                ::std::ptr::addr_of!((*ptr).jack_port_get_buffer) as usize - ptr as usize
+            },
+            120usize,
+            concat!(
+                "Offset of field: ",
+                stringify!(ma_context__bindgen_ty_1__bindgen_ty_4),
+                "::",
+                stringify!(jack_port_get_buffer)
+            )
+        );
+    }
+    test_field_jack_port_get_buffer();
+    fn test_field_jack_free() {
+        assert_eq!(
+            unsafe {
+                let uninit =
+                    ::std::mem::MaybeUninit::<ma_context__bindgen_ty_1__bindgen_ty_4>::uninit();
+                let ptr = uninit.as_ptr();
+                ::std::ptr::addr_of!((*ptr).jack_free) as usize - ptr as usize
+            },
+            128usize,
+            concat!(
+                "Offset of field: ",
+                stringify!(ma_context__bindgen_ty_1__bindgen_ty_4),
+                "::",
+                stringify!(jack_free)
+            )
+        );
+    }
+    test_field_jack_free();
+    fn test_field_pClientName() {
+        assert_eq!(
+            unsafe {
+                let uninit =
+                    ::std::mem::MaybeUninit::<ma_context__bindgen_ty_1__bindgen_ty_4>::uninit();
+                let ptr = uninit.as_ptr();
+                ::std::ptr::addr_of!((*ptr).pClientName) as usize - ptr as usize
+            },
+            136usize,
+            concat!(
+                "Offset of field: ",
+                stringify!(ma_context__bindgen_ty_1__bindgen_ty_4),
+                "::",
+                stringify!(pClientName)
+            )
+        );
+    }
+    test_field_pClientName();
+    fn test_field_tryStartServer() {
+        assert_eq!(
+            unsafe {
+                let uninit =
+                    ::std::mem::MaybeUninit::<ma_context__bindgen_ty_1__bindgen_ty_4>::uninit();
+                let ptr = uninit.as_ptr();
+                ::std::ptr::addr_of!((*ptr).tryStartServer) as usize - ptr as usize
+            },
+            144usize,
+            concat!(
+                "Offset of field: ",
+                stringify!(ma_context__bindgen_ty_1__bindgen_ty_4),
+                "::",
+                stringify!(tryStartServer)
+            )
+        );
+    }
+    test_field_tryStartServer();
+}
+#[repr(C)]
+#[derive(Debug, Copy, Clone)]
+pub struct ma_context__bindgen_ty_1__bindgen_ty_5 {
+    pub _unused: ::std::os::raw::c_int,
+}
+#[test]
+fn bindgen_test_layout_ma_context__bindgen_ty_1__bindgen_ty_5() {
+    assert_eq!(
+        ::std::mem::size_of::<ma_context__bindgen_ty_1__bindgen_ty_5>(),
+        4usize,
+        concat!(
+            "Size of: ",
+            stringify!(ma_context__bindgen_ty_1__bindgen_ty_5)
+        )
+    );
+    assert_eq!(
+        ::std::mem::align_of::<ma_context__bindgen_ty_1__bindgen_ty_5>(),
+        4usize,
+        concat!(
+            "Alignment of ",
+            stringify!(ma_context__bindgen_ty_1__bindgen_ty_5)
         )
     );
     fn test_field__unused() {
         assert_eq!(
             unsafe {
                 let uninit =
-                    ::std::mem::MaybeUninit::<ma_context__bindgen_ty_1__bindgen_ty_2>::uninit();
+                    ::std::mem::MaybeUninit::<ma_context__bindgen_ty_1__bindgen_ty_5>::uninit();
                 let ptr = uninit.as_ptr();
                 ::std::ptr::addr_of!((*ptr)._unused) as usize - ptr as usize
             },
             0usize,
             concat!(
                 "Offset of field: ",
-                stringify!(ma_context__bindgen_ty_1__bindgen_ty_2),
+                stringify!(ma_context__bindgen_ty_1__bindgen_ty_5),
                 "::",
                 stringify!(_unused)
             )
@@ -19423,7 +16970,7 @@ fn bindgen_test_layout_ma_context__bindgen_ty_1__bindgen_ty_2() {
 fn bindgen_test_layout_ma_context__bindgen_ty_1() {
     assert_eq!(
         ::std::mem::size_of::<ma_context__bindgen_ty_1>(),
-        184usize,
+        224usize,
         concat!("Size of: ", stringify!(ma_context__bindgen_ty_1))
     );
     assert_eq!(
@@ -19431,23 +16978,74 @@ fn bindgen_test_layout_ma_context__bindgen_ty_1() {
         8usize,
         concat!("Alignment of ", stringify!(ma_context__bindgen_ty_1))
     );
-    fn test_field_coreaudio() {
+    fn test_field_wasapi() {
         assert_eq!(
             unsafe {
                 let uninit = ::std::mem::MaybeUninit::<ma_context__bindgen_ty_1>::uninit();
                 let ptr = uninit.as_ptr();
-                ::std::ptr::addr_of!((*ptr).coreaudio) as usize - ptr as usize
+                ::std::ptr::addr_of!((*ptr).wasapi) as usize - ptr as usize
             },
             0usize,
             concat!(
                 "Offset of field: ",
                 stringify!(ma_context__bindgen_ty_1),
                 "::",
-                stringify!(coreaudio)
+                stringify!(wasapi)
             )
         );
     }
-    test_field_coreaudio();
+    test_field_wasapi();
+    fn test_field_dsound() {
+        assert_eq!(
+            unsafe {
+                let uninit = ::std::mem::MaybeUninit::<ma_context__bindgen_ty_1>::uninit();
+                let ptr = uninit.as_ptr();
+                ::std::ptr::addr_of!((*ptr).dsound) as usize - ptr as usize
+            },
+            0usize,
+            concat!(
+                "Offset of field: ",
+                stringify!(ma_context__bindgen_ty_1),
+                "::",
+                stringify!(dsound)
+            )
+        );
+    }
+    test_field_dsound();
+    fn test_field_winmm() {
+        assert_eq!(
+            unsafe {
+                let uninit = ::std::mem::MaybeUninit::<ma_context__bindgen_ty_1>::uninit();
+                let ptr = uninit.as_ptr();
+                ::std::ptr::addr_of!((*ptr).winmm) as usize - ptr as usize
+            },
+            0usize,
+            concat!(
+                "Offset of field: ",
+                stringify!(ma_context__bindgen_ty_1),
+                "::",
+                stringify!(winmm)
+            )
+        );
+    }
+    test_field_winmm();
+    fn test_field_jack() {
+        assert_eq!(
+            unsafe {
+                let uninit = ::std::mem::MaybeUninit::<ma_context__bindgen_ty_1>::uninit();
+                let ptr = uninit.as_ptr();
+                ::std::ptr::addr_of!((*ptr).jack) as usize - ptr as usize
+            },
+            0usize,
+            concat!(
+                "Offset of field: ",
+                stringify!(ma_context__bindgen_ty_1),
+                "::",
+                stringify!(jack)
+            )
+        );
+    }
+    test_field_jack();
     fn test_field_null_backend() {
         assert_eq!(
             unsafe {
@@ -19466,15 +17064,6 @@ fn bindgen_test_layout_ma_context__bindgen_ty_1() {
     }
     test_field_null_backend();
 }
-impl Default for ma_context__bindgen_ty_1 {
-    fn default() -> Self {
-        let mut s = ::std::mem::MaybeUninit::<Self>::uninit();
-        unsafe {
-            ::std::ptr::write_bytes(s.as_mut_ptr(), 0, 1);
-            s.assume_init()
-        }
-    }
-}
 impl ::std::fmt::Debug for ma_context__bindgen_ty_1 {
     fn fmt(&self, f: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
         write!(f, "ma_context__bindgen_ty_1 {{ union }}")
@@ -19483,34 +17072,32 @@ impl ::std::fmt::Debug for ma_context__bindgen_ty_1 {
 #[repr(C)]
 #[derive(Copy, Clone)]
 pub union ma_context__bindgen_ty_2 {
-    pub posix: ma_context__bindgen_ty_2__bindgen_ty_1,
+    pub win32: ma_context__bindgen_ty_2__bindgen_ty_1,
     pub _unused: ::std::os::raw::c_int,
 }
 #[repr(C)]
 #[derive(Debug, Copy, Clone)]
 pub struct ma_context__bindgen_ty_2__bindgen_ty_1 {
-    pub pthreadSO: ma_handle,
-    pub pthread_create: ma_proc,
-    pub pthread_join: ma_proc,
-    pub pthread_mutex_init: ma_proc,
-    pub pthread_mutex_destroy: ma_proc,
-    pub pthread_mutex_lock: ma_proc,
-    pub pthread_mutex_unlock: ma_proc,
-    pub pthread_cond_init: ma_proc,
-    pub pthread_cond_destroy: ma_proc,
-    pub pthread_cond_wait: ma_proc,
-    pub pthread_cond_signal: ma_proc,
-    pub pthread_attr_init: ma_proc,
-    pub pthread_attr_destroy: ma_proc,
-    pub pthread_attr_setschedpolicy: ma_proc,
-    pub pthread_attr_getschedparam: ma_proc,
-    pub pthread_attr_setschedparam: ma_proc,
+    pub hOle32DLL: ma_handle,
+    pub CoInitializeEx: ma_proc,
+    pub CoUninitialize: ma_proc,
+    pub CoCreateInstance: ma_proc,
+    pub CoTaskMemFree: ma_proc,
+    pub PropVariantClear: ma_proc,
+    pub StringFromGUID2: ma_proc,
+    pub hUser32DLL: ma_handle,
+    pub GetForegroundWindow: ma_proc,
+    pub GetDesktopWindow: ma_proc,
+    pub hAdvapi32DLL: ma_handle,
+    pub RegOpenKeyExA: ma_proc,
+    pub RegCloseKey: ma_proc,
+    pub RegQueryValueExA: ma_proc,
 }
 #[test]
 fn bindgen_test_layout_ma_context__bindgen_ty_2__bindgen_ty_1() {
     assert_eq!(
         ::std::mem::size_of::<ma_context__bindgen_ty_2__bindgen_ty_1>(),
-        128usize,
+        112usize,
         concat!(
             "Size of: ",
             stringify!(ma_context__bindgen_ty_2__bindgen_ty_1)
@@ -19524,309 +17111,264 @@ fn bindgen_test_layout_ma_context__bindgen_ty_2__bindgen_ty_1() {
             stringify!(ma_context__bindgen_ty_2__bindgen_ty_1)
         )
     );
-    fn test_field_pthreadSO() {
+    fn test_field_hOle32DLL() {
         assert_eq!(
             unsafe {
                 let uninit =
                     ::std::mem::MaybeUninit::<ma_context__bindgen_ty_2__bindgen_ty_1>::uninit();
                 let ptr = uninit.as_ptr();
-                ::std::ptr::addr_of!((*ptr).pthreadSO) as usize - ptr as usize
+                ::std::ptr::addr_of!((*ptr).hOle32DLL) as usize - ptr as usize
             },
             0usize,
             concat!(
                 "Offset of field: ",
                 stringify!(ma_context__bindgen_ty_2__bindgen_ty_1),
                 "::",
-                stringify!(pthreadSO)
+                stringify!(hOle32DLL)
             )
         );
     }
-    test_field_pthreadSO();
-    fn test_field_pthread_create() {
+    test_field_hOle32DLL();
+    fn test_field_CoInitializeEx() {
         assert_eq!(
             unsafe {
                 let uninit =
                     ::std::mem::MaybeUninit::<ma_context__bindgen_ty_2__bindgen_ty_1>::uninit();
                 let ptr = uninit.as_ptr();
-                ::std::ptr::addr_of!((*ptr).pthread_create) as usize - ptr as usize
+                ::std::ptr::addr_of!((*ptr).CoInitializeEx) as usize - ptr as usize
             },
             8usize,
             concat!(
                 "Offset of field: ",
                 stringify!(ma_context__bindgen_ty_2__bindgen_ty_1),
                 "::",
-                stringify!(pthread_create)
+                stringify!(CoInitializeEx)
             )
         );
     }
-    test_field_pthread_create();
-    fn test_field_pthread_join() {
+    test_field_CoInitializeEx();
+    fn test_field_CoUninitialize() {
         assert_eq!(
             unsafe {
                 let uninit =
                     ::std::mem::MaybeUninit::<ma_context__bindgen_ty_2__bindgen_ty_1>::uninit();
                 let ptr = uninit.as_ptr();
-                ::std::ptr::addr_of!((*ptr).pthread_join) as usize - ptr as usize
+                ::std::ptr::addr_of!((*ptr).CoUninitialize) as usize - ptr as usize
             },
             16usize,
             concat!(
                 "Offset of field: ",
                 stringify!(ma_context__bindgen_ty_2__bindgen_ty_1),
                 "::",
-                stringify!(pthread_join)
+                stringify!(CoUninitialize)
             )
         );
     }
-    test_field_pthread_join();
-    fn test_field_pthread_mutex_init() {
+    test_field_CoUninitialize();
+    fn test_field_CoCreateInstance() {
         assert_eq!(
             unsafe {
                 let uninit =
                     ::std::mem::MaybeUninit::<ma_context__bindgen_ty_2__bindgen_ty_1>::uninit();
                 let ptr = uninit.as_ptr();
-                ::std::ptr::addr_of!((*ptr).pthread_mutex_init) as usize - ptr as usize
+                ::std::ptr::addr_of!((*ptr).CoCreateInstance) as usize - ptr as usize
             },
             24usize,
             concat!(
                 "Offset of field: ",
                 stringify!(ma_context__bindgen_ty_2__bindgen_ty_1),
                 "::",
-                stringify!(pthread_mutex_init)
+                stringify!(CoCreateInstance)
             )
         );
     }
-    test_field_pthread_mutex_init();
-    fn test_field_pthread_mutex_destroy() {
+    test_field_CoCreateInstance();
+    fn test_field_CoTaskMemFree() {
         assert_eq!(
             unsafe {
                 let uninit =
                     ::std::mem::MaybeUninit::<ma_context__bindgen_ty_2__bindgen_ty_1>::uninit();
                 let ptr = uninit.as_ptr();
-                ::std::ptr::addr_of!((*ptr).pthread_mutex_destroy) as usize - ptr as usize
+                ::std::ptr::addr_of!((*ptr).CoTaskMemFree) as usize - ptr as usize
             },
             32usize,
             concat!(
                 "Offset of field: ",
                 stringify!(ma_context__bindgen_ty_2__bindgen_ty_1),
                 "::",
-                stringify!(pthread_mutex_destroy)
+                stringify!(CoTaskMemFree)
             )
         );
     }
-    test_field_pthread_mutex_destroy();
-    fn test_field_pthread_mutex_lock() {
+    test_field_CoTaskMemFree();
+    fn test_field_PropVariantClear() {
         assert_eq!(
             unsafe {
                 let uninit =
                     ::std::mem::MaybeUninit::<ma_context__bindgen_ty_2__bindgen_ty_1>::uninit();
                 let ptr = uninit.as_ptr();
-                ::std::ptr::addr_of!((*ptr).pthread_mutex_lock) as usize - ptr as usize
+                ::std::ptr::addr_of!((*ptr).PropVariantClear) as usize - ptr as usize
             },
             40usize,
             concat!(
                 "Offset of field: ",
                 stringify!(ma_context__bindgen_ty_2__bindgen_ty_1),
                 "::",
-                stringify!(pthread_mutex_lock)
+                stringify!(PropVariantClear)
             )
         );
     }
-    test_field_pthread_mutex_lock();
-    fn test_field_pthread_mutex_unlock() {
+    test_field_PropVariantClear();
+    fn test_field_StringFromGUID2() {
         assert_eq!(
             unsafe {
                 let uninit =
                     ::std::mem::MaybeUninit::<ma_context__bindgen_ty_2__bindgen_ty_1>::uninit();
                 let ptr = uninit.as_ptr();
-                ::std::ptr::addr_of!((*ptr).pthread_mutex_unlock) as usize - ptr as usize
+                ::std::ptr::addr_of!((*ptr).StringFromGUID2) as usize - ptr as usize
             },
             48usize,
             concat!(
                 "Offset of field: ",
                 stringify!(ma_context__bindgen_ty_2__bindgen_ty_1),
                 "::",
-                stringify!(pthread_mutex_unlock)
+                stringify!(StringFromGUID2)
             )
         );
     }
-    test_field_pthread_mutex_unlock();
-    fn test_field_pthread_cond_init() {
+    test_field_StringFromGUID2();
+    fn test_field_hUser32DLL() {
         assert_eq!(
             unsafe {
                 let uninit =
                     ::std::mem::MaybeUninit::<ma_context__bindgen_ty_2__bindgen_ty_1>::uninit();
                 let ptr = uninit.as_ptr();
-                ::std::ptr::addr_of!((*ptr).pthread_cond_init) as usize - ptr as usize
+                ::std::ptr::addr_of!((*ptr).hUser32DLL) as usize - ptr as usize
             },
             56usize,
             concat!(
                 "Offset of field: ",
                 stringify!(ma_context__bindgen_ty_2__bindgen_ty_1),
                 "::",
-                stringify!(pthread_cond_init)
+                stringify!(hUser32DLL)
             )
         );
     }
-    test_field_pthread_cond_init();
-    fn test_field_pthread_cond_destroy() {
+    test_field_hUser32DLL();
+    fn test_field_GetForegroundWindow() {
         assert_eq!(
             unsafe {
                 let uninit =
                     ::std::mem::MaybeUninit::<ma_context__bindgen_ty_2__bindgen_ty_1>::uninit();
                 let ptr = uninit.as_ptr();
-                ::std::ptr::addr_of!((*ptr).pthread_cond_destroy) as usize - ptr as usize
+                ::std::ptr::addr_of!((*ptr).GetForegroundWindow) as usize - ptr as usize
             },
             64usize,
             concat!(
                 "Offset of field: ",
                 stringify!(ma_context__bindgen_ty_2__bindgen_ty_1),
                 "::",
-                stringify!(pthread_cond_destroy)
+                stringify!(GetForegroundWindow)
             )
         );
     }
-    test_field_pthread_cond_destroy();
-    fn test_field_pthread_cond_wait() {
+    test_field_GetForegroundWindow();
+    fn test_field_GetDesktopWindow() {
         assert_eq!(
             unsafe {
                 let uninit =
                     ::std::mem::MaybeUninit::<ma_context__bindgen_ty_2__bindgen_ty_1>::uninit();
                 let ptr = uninit.as_ptr();
-                ::std::ptr::addr_of!((*ptr).pthread_cond_wait) as usize - ptr as usize
+                ::std::ptr::addr_of!((*ptr).GetDesktopWindow) as usize - ptr as usize
             },
             72usize,
             concat!(
                 "Offset of field: ",
                 stringify!(ma_context__bindgen_ty_2__bindgen_ty_1),
                 "::",
-                stringify!(pthread_cond_wait)
+                stringify!(GetDesktopWindow)
             )
         );
     }
-    test_field_pthread_cond_wait();
-    fn test_field_pthread_cond_signal() {
+    test_field_GetDesktopWindow();
+    fn test_field_hAdvapi32DLL() {
         assert_eq!(
             unsafe {
                 let uninit =
                     ::std::mem::MaybeUninit::<ma_context__bindgen_ty_2__bindgen_ty_1>::uninit();
                 let ptr = uninit.as_ptr();
-                ::std::ptr::addr_of!((*ptr).pthread_cond_signal) as usize - ptr as usize
+                ::std::ptr::addr_of!((*ptr).hAdvapi32DLL) as usize - ptr as usize
             },
             80usize,
             concat!(
                 "Offset of field: ",
                 stringify!(ma_context__bindgen_ty_2__bindgen_ty_1),
                 "::",
-                stringify!(pthread_cond_signal)
+                stringify!(hAdvapi32DLL)
             )
         );
     }
-    test_field_pthread_cond_signal();
-    fn test_field_pthread_attr_init() {
+    test_field_hAdvapi32DLL();
+    fn test_field_RegOpenKeyExA() {
         assert_eq!(
             unsafe {
                 let uninit =
                     ::std::mem::MaybeUninit::<ma_context__bindgen_ty_2__bindgen_ty_1>::uninit();
                 let ptr = uninit.as_ptr();
-                ::std::ptr::addr_of!((*ptr).pthread_attr_init) as usize - ptr as usize
+                ::std::ptr::addr_of!((*ptr).RegOpenKeyExA) as usize - ptr as usize
             },
             88usize,
             concat!(
                 "Offset of field: ",
                 stringify!(ma_context__bindgen_ty_2__bindgen_ty_1),
                 "::",
-                stringify!(pthread_attr_init)
+                stringify!(RegOpenKeyExA)
             )
         );
     }
-    test_field_pthread_attr_init();
-    fn test_field_pthread_attr_destroy() {
+    test_field_RegOpenKeyExA();
+    fn test_field_RegCloseKey() {
         assert_eq!(
             unsafe {
                 let uninit =
                     ::std::mem::MaybeUninit::<ma_context__bindgen_ty_2__bindgen_ty_1>::uninit();
                 let ptr = uninit.as_ptr();
-                ::std::ptr::addr_of!((*ptr).pthread_attr_destroy) as usize - ptr as usize
+                ::std::ptr::addr_of!((*ptr).RegCloseKey) as usize - ptr as usize
             },
             96usize,
             concat!(
                 "Offset of field: ",
                 stringify!(ma_context__bindgen_ty_2__bindgen_ty_1),
                 "::",
-                stringify!(pthread_attr_destroy)
+                stringify!(RegCloseKey)
             )
         );
     }
-    test_field_pthread_attr_destroy();
-    fn test_field_pthread_attr_setschedpolicy() {
+    test_field_RegCloseKey();
+    fn test_field_RegQueryValueExA() {
         assert_eq!(
             unsafe {
                 let uninit =
                     ::std::mem::MaybeUninit::<ma_context__bindgen_ty_2__bindgen_ty_1>::uninit();
                 let ptr = uninit.as_ptr();
-                ::std::ptr::addr_of!((*ptr).pthread_attr_setschedpolicy) as usize - ptr as usize
+                ::std::ptr::addr_of!((*ptr).RegQueryValueExA) as usize - ptr as usize
             },
             104usize,
             concat!(
                 "Offset of field: ",
                 stringify!(ma_context__bindgen_ty_2__bindgen_ty_1),
                 "::",
-                stringify!(pthread_attr_setschedpolicy)
+                stringify!(RegQueryValueExA)
             )
         );
     }
-    test_field_pthread_attr_setschedpolicy();
-    fn test_field_pthread_attr_getschedparam() {
-        assert_eq!(
-            unsafe {
-                let uninit =
-                    ::std::mem::MaybeUninit::<ma_context__bindgen_ty_2__bindgen_ty_1>::uninit();
-                let ptr = uninit.as_ptr();
-                ::std::ptr::addr_of!((*ptr).pthread_attr_getschedparam) as usize - ptr as usize
-            },
-            112usize,
-            concat!(
-                "Offset of field: ",
-                stringify!(ma_context__bindgen_ty_2__bindgen_ty_1),
-                "::",
-                stringify!(pthread_attr_getschedparam)
-            )
-        );
-    }
-    test_field_pthread_attr_getschedparam();
-    fn test_field_pthread_attr_setschedparam() {
-        assert_eq!(
-            unsafe {
-                let uninit =
-                    ::std::mem::MaybeUninit::<ma_context__bindgen_ty_2__bindgen_ty_1>::uninit();
-                let ptr = uninit.as_ptr();
-                ::std::ptr::addr_of!((*ptr).pthread_attr_setschedparam) as usize - ptr as usize
-            },
-            120usize,
-            concat!(
-                "Offset of field: ",
-                stringify!(ma_context__bindgen_ty_2__bindgen_ty_1),
-                "::",
-                stringify!(pthread_attr_setschedparam)
-            )
-        );
-    }
-    test_field_pthread_attr_setschedparam();
-}
-impl Default for ma_context__bindgen_ty_2__bindgen_ty_1 {
-    fn default() -> Self {
-        let mut s = ::std::mem::MaybeUninit::<Self>::uninit();
-        unsafe {
-            ::std::ptr::write_bytes(s.as_mut_ptr(), 0, 1);
-            s.assume_init()
-        }
-    }
+    test_field_RegQueryValueExA();
 }
 #[test]
 fn bindgen_test_layout_ma_context__bindgen_ty_2() {
     assert_eq!(
         ::std::mem::size_of::<ma_context__bindgen_ty_2>(),
-        128usize,
+        112usize,
         concat!("Size of: ", stringify!(ma_context__bindgen_ty_2))
     );
     assert_eq!(
@@ -19834,23 +17376,23 @@ fn bindgen_test_layout_ma_context__bindgen_ty_2() {
         8usize,
         concat!("Alignment of ", stringify!(ma_context__bindgen_ty_2))
     );
-    fn test_field_posix() {
+    fn test_field_win32() {
         assert_eq!(
             unsafe {
                 let uninit = ::std::mem::MaybeUninit::<ma_context__bindgen_ty_2>::uninit();
                 let ptr = uninit.as_ptr();
-                ::std::ptr::addr_of!((*ptr).posix) as usize - ptr as usize
+                ::std::ptr::addr_of!((*ptr).win32) as usize - ptr as usize
             },
             0usize,
             concat!(
                 "Offset of field: ",
                 stringify!(ma_context__bindgen_ty_2),
                 "::",
-                stringify!(posix)
+                stringify!(win32)
             )
         );
     }
-    test_field_posix();
+    test_field_win32();
     fn test_field__unused() {
         assert_eq!(
             unsafe {
@@ -19869,15 +17411,6 @@ fn bindgen_test_layout_ma_context__bindgen_ty_2() {
     }
     test_field__unused();
 }
-impl Default for ma_context__bindgen_ty_2 {
-    fn default() -> Self {
-        let mut s = ::std::mem::MaybeUninit::<Self>::uninit();
-        unsafe {
-            ::std::ptr::write_bytes(s.as_mut_ptr(), 0, 1);
-            s.assume_init()
-        }
-    }
-}
 impl ::std::fmt::Debug for ma_context__bindgen_ty_2 {
     fn fmt(&self, f: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
         write!(f, "ma_context__bindgen_ty_2 {{ union }}")
@@ -19887,7 +17420,7 @@ impl ::std::fmt::Debug for ma_context__bindgen_ty_2 {
 fn bindgen_test_layout_ma_context() {
     assert_eq!(
         ::std::mem::size_of::<ma_context>(),
-        808usize,
+        664usize,
         concat!("Size of: ", stringify!(ma_context))
     );
     assert_eq!(
@@ -19970,7 +17503,7 @@ fn bindgen_test_layout_ma_context() {
                 let ptr = uninit.as_ptr();
                 ::std::ptr::addr_of!((*ptr).threadPriority) as usize - ptr as usize
             },
-            288usize,
+            232usize,
             concat!(
                 "Offset of field: ",
                 stringify!(ma_context),
@@ -19987,7 +17520,7 @@ fn bindgen_test_layout_ma_context() {
                 let ptr = uninit.as_ptr();
                 ::std::ptr::addr_of!((*ptr).threadStackSize) as usize - ptr as usize
             },
-            296usize,
+            240usize,
             concat!(
                 "Offset of field: ",
                 stringify!(ma_context),
@@ -20004,7 +17537,7 @@ fn bindgen_test_layout_ma_context() {
                 let ptr = uninit.as_ptr();
                 ::std::ptr::addr_of!((*ptr).pUserData) as usize - ptr as usize
             },
-            304usize,
+            248usize,
             concat!(
                 "Offset of field: ",
                 stringify!(ma_context),
@@ -20021,7 +17554,7 @@ fn bindgen_test_layout_ma_context() {
                 let ptr = uninit.as_ptr();
                 ::std::ptr::addr_of!((*ptr).allocationCallbacks) as usize - ptr as usize
             },
-            312usize,
+            256usize,
             concat!(
                 "Offset of field: ",
                 stringify!(ma_context),
@@ -20038,7 +17571,7 @@ fn bindgen_test_layout_ma_context() {
                 let ptr = uninit.as_ptr();
                 ::std::ptr::addr_of!((*ptr).deviceEnumLock) as usize - ptr as usize
             },
-            344usize,
+            288usize,
             concat!(
                 "Offset of field: ",
                 stringify!(ma_context),
@@ -20055,7 +17588,7 @@ fn bindgen_test_layout_ma_context() {
                 let ptr = uninit.as_ptr();
                 ::std::ptr::addr_of!((*ptr).deviceInfoLock) as usize - ptr as usize
             },
-            408usize,
+            296usize,
             concat!(
                 "Offset of field: ",
                 stringify!(ma_context),
@@ -20072,7 +17605,7 @@ fn bindgen_test_layout_ma_context() {
                 let ptr = uninit.as_ptr();
                 ::std::ptr::addr_of!((*ptr).deviceInfoCapacity) as usize - ptr as usize
             },
-            472usize,
+            304usize,
             concat!(
                 "Offset of field: ",
                 stringify!(ma_context),
@@ -20089,7 +17622,7 @@ fn bindgen_test_layout_ma_context() {
                 let ptr = uninit.as_ptr();
                 ::std::ptr::addr_of!((*ptr).playbackDeviceInfoCount) as usize - ptr as usize
             },
-            476usize,
+            308usize,
             concat!(
                 "Offset of field: ",
                 stringify!(ma_context),
@@ -20106,7 +17639,7 @@ fn bindgen_test_layout_ma_context() {
                 let ptr = uninit.as_ptr();
                 ::std::ptr::addr_of!((*ptr).captureDeviceInfoCount) as usize - ptr as usize
             },
-            480usize,
+            312usize,
             concat!(
                 "Offset of field: ",
                 stringify!(ma_context),
@@ -20123,7 +17656,7 @@ fn bindgen_test_layout_ma_context() {
                 let ptr = uninit.as_ptr();
                 ::std::ptr::addr_of!((*ptr).pDeviceInfos) as usize - ptr as usize
             },
-            488usize,
+            320usize,
             concat!(
                 "Offset of field: ",
                 stringify!(ma_context),
@@ -20133,15 +17666,6 @@ fn bindgen_test_layout_ma_context() {
         );
     }
     test_field_pDeviceInfos();
-}
-impl Default for ma_context {
-    fn default() -> Self {
-        let mut s = ::std::mem::MaybeUninit::<Self>::uninit();
-        unsafe {
-            ::std::ptr::write_bytes(s.as_mut_ptr(), 0, 1);
-            s.assume_init()
-        }
-    }
 }
 impl ::std::fmt::Debug for ma_context {
     fn fmt(&self, f: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
@@ -20186,7 +17710,7 @@ pub struct ma_device__bindgen_ty_1 {
     pub linear: ma_device__bindgen_ty_1__bindgen_ty_1,
 }
 #[repr(C)]
-#[derive(Debug, Default, Copy, Clone)]
+#[derive(Debug, Copy, Clone)]
 pub struct ma_device__bindgen_ty_1__bindgen_ty_1 {
     pub lpfOrder: ma_uint32,
 }
@@ -20307,15 +17831,6 @@ fn bindgen_test_layout_ma_device__bindgen_ty_1() {
         );
     }
     test_field_linear();
-}
-impl Default for ma_device__bindgen_ty_1 {
-    fn default() -> Self {
-        let mut s = ::std::mem::MaybeUninit::<Self>::uninit();
-        unsafe {
-            ::std::ptr::write_bytes(s.as_mut_ptr(), 0, 1);
-            s.assume_init()
-        }
-    }
 }
 #[repr(C)]
 #[derive(Copy, Clone)]
@@ -20730,15 +18245,6 @@ fn bindgen_test_layout_ma_device__bindgen_ty_2() {
     }
     test_field_inputCacheRemaining();
 }
-impl Default for ma_device__bindgen_ty_2 {
-    fn default() -> Self {
-        let mut s = ::std::mem::MaybeUninit::<Self>::uninit();
-        unsafe {
-            ::std::ptr::write_bytes(s.as_mut_ptr(), 0, 1);
-            s.assume_init()
-        }
-    }
-}
 impl ::std::fmt::Debug for ma_device__bindgen_ty_2 {
     fn fmt(&self, f: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
         write ! (f , "ma_device__bindgen_ty_2 {{ pID: {:?}, id: {:?}, name: {:?}, shareMode: {:?}, format: {:?}, channels: {:?}, channelMap: {:?}, internalFormat: {:?}, internalChannels: {:?}, internalSampleRate: {:?}, internalChannelMap: {:?}, internalPeriodSizeInFrames: {:?}, internalPeriods: {:?}, channelMixMode: {:?}, converter: {:?}, pIntermediaryBuffer: {:?}, intermediaryBufferCap: {:?}, intermediaryBufferLen: {:?}, pInputCache: {:?}, inputCacheCap: {:?}, inputCacheConsumed: {:?}, inputCacheRemaining: {:?} }}" , self . pID , self . id , self . name , self . shareMode , self . format , self . channels , self . channelMap , self . internalFormat , self . internalChannels , self . internalSampleRate , self . internalChannelMap , self . internalPeriodSizeInFrames , self . internalPeriods , self . channelMixMode , self . converter , self . pIntermediaryBuffer , self . intermediaryBufferCap , self . intermediaryBufferLen , self . pInputCache , self . inputCacheCap , self . inputCacheConsumed , self . inputCacheRemaining)
@@ -21085,15 +18591,6 @@ fn bindgen_test_layout_ma_device__bindgen_ty_3() {
     }
     test_field_intermediaryBufferLen();
 }
-impl Default for ma_device__bindgen_ty_3 {
-    fn default() -> Self {
-        let mut s = ::std::mem::MaybeUninit::<Self>::uninit();
-        unsafe {
-            ::std::ptr::write_bytes(s.as_mut_ptr(), 0, 1);
-            s.assume_init()
-        }
-    }
-}
 impl ::std::fmt::Debug for ma_device__bindgen_ty_3 {
     fn fmt(&self, f: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
         write ! (f , "ma_device__bindgen_ty_3 {{ pID: {:?}, id: {:?}, name: {:?}, shareMode: {:?}, format: {:?}, channels: {:?}, channelMap: {:?}, internalFormat: {:?}, internalChannels: {:?}, internalSampleRate: {:?}, internalChannelMap: {:?}, internalPeriodSizeInFrames: {:?}, internalPeriods: {:?}, channelMixMode: {:?}, converter: {:?}, pIntermediaryBuffer: {:?}, intermediaryBufferCap: {:?}, intermediaryBufferLen: {:?} }}" , self . pID , self . id , self . name , self . shareMode , self . format , self . channels , self . channelMap , self . internalFormat , self . internalChannels , self . internalSampleRate , self . internalChannelMap , self . internalPeriodSizeInFrames , self . internalPeriods , self . channelMixMode , self . converter , self . pIntermediaryBuffer , self . intermediaryBufferCap , self . intermediaryBufferLen)
@@ -21102,34 +18599,52 @@ impl ::std::fmt::Debug for ma_device__bindgen_ty_3 {
 #[repr(C)]
 #[derive(Copy, Clone)]
 pub union ma_device__bindgen_ty_4 {
-    pub coreaudio: ma_device__bindgen_ty_4__bindgen_ty_1,
-    pub null_device: ma_device__bindgen_ty_4__bindgen_ty_2,
+    pub wasapi: ma_device__bindgen_ty_4__bindgen_ty_1,
+    pub dsound: ma_device__bindgen_ty_4__bindgen_ty_2,
+    pub winmm: ma_device__bindgen_ty_4__bindgen_ty_3,
+    pub jack: ma_device__bindgen_ty_4__bindgen_ty_4,
+    pub null_device: ma_device__bindgen_ty_4__bindgen_ty_5,
 }
 #[repr(C)]
 #[derive(Debug, Copy, Clone)]
 pub struct ma_device__bindgen_ty_4__bindgen_ty_1 {
-    pub deviceObjectIDPlayback: ma_uint32,
-    pub deviceObjectIDCapture: ma_uint32,
-    pub audioUnitPlayback: ma_ptr,
-    pub audioUnitCapture: ma_ptr,
-    pub pAudioBufferList: ma_ptr,
-    pub audioBufferCapInFrames: ma_uint32,
-    pub stopEvent: ma_event,
+    pub pAudioClientPlayback: ma_ptr,
+    pub pAudioClientCapture: ma_ptr,
+    pub pRenderClient: ma_ptr,
+    pub pCaptureClient: ma_ptr,
+    pub pDeviceEnumerator: ma_ptr,
+    pub notificationClient: ma_IMMNotificationClient,
+    pub hEventPlayback: ma_handle,
+    pub hEventCapture: ma_handle,
+    pub actualBufferSizeInFramesPlayback: ma_uint32,
+    pub actualBufferSizeInFramesCapture: ma_uint32,
     pub originalPeriodSizeInFrames: ma_uint32,
     pub originalPeriodSizeInMilliseconds: ma_uint32,
     pub originalPeriods: ma_uint32,
     pub originalPerformanceProfile: ma_performance_profile,
-    pub isDefaultPlaybackDevice: ma_bool32,
-    pub isDefaultCaptureDevice: ma_bool32,
-    pub isSwitchingPlaybackDevice: ma_bool32,
-    pub isSwitchingCaptureDevice: ma_bool32,
-    pub pNotificationHandler: *mut ::std::os::raw::c_void,
+    pub periodSizeInFramesPlayback: ma_uint32,
+    pub periodSizeInFramesCapture: ma_uint32,
+    pub pMappedBufferCapture: *mut ::std::os::raw::c_void,
+    pub mappedBufferCaptureCap: ma_uint32,
+    pub mappedBufferCaptureLen: ma_uint32,
+    pub pMappedBufferPlayback: *mut ::std::os::raw::c_void,
+    pub mappedBufferPlaybackCap: ma_uint32,
+    pub mappedBufferPlaybackLen: ma_uint32,
+    pub isStartedCapture: ma_bool32,
+    pub isStartedPlayback: ma_bool32,
+    pub noAutoConvertSRC: ma_bool8,
+    pub noDefaultQualitySRC: ma_bool8,
+    pub noHardwareOffloading: ma_bool8,
+    pub allowCaptureAutoStreamRouting: ma_bool8,
+    pub allowPlaybackAutoStreamRouting: ma_bool8,
+    pub isDetachedPlayback: ma_bool8,
+    pub isDetachedCapture: ma_bool8,
 }
 #[test]
 fn bindgen_test_layout_ma_device__bindgen_ty_4__bindgen_ty_1() {
     assert_eq!(
         ::std::mem::size_of::<ma_device__bindgen_ty_4__bindgen_ty_1>(),
-        200usize,
+        160usize,
         concat!(
             "Size of: ",
             stringify!(ma_device__bindgen_ty_4__bindgen_ty_1)
@@ -21143,132 +18658,187 @@ fn bindgen_test_layout_ma_device__bindgen_ty_4__bindgen_ty_1() {
             stringify!(ma_device__bindgen_ty_4__bindgen_ty_1)
         )
     );
-    fn test_field_deviceObjectIDPlayback() {
+    fn test_field_pAudioClientPlayback() {
         assert_eq!(
             unsafe {
                 let uninit =
                     ::std::mem::MaybeUninit::<ma_device__bindgen_ty_4__bindgen_ty_1>::uninit();
                 let ptr = uninit.as_ptr();
-                ::std::ptr::addr_of!((*ptr).deviceObjectIDPlayback) as usize - ptr as usize
+                ::std::ptr::addr_of!((*ptr).pAudioClientPlayback) as usize - ptr as usize
             },
             0usize,
             concat!(
                 "Offset of field: ",
                 stringify!(ma_device__bindgen_ty_4__bindgen_ty_1),
                 "::",
-                stringify!(deviceObjectIDPlayback)
+                stringify!(pAudioClientPlayback)
             )
         );
     }
-    test_field_deviceObjectIDPlayback();
-    fn test_field_deviceObjectIDCapture() {
+    test_field_pAudioClientPlayback();
+    fn test_field_pAudioClientCapture() {
         assert_eq!(
             unsafe {
                 let uninit =
                     ::std::mem::MaybeUninit::<ma_device__bindgen_ty_4__bindgen_ty_1>::uninit();
                 let ptr = uninit.as_ptr();
-                ::std::ptr::addr_of!((*ptr).deviceObjectIDCapture) as usize - ptr as usize
-            },
-            4usize,
-            concat!(
-                "Offset of field: ",
-                stringify!(ma_device__bindgen_ty_4__bindgen_ty_1),
-                "::",
-                stringify!(deviceObjectIDCapture)
-            )
-        );
-    }
-    test_field_deviceObjectIDCapture();
-    fn test_field_audioUnitPlayback() {
-        assert_eq!(
-            unsafe {
-                let uninit =
-                    ::std::mem::MaybeUninit::<ma_device__bindgen_ty_4__bindgen_ty_1>::uninit();
-                let ptr = uninit.as_ptr();
-                ::std::ptr::addr_of!((*ptr).audioUnitPlayback) as usize - ptr as usize
+                ::std::ptr::addr_of!((*ptr).pAudioClientCapture) as usize - ptr as usize
             },
             8usize,
             concat!(
                 "Offset of field: ",
                 stringify!(ma_device__bindgen_ty_4__bindgen_ty_1),
                 "::",
-                stringify!(audioUnitPlayback)
+                stringify!(pAudioClientCapture)
             )
         );
     }
-    test_field_audioUnitPlayback();
-    fn test_field_audioUnitCapture() {
+    test_field_pAudioClientCapture();
+    fn test_field_pRenderClient() {
         assert_eq!(
             unsafe {
                 let uninit =
                     ::std::mem::MaybeUninit::<ma_device__bindgen_ty_4__bindgen_ty_1>::uninit();
                 let ptr = uninit.as_ptr();
-                ::std::ptr::addr_of!((*ptr).audioUnitCapture) as usize - ptr as usize
+                ::std::ptr::addr_of!((*ptr).pRenderClient) as usize - ptr as usize
             },
             16usize,
             concat!(
                 "Offset of field: ",
                 stringify!(ma_device__bindgen_ty_4__bindgen_ty_1),
                 "::",
-                stringify!(audioUnitCapture)
+                stringify!(pRenderClient)
             )
         );
     }
-    test_field_audioUnitCapture();
-    fn test_field_pAudioBufferList() {
+    test_field_pRenderClient();
+    fn test_field_pCaptureClient() {
         assert_eq!(
             unsafe {
                 let uninit =
                     ::std::mem::MaybeUninit::<ma_device__bindgen_ty_4__bindgen_ty_1>::uninit();
                 let ptr = uninit.as_ptr();
-                ::std::ptr::addr_of!((*ptr).pAudioBufferList) as usize - ptr as usize
+                ::std::ptr::addr_of!((*ptr).pCaptureClient) as usize - ptr as usize
             },
             24usize,
             concat!(
                 "Offset of field: ",
                 stringify!(ma_device__bindgen_ty_4__bindgen_ty_1),
                 "::",
-                stringify!(pAudioBufferList)
+                stringify!(pCaptureClient)
             )
         );
     }
-    test_field_pAudioBufferList();
-    fn test_field_audioBufferCapInFrames() {
+    test_field_pCaptureClient();
+    fn test_field_pDeviceEnumerator() {
         assert_eq!(
             unsafe {
                 let uninit =
                     ::std::mem::MaybeUninit::<ma_device__bindgen_ty_4__bindgen_ty_1>::uninit();
                 let ptr = uninit.as_ptr();
-                ::std::ptr::addr_of!((*ptr).audioBufferCapInFrames) as usize - ptr as usize
+                ::std::ptr::addr_of!((*ptr).pDeviceEnumerator) as usize - ptr as usize
             },
             32usize,
             concat!(
                 "Offset of field: ",
                 stringify!(ma_device__bindgen_ty_4__bindgen_ty_1),
                 "::",
-                stringify!(audioBufferCapInFrames)
+                stringify!(pDeviceEnumerator)
             )
         );
     }
-    test_field_audioBufferCapInFrames();
-    fn test_field_stopEvent() {
+    test_field_pDeviceEnumerator();
+    fn test_field_notificationClient() {
         assert_eq!(
             unsafe {
                 let uninit =
                     ::std::mem::MaybeUninit::<ma_device__bindgen_ty_4__bindgen_ty_1>::uninit();
                 let ptr = uninit.as_ptr();
-                ::std::ptr::addr_of!((*ptr).stopEvent) as usize - ptr as usize
+                ::std::ptr::addr_of!((*ptr).notificationClient) as usize - ptr as usize
             },
             40usize,
             concat!(
                 "Offset of field: ",
                 stringify!(ma_device__bindgen_ty_4__bindgen_ty_1),
                 "::",
-                stringify!(stopEvent)
+                stringify!(notificationClient)
             )
         );
     }
-    test_field_stopEvent();
+    test_field_notificationClient();
+    fn test_field_hEventPlayback() {
+        assert_eq!(
+            unsafe {
+                let uninit =
+                    ::std::mem::MaybeUninit::<ma_device__bindgen_ty_4__bindgen_ty_1>::uninit();
+                let ptr = uninit.as_ptr();
+                ::std::ptr::addr_of!((*ptr).hEventPlayback) as usize - ptr as usize
+            },
+            64usize,
+            concat!(
+                "Offset of field: ",
+                stringify!(ma_device__bindgen_ty_4__bindgen_ty_1),
+                "::",
+                stringify!(hEventPlayback)
+            )
+        );
+    }
+    test_field_hEventPlayback();
+    fn test_field_hEventCapture() {
+        assert_eq!(
+            unsafe {
+                let uninit =
+                    ::std::mem::MaybeUninit::<ma_device__bindgen_ty_4__bindgen_ty_1>::uninit();
+                let ptr = uninit.as_ptr();
+                ::std::ptr::addr_of!((*ptr).hEventCapture) as usize - ptr as usize
+            },
+            72usize,
+            concat!(
+                "Offset of field: ",
+                stringify!(ma_device__bindgen_ty_4__bindgen_ty_1),
+                "::",
+                stringify!(hEventCapture)
+            )
+        );
+    }
+    test_field_hEventCapture();
+    fn test_field_actualBufferSizeInFramesPlayback() {
+        assert_eq!(
+            unsafe {
+                let uninit =
+                    ::std::mem::MaybeUninit::<ma_device__bindgen_ty_4__bindgen_ty_1>::uninit();
+                let ptr = uninit.as_ptr();
+                ::std::ptr::addr_of!((*ptr).actualBufferSizeInFramesPlayback) as usize
+                    - ptr as usize
+            },
+            80usize,
+            concat!(
+                "Offset of field: ",
+                stringify!(ma_device__bindgen_ty_4__bindgen_ty_1),
+                "::",
+                stringify!(actualBufferSizeInFramesPlayback)
+            )
+        );
+    }
+    test_field_actualBufferSizeInFramesPlayback();
+    fn test_field_actualBufferSizeInFramesCapture() {
+        assert_eq!(
+            unsafe {
+                let uninit =
+                    ::std::mem::MaybeUninit::<ma_device__bindgen_ty_4__bindgen_ty_1>::uninit();
+                let ptr = uninit.as_ptr();
+                ::std::ptr::addr_of!((*ptr).actualBufferSizeInFramesCapture) as usize - ptr as usize
+            },
+            84usize,
+            concat!(
+                "Offset of field: ",
+                stringify!(ma_device__bindgen_ty_4__bindgen_ty_1),
+                "::",
+                stringify!(actualBufferSizeInFramesCapture)
+            )
+        );
+    }
+    test_field_actualBufferSizeInFramesCapture();
     fn test_field_originalPeriodSizeInFrames() {
         assert_eq!(
             unsafe {
@@ -21277,7 +18847,7 @@ fn bindgen_test_layout_ma_device__bindgen_ty_4__bindgen_ty_1() {
                 let ptr = uninit.as_ptr();
                 ::std::ptr::addr_of!((*ptr).originalPeriodSizeInFrames) as usize - ptr as usize
             },
-            160usize,
+            88usize,
             concat!(
                 "Offset of field: ",
                 stringify!(ma_device__bindgen_ty_4__bindgen_ty_1),
@@ -21296,7 +18866,7 @@ fn bindgen_test_layout_ma_device__bindgen_ty_4__bindgen_ty_1() {
                 ::std::ptr::addr_of!((*ptr).originalPeriodSizeInMilliseconds) as usize
                     - ptr as usize
             },
-            164usize,
+            92usize,
             concat!(
                 "Offset of field: ",
                 stringify!(ma_device__bindgen_ty_4__bindgen_ty_1),
@@ -21314,7 +18884,7 @@ fn bindgen_test_layout_ma_device__bindgen_ty_4__bindgen_ty_1() {
                 let ptr = uninit.as_ptr();
                 ::std::ptr::addr_of!((*ptr).originalPeriods) as usize - ptr as usize
             },
-            168usize,
+            96usize,
             concat!(
                 "Offset of field: ",
                 stringify!(ma_device__bindgen_ty_4__bindgen_ty_1),
@@ -21332,7 +18902,7 @@ fn bindgen_test_layout_ma_device__bindgen_ty_4__bindgen_ty_1() {
                 let ptr = uninit.as_ptr();
                 ::std::ptr::addr_of!((*ptr).originalPerformanceProfile) as usize - ptr as usize
             },
-            172usize,
+            100usize,
             concat!(
                 "Offset of field: ",
                 stringify!(ma_device__bindgen_ty_4__bindgen_ty_1),
@@ -21342,109 +18912,841 @@ fn bindgen_test_layout_ma_device__bindgen_ty_4__bindgen_ty_1() {
         );
     }
     test_field_originalPerformanceProfile();
-    fn test_field_isDefaultPlaybackDevice() {
+    fn test_field_periodSizeInFramesPlayback() {
         assert_eq!(
             unsafe {
                 let uninit =
                     ::std::mem::MaybeUninit::<ma_device__bindgen_ty_4__bindgen_ty_1>::uninit();
                 let ptr = uninit.as_ptr();
-                ::std::ptr::addr_of!((*ptr).isDefaultPlaybackDevice) as usize - ptr as usize
+                ::std::ptr::addr_of!((*ptr).periodSizeInFramesPlayback) as usize - ptr as usize
             },
-            176usize,
+            104usize,
             concat!(
                 "Offset of field: ",
                 stringify!(ma_device__bindgen_ty_4__bindgen_ty_1),
                 "::",
-                stringify!(isDefaultPlaybackDevice)
+                stringify!(periodSizeInFramesPlayback)
             )
         );
     }
-    test_field_isDefaultPlaybackDevice();
-    fn test_field_isDefaultCaptureDevice() {
+    test_field_periodSizeInFramesPlayback();
+    fn test_field_periodSizeInFramesCapture() {
         assert_eq!(
             unsafe {
                 let uninit =
                     ::std::mem::MaybeUninit::<ma_device__bindgen_ty_4__bindgen_ty_1>::uninit();
                 let ptr = uninit.as_ptr();
-                ::std::ptr::addr_of!((*ptr).isDefaultCaptureDevice) as usize - ptr as usize
+                ::std::ptr::addr_of!((*ptr).periodSizeInFramesCapture) as usize - ptr as usize
             },
-            180usize,
+            108usize,
             concat!(
                 "Offset of field: ",
                 stringify!(ma_device__bindgen_ty_4__bindgen_ty_1),
                 "::",
-                stringify!(isDefaultCaptureDevice)
+                stringify!(periodSizeInFramesCapture)
             )
         );
     }
-    test_field_isDefaultCaptureDevice();
-    fn test_field_isSwitchingPlaybackDevice() {
+    test_field_periodSizeInFramesCapture();
+    fn test_field_pMappedBufferCapture() {
         assert_eq!(
             unsafe {
                 let uninit =
                     ::std::mem::MaybeUninit::<ma_device__bindgen_ty_4__bindgen_ty_1>::uninit();
                 let ptr = uninit.as_ptr();
-                ::std::ptr::addr_of!((*ptr).isSwitchingPlaybackDevice) as usize - ptr as usize
+                ::std::ptr::addr_of!((*ptr).pMappedBufferCapture) as usize - ptr as usize
             },
-            184usize,
+            112usize,
             concat!(
                 "Offset of field: ",
                 stringify!(ma_device__bindgen_ty_4__bindgen_ty_1),
                 "::",
-                stringify!(isSwitchingPlaybackDevice)
+                stringify!(pMappedBufferCapture)
             )
         );
     }
-    test_field_isSwitchingPlaybackDevice();
-    fn test_field_isSwitchingCaptureDevice() {
+    test_field_pMappedBufferCapture();
+    fn test_field_mappedBufferCaptureCap() {
         assert_eq!(
             unsafe {
                 let uninit =
                     ::std::mem::MaybeUninit::<ma_device__bindgen_ty_4__bindgen_ty_1>::uninit();
                 let ptr = uninit.as_ptr();
-                ::std::ptr::addr_of!((*ptr).isSwitchingCaptureDevice) as usize - ptr as usize
+                ::std::ptr::addr_of!((*ptr).mappedBufferCaptureCap) as usize - ptr as usize
             },
-            188usize,
+            120usize,
             concat!(
                 "Offset of field: ",
                 stringify!(ma_device__bindgen_ty_4__bindgen_ty_1),
                 "::",
-                stringify!(isSwitchingCaptureDevice)
+                stringify!(mappedBufferCaptureCap)
             )
         );
     }
-    test_field_isSwitchingCaptureDevice();
-    fn test_field_pNotificationHandler() {
+    test_field_mappedBufferCaptureCap();
+    fn test_field_mappedBufferCaptureLen() {
         assert_eq!(
             unsafe {
                 let uninit =
                     ::std::mem::MaybeUninit::<ma_device__bindgen_ty_4__bindgen_ty_1>::uninit();
                 let ptr = uninit.as_ptr();
-                ::std::ptr::addr_of!((*ptr).pNotificationHandler) as usize - ptr as usize
+                ::std::ptr::addr_of!((*ptr).mappedBufferCaptureLen) as usize - ptr as usize
             },
-            192usize,
+            124usize,
             concat!(
                 "Offset of field: ",
                 stringify!(ma_device__bindgen_ty_4__bindgen_ty_1),
                 "::",
-                stringify!(pNotificationHandler)
+                stringify!(mappedBufferCaptureLen)
             )
         );
     }
-    test_field_pNotificationHandler();
+    test_field_mappedBufferCaptureLen();
+    fn test_field_pMappedBufferPlayback() {
+        assert_eq!(
+            unsafe {
+                let uninit =
+                    ::std::mem::MaybeUninit::<ma_device__bindgen_ty_4__bindgen_ty_1>::uninit();
+                let ptr = uninit.as_ptr();
+                ::std::ptr::addr_of!((*ptr).pMappedBufferPlayback) as usize - ptr as usize
+            },
+            128usize,
+            concat!(
+                "Offset of field: ",
+                stringify!(ma_device__bindgen_ty_4__bindgen_ty_1),
+                "::",
+                stringify!(pMappedBufferPlayback)
+            )
+        );
+    }
+    test_field_pMappedBufferPlayback();
+    fn test_field_mappedBufferPlaybackCap() {
+        assert_eq!(
+            unsafe {
+                let uninit =
+                    ::std::mem::MaybeUninit::<ma_device__bindgen_ty_4__bindgen_ty_1>::uninit();
+                let ptr = uninit.as_ptr();
+                ::std::ptr::addr_of!((*ptr).mappedBufferPlaybackCap) as usize - ptr as usize
+            },
+            136usize,
+            concat!(
+                "Offset of field: ",
+                stringify!(ma_device__bindgen_ty_4__bindgen_ty_1),
+                "::",
+                stringify!(mappedBufferPlaybackCap)
+            )
+        );
+    }
+    test_field_mappedBufferPlaybackCap();
+    fn test_field_mappedBufferPlaybackLen() {
+        assert_eq!(
+            unsafe {
+                let uninit =
+                    ::std::mem::MaybeUninit::<ma_device__bindgen_ty_4__bindgen_ty_1>::uninit();
+                let ptr = uninit.as_ptr();
+                ::std::ptr::addr_of!((*ptr).mappedBufferPlaybackLen) as usize - ptr as usize
+            },
+            140usize,
+            concat!(
+                "Offset of field: ",
+                stringify!(ma_device__bindgen_ty_4__bindgen_ty_1),
+                "::",
+                stringify!(mappedBufferPlaybackLen)
+            )
+        );
+    }
+    test_field_mappedBufferPlaybackLen();
+    fn test_field_isStartedCapture() {
+        assert_eq!(
+            unsafe {
+                let uninit =
+                    ::std::mem::MaybeUninit::<ma_device__bindgen_ty_4__bindgen_ty_1>::uninit();
+                let ptr = uninit.as_ptr();
+                ::std::ptr::addr_of!((*ptr).isStartedCapture) as usize - ptr as usize
+            },
+            144usize,
+            concat!(
+                "Offset of field: ",
+                stringify!(ma_device__bindgen_ty_4__bindgen_ty_1),
+                "::",
+                stringify!(isStartedCapture)
+            )
+        );
+    }
+    test_field_isStartedCapture();
+    fn test_field_isStartedPlayback() {
+        assert_eq!(
+            unsafe {
+                let uninit =
+                    ::std::mem::MaybeUninit::<ma_device__bindgen_ty_4__bindgen_ty_1>::uninit();
+                let ptr = uninit.as_ptr();
+                ::std::ptr::addr_of!((*ptr).isStartedPlayback) as usize - ptr as usize
+            },
+            148usize,
+            concat!(
+                "Offset of field: ",
+                stringify!(ma_device__bindgen_ty_4__bindgen_ty_1),
+                "::",
+                stringify!(isStartedPlayback)
+            )
+        );
+    }
+    test_field_isStartedPlayback();
+    fn test_field_noAutoConvertSRC() {
+        assert_eq!(
+            unsafe {
+                let uninit =
+                    ::std::mem::MaybeUninit::<ma_device__bindgen_ty_4__bindgen_ty_1>::uninit();
+                let ptr = uninit.as_ptr();
+                ::std::ptr::addr_of!((*ptr).noAutoConvertSRC) as usize - ptr as usize
+            },
+            152usize,
+            concat!(
+                "Offset of field: ",
+                stringify!(ma_device__bindgen_ty_4__bindgen_ty_1),
+                "::",
+                stringify!(noAutoConvertSRC)
+            )
+        );
+    }
+    test_field_noAutoConvertSRC();
+    fn test_field_noDefaultQualitySRC() {
+        assert_eq!(
+            unsafe {
+                let uninit =
+                    ::std::mem::MaybeUninit::<ma_device__bindgen_ty_4__bindgen_ty_1>::uninit();
+                let ptr = uninit.as_ptr();
+                ::std::ptr::addr_of!((*ptr).noDefaultQualitySRC) as usize - ptr as usize
+            },
+            153usize,
+            concat!(
+                "Offset of field: ",
+                stringify!(ma_device__bindgen_ty_4__bindgen_ty_1),
+                "::",
+                stringify!(noDefaultQualitySRC)
+            )
+        );
+    }
+    test_field_noDefaultQualitySRC();
+    fn test_field_noHardwareOffloading() {
+        assert_eq!(
+            unsafe {
+                let uninit =
+                    ::std::mem::MaybeUninit::<ma_device__bindgen_ty_4__bindgen_ty_1>::uninit();
+                let ptr = uninit.as_ptr();
+                ::std::ptr::addr_of!((*ptr).noHardwareOffloading) as usize - ptr as usize
+            },
+            154usize,
+            concat!(
+                "Offset of field: ",
+                stringify!(ma_device__bindgen_ty_4__bindgen_ty_1),
+                "::",
+                stringify!(noHardwareOffloading)
+            )
+        );
+    }
+    test_field_noHardwareOffloading();
+    fn test_field_allowCaptureAutoStreamRouting() {
+        assert_eq!(
+            unsafe {
+                let uninit =
+                    ::std::mem::MaybeUninit::<ma_device__bindgen_ty_4__bindgen_ty_1>::uninit();
+                let ptr = uninit.as_ptr();
+                ::std::ptr::addr_of!((*ptr).allowCaptureAutoStreamRouting) as usize - ptr as usize
+            },
+            155usize,
+            concat!(
+                "Offset of field: ",
+                stringify!(ma_device__bindgen_ty_4__bindgen_ty_1),
+                "::",
+                stringify!(allowCaptureAutoStreamRouting)
+            )
+        );
+    }
+    test_field_allowCaptureAutoStreamRouting();
+    fn test_field_allowPlaybackAutoStreamRouting() {
+        assert_eq!(
+            unsafe {
+                let uninit =
+                    ::std::mem::MaybeUninit::<ma_device__bindgen_ty_4__bindgen_ty_1>::uninit();
+                let ptr = uninit.as_ptr();
+                ::std::ptr::addr_of!((*ptr).allowPlaybackAutoStreamRouting) as usize - ptr as usize
+            },
+            156usize,
+            concat!(
+                "Offset of field: ",
+                stringify!(ma_device__bindgen_ty_4__bindgen_ty_1),
+                "::",
+                stringify!(allowPlaybackAutoStreamRouting)
+            )
+        );
+    }
+    test_field_allowPlaybackAutoStreamRouting();
+    fn test_field_isDetachedPlayback() {
+        assert_eq!(
+            unsafe {
+                let uninit =
+                    ::std::mem::MaybeUninit::<ma_device__bindgen_ty_4__bindgen_ty_1>::uninit();
+                let ptr = uninit.as_ptr();
+                ::std::ptr::addr_of!((*ptr).isDetachedPlayback) as usize - ptr as usize
+            },
+            157usize,
+            concat!(
+                "Offset of field: ",
+                stringify!(ma_device__bindgen_ty_4__bindgen_ty_1),
+                "::",
+                stringify!(isDetachedPlayback)
+            )
+        );
+    }
+    test_field_isDetachedPlayback();
+    fn test_field_isDetachedCapture() {
+        assert_eq!(
+            unsafe {
+                let uninit =
+                    ::std::mem::MaybeUninit::<ma_device__bindgen_ty_4__bindgen_ty_1>::uninit();
+                let ptr = uninit.as_ptr();
+                ::std::ptr::addr_of!((*ptr).isDetachedCapture) as usize - ptr as usize
+            },
+            158usize,
+            concat!(
+                "Offset of field: ",
+                stringify!(ma_device__bindgen_ty_4__bindgen_ty_1),
+                "::",
+                stringify!(isDetachedCapture)
+            )
+        );
+    }
+    test_field_isDetachedCapture();
 }
-impl Default for ma_device__bindgen_ty_4__bindgen_ty_1 {
-    fn default() -> Self {
-        let mut s = ::std::mem::MaybeUninit::<Self>::uninit();
-        unsafe {
-            ::std::ptr::write_bytes(s.as_mut_ptr(), 0, 1);
-            s.assume_init()
-        }
+#[repr(C)]
+#[derive(Debug, Copy, Clone)]
+pub struct ma_device__bindgen_ty_4__bindgen_ty_2 {
+    pub pPlayback: ma_ptr,
+    pub pPlaybackPrimaryBuffer: ma_ptr,
+    pub pPlaybackBuffer: ma_ptr,
+    pub pCapture: ma_ptr,
+    pub pCaptureBuffer: ma_ptr,
+}
+#[test]
+fn bindgen_test_layout_ma_device__bindgen_ty_4__bindgen_ty_2() {
+    assert_eq!(
+        ::std::mem::size_of::<ma_device__bindgen_ty_4__bindgen_ty_2>(),
+        40usize,
+        concat!(
+            "Size of: ",
+            stringify!(ma_device__bindgen_ty_4__bindgen_ty_2)
+        )
+    );
+    assert_eq!(
+        ::std::mem::align_of::<ma_device__bindgen_ty_4__bindgen_ty_2>(),
+        8usize,
+        concat!(
+            "Alignment of ",
+            stringify!(ma_device__bindgen_ty_4__bindgen_ty_2)
+        )
+    );
+    fn test_field_pPlayback() {
+        assert_eq!(
+            unsafe {
+                let uninit =
+                    ::std::mem::MaybeUninit::<ma_device__bindgen_ty_4__bindgen_ty_2>::uninit();
+                let ptr = uninit.as_ptr();
+                ::std::ptr::addr_of!((*ptr).pPlayback) as usize - ptr as usize
+            },
+            0usize,
+            concat!(
+                "Offset of field: ",
+                stringify!(ma_device__bindgen_ty_4__bindgen_ty_2),
+                "::",
+                stringify!(pPlayback)
+            )
+        );
     }
+    test_field_pPlayback();
+    fn test_field_pPlaybackPrimaryBuffer() {
+        assert_eq!(
+            unsafe {
+                let uninit =
+                    ::std::mem::MaybeUninit::<ma_device__bindgen_ty_4__bindgen_ty_2>::uninit();
+                let ptr = uninit.as_ptr();
+                ::std::ptr::addr_of!((*ptr).pPlaybackPrimaryBuffer) as usize - ptr as usize
+            },
+            8usize,
+            concat!(
+                "Offset of field: ",
+                stringify!(ma_device__bindgen_ty_4__bindgen_ty_2),
+                "::",
+                stringify!(pPlaybackPrimaryBuffer)
+            )
+        );
+    }
+    test_field_pPlaybackPrimaryBuffer();
+    fn test_field_pPlaybackBuffer() {
+        assert_eq!(
+            unsafe {
+                let uninit =
+                    ::std::mem::MaybeUninit::<ma_device__bindgen_ty_4__bindgen_ty_2>::uninit();
+                let ptr = uninit.as_ptr();
+                ::std::ptr::addr_of!((*ptr).pPlaybackBuffer) as usize - ptr as usize
+            },
+            16usize,
+            concat!(
+                "Offset of field: ",
+                stringify!(ma_device__bindgen_ty_4__bindgen_ty_2),
+                "::",
+                stringify!(pPlaybackBuffer)
+            )
+        );
+    }
+    test_field_pPlaybackBuffer();
+    fn test_field_pCapture() {
+        assert_eq!(
+            unsafe {
+                let uninit =
+                    ::std::mem::MaybeUninit::<ma_device__bindgen_ty_4__bindgen_ty_2>::uninit();
+                let ptr = uninit.as_ptr();
+                ::std::ptr::addr_of!((*ptr).pCapture) as usize - ptr as usize
+            },
+            24usize,
+            concat!(
+                "Offset of field: ",
+                stringify!(ma_device__bindgen_ty_4__bindgen_ty_2),
+                "::",
+                stringify!(pCapture)
+            )
+        );
+    }
+    test_field_pCapture();
+    fn test_field_pCaptureBuffer() {
+        assert_eq!(
+            unsafe {
+                let uninit =
+                    ::std::mem::MaybeUninit::<ma_device__bindgen_ty_4__bindgen_ty_2>::uninit();
+                let ptr = uninit.as_ptr();
+                ::std::ptr::addr_of!((*ptr).pCaptureBuffer) as usize - ptr as usize
+            },
+            32usize,
+            concat!(
+                "Offset of field: ",
+                stringify!(ma_device__bindgen_ty_4__bindgen_ty_2),
+                "::",
+                stringify!(pCaptureBuffer)
+            )
+        );
+    }
+    test_field_pCaptureBuffer();
+}
+#[repr(C)]
+#[derive(Debug, Copy, Clone)]
+pub struct ma_device__bindgen_ty_4__bindgen_ty_3 {
+    pub hDevicePlayback: ma_handle,
+    pub hDeviceCapture: ma_handle,
+    pub hEventPlayback: ma_handle,
+    pub hEventCapture: ma_handle,
+    pub fragmentSizeInFrames: ma_uint32,
+    pub iNextHeaderPlayback: ma_uint32,
+    pub iNextHeaderCapture: ma_uint32,
+    pub headerFramesConsumedPlayback: ma_uint32,
+    pub headerFramesConsumedCapture: ma_uint32,
+    pub pWAVEHDRPlayback: *mut ma_uint8,
+    pub pWAVEHDRCapture: *mut ma_uint8,
+    pub pIntermediaryBufferPlayback: *mut ma_uint8,
+    pub pIntermediaryBufferCapture: *mut ma_uint8,
+    pub _pHeapData: *mut ma_uint8,
+}
+#[test]
+fn bindgen_test_layout_ma_device__bindgen_ty_4__bindgen_ty_3() {
+    assert_eq!(
+        ::std::mem::size_of::<ma_device__bindgen_ty_4__bindgen_ty_3>(),
+        96usize,
+        concat!(
+            "Size of: ",
+            stringify!(ma_device__bindgen_ty_4__bindgen_ty_3)
+        )
+    );
+    assert_eq!(
+        ::std::mem::align_of::<ma_device__bindgen_ty_4__bindgen_ty_3>(),
+        8usize,
+        concat!(
+            "Alignment of ",
+            stringify!(ma_device__bindgen_ty_4__bindgen_ty_3)
+        )
+    );
+    fn test_field_hDevicePlayback() {
+        assert_eq!(
+            unsafe {
+                let uninit =
+                    ::std::mem::MaybeUninit::<ma_device__bindgen_ty_4__bindgen_ty_3>::uninit();
+                let ptr = uninit.as_ptr();
+                ::std::ptr::addr_of!((*ptr).hDevicePlayback) as usize - ptr as usize
+            },
+            0usize,
+            concat!(
+                "Offset of field: ",
+                stringify!(ma_device__bindgen_ty_4__bindgen_ty_3),
+                "::",
+                stringify!(hDevicePlayback)
+            )
+        );
+    }
+    test_field_hDevicePlayback();
+    fn test_field_hDeviceCapture() {
+        assert_eq!(
+            unsafe {
+                let uninit =
+                    ::std::mem::MaybeUninit::<ma_device__bindgen_ty_4__bindgen_ty_3>::uninit();
+                let ptr = uninit.as_ptr();
+                ::std::ptr::addr_of!((*ptr).hDeviceCapture) as usize - ptr as usize
+            },
+            8usize,
+            concat!(
+                "Offset of field: ",
+                stringify!(ma_device__bindgen_ty_4__bindgen_ty_3),
+                "::",
+                stringify!(hDeviceCapture)
+            )
+        );
+    }
+    test_field_hDeviceCapture();
+    fn test_field_hEventPlayback() {
+        assert_eq!(
+            unsafe {
+                let uninit =
+                    ::std::mem::MaybeUninit::<ma_device__bindgen_ty_4__bindgen_ty_3>::uninit();
+                let ptr = uninit.as_ptr();
+                ::std::ptr::addr_of!((*ptr).hEventPlayback) as usize - ptr as usize
+            },
+            16usize,
+            concat!(
+                "Offset of field: ",
+                stringify!(ma_device__bindgen_ty_4__bindgen_ty_3),
+                "::",
+                stringify!(hEventPlayback)
+            )
+        );
+    }
+    test_field_hEventPlayback();
+    fn test_field_hEventCapture() {
+        assert_eq!(
+            unsafe {
+                let uninit =
+                    ::std::mem::MaybeUninit::<ma_device__bindgen_ty_4__bindgen_ty_3>::uninit();
+                let ptr = uninit.as_ptr();
+                ::std::ptr::addr_of!((*ptr).hEventCapture) as usize - ptr as usize
+            },
+            24usize,
+            concat!(
+                "Offset of field: ",
+                stringify!(ma_device__bindgen_ty_4__bindgen_ty_3),
+                "::",
+                stringify!(hEventCapture)
+            )
+        );
+    }
+    test_field_hEventCapture();
+    fn test_field_fragmentSizeInFrames() {
+        assert_eq!(
+            unsafe {
+                let uninit =
+                    ::std::mem::MaybeUninit::<ma_device__bindgen_ty_4__bindgen_ty_3>::uninit();
+                let ptr = uninit.as_ptr();
+                ::std::ptr::addr_of!((*ptr).fragmentSizeInFrames) as usize - ptr as usize
+            },
+            32usize,
+            concat!(
+                "Offset of field: ",
+                stringify!(ma_device__bindgen_ty_4__bindgen_ty_3),
+                "::",
+                stringify!(fragmentSizeInFrames)
+            )
+        );
+    }
+    test_field_fragmentSizeInFrames();
+    fn test_field_iNextHeaderPlayback() {
+        assert_eq!(
+            unsafe {
+                let uninit =
+                    ::std::mem::MaybeUninit::<ma_device__bindgen_ty_4__bindgen_ty_3>::uninit();
+                let ptr = uninit.as_ptr();
+                ::std::ptr::addr_of!((*ptr).iNextHeaderPlayback) as usize - ptr as usize
+            },
+            36usize,
+            concat!(
+                "Offset of field: ",
+                stringify!(ma_device__bindgen_ty_4__bindgen_ty_3),
+                "::",
+                stringify!(iNextHeaderPlayback)
+            )
+        );
+    }
+    test_field_iNextHeaderPlayback();
+    fn test_field_iNextHeaderCapture() {
+        assert_eq!(
+            unsafe {
+                let uninit =
+                    ::std::mem::MaybeUninit::<ma_device__bindgen_ty_4__bindgen_ty_3>::uninit();
+                let ptr = uninit.as_ptr();
+                ::std::ptr::addr_of!((*ptr).iNextHeaderCapture) as usize - ptr as usize
+            },
+            40usize,
+            concat!(
+                "Offset of field: ",
+                stringify!(ma_device__bindgen_ty_4__bindgen_ty_3),
+                "::",
+                stringify!(iNextHeaderCapture)
+            )
+        );
+    }
+    test_field_iNextHeaderCapture();
+    fn test_field_headerFramesConsumedPlayback() {
+        assert_eq!(
+            unsafe {
+                let uninit =
+                    ::std::mem::MaybeUninit::<ma_device__bindgen_ty_4__bindgen_ty_3>::uninit();
+                let ptr = uninit.as_ptr();
+                ::std::ptr::addr_of!((*ptr).headerFramesConsumedPlayback) as usize - ptr as usize
+            },
+            44usize,
+            concat!(
+                "Offset of field: ",
+                stringify!(ma_device__bindgen_ty_4__bindgen_ty_3),
+                "::",
+                stringify!(headerFramesConsumedPlayback)
+            )
+        );
+    }
+    test_field_headerFramesConsumedPlayback();
+    fn test_field_headerFramesConsumedCapture() {
+        assert_eq!(
+            unsafe {
+                let uninit =
+                    ::std::mem::MaybeUninit::<ma_device__bindgen_ty_4__bindgen_ty_3>::uninit();
+                let ptr = uninit.as_ptr();
+                ::std::ptr::addr_of!((*ptr).headerFramesConsumedCapture) as usize - ptr as usize
+            },
+            48usize,
+            concat!(
+                "Offset of field: ",
+                stringify!(ma_device__bindgen_ty_4__bindgen_ty_3),
+                "::",
+                stringify!(headerFramesConsumedCapture)
+            )
+        );
+    }
+    test_field_headerFramesConsumedCapture();
+    fn test_field_pWAVEHDRPlayback() {
+        assert_eq!(
+            unsafe {
+                let uninit =
+                    ::std::mem::MaybeUninit::<ma_device__bindgen_ty_4__bindgen_ty_3>::uninit();
+                let ptr = uninit.as_ptr();
+                ::std::ptr::addr_of!((*ptr).pWAVEHDRPlayback) as usize - ptr as usize
+            },
+            56usize,
+            concat!(
+                "Offset of field: ",
+                stringify!(ma_device__bindgen_ty_4__bindgen_ty_3),
+                "::",
+                stringify!(pWAVEHDRPlayback)
+            )
+        );
+    }
+    test_field_pWAVEHDRPlayback();
+    fn test_field_pWAVEHDRCapture() {
+        assert_eq!(
+            unsafe {
+                let uninit =
+                    ::std::mem::MaybeUninit::<ma_device__bindgen_ty_4__bindgen_ty_3>::uninit();
+                let ptr = uninit.as_ptr();
+                ::std::ptr::addr_of!((*ptr).pWAVEHDRCapture) as usize - ptr as usize
+            },
+            64usize,
+            concat!(
+                "Offset of field: ",
+                stringify!(ma_device__bindgen_ty_4__bindgen_ty_3),
+                "::",
+                stringify!(pWAVEHDRCapture)
+            )
+        );
+    }
+    test_field_pWAVEHDRCapture();
+    fn test_field_pIntermediaryBufferPlayback() {
+        assert_eq!(
+            unsafe {
+                let uninit =
+                    ::std::mem::MaybeUninit::<ma_device__bindgen_ty_4__bindgen_ty_3>::uninit();
+                let ptr = uninit.as_ptr();
+                ::std::ptr::addr_of!((*ptr).pIntermediaryBufferPlayback) as usize - ptr as usize
+            },
+            72usize,
+            concat!(
+                "Offset of field: ",
+                stringify!(ma_device__bindgen_ty_4__bindgen_ty_3),
+                "::",
+                stringify!(pIntermediaryBufferPlayback)
+            )
+        );
+    }
+    test_field_pIntermediaryBufferPlayback();
+    fn test_field_pIntermediaryBufferCapture() {
+        assert_eq!(
+            unsafe {
+                let uninit =
+                    ::std::mem::MaybeUninit::<ma_device__bindgen_ty_4__bindgen_ty_3>::uninit();
+                let ptr = uninit.as_ptr();
+                ::std::ptr::addr_of!((*ptr).pIntermediaryBufferCapture) as usize - ptr as usize
+            },
+            80usize,
+            concat!(
+                "Offset of field: ",
+                stringify!(ma_device__bindgen_ty_4__bindgen_ty_3),
+                "::",
+                stringify!(pIntermediaryBufferCapture)
+            )
+        );
+    }
+    test_field_pIntermediaryBufferCapture();
+    fn test_field__pHeapData() {
+        assert_eq!(
+            unsafe {
+                let uninit =
+                    ::std::mem::MaybeUninit::<ma_device__bindgen_ty_4__bindgen_ty_3>::uninit();
+                let ptr = uninit.as_ptr();
+                ::std::ptr::addr_of!((*ptr)._pHeapData) as usize - ptr as usize
+            },
+            88usize,
+            concat!(
+                "Offset of field: ",
+                stringify!(ma_device__bindgen_ty_4__bindgen_ty_3),
+                "::",
+                stringify!(_pHeapData)
+            )
+        );
+    }
+    test_field__pHeapData();
+}
+#[repr(C)]
+#[derive(Debug, Copy, Clone)]
+pub struct ma_device__bindgen_ty_4__bindgen_ty_4 {
+    pub pClient: ma_ptr,
+    pub ppPortsPlayback: *mut ma_ptr,
+    pub ppPortsCapture: *mut ma_ptr,
+    pub pIntermediaryBufferPlayback: *mut f32,
+    pub pIntermediaryBufferCapture: *mut f32,
+}
+#[test]
+fn bindgen_test_layout_ma_device__bindgen_ty_4__bindgen_ty_4() {
+    assert_eq!(
+        ::std::mem::size_of::<ma_device__bindgen_ty_4__bindgen_ty_4>(),
+        40usize,
+        concat!(
+            "Size of: ",
+            stringify!(ma_device__bindgen_ty_4__bindgen_ty_4)
+        )
+    );
+    assert_eq!(
+        ::std::mem::align_of::<ma_device__bindgen_ty_4__bindgen_ty_4>(),
+        8usize,
+        concat!(
+            "Alignment of ",
+            stringify!(ma_device__bindgen_ty_4__bindgen_ty_4)
+        )
+    );
+    fn test_field_pClient() {
+        assert_eq!(
+            unsafe {
+                let uninit =
+                    ::std::mem::MaybeUninit::<ma_device__bindgen_ty_4__bindgen_ty_4>::uninit();
+                let ptr = uninit.as_ptr();
+                ::std::ptr::addr_of!((*ptr).pClient) as usize - ptr as usize
+            },
+            0usize,
+            concat!(
+                "Offset of field: ",
+                stringify!(ma_device__bindgen_ty_4__bindgen_ty_4),
+                "::",
+                stringify!(pClient)
+            )
+        );
+    }
+    test_field_pClient();
+    fn test_field_ppPortsPlayback() {
+        assert_eq!(
+            unsafe {
+                let uninit =
+                    ::std::mem::MaybeUninit::<ma_device__bindgen_ty_4__bindgen_ty_4>::uninit();
+                let ptr = uninit.as_ptr();
+                ::std::ptr::addr_of!((*ptr).ppPortsPlayback) as usize - ptr as usize
+            },
+            8usize,
+            concat!(
+                "Offset of field: ",
+                stringify!(ma_device__bindgen_ty_4__bindgen_ty_4),
+                "::",
+                stringify!(ppPortsPlayback)
+            )
+        );
+    }
+    test_field_ppPortsPlayback();
+    fn test_field_ppPortsCapture() {
+        assert_eq!(
+            unsafe {
+                let uninit =
+                    ::std::mem::MaybeUninit::<ma_device__bindgen_ty_4__bindgen_ty_4>::uninit();
+                let ptr = uninit.as_ptr();
+                ::std::ptr::addr_of!((*ptr).ppPortsCapture) as usize - ptr as usize
+            },
+            16usize,
+            concat!(
+                "Offset of field: ",
+                stringify!(ma_device__bindgen_ty_4__bindgen_ty_4),
+                "::",
+                stringify!(ppPortsCapture)
+            )
+        );
+    }
+    test_field_ppPortsCapture();
+    fn test_field_pIntermediaryBufferPlayback() {
+        assert_eq!(
+            unsafe {
+                let uninit =
+                    ::std::mem::MaybeUninit::<ma_device__bindgen_ty_4__bindgen_ty_4>::uninit();
+                let ptr = uninit.as_ptr();
+                ::std::ptr::addr_of!((*ptr).pIntermediaryBufferPlayback) as usize - ptr as usize
+            },
+            24usize,
+            concat!(
+                "Offset of field: ",
+                stringify!(ma_device__bindgen_ty_4__bindgen_ty_4),
+                "::",
+                stringify!(pIntermediaryBufferPlayback)
+            )
+        );
+    }
+    test_field_pIntermediaryBufferPlayback();
+    fn test_field_pIntermediaryBufferCapture() {
+        assert_eq!(
+            unsafe {
+                let uninit =
+                    ::std::mem::MaybeUninit::<ma_device__bindgen_ty_4__bindgen_ty_4>::uninit();
+                let ptr = uninit.as_ptr();
+                ::std::ptr::addr_of!((*ptr).pIntermediaryBufferCapture) as usize - ptr as usize
+            },
+            32usize,
+            concat!(
+                "Offset of field: ",
+                stringify!(ma_device__bindgen_ty_4__bindgen_ty_4),
+                "::",
+                stringify!(pIntermediaryBufferCapture)
+            )
+        );
+    }
+    test_field_pIntermediaryBufferCapture();
 }
 #[repr(C)]
 #[derive(Copy, Clone)]
-pub struct ma_device__bindgen_ty_4__bindgen_ty_2 {
+pub struct ma_device__bindgen_ty_4__bindgen_ty_5 {
     pub deviceThread: ma_thread,
     pub operationEvent: ma_event,
     pub operationCompletionEvent: ma_event,
@@ -21460,35 +19762,35 @@ pub struct ma_device__bindgen_ty_4__bindgen_ty_2 {
     pub isStarted: ma_bool32,
 }
 #[test]
-fn bindgen_test_layout_ma_device__bindgen_ty_4__bindgen_ty_2() {
+fn bindgen_test_layout_ma_device__bindgen_ty_4__bindgen_ty_5() {
     assert_eq!(
-        ::std::mem::size_of::<ma_device__bindgen_ty_4__bindgen_ty_2>(),
-        424usize,
+        ::std::mem::size_of::<ma_device__bindgen_ty_4__bindgen_ty_5>(),
+        88usize,
         concat!(
             "Size of: ",
-            stringify!(ma_device__bindgen_ty_4__bindgen_ty_2)
+            stringify!(ma_device__bindgen_ty_4__bindgen_ty_5)
         )
     );
     assert_eq!(
-        ::std::mem::align_of::<ma_device__bindgen_ty_4__bindgen_ty_2>(),
+        ::std::mem::align_of::<ma_device__bindgen_ty_4__bindgen_ty_5>(),
         8usize,
         concat!(
             "Alignment of ",
-            stringify!(ma_device__bindgen_ty_4__bindgen_ty_2)
+            stringify!(ma_device__bindgen_ty_4__bindgen_ty_5)
         )
     );
     fn test_field_deviceThread() {
         assert_eq!(
             unsafe {
                 let uninit =
-                    ::std::mem::MaybeUninit::<ma_device__bindgen_ty_4__bindgen_ty_2>::uninit();
+                    ::std::mem::MaybeUninit::<ma_device__bindgen_ty_4__bindgen_ty_5>::uninit();
                 let ptr = uninit.as_ptr();
                 ::std::ptr::addr_of!((*ptr).deviceThread) as usize - ptr as usize
             },
             0usize,
             concat!(
                 "Offset of field: ",
-                stringify!(ma_device__bindgen_ty_4__bindgen_ty_2),
+                stringify!(ma_device__bindgen_ty_4__bindgen_ty_5),
                 "::",
                 stringify!(deviceThread)
             )
@@ -21499,14 +19801,14 @@ fn bindgen_test_layout_ma_device__bindgen_ty_4__bindgen_ty_2() {
         assert_eq!(
             unsafe {
                 let uninit =
-                    ::std::mem::MaybeUninit::<ma_device__bindgen_ty_4__bindgen_ty_2>::uninit();
+                    ::std::mem::MaybeUninit::<ma_device__bindgen_ty_4__bindgen_ty_5>::uninit();
                 let ptr = uninit.as_ptr();
                 ::std::ptr::addr_of!((*ptr).operationEvent) as usize - ptr as usize
             },
             8usize,
             concat!(
                 "Offset of field: ",
-                stringify!(ma_device__bindgen_ty_4__bindgen_ty_2),
+                stringify!(ma_device__bindgen_ty_4__bindgen_ty_5),
                 "::",
                 stringify!(operationEvent)
             )
@@ -21517,14 +19819,14 @@ fn bindgen_test_layout_ma_device__bindgen_ty_4__bindgen_ty_2() {
         assert_eq!(
             unsafe {
                 let uninit =
-                    ::std::mem::MaybeUninit::<ma_device__bindgen_ty_4__bindgen_ty_2>::uninit();
+                    ::std::mem::MaybeUninit::<ma_device__bindgen_ty_4__bindgen_ty_5>::uninit();
                 let ptr = uninit.as_ptr();
                 ::std::ptr::addr_of!((*ptr).operationCompletionEvent) as usize - ptr as usize
             },
-            128usize,
+            16usize,
             concat!(
                 "Offset of field: ",
-                stringify!(ma_device__bindgen_ty_4__bindgen_ty_2),
+                stringify!(ma_device__bindgen_ty_4__bindgen_ty_5),
                 "::",
                 stringify!(operationCompletionEvent)
             )
@@ -21535,14 +19837,14 @@ fn bindgen_test_layout_ma_device__bindgen_ty_4__bindgen_ty_2() {
         assert_eq!(
             unsafe {
                 let uninit =
-                    ::std::mem::MaybeUninit::<ma_device__bindgen_ty_4__bindgen_ty_2>::uninit();
+                    ::std::mem::MaybeUninit::<ma_device__bindgen_ty_4__bindgen_ty_5>::uninit();
                 let ptr = uninit.as_ptr();
                 ::std::ptr::addr_of!((*ptr).operationSemaphore) as usize - ptr as usize
             },
-            248usize,
+            24usize,
             concat!(
                 "Offset of field: ",
-                stringify!(ma_device__bindgen_ty_4__bindgen_ty_2),
+                stringify!(ma_device__bindgen_ty_4__bindgen_ty_5),
                 "::",
                 stringify!(operationSemaphore)
             )
@@ -21553,14 +19855,14 @@ fn bindgen_test_layout_ma_device__bindgen_ty_4__bindgen_ty_2() {
         assert_eq!(
             unsafe {
                 let uninit =
-                    ::std::mem::MaybeUninit::<ma_device__bindgen_ty_4__bindgen_ty_2>::uninit();
+                    ::std::mem::MaybeUninit::<ma_device__bindgen_ty_4__bindgen_ty_5>::uninit();
                 let ptr = uninit.as_ptr();
                 ::std::ptr::addr_of!((*ptr).operation) as usize - ptr as usize
             },
-            368usize,
+            32usize,
             concat!(
                 "Offset of field: ",
-                stringify!(ma_device__bindgen_ty_4__bindgen_ty_2),
+                stringify!(ma_device__bindgen_ty_4__bindgen_ty_5),
                 "::",
                 stringify!(operation)
             )
@@ -21571,14 +19873,14 @@ fn bindgen_test_layout_ma_device__bindgen_ty_4__bindgen_ty_2() {
         assert_eq!(
             unsafe {
                 let uninit =
-                    ::std::mem::MaybeUninit::<ma_device__bindgen_ty_4__bindgen_ty_2>::uninit();
+                    ::std::mem::MaybeUninit::<ma_device__bindgen_ty_4__bindgen_ty_5>::uninit();
                 let ptr = uninit.as_ptr();
                 ::std::ptr::addr_of!((*ptr).operationResult) as usize - ptr as usize
             },
-            372usize,
+            36usize,
             concat!(
                 "Offset of field: ",
-                stringify!(ma_device__bindgen_ty_4__bindgen_ty_2),
+                stringify!(ma_device__bindgen_ty_4__bindgen_ty_5),
                 "::",
                 stringify!(operationResult)
             )
@@ -21589,14 +19891,14 @@ fn bindgen_test_layout_ma_device__bindgen_ty_4__bindgen_ty_2() {
         assert_eq!(
             unsafe {
                 let uninit =
-                    ::std::mem::MaybeUninit::<ma_device__bindgen_ty_4__bindgen_ty_2>::uninit();
+                    ::std::mem::MaybeUninit::<ma_device__bindgen_ty_4__bindgen_ty_5>::uninit();
                 let ptr = uninit.as_ptr();
                 ::std::ptr::addr_of!((*ptr).timer) as usize - ptr as usize
             },
-            376usize,
+            40usize,
             concat!(
                 "Offset of field: ",
-                stringify!(ma_device__bindgen_ty_4__bindgen_ty_2),
+                stringify!(ma_device__bindgen_ty_4__bindgen_ty_5),
                 "::",
                 stringify!(timer)
             )
@@ -21607,14 +19909,14 @@ fn bindgen_test_layout_ma_device__bindgen_ty_4__bindgen_ty_2() {
         assert_eq!(
             unsafe {
                 let uninit =
-                    ::std::mem::MaybeUninit::<ma_device__bindgen_ty_4__bindgen_ty_2>::uninit();
+                    ::std::mem::MaybeUninit::<ma_device__bindgen_ty_4__bindgen_ty_5>::uninit();
                 let ptr = uninit.as_ptr();
                 ::std::ptr::addr_of!((*ptr).priorRunTime) as usize - ptr as usize
             },
-            384usize,
+            48usize,
             concat!(
                 "Offset of field: ",
-                stringify!(ma_device__bindgen_ty_4__bindgen_ty_2),
+                stringify!(ma_device__bindgen_ty_4__bindgen_ty_5),
                 "::",
                 stringify!(priorRunTime)
             )
@@ -21625,15 +19927,15 @@ fn bindgen_test_layout_ma_device__bindgen_ty_4__bindgen_ty_2() {
         assert_eq!(
             unsafe {
                 let uninit =
-                    ::std::mem::MaybeUninit::<ma_device__bindgen_ty_4__bindgen_ty_2>::uninit();
+                    ::std::mem::MaybeUninit::<ma_device__bindgen_ty_4__bindgen_ty_5>::uninit();
                 let ptr = uninit.as_ptr();
                 ::std::ptr::addr_of!((*ptr).currentPeriodFramesRemainingPlayback) as usize
                     - ptr as usize
             },
-            392usize,
+            56usize,
             concat!(
                 "Offset of field: ",
-                stringify!(ma_device__bindgen_ty_4__bindgen_ty_2),
+                stringify!(ma_device__bindgen_ty_4__bindgen_ty_5),
                 "::",
                 stringify!(currentPeriodFramesRemainingPlayback)
             )
@@ -21644,15 +19946,15 @@ fn bindgen_test_layout_ma_device__bindgen_ty_4__bindgen_ty_2() {
         assert_eq!(
             unsafe {
                 let uninit =
-                    ::std::mem::MaybeUninit::<ma_device__bindgen_ty_4__bindgen_ty_2>::uninit();
+                    ::std::mem::MaybeUninit::<ma_device__bindgen_ty_4__bindgen_ty_5>::uninit();
                 let ptr = uninit.as_ptr();
                 ::std::ptr::addr_of!((*ptr).currentPeriodFramesRemainingCapture) as usize
                     - ptr as usize
             },
-            396usize,
+            60usize,
             concat!(
                 "Offset of field: ",
-                stringify!(ma_device__bindgen_ty_4__bindgen_ty_2),
+                stringify!(ma_device__bindgen_ty_4__bindgen_ty_5),
                 "::",
                 stringify!(currentPeriodFramesRemainingCapture)
             )
@@ -21663,14 +19965,14 @@ fn bindgen_test_layout_ma_device__bindgen_ty_4__bindgen_ty_2() {
         assert_eq!(
             unsafe {
                 let uninit =
-                    ::std::mem::MaybeUninit::<ma_device__bindgen_ty_4__bindgen_ty_2>::uninit();
+                    ::std::mem::MaybeUninit::<ma_device__bindgen_ty_4__bindgen_ty_5>::uninit();
                 let ptr = uninit.as_ptr();
                 ::std::ptr::addr_of!((*ptr).lastProcessedFramePlayback) as usize - ptr as usize
             },
-            400usize,
+            64usize,
             concat!(
                 "Offset of field: ",
-                stringify!(ma_device__bindgen_ty_4__bindgen_ty_2),
+                stringify!(ma_device__bindgen_ty_4__bindgen_ty_5),
                 "::",
                 stringify!(lastProcessedFramePlayback)
             )
@@ -21681,14 +19983,14 @@ fn bindgen_test_layout_ma_device__bindgen_ty_4__bindgen_ty_2() {
         assert_eq!(
             unsafe {
                 let uninit =
-                    ::std::mem::MaybeUninit::<ma_device__bindgen_ty_4__bindgen_ty_2>::uninit();
+                    ::std::mem::MaybeUninit::<ma_device__bindgen_ty_4__bindgen_ty_5>::uninit();
                 let ptr = uninit.as_ptr();
                 ::std::ptr::addr_of!((*ptr).lastProcessedFrameCapture) as usize - ptr as usize
             },
-            408usize,
+            72usize,
             concat!(
                 "Offset of field: ",
-                stringify!(ma_device__bindgen_ty_4__bindgen_ty_2),
+                stringify!(ma_device__bindgen_ty_4__bindgen_ty_5),
                 "::",
                 stringify!(lastProcessedFrameCapture)
             )
@@ -21699,14 +20001,14 @@ fn bindgen_test_layout_ma_device__bindgen_ty_4__bindgen_ty_2() {
         assert_eq!(
             unsafe {
                 let uninit =
-                    ::std::mem::MaybeUninit::<ma_device__bindgen_ty_4__bindgen_ty_2>::uninit();
+                    ::std::mem::MaybeUninit::<ma_device__bindgen_ty_4__bindgen_ty_5>::uninit();
                 let ptr = uninit.as_ptr();
                 ::std::ptr::addr_of!((*ptr).isStarted) as usize - ptr as usize
             },
-            416usize,
+            80usize,
             concat!(
                 "Offset of field: ",
-                stringify!(ma_device__bindgen_ty_4__bindgen_ty_2),
+                stringify!(ma_device__bindgen_ty_4__bindgen_ty_5),
                 "::",
                 stringify!(isStarted)
             )
@@ -21714,25 +20016,16 @@ fn bindgen_test_layout_ma_device__bindgen_ty_4__bindgen_ty_2() {
     }
     test_field_isStarted();
 }
-impl Default for ma_device__bindgen_ty_4__bindgen_ty_2 {
-    fn default() -> Self {
-        let mut s = ::std::mem::MaybeUninit::<Self>::uninit();
-        unsafe {
-            ::std::ptr::write_bytes(s.as_mut_ptr(), 0, 1);
-            s.assume_init()
-        }
-    }
-}
-impl ::std::fmt::Debug for ma_device__bindgen_ty_4__bindgen_ty_2 {
+impl ::std::fmt::Debug for ma_device__bindgen_ty_4__bindgen_ty_5 {
     fn fmt(&self, f: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        write ! (f , "ma_device__bindgen_ty_4__bindgen_ty_2 {{ deviceThread: {:?}, operationEvent: {:?}, operationCompletionEvent: {:?}, operationSemaphore: {:?}, operation: {:?}, operationResult: {:?}, timer: {:?}, priorRunTime: {:?}, currentPeriodFramesRemainingPlayback: {:?}, currentPeriodFramesRemainingCapture: {:?}, lastProcessedFramePlayback: {:?}, lastProcessedFrameCapture: {:?}, isStarted: {:?} }}" , self . deviceThread , self . operationEvent , self . operationCompletionEvent , self . operationSemaphore , self . operation , self . operationResult , self . timer , self . priorRunTime , self . currentPeriodFramesRemainingPlayback , self . currentPeriodFramesRemainingCapture , self . lastProcessedFramePlayback , self . lastProcessedFrameCapture , self . isStarted)
+        write ! (f , "ma_device__bindgen_ty_4__bindgen_ty_5 {{ deviceThread: {:?}, operationEvent: {:?}, operationCompletionEvent: {:?}, operationSemaphore: {:?}, operation: {:?}, operationResult: {:?}, timer: {:?}, priorRunTime: {:?}, currentPeriodFramesRemainingPlayback: {:?}, currentPeriodFramesRemainingCapture: {:?}, lastProcessedFramePlayback: {:?}, lastProcessedFrameCapture: {:?}, isStarted: {:?} }}" , self . deviceThread , self . operationEvent , self . operationCompletionEvent , self . operationSemaphore , self . operation , self . operationResult , self . timer , self . priorRunTime , self . currentPeriodFramesRemainingPlayback , self . currentPeriodFramesRemainingCapture , self . lastProcessedFramePlayback , self . lastProcessedFrameCapture , self . isStarted)
     }
 }
 #[test]
 fn bindgen_test_layout_ma_device__bindgen_ty_4() {
     assert_eq!(
         ::std::mem::size_of::<ma_device__bindgen_ty_4>(),
-        424usize,
+        160usize,
         concat!("Size of: ", stringify!(ma_device__bindgen_ty_4))
     );
     assert_eq!(
@@ -21740,23 +20033,74 @@ fn bindgen_test_layout_ma_device__bindgen_ty_4() {
         8usize,
         concat!("Alignment of ", stringify!(ma_device__bindgen_ty_4))
     );
-    fn test_field_coreaudio() {
+    fn test_field_wasapi() {
         assert_eq!(
             unsafe {
                 let uninit = ::std::mem::MaybeUninit::<ma_device__bindgen_ty_4>::uninit();
                 let ptr = uninit.as_ptr();
-                ::std::ptr::addr_of!((*ptr).coreaudio) as usize - ptr as usize
+                ::std::ptr::addr_of!((*ptr).wasapi) as usize - ptr as usize
             },
             0usize,
             concat!(
                 "Offset of field: ",
                 stringify!(ma_device__bindgen_ty_4),
                 "::",
-                stringify!(coreaudio)
+                stringify!(wasapi)
             )
         );
     }
-    test_field_coreaudio();
+    test_field_wasapi();
+    fn test_field_dsound() {
+        assert_eq!(
+            unsafe {
+                let uninit = ::std::mem::MaybeUninit::<ma_device__bindgen_ty_4>::uninit();
+                let ptr = uninit.as_ptr();
+                ::std::ptr::addr_of!((*ptr).dsound) as usize - ptr as usize
+            },
+            0usize,
+            concat!(
+                "Offset of field: ",
+                stringify!(ma_device__bindgen_ty_4),
+                "::",
+                stringify!(dsound)
+            )
+        );
+    }
+    test_field_dsound();
+    fn test_field_winmm() {
+        assert_eq!(
+            unsafe {
+                let uninit = ::std::mem::MaybeUninit::<ma_device__bindgen_ty_4>::uninit();
+                let ptr = uninit.as_ptr();
+                ::std::ptr::addr_of!((*ptr).winmm) as usize - ptr as usize
+            },
+            0usize,
+            concat!(
+                "Offset of field: ",
+                stringify!(ma_device__bindgen_ty_4),
+                "::",
+                stringify!(winmm)
+            )
+        );
+    }
+    test_field_winmm();
+    fn test_field_jack() {
+        assert_eq!(
+            unsafe {
+                let uninit = ::std::mem::MaybeUninit::<ma_device__bindgen_ty_4>::uninit();
+                let ptr = uninit.as_ptr();
+                ::std::ptr::addr_of!((*ptr).jack) as usize - ptr as usize
+            },
+            0usize,
+            concat!(
+                "Offset of field: ",
+                stringify!(ma_device__bindgen_ty_4),
+                "::",
+                stringify!(jack)
+            )
+        );
+    }
+    test_field_jack();
     fn test_field_null_device() {
         assert_eq!(
             unsafe {
@@ -21775,15 +20119,6 @@ fn bindgen_test_layout_ma_device__bindgen_ty_4() {
     }
     test_field_null_device();
 }
-impl Default for ma_device__bindgen_ty_4 {
-    fn default() -> Self {
-        let mut s = ::std::mem::MaybeUninit::<Self>::uninit();
-        unsafe {
-            ::std::ptr::write_bytes(s.as_mut_ptr(), 0, 1);
-            s.assume_init()
-        }
-    }
-}
 impl ::std::fmt::Debug for ma_device__bindgen_ty_4 {
     fn fmt(&self, f: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
         write!(f, "ma_device__bindgen_ty_4 {{ union }}")
@@ -21793,7 +20128,7 @@ impl ::std::fmt::Debug for ma_device__bindgen_ty_4 {
 fn bindgen_test_layout_ma_device() {
     assert_eq!(
         ::std::mem::size_of::<ma_device>(),
-        3864usize,
+        3208usize,
         concat!("Size of: ", stringify!(ma_device))
     );
     assert_eq!(
@@ -21961,7 +20296,7 @@ fn bindgen_test_layout_ma_device() {
                 let ptr = uninit.as_ptr();
                 ::std::ptr::addr_of!((*ptr).wakeupEvent) as usize - ptr as usize
             },
-            120usize,
+            64usize,
             concat!(
                 "Offset of field: ",
                 stringify!(ma_device),
@@ -21978,7 +20313,7 @@ fn bindgen_test_layout_ma_device() {
                 let ptr = uninit.as_ptr();
                 ::std::ptr::addr_of!((*ptr).startEvent) as usize - ptr as usize
             },
-            240usize,
+            72usize,
             concat!(
                 "Offset of field: ",
                 stringify!(ma_device),
@@ -21995,7 +20330,7 @@ fn bindgen_test_layout_ma_device() {
                 let ptr = uninit.as_ptr();
                 ::std::ptr::addr_of!((*ptr).stopEvent) as usize - ptr as usize
             },
-            360usize,
+            80usize,
             concat!(
                 "Offset of field: ",
                 stringify!(ma_device),
@@ -22012,7 +20347,7 @@ fn bindgen_test_layout_ma_device() {
                 let ptr = uninit.as_ptr();
                 ::std::ptr::addr_of!((*ptr).thread) as usize - ptr as usize
             },
-            480usize,
+            88usize,
             concat!(
                 "Offset of field: ",
                 stringify!(ma_device),
@@ -22029,7 +20364,7 @@ fn bindgen_test_layout_ma_device() {
                 let ptr = uninit.as_ptr();
                 ::std::ptr::addr_of!((*ptr).workResult) as usize - ptr as usize
             },
-            488usize,
+            96usize,
             concat!(
                 "Offset of field: ",
                 stringify!(ma_device),
@@ -22046,7 +20381,7 @@ fn bindgen_test_layout_ma_device() {
                 let ptr = uninit.as_ptr();
                 ::std::ptr::addr_of!((*ptr).isOwnerOfContext) as usize - ptr as usize
             },
-            492usize,
+            100usize,
             concat!(
                 "Offset of field: ",
                 stringify!(ma_device),
@@ -22063,7 +20398,7 @@ fn bindgen_test_layout_ma_device() {
                 let ptr = uninit.as_ptr();
                 ::std::ptr::addr_of!((*ptr).noPreSilencedOutputBuffer) as usize - ptr as usize
             },
-            493usize,
+            101usize,
             concat!(
                 "Offset of field: ",
                 stringify!(ma_device),
@@ -22080,7 +20415,7 @@ fn bindgen_test_layout_ma_device() {
                 let ptr = uninit.as_ptr();
                 ::std::ptr::addr_of!((*ptr).noClip) as usize - ptr as usize
             },
-            494usize,
+            102usize,
             concat!(
                 "Offset of field: ",
                 stringify!(ma_device),
@@ -22097,7 +20432,7 @@ fn bindgen_test_layout_ma_device() {
                 let ptr = uninit.as_ptr();
                 ::std::ptr::addr_of!((*ptr).noDisableDenormals) as usize - ptr as usize
             },
-            495usize,
+            103usize,
             concat!(
                 "Offset of field: ",
                 stringify!(ma_device),
@@ -22114,7 +20449,7 @@ fn bindgen_test_layout_ma_device() {
                 let ptr = uninit.as_ptr();
                 ::std::ptr::addr_of!((*ptr).noFixedSizedCallback) as usize - ptr as usize
             },
-            496usize,
+            104usize,
             concat!(
                 "Offset of field: ",
                 stringify!(ma_device),
@@ -22131,7 +20466,7 @@ fn bindgen_test_layout_ma_device() {
                 let ptr = uninit.as_ptr();
                 ::std::ptr::addr_of!((*ptr).masterVolumeFactor) as usize - ptr as usize
             },
-            500usize,
+            108usize,
             concat!(
                 "Offset of field: ",
                 stringify!(ma_device),
@@ -22148,7 +20483,7 @@ fn bindgen_test_layout_ma_device() {
                 let ptr = uninit.as_ptr();
                 ::std::ptr::addr_of!((*ptr).duplexRB) as usize - ptr as usize
             },
-            504usize,
+            112usize,
             concat!(
                 "Offset of field: ",
                 stringify!(ma_device),
@@ -22165,7 +20500,7 @@ fn bindgen_test_layout_ma_device() {
                 let ptr = uninit.as_ptr();
                 ::std::ptr::addr_of!((*ptr).resampling) as usize - ptr as usize
             },
-            576usize,
+            184usize,
             concat!(
                 "Offset of field: ",
                 stringify!(ma_device),
@@ -22182,7 +20517,7 @@ fn bindgen_test_layout_ma_device() {
                 let ptr = uninit.as_ptr();
                 ::std::ptr::addr_of!((*ptr).playback) as usize - ptr as usize
             },
-            608usize,
+            216usize,
             concat!(
                 "Offset of field: ",
                 stringify!(ma_device),
@@ -22199,7 +20534,7 @@ fn bindgen_test_layout_ma_device() {
                 let ptr = uninit.as_ptr();
                 ::std::ptr::addr_of!((*ptr).capture) as usize - ptr as usize
             },
-            2040usize,
+            1648usize,
             concat!(
                 "Offset of field: ",
                 stringify!(ma_device),
@@ -22209,15 +20544,6 @@ fn bindgen_test_layout_ma_device() {
         );
     }
     test_field_capture();
-}
-impl Default for ma_device {
-    fn default() -> Self {
-        let mut s = ::std::mem::MaybeUninit::<Self>::uninit();
-        unsafe {
-            ::std::ptr::write_bytes(s.as_mut_ptr(), 0, 1);
-            s.assume_init()
-        }
-    }
 }
 impl ::std::fmt::Debug for ma_device {
     fn fmt(&self, f: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
@@ -22679,7 +21005,7 @@ extern "C" {
 #[doc = "Data Source"]
 pub type ma_data_source = ::std::os::raw::c_void;
 #[repr(C)]
-#[derive(Debug, Default, Copy, Clone)]
+#[derive(Debug, Copy, Clone)]
 pub struct ma_data_source_vtable {
     pub onRead: ::std::option::Option<
         unsafe extern "C" fn(
@@ -22889,15 +21215,6 @@ fn bindgen_test_layout_ma_data_source_config() {
     }
     test_field_vtable();
 }
-impl Default for ma_data_source_config {
-    fn default() -> Self {
-        let mut s = ::std::mem::MaybeUninit::<Self>::uninit();
-        unsafe {
-            ::std::ptr::write_bytes(s.as_mut_ptr(), 0, 1);
-            s.assume_init()
-        }
-    }
-}
 extern "C" {
     pub fn ma_data_source_config_init() -> ma_data_source_config;
 }
@@ -23079,15 +21396,6 @@ fn bindgen_test_layout_ma_data_source_base() {
         );
     }
     test_field_isLooping();
-}
-impl Default for ma_data_source_base {
-    fn default() -> Self {
-        let mut s = ::std::mem::MaybeUninit::<Self>::uninit();
-        unsafe {
-            ::std::ptr::write_bytes(s.as_mut_ptr(), 0, 1);
-            s.assume_init()
-        }
-    }
 }
 extern "C" {
     pub fn ma_data_source_init(
@@ -23362,15 +21670,6 @@ fn bindgen_test_layout_ma_audio_buffer_ref() {
     }
     test_field_pData();
 }
-impl Default for ma_audio_buffer_ref {
-    fn default() -> Self {
-        let mut s = ::std::mem::MaybeUninit::<Self>::uninit();
-        unsafe {
-            ::std::ptr::write_bytes(s.as_mut_ptr(), 0, 1);
-            s.assume_init()
-        }
-    }
-}
 extern "C" {
     pub fn ma_audio_buffer_ref_init(
         format: ma_format,
@@ -23563,15 +21862,6 @@ fn bindgen_test_layout_ma_audio_buffer_config() {
     }
     test_field_allocationCallbacks();
 }
-impl Default for ma_audio_buffer_config {
-    fn default() -> Self {
-        let mut s = ::std::mem::MaybeUninit::<Self>::uninit();
-        unsafe {
-            ::std::ptr::write_bytes(s.as_mut_ptr(), 0, 1);
-            s.assume_init()
-        }
-    }
-}
 extern "C" {
     pub fn ma_audio_buffer_config_init(
         format: ma_format,
@@ -23669,15 +21959,6 @@ fn bindgen_test_layout_ma_audio_buffer() {
         );
     }
     test_field__pExtraData();
-}
-impl Default for ma_audio_buffer {
-    fn default() -> Self {
-        let mut s = ::std::mem::MaybeUninit::<Self>::uninit();
-        unsafe {
-            ::std::ptr::write_bytes(s.as_mut_ptr(), 0, 1);
-            s.assume_init()
-        }
-    }
 }
 extern "C" {
     pub fn ma_audio_buffer_init(
@@ -23822,15 +22103,6 @@ fn bindgen_test_layout_ma_paged_audio_buffer_page() {
     }
     test_field_pAudioData();
 }
-impl Default for ma_paged_audio_buffer_page {
-    fn default() -> Self {
-        let mut s = ::std::mem::MaybeUninit::<Self>::uninit();
-        unsafe {
-            ::std::ptr::write_bytes(s.as_mut_ptr(), 0, 1);
-            s.assume_init()
-        }
-    }
-}
 #[repr(C)]
 #[derive(Debug, Copy, Clone)]
 pub struct ma_paged_audio_buffer_data {
@@ -23919,15 +22191,6 @@ fn bindgen_test_layout_ma_paged_audio_buffer_data() {
         );
     }
     test_field_pTail();
-}
-impl Default for ma_paged_audio_buffer_data {
-    fn default() -> Self {
-        let mut s = ::std::mem::MaybeUninit::<Self>::uninit();
-        unsafe {
-            ::std::ptr::write_bytes(s.as_mut_ptr(), 0, 1);
-            s.assume_init()
-        }
-    }
 }
 extern "C" {
     pub fn ma_paged_audio_buffer_data_init(
@@ -24022,15 +22285,6 @@ fn bindgen_test_layout_ma_paged_audio_buffer_config() {
         );
     }
     test_field_pData();
-}
-impl Default for ma_paged_audio_buffer_config {
-    fn default() -> Self {
-        let mut s = ::std::mem::MaybeUninit::<Self>::uninit();
-        unsafe {
-            ::std::ptr::write_bytes(s.as_mut_ptr(), 0, 1);
-            s.assume_init()
-        }
-    }
 }
 extern "C" {
     pub fn ma_paged_audio_buffer_config_init(
@@ -24144,15 +22398,6 @@ fn bindgen_test_layout_ma_paged_audio_buffer() {
     }
     test_field_absoluteCursor();
 }
-impl Default for ma_paged_audio_buffer {
-    fn default() -> Self {
-        let mut s = ::std::mem::MaybeUninit::<Self>::uninit();
-        unsafe {
-            ::std::ptr::write_bytes(s.as_mut_ptr(), 0, 1);
-            s.assume_init()
-        }
-    }
-}
 extern "C" {
     pub fn ma_paged_audio_buffer_init(
         pConfig: *const ma_paged_audio_buffer_config,
@@ -24197,13 +22442,13 @@ pub type ma_vfs = ::std::os::raw::c_void;
 pub type ma_vfs_file = ma_handle;
 pub const MA_OPEN_MODE_READ: ma_open_mode_flags = 1;
 pub const MA_OPEN_MODE_WRITE: ma_open_mode_flags = 2;
-pub type ma_open_mode_flags = ::std::os::raw::c_uint;
+pub type ma_open_mode_flags = ::std::os::raw::c_int;
 pub const ma_seek_origin_start: ma_seek_origin = 0;
 pub const ma_seek_origin_current: ma_seek_origin = 1;
 pub const ma_seek_origin_end: ma_seek_origin = 2;
-pub type ma_seek_origin = ::std::os::raw::c_uint;
+pub type ma_seek_origin = ::std::os::raw::c_int;
 #[repr(C)]
-#[derive(Debug, Default, Copy, Clone)]
+#[derive(Debug, Copy, Clone)]
 pub struct ma_file_info {
     pub sizeInBytes: ma_uint64,
 }
@@ -24238,7 +22483,7 @@ fn bindgen_test_layout_ma_file_info() {
     test_field_sizeInBytes();
 }
 #[repr(C)]
-#[derive(Debug, Default, Copy, Clone)]
+#[derive(Debug, Copy, Clone)]
 pub struct ma_vfs_callbacks {
     pub onOpen: ::std::option::Option<
         unsafe extern "C" fn(
@@ -24563,15 +22808,6 @@ fn bindgen_test_layout_ma_default_vfs() {
     }
     test_field_allocationCallbacks();
 }
-impl Default for ma_default_vfs {
-    fn default() -> Self {
-        let mut s = ::std::mem::MaybeUninit::<Self>::uninit();
-        unsafe {
-            ::std::ptr::write_bytes(s.as_mut_ptr(), 0, 1);
-            s.assume_init()
-        }
-    }
-}
 extern "C" {
     pub fn ma_default_vfs_init(
         pVFS: *mut ma_default_vfs,
@@ -24604,7 +22840,7 @@ pub const ma_encoding_format_wav: ma_encoding_format = 1;
 pub const ma_encoding_format_flac: ma_encoding_format = 2;
 pub const ma_encoding_format_mp3: ma_encoding_format = 3;
 pub const ma_encoding_format_vorbis: ma_encoding_format = 4;
-pub type ma_encoding_format = ::std::os::raw::c_uint;
+pub type ma_encoding_format = ::std::os::raw::c_int;
 #[repr(C)]
 #[derive(Debug, Copy, Clone)]
 pub struct ma_decoding_backend_config {
@@ -24658,15 +22894,6 @@ fn bindgen_test_layout_ma_decoding_backend_config() {
     }
     test_field_seekPointCount();
 }
-impl Default for ma_decoding_backend_config {
-    fn default() -> Self {
-        let mut s = ::std::mem::MaybeUninit::<Self>::uninit();
-        unsafe {
-            ::std::ptr::write_bytes(s.as_mut_ptr(), 0, 1);
-            s.assume_init()
-        }
-    }
-}
 extern "C" {
     pub fn ma_decoding_backend_config_init(
         preferredFormat: ma_format,
@@ -24674,7 +22901,7 @@ extern "C" {
     ) -> ma_decoding_backend_config;
 }
 #[repr(C)]
-#[derive(Debug, Default, Copy, Clone)]
+#[derive(Debug, Copy, Clone)]
 pub struct ma_decoding_backend_vtable {
     pub onInit: ::std::option::Option<
         unsafe extern "C" fn(
@@ -25091,15 +23318,6 @@ fn bindgen_test_layout_ma_decoder_config() {
     }
     test_field_pCustomBackendUserData();
 }
-impl Default for ma_decoder_config {
-    fn default() -> Self {
-        let mut s = ::std::mem::MaybeUninit::<Self>::uninit();
-        unsafe {
-            ::std::ptr::write_bytes(s.as_mut_ptr(), 0, 1);
-            s.assume_init()
-        }
-    }
-}
 #[repr(C)]
 #[derive(Copy, Clone)]
 pub struct ma_decoder {
@@ -25190,15 +23408,6 @@ fn bindgen_test_layout_ma_decoder__bindgen_ty_1__bindgen_ty_1() {
     }
     test_field_file();
 }
-impl Default for ma_decoder__bindgen_ty_1__bindgen_ty_1 {
-    fn default() -> Self {
-        let mut s = ::std::mem::MaybeUninit::<Self>::uninit();
-        unsafe {
-            ::std::ptr::write_bytes(s.as_mut_ptr(), 0, 1);
-            s.assume_init()
-        }
-    }
-}
 #[repr(C)]
 #[derive(Debug, Copy, Clone)]
 pub struct ma_decoder__bindgen_ty_1__bindgen_ty_2 {
@@ -25279,15 +23488,6 @@ fn bindgen_test_layout_ma_decoder__bindgen_ty_1__bindgen_ty_2() {
     }
     test_field_currentReadPos();
 }
-impl Default for ma_decoder__bindgen_ty_1__bindgen_ty_2 {
-    fn default() -> Self {
-        let mut s = ::std::mem::MaybeUninit::<Self>::uninit();
-        unsafe {
-            ::std::ptr::write_bytes(s.as_mut_ptr(), 0, 1);
-            s.assume_init()
-        }
-    }
-}
 #[test]
 fn bindgen_test_layout_ma_decoder__bindgen_ty_1() {
     assert_eq!(
@@ -25334,15 +23534,6 @@ fn bindgen_test_layout_ma_decoder__bindgen_ty_1() {
         );
     }
     test_field_memory();
-}
-impl Default for ma_decoder__bindgen_ty_1 {
-    fn default() -> Self {
-        let mut s = ::std::mem::MaybeUninit::<Self>::uninit();
-        unsafe {
-            ::std::ptr::write_bytes(s.as_mut_ptr(), 0, 1);
-            s.assume_init()
-        }
-    }
 }
 impl ::std::fmt::Debug for ma_decoder__bindgen_ty_1 {
     fn fmt(&self, f: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
@@ -25685,15 +23876,6 @@ fn bindgen_test_layout_ma_decoder() {
     }
     test_field_data();
 }
-impl Default for ma_decoder {
-    fn default() -> Self {
-        let mut s = ::std::mem::MaybeUninit::<Self>::uninit();
-        unsafe {
-            ::std::ptr::write_bytes(s.as_mut_ptr(), 0, 1);
-            s.assume_init()
-        }
-    }
-}
 impl ::std::fmt::Debug for ma_decoder {
     fn fmt(&self, f: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
         write ! (f , "ma_decoder {{ ds: {:?}, pBackend: {:?}, pBackendVTable: {:?}, pBackendUserData: {:?}, onRead: {:?}, onSeek: {:?}, onTell: {:?}, pUserData: {:?}, readPointerInPCMFrames: {:?}, outputFormat: {:?}, outputChannels: {:?}, outputSampleRate: {:?}, converter: {:?}, pInputCache: {:?}, inputCacheCap: {:?}, inputCacheConsumed: {:?}, inputCacheRemaining: {:?}, allocationCallbacks: {:?}, data: {:?} }}" , self . ds , self . pBackend , self . pBackendVTable , self . pBackendUserData , self . onRead , self . onSeek , self . onTell , self . pUserData , self . readPointerInPCMFrames , self . outputFormat , self . outputChannels , self . outputSampleRate , self . converter , self . pInputCache , self . inputCacheCap , self . inputCacheConsumed , self . inputCacheRemaining , self . allocationCallbacks , self . data)
@@ -25961,15 +24143,6 @@ fn bindgen_test_layout_ma_encoder_config() {
     }
     test_field_allocationCallbacks();
 }
-impl Default for ma_encoder_config {
-    fn default() -> Self {
-        let mut s = ::std::mem::MaybeUninit::<Self>::uninit();
-        unsafe {
-            ::std::ptr::write_bytes(s.as_mut_ptr(), 0, 1);
-            s.assume_init()
-        }
-    }
-}
 extern "C" {
     pub fn ma_encoder_config_init(
         encodingFormat: ma_encoding_format,
@@ -26057,15 +24230,6 @@ fn bindgen_test_layout_ma_encoder__bindgen_ty_1__bindgen_ty_1() {
     }
     test_field_file();
 }
-impl Default for ma_encoder__bindgen_ty_1__bindgen_ty_1 {
-    fn default() -> Self {
-        let mut s = ::std::mem::MaybeUninit::<Self>::uninit();
-        unsafe {
-            ::std::ptr::write_bytes(s.as_mut_ptr(), 0, 1);
-            s.assume_init()
-        }
-    }
-}
 #[test]
 fn bindgen_test_layout_ma_encoder__bindgen_ty_1() {
     assert_eq!(
@@ -26095,15 +24259,6 @@ fn bindgen_test_layout_ma_encoder__bindgen_ty_1() {
         );
     }
     test_field_vfs();
-}
-impl Default for ma_encoder__bindgen_ty_1 {
-    fn default() -> Self {
-        let mut s = ::std::mem::MaybeUninit::<Self>::uninit();
-        unsafe {
-            ::std::ptr::write_bytes(s.as_mut_ptr(), 0, 1);
-            s.assume_init()
-        }
-    }
 }
 impl ::std::fmt::Debug for ma_encoder__bindgen_ty_1 {
     fn fmt(&self, f: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
@@ -26276,15 +24431,6 @@ fn bindgen_test_layout_ma_encoder() {
     }
     test_field_data();
 }
-impl Default for ma_encoder {
-    fn default() -> Self {
-        let mut s = ::std::mem::MaybeUninit::<Self>::uninit();
-        unsafe {
-            ::std::ptr::write_bytes(s.as_mut_ptr(), 0, 1);
-            s.assume_init()
-        }
-    }
-}
 impl ::std::fmt::Debug for ma_encoder {
     fn fmt(&self, f: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
         write ! (f , "ma_encoder {{ config: {:?}, onWrite: {:?}, onSeek: {:?}, onInit: {:?}, onUninit: {:?}, onWritePCMFrames: {:?}, pUserData: {:?}, pInternalEncoder: {:?}, data: {:?} }}" , self . config , self . onWrite , self . onSeek , self . onInit , self . onUninit , self . onWritePCMFrames , self . pUserData , self . pInternalEncoder , self . data)
@@ -26344,7 +24490,7 @@ pub const ma_waveform_type_sine: ma_waveform_type = 0;
 pub const ma_waveform_type_square: ma_waveform_type = 1;
 pub const ma_waveform_type_triangle: ma_waveform_type = 2;
 pub const ma_waveform_type_sawtooth: ma_waveform_type = 3;
-pub type ma_waveform_type = ::std::os::raw::c_uint;
+pub type ma_waveform_type = ::std::os::raw::c_int;
 #[repr(C)]
 #[derive(Debug, Copy, Clone)]
 pub struct ma_waveform_config {
@@ -26470,15 +24616,6 @@ fn bindgen_test_layout_ma_waveform_config() {
     }
     test_field_frequency();
 }
-impl Default for ma_waveform_config {
-    fn default() -> Self {
-        let mut s = ::std::mem::MaybeUninit::<Self>::uninit();
-        unsafe {
-            ::std::ptr::write_bytes(s.as_mut_ptr(), 0, 1);
-            s.assume_init()
-        }
-    }
-}
 extern "C" {
     pub fn ma_waveform_config_init(
         format: ma_format,
@@ -26578,15 +24715,6 @@ fn bindgen_test_layout_ma_waveform() {
     }
     test_field_time();
 }
-impl Default for ma_waveform {
-    fn default() -> Self {
-        let mut s = ::std::mem::MaybeUninit::<Self>::uninit();
-        unsafe {
-            ::std::ptr::write_bytes(s.as_mut_ptr(), 0, 1);
-            s.assume_init()
-        }
-    }
-}
 extern "C" {
     pub fn ma_waveform_init(
         pConfig: *const ma_waveform_config,
@@ -26628,7 +24756,7 @@ extern "C" {
 pub const ma_noise_type_white: ma_noise_type = 0;
 pub const ma_noise_type_pink: ma_noise_type = 1;
 pub const ma_noise_type_brownian: ma_noise_type = 2;
-pub type ma_noise_type = ::std::os::raw::c_uint;
+pub type ma_noise_type = ::std::os::raw::c_int;
 #[repr(C)]
 #[derive(Debug, Copy, Clone)]
 pub struct ma_noise_config {
@@ -26754,15 +24882,6 @@ fn bindgen_test_layout_ma_noise_config() {
     }
     test_field_duplicateChannels();
 }
-impl Default for ma_noise_config {
-    fn default() -> Self {
-        let mut s = ::std::mem::MaybeUninit::<Self>::uninit();
-        unsafe {
-            ::std::ptr::write_bytes(s.as_mut_ptr(), 0, 1);
-            s.assume_init()
-        }
-    }
-}
 extern "C" {
     pub fn ma_noise_config_init(
         format: ma_format,
@@ -26868,15 +24987,6 @@ fn bindgen_test_layout_ma_noise__bindgen_ty_1__bindgen_ty_1() {
     }
     test_field_counter();
 }
-impl Default for ma_noise__bindgen_ty_1__bindgen_ty_1 {
-    fn default() -> Self {
-        let mut s = ::std::mem::MaybeUninit::<Self>::uninit();
-        unsafe {
-            ::std::ptr::write_bytes(s.as_mut_ptr(), 0, 1);
-            s.assume_init()
-        }
-    }
-}
 #[repr(C)]
 #[derive(Debug, Copy, Clone)]
 pub struct ma_noise__bindgen_ty_1__bindgen_ty_2 {
@@ -26918,15 +25028,6 @@ fn bindgen_test_layout_ma_noise__bindgen_ty_1__bindgen_ty_2() {
         );
     }
     test_field_accumulation();
-}
-impl Default for ma_noise__bindgen_ty_1__bindgen_ty_2 {
-    fn default() -> Self {
-        let mut s = ::std::mem::MaybeUninit::<Self>::uninit();
-        unsafe {
-            ::std::ptr::write_bytes(s.as_mut_ptr(), 0, 1);
-            s.assume_init()
-        }
-    }
 }
 #[test]
 fn bindgen_test_layout_ma_noise__bindgen_ty_1() {
@@ -26974,15 +25075,6 @@ fn bindgen_test_layout_ma_noise__bindgen_ty_1() {
         );
     }
     test_field_brownian();
-}
-impl Default for ma_noise__bindgen_ty_1 {
-    fn default() -> Self {
-        let mut s = ::std::mem::MaybeUninit::<Self>::uninit();
-        unsafe {
-            ::std::ptr::write_bytes(s.as_mut_ptr(), 0, 1);
-            s.assume_init()
-        }
-    }
 }
 impl ::std::fmt::Debug for ma_noise__bindgen_ty_1 {
     fn fmt(&self, f: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
@@ -27104,15 +25196,6 @@ fn bindgen_test_layout_ma_noise() {
     }
     test_field__ownsHeap();
 }
-impl Default for ma_noise {
-    fn default() -> Self {
-        let mut s = ::std::mem::MaybeUninit::<Self>::uninit();
-        unsafe {
-            ::std::ptr::write_bytes(s.as_mut_ptr(), 0, 1);
-            s.assume_init()
-        }
-    }
-}
 impl ::std::fmt::Debug for ma_noise {
     fn fmt(&self, f: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
         write ! (f , "ma_noise {{ ds: {:?}, config: {:?}, lcg: {:?}, state: {:?}, _pHeap: {:?}, _ownsHeap: {:?} }}" , self . ds , self . config , self . lcg , self . state , self . _pHeap , self . _ownsHeap)
@@ -27167,7 +25250,7 @@ pub const MA_RESOURCE_MANAGER_DATA_SOURCE_FLAG_ASYNC: ma_resource_manager_data_s
 pub const MA_RESOURCE_MANAGER_DATA_SOURCE_FLAG_WAIT_INIT: ma_resource_manager_data_source_flags = 8;
 pub const MA_RESOURCE_MANAGER_DATA_SOURCE_FLAG_UNKNOWN_LENGTH:
     ma_resource_manager_data_source_flags = 16;
-pub type ma_resource_manager_data_source_flags = ::std::os::raw::c_uint;
+pub type ma_resource_manager_data_source_flags = ::std::os::raw::c_int;
 #[repr(C)]
 #[derive(Debug, Copy, Clone)]
 pub struct ma_resource_manager_pipeline_stage_notification {
@@ -27231,15 +25314,6 @@ fn bindgen_test_layout_ma_resource_manager_pipeline_stage_notification() {
     }
     test_field_pFence();
 }
-impl Default for ma_resource_manager_pipeline_stage_notification {
-    fn default() -> Self {
-        let mut s = ::std::mem::MaybeUninit::<Self>::uninit();
-        unsafe {
-            ::std::ptr::write_bytes(s.as_mut_ptr(), 0, 1);
-            s.assume_init()
-        }
-    }
-}
 #[repr(C)]
 #[derive(Debug, Copy, Clone)]
 pub struct ma_resource_manager_pipeline_notifications {
@@ -27301,22 +25375,13 @@ fn bindgen_test_layout_ma_resource_manager_pipeline_notifications() {
     }
     test_field_done();
 }
-impl Default for ma_resource_manager_pipeline_notifications {
-    fn default() -> Self {
-        let mut s = ::std::mem::MaybeUninit::<Self>::uninit();
-        unsafe {
-            ::std::ptr::write_bytes(s.as_mut_ptr(), 0, 1);
-            s.assume_init()
-        }
-    }
-}
 extern "C" {
     pub fn ma_resource_manager_pipeline_notifications_init(
     ) -> ma_resource_manager_pipeline_notifications;
 }
 pub const MA_RESOURCE_MANAGER_FLAG_NON_BLOCKING: ma_resource_manager_flags = 1;
 pub const MA_RESOURCE_MANAGER_FLAG_NO_THREADING: ma_resource_manager_flags = 2;
-pub type ma_resource_manager_flags = ::std::os::raw::c_uint;
+pub type ma_resource_manager_flags = ::std::os::raw::c_int;
 #[repr(C)]
 #[derive(Debug, Copy, Clone)]
 pub struct ma_resource_manager_data_source_config {
@@ -27530,15 +25595,6 @@ fn bindgen_test_layout_ma_resource_manager_data_source_config() {
     }
     test_field_flags();
 }
-impl Default for ma_resource_manager_data_source_config {
-    fn default() -> Self {
-        let mut s = ::std::mem::MaybeUninit::<Self>::uninit();
-        unsafe {
-            ::std::ptr::write_bytes(s.as_mut_ptr(), 0, 1);
-            s.assume_init()
-        }
-    }
-}
 extern "C" {
     pub fn ma_resource_manager_data_source_config_init() -> ma_resource_manager_data_source_config;
 }
@@ -27547,7 +25603,7 @@ pub const ma_resource_manager_data_supply_type_encoded: ma_resource_manager_data
 pub const ma_resource_manager_data_supply_type_decoded: ma_resource_manager_data_supply_type = 2;
 pub const ma_resource_manager_data_supply_type_decoded_paged: ma_resource_manager_data_supply_type =
     3;
-pub type ma_resource_manager_data_supply_type = ::std::os::raw::c_uint;
+pub type ma_resource_manager_data_supply_type = ::std::os::raw::c_int;
 #[repr(C)]
 #[derive(Copy, Clone)]
 pub struct ma_resource_manager_data_supply {
@@ -27623,15 +25679,6 @@ fn bindgen_test_layout_ma_resource_manager_data_supply__bindgen_ty_1__bindgen_ty
         );
     }
     test_field_sizeInBytes();
-}
-impl Default for ma_resource_manager_data_supply__bindgen_ty_1__bindgen_ty_1 {
-    fn default() -> Self {
-        let mut s = ::std::mem::MaybeUninit::<Self>::uninit();
-        unsafe {
-            ::std::ptr::write_bytes(s.as_mut_ptr(), 0, 1);
-            s.assume_init()
-        }
-    }
 }
 #[repr(C)]
 #[derive(Debug, Copy, Clone)]
@@ -27776,15 +25823,6 @@ fn bindgen_test_layout_ma_resource_manager_data_supply__bindgen_ty_1__bindgen_ty
     }
     test_field_sampleRate();
 }
-impl Default for ma_resource_manager_data_supply__bindgen_ty_1__bindgen_ty_2 {
-    fn default() -> Self {
-        let mut s = ::std::mem::MaybeUninit::<Self>::uninit();
-        unsafe {
-            ::std::ptr::write_bytes(s.as_mut_ptr(), 0, 1);
-            s.assume_init()
-        }
-    }
-}
 #[repr(C)]
 #[derive(Debug, Copy, Clone)]
 pub struct ma_resource_manager_data_supply__bindgen_ty_1__bindgen_ty_3 {
@@ -27868,15 +25906,6 @@ fn bindgen_test_layout_ma_resource_manager_data_supply__bindgen_ty_1__bindgen_ty
     }
     test_field_sampleRate();
 }
-impl Default for ma_resource_manager_data_supply__bindgen_ty_1__bindgen_ty_3 {
-    fn default() -> Self {
-        let mut s = ::std::mem::MaybeUninit::<Self>::uninit();
-        unsafe {
-            ::std::ptr::write_bytes(s.as_mut_ptr(), 0, 1);
-            s.assume_init()
-        }
-    }
-}
 #[test]
 fn bindgen_test_layout_ma_resource_manager_data_supply__bindgen_ty_1() {
     assert_eq!(
@@ -27947,15 +25976,6 @@ fn bindgen_test_layout_ma_resource_manager_data_supply__bindgen_ty_1() {
     }
     test_field_decodedPaged();
 }
-impl Default for ma_resource_manager_data_supply__bindgen_ty_1 {
-    fn default() -> Self {
-        let mut s = ::std::mem::MaybeUninit::<Self>::uninit();
-        unsafe {
-            ::std::ptr::write_bytes(s.as_mut_ptr(), 0, 1);
-            s.assume_init()
-        }
-    }
-}
 impl ::std::fmt::Debug for ma_resource_manager_data_supply__bindgen_ty_1 {
     fn fmt(&self, f: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
         write!(
@@ -28010,15 +26030,6 @@ fn bindgen_test_layout_ma_resource_manager_data_supply() {
         );
     }
     test_field_backend();
-}
-impl Default for ma_resource_manager_data_supply {
-    fn default() -> Self {
-        let mut s = ::std::mem::MaybeUninit::<Self>::uninit();
-        unsafe {
-            ::std::ptr::write_bytes(s.as_mut_ptr(), 0, 1);
-            s.assume_init()
-        }
-    }
 }
 impl ::std::fmt::Debug for ma_resource_manager_data_supply {
     fn fmt(&self, f: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
@@ -28242,15 +26253,6 @@ fn bindgen_test_layout_ma_resource_manager_data_buffer_node() {
     }
     test_field_pChildHi();
 }
-impl Default for ma_resource_manager_data_buffer_node {
-    fn default() -> Self {
-        let mut s = ::std::mem::MaybeUninit::<Self>::uninit();
-        unsafe {
-            ::std::ptr::write_bytes(s.as_mut_ptr(), 0, 1);
-            s.assume_init()
-        }
-    }
-}
 impl ::std::fmt::Debug for ma_resource_manager_data_buffer_node {
     fn fmt(&self, f: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
         write ! (f , "ma_resource_manager_data_buffer_node {{ hashedName32: {:?}, refCount: {:?}, result: {:?}, executionCounter: {:?}, executionPointer: {:?}, isDataOwnedByResourceManager: {:?}, data: {:?}, pParent: {:?}, pChildLo: {:?}, pChildHi: {:?} }}" , self . hashedName32 , self . refCount , self . result , self . executionCounter , self . executionPointer , self . isDataOwnedByResourceManager , self . data , self . pParent , self . pChildLo , self . pChildHi)
@@ -28348,15 +26350,6 @@ fn bindgen_test_layout_ma_resource_manager_data_buffer__bindgen_ty_1() {
         );
     }
     test_field_pagedBuffer();
-}
-impl Default for ma_resource_manager_data_buffer__bindgen_ty_1 {
-    fn default() -> Self {
-        let mut s = ::std::mem::MaybeUninit::<Self>::uninit();
-        unsafe {
-            ::std::ptr::write_bytes(s.as_mut_ptr(), 0, 1);
-            s.assume_init()
-        }
-    }
 }
 impl ::std::fmt::Debug for ma_resource_manager_data_buffer__bindgen_ty_1 {
     fn fmt(&self, f: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
@@ -28582,15 +26575,6 @@ fn bindgen_test_layout_ma_resource_manager_data_buffer() {
         );
     }
     test_field_connector();
-}
-impl Default for ma_resource_manager_data_buffer {
-    fn default() -> Self {
-        let mut s = ::std::mem::MaybeUninit::<Self>::uninit();
-        unsafe {
-            ::std::ptr::write_bytes(s.as_mut_ptr(), 0, 1);
-            s.assume_init()
-        }
-    }
 }
 impl ::std::fmt::Debug for ma_resource_manager_data_buffer {
     fn fmt(&self, f: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
@@ -28938,15 +26922,6 @@ fn bindgen_test_layout_ma_resource_manager_data_stream() {
     }
     test_field_seekCounter();
 }
-impl Default for ma_resource_manager_data_stream {
-    fn default() -> Self {
-        let mut s = ::std::mem::MaybeUninit::<Self>::uninit();
-        unsafe {
-            ::std::ptr::write_bytes(s.as_mut_ptr(), 0, 1);
-            s.assume_init()
-        }
-    }
-}
 impl ::std::fmt::Debug for ma_resource_manager_data_stream {
     fn fmt(&self, f: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
         write ! (f , "ma_resource_manager_data_stream {{ ds: {:?}, pResourceManager: {:?}, flags: {:?}, decoder: {:?}, isDecoderInitialized: {:?}, totalLengthInPCMFrames: {:?}, relativeCursor: {:?}, absoluteCursor: {:?}, currentPageIndex: {:?}, executionCounter: {:?}, executionPointer: {:?}, isLooping: {:?}, pPageData: {:?}, pageFrameCount: {:?}, result: {:?}, isDecoderAtEnd: {:?}, isPageValid: {:?}, seekCounter: {:?} }}" , self . ds , self . pResourceManager , self . flags , self . decoder , self . isDecoderInitialized , self . totalLengthInPCMFrames , self . relativeCursor , self . absoluteCursor , self . currentPageIndex , self . executionCounter , self . executionPointer , self . isLooping , self . pPageData , self . pageFrameCount , self . result , self . isDecoderAtEnd , self . isPageValid , self . seekCounter)
@@ -29018,15 +26993,6 @@ fn bindgen_test_layout_ma_resource_manager_data_source__bindgen_ty_1() {
         );
     }
     test_field_stream();
-}
-impl Default for ma_resource_manager_data_source__bindgen_ty_1 {
-    fn default() -> Self {
-        let mut s = ::std::mem::MaybeUninit::<Self>::uninit();
-        unsafe {
-            ::std::ptr::write_bytes(s.as_mut_ptr(), 0, 1);
-            s.assume_init()
-        }
-    }
 }
 impl ::std::fmt::Debug for ma_resource_manager_data_source__bindgen_ty_1 {
     fn fmt(&self, f: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
@@ -29116,15 +27082,6 @@ fn bindgen_test_layout_ma_resource_manager_data_source() {
         );
     }
     test_field_executionPointer();
-}
-impl Default for ma_resource_manager_data_source {
-    fn default() -> Self {
-        let mut s = ::std::mem::MaybeUninit::<Self>::uninit();
-        unsafe {
-            ::std::ptr::write_bytes(s.as_mut_ptr(), 0, 1);
-            s.assume_init()
-        }
-    }
 }
 impl ::std::fmt::Debug for ma_resource_manager_data_source {
     fn fmt(&self, f: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
@@ -29364,15 +27321,6 @@ fn bindgen_test_layout_ma_resource_manager_config() {
     }
     test_field_pCustomDecodingBackendUserData();
 }
-impl Default for ma_resource_manager_config {
-    fn default() -> Self {
-        let mut s = ::std::mem::MaybeUninit::<Self>::uninit();
-        unsafe {
-            ::std::ptr::write_bytes(s.as_mut_ptr(), 0, 1);
-            s.assume_init()
-        }
-    }
-}
 extern "C" {
     pub fn ma_resource_manager_config_init() -> ma_resource_manager_config;
 }
@@ -29391,7 +27339,7 @@ pub struct ma_resource_manager {
 fn bindgen_test_layout_ma_resource_manager() {
     assert_eq!(
         ::std::mem::size_of::<ma_resource_manager>(),
-        1160usize,
+        936usize,
         concat!("Size of: ", stringify!(ma_resource_manager))
     );
     assert_eq!(
@@ -29457,7 +27405,7 @@ fn bindgen_test_layout_ma_resource_manager() {
                 let ptr = uninit.as_ptr();
                 ::std::ptr::addr_of!((*ptr).jobThreads) as usize - ptr as usize
             },
-            168usize,
+            112usize,
             concat!(
                 "Offset of field: ",
                 stringify!(ma_resource_manager),
@@ -29474,7 +27422,7 @@ fn bindgen_test_layout_ma_resource_manager() {
                 let ptr = uninit.as_ptr();
                 ::std::ptr::addr_of!((*ptr).jobQueue) as usize - ptr as usize
             },
-            680usize,
+            624usize,
             concat!(
                 "Offset of field: ",
                 stringify!(ma_resource_manager),
@@ -29491,7 +27439,7 @@ fn bindgen_test_layout_ma_resource_manager() {
                 let ptr = uninit.as_ptr();
                 ::std::ptr::addr_of!((*ptr).defaultVFS) as usize - ptr as usize
             },
-            896usize,
+            728usize,
             concat!(
                 "Offset of field: ",
                 stringify!(ma_resource_manager),
@@ -29508,7 +27456,7 @@ fn bindgen_test_layout_ma_resource_manager() {
                 let ptr = uninit.as_ptr();
                 ::std::ptr::addr_of!((*ptr).log) as usize - ptr as usize
             },
-            992usize,
+            824usize,
             concat!(
                 "Offset of field: ",
                 stringify!(ma_resource_manager),
@@ -29518,15 +27466,6 @@ fn bindgen_test_layout_ma_resource_manager() {
         );
     }
     test_field_log();
-}
-impl Default for ma_resource_manager {
-    fn default() -> Self {
-        let mut s = ::std::mem::MaybeUninit::<Self>::uninit();
-        unsafe {
-            ::std::ptr::write_bytes(s.as_mut_ptr(), 0, 1);
-            s.assume_init()
-        }
-    }
 }
 extern "C" {
     pub fn ma_resource_manager_init(
@@ -29928,12 +27867,12 @@ pub const MA_NODE_FLAG_CONTINUOUS_PROCESSING: ma_node_flags = 2;
 pub const MA_NODE_FLAG_ALLOW_NULL_INPUT: ma_node_flags = 4;
 pub const MA_NODE_FLAG_DIFFERENT_PROCESSING_RATES: ma_node_flags = 8;
 pub const MA_NODE_FLAG_SILENT_OUTPUT: ma_node_flags = 16;
-pub type ma_node_flags = ::std::os::raw::c_uint;
+pub type ma_node_flags = ::std::os::raw::c_int;
 pub const ma_node_state_started: ma_node_state = 0;
 pub const ma_node_state_stopped: ma_node_state = 1;
-pub type ma_node_state = ::std::os::raw::c_uint;
+pub type ma_node_state = ::std::os::raw::c_int;
 #[repr(C)]
-#[derive(Debug, Default, Copy, Clone)]
+#[derive(Debug, Copy, Clone)]
 pub struct ma_node_vtable {
     pub onProcess: ::std::option::Option<
         unsafe extern "C" fn(
@@ -30178,15 +28117,6 @@ fn bindgen_test_layout_ma_node_config() {
     }
     test_field_pOutputChannels();
 }
-impl Default for ma_node_config {
-    fn default() -> Self {
-        let mut s = ::std::mem::MaybeUninit::<Self>::uninit();
-        unsafe {
-            ::std::ptr::write_bytes(s.as_mut_ptr(), 0, 1);
-            s.assume_init()
-        }
-    }
-}
 extern "C" {
     pub fn ma_node_config_init() -> ma_node_config;
 }
@@ -30423,15 +28353,6 @@ fn bindgen_test_layout_ma_node_output_bus() {
     }
     test_field_pInputNode();
 }
-impl Default for ma_node_output_bus {
-    fn default() -> Self {
-        let mut s = ::std::mem::MaybeUninit::<Self>::uninit();
-        unsafe {
-            ::std::ptr::write_bytes(s.as_mut_ptr(), 0, 1);
-            s.assume_init()
-        }
-    }
-}
 #[repr(C)]
 #[derive(Debug, Copy, Clone)]
 pub struct ma_node_input_bus {
@@ -30520,15 +28441,6 @@ fn bindgen_test_layout_ma_node_input_bus() {
         );
     }
     test_field_channels();
-}
-impl Default for ma_node_input_bus {
-    fn default() -> Self {
-        let mut s = ::std::mem::MaybeUninit::<Self>::uninit();
-        unsafe {
-            ::std::ptr::write_bytes(s.as_mut_ptr(), 0, 1);
-            s.assume_init()
-        }
-    }
 }
 #[repr(C)]
 #[derive(Debug, Copy, Clone)]
@@ -30871,15 +28783,6 @@ fn bindgen_test_layout_ma_node_base() {
     }
     test_field__ownsHeap();
 }
-impl Default for ma_node_base {
-    fn default() -> Self {
-        let mut s = ::std::mem::MaybeUninit::<Self>::uninit();
-        unsafe {
-            ::std::ptr::write_bytes(s.as_mut_ptr(), 0, 1);
-            s.assume_init()
-        }
-    }
-}
 extern "C" {
     pub fn ma_node_get_heap_size(
         pNodeGraph: *mut ma_node_graph,
@@ -30986,7 +28889,7 @@ extern "C" {
     pub fn ma_node_set_time(pNode: *mut ma_node, localTime: ma_uint64) -> ma_result;
 }
 #[repr(C)]
-#[derive(Debug, Default, Copy, Clone)]
+#[derive(Debug, Copy, Clone)]
 pub struct ma_node_graph_config {
     pub channels: ma_uint32,
     pub nodeCacheCapInFrames: ma_uint16,
@@ -31130,15 +29033,6 @@ fn bindgen_test_layout_ma_node_graph() {
     }
     test_field_isReading();
 }
-impl Default for ma_node_graph {
-    fn default() -> Self {
-        let mut s = ::std::mem::MaybeUninit::<Self>::uninit();
-        unsafe {
-            ::std::ptr::write_bytes(s.as_mut_ptr(), 0, 1);
-            s.assume_init()
-        }
-    }
-}
 extern "C" {
     pub fn ma_node_graph_init(
         pConfig: *const ma_node_graph_config,
@@ -31228,15 +29122,6 @@ fn bindgen_test_layout_ma_data_source_node_config() {
     }
     test_field_pDataSource();
 }
-impl Default for ma_data_source_node_config {
-    fn default() -> Self {
-        let mut s = ::std::mem::MaybeUninit::<Self>::uninit();
-        unsafe {
-            ::std::ptr::write_bytes(s.as_mut_ptr(), 0, 1);
-            s.assume_init()
-        }
-    }
-}
 extern "C" {
     pub fn ma_data_source_node_config_init(
         pDataSource: *mut ma_data_source,
@@ -31294,15 +29179,6 @@ fn bindgen_test_layout_ma_data_source_node() {
         );
     }
     test_field_pDataSource();
-}
-impl Default for ma_data_source_node {
-    fn default() -> Self {
-        let mut s = ::std::mem::MaybeUninit::<Self>::uninit();
-        unsafe {
-            ::std::ptr::write_bytes(s.as_mut_ptr(), 0, 1);
-            s.assume_init()
-        }
-    }
 }
 extern "C" {
     pub fn ma_data_source_node_init(
@@ -31380,15 +29256,6 @@ fn bindgen_test_layout_ma_splitter_node_config() {
     }
     test_field_channels();
 }
-impl Default for ma_splitter_node_config {
-    fn default() -> Self {
-        let mut s = ::std::mem::MaybeUninit::<Self>::uninit();
-        unsafe {
-            ::std::ptr::write_bytes(s.as_mut_ptr(), 0, 1);
-            s.assume_init()
-        }
-    }
-}
 extern "C" {
     pub fn ma_splitter_node_config_init(channels: ma_uint32) -> ma_splitter_node_config;
 }
@@ -31426,15 +29293,6 @@ fn bindgen_test_layout_ma_splitter_node() {
         );
     }
     test_field_base();
-}
-impl Default for ma_splitter_node {
-    fn default() -> Self {
-        let mut s = ::std::mem::MaybeUninit::<Self>::uninit();
-        unsafe {
-            ::std::ptr::write_bytes(s.as_mut_ptr(), 0, 1);
-            s.assume_init()
-        }
-    }
 }
 extern "C" {
     pub fn ma_splitter_node_init(
@@ -31503,15 +29361,6 @@ fn bindgen_test_layout_ma_biquad_node_config() {
     }
     test_field_biquad();
 }
-impl Default for ma_biquad_node_config {
-    fn default() -> Self {
-        let mut s = ::std::mem::MaybeUninit::<Self>::uninit();
-        unsafe {
-            ::std::ptr::write_bytes(s.as_mut_ptr(), 0, 1);
-            s.assume_init()
-        }
-    }
-}
 extern "C" {
     pub fn ma_biquad_node_config_init(
         channels: ma_uint32,
@@ -31575,15 +29424,6 @@ fn bindgen_test_layout_ma_biquad_node() {
         );
     }
     test_field_biquad();
-}
-impl Default for ma_biquad_node {
-    fn default() -> Self {
-        let mut s = ::std::mem::MaybeUninit::<Self>::uninit();
-        unsafe {
-            ::std::ptr::write_bytes(s.as_mut_ptr(), 0, 1);
-            s.assume_init()
-        }
-    }
 }
 impl ::std::fmt::Debug for ma_biquad_node {
     fn fmt(&self, f: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
@@ -31667,15 +29507,6 @@ fn bindgen_test_layout_ma_lpf_node_config() {
     }
     test_field_lpf();
 }
-impl Default for ma_lpf_node_config {
-    fn default() -> Self {
-        let mut s = ::std::mem::MaybeUninit::<Self>::uninit();
-        unsafe {
-            ::std::ptr::write_bytes(s.as_mut_ptr(), 0, 1);
-            s.assume_init()
-        }
-    }
-}
 extern "C" {
     pub fn ma_lpf_node_config_init(
         channels: ma_uint32,
@@ -31736,15 +29567,6 @@ fn bindgen_test_layout_ma_lpf_node() {
         );
     }
     test_field_lpf();
-}
-impl Default for ma_lpf_node {
-    fn default() -> Self {
-        let mut s = ::std::mem::MaybeUninit::<Self>::uninit();
-        unsafe {
-            ::std::ptr::write_bytes(s.as_mut_ptr(), 0, 1);
-            s.assume_init()
-        }
-    }
 }
 extern "C" {
     pub fn ma_lpf_node_init(
@@ -31816,15 +29638,6 @@ fn bindgen_test_layout_ma_hpf_node_config() {
     }
     test_field_hpf();
 }
-impl Default for ma_hpf_node_config {
-    fn default() -> Self {
-        let mut s = ::std::mem::MaybeUninit::<Self>::uninit();
-        unsafe {
-            ::std::ptr::write_bytes(s.as_mut_ptr(), 0, 1);
-            s.assume_init()
-        }
-    }
-}
 extern "C" {
     pub fn ma_hpf_node_config_init(
         channels: ma_uint32,
@@ -31885,15 +29698,6 @@ fn bindgen_test_layout_ma_hpf_node() {
         );
     }
     test_field_hpf();
-}
-impl Default for ma_hpf_node {
-    fn default() -> Self {
-        let mut s = ::std::mem::MaybeUninit::<Self>::uninit();
-        unsafe {
-            ::std::ptr::write_bytes(s.as_mut_ptr(), 0, 1);
-            s.assume_init()
-        }
-    }
 }
 extern "C" {
     pub fn ma_hpf_node_init(
@@ -31965,15 +29769,6 @@ fn bindgen_test_layout_ma_bpf_node_config() {
     }
     test_field_bpf();
 }
-impl Default for ma_bpf_node_config {
-    fn default() -> Self {
-        let mut s = ::std::mem::MaybeUninit::<Self>::uninit();
-        unsafe {
-            ::std::ptr::write_bytes(s.as_mut_ptr(), 0, 1);
-            s.assume_init()
-        }
-    }
-}
 extern "C" {
     pub fn ma_bpf_node_config_init(
         channels: ma_uint32,
@@ -32034,15 +29829,6 @@ fn bindgen_test_layout_ma_bpf_node() {
         );
     }
     test_field_bpf();
-}
-impl Default for ma_bpf_node {
-    fn default() -> Self {
-        let mut s = ::std::mem::MaybeUninit::<Self>::uninit();
-        unsafe {
-            ::std::ptr::write_bytes(s.as_mut_ptr(), 0, 1);
-            s.assume_init()
-        }
-    }
 }
 extern "C" {
     pub fn ma_bpf_node_init(
@@ -32114,15 +29900,6 @@ fn bindgen_test_layout_ma_notch_node_config() {
     }
     test_field_notch();
 }
-impl Default for ma_notch_node_config {
-    fn default() -> Self {
-        let mut s = ::std::mem::MaybeUninit::<Self>::uninit();
-        unsafe {
-            ::std::ptr::write_bytes(s.as_mut_ptr(), 0, 1);
-            s.assume_init()
-        }
-    }
-}
 extern "C" {
     pub fn ma_notch_node_config_init(
         channels: ma_uint32,
@@ -32183,15 +29960,6 @@ fn bindgen_test_layout_ma_notch_node() {
         );
     }
     test_field_notch();
-}
-impl Default for ma_notch_node {
-    fn default() -> Self {
-        let mut s = ::std::mem::MaybeUninit::<Self>::uninit();
-        unsafe {
-            ::std::ptr::write_bytes(s.as_mut_ptr(), 0, 1);
-            s.assume_init()
-        }
-    }
 }
 impl ::std::fmt::Debug for ma_notch_node {
     fn fmt(&self, f: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
@@ -32275,15 +30043,6 @@ fn bindgen_test_layout_ma_peak_node_config() {
     }
     test_field_peak();
 }
-impl Default for ma_peak_node_config {
-    fn default() -> Self {
-        let mut s = ::std::mem::MaybeUninit::<Self>::uninit();
-        unsafe {
-            ::std::ptr::write_bytes(s.as_mut_ptr(), 0, 1);
-            s.assume_init()
-        }
-    }
-}
 extern "C" {
     pub fn ma_peak_node_config_init(
         channels: ma_uint32,
@@ -32345,15 +30104,6 @@ fn bindgen_test_layout_ma_peak_node() {
         );
     }
     test_field_peak();
-}
-impl Default for ma_peak_node {
-    fn default() -> Self {
-        let mut s = ::std::mem::MaybeUninit::<Self>::uninit();
-        unsafe {
-            ::std::ptr::write_bytes(s.as_mut_ptr(), 0, 1);
-            s.assume_init()
-        }
-    }
 }
 impl ::std::fmt::Debug for ma_peak_node {
     fn fmt(&self, f: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
@@ -32437,15 +30187,6 @@ fn bindgen_test_layout_ma_loshelf_node_config() {
     }
     test_field_loshelf();
 }
-impl Default for ma_loshelf_node_config {
-    fn default() -> Self {
-        let mut s = ::std::mem::MaybeUninit::<Self>::uninit();
-        unsafe {
-            ::std::ptr::write_bytes(s.as_mut_ptr(), 0, 1);
-            s.assume_init()
-        }
-    }
-}
 extern "C" {
     pub fn ma_loshelf_node_config_init(
         channels: ma_uint32,
@@ -32507,15 +30248,6 @@ fn bindgen_test_layout_ma_loshelf_node() {
         );
     }
     test_field_loshelf();
-}
-impl Default for ma_loshelf_node {
-    fn default() -> Self {
-        let mut s = ::std::mem::MaybeUninit::<Self>::uninit();
-        unsafe {
-            ::std::ptr::write_bytes(s.as_mut_ptr(), 0, 1);
-            s.assume_init()
-        }
-    }
 }
 impl ::std::fmt::Debug for ma_loshelf_node {
     fn fmt(&self, f: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
@@ -32599,15 +30331,6 @@ fn bindgen_test_layout_ma_hishelf_node_config() {
     }
     test_field_hishelf();
 }
-impl Default for ma_hishelf_node_config {
-    fn default() -> Self {
-        let mut s = ::std::mem::MaybeUninit::<Self>::uninit();
-        unsafe {
-            ::std::ptr::write_bytes(s.as_mut_ptr(), 0, 1);
-            s.assume_init()
-        }
-    }
-}
 extern "C" {
     pub fn ma_hishelf_node_config_init(
         channels: ma_uint32,
@@ -32669,15 +30392,6 @@ fn bindgen_test_layout_ma_hishelf_node() {
         );
     }
     test_field_hishelf();
-}
-impl Default for ma_hishelf_node {
-    fn default() -> Self {
-        let mut s = ::std::mem::MaybeUninit::<Self>::uninit();
-        unsafe {
-            ::std::ptr::write_bytes(s.as_mut_ptr(), 0, 1);
-            s.assume_init()
-        }
-    }
 }
 impl ::std::fmt::Debug for ma_hishelf_node {
     fn fmt(&self, f: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
@@ -32761,15 +30475,6 @@ fn bindgen_test_layout_ma_delay_node_config() {
     }
     test_field_delay();
 }
-impl Default for ma_delay_node_config {
-    fn default() -> Self {
-        let mut s = ::std::mem::MaybeUninit::<Self>::uninit();
-        unsafe {
-            ::std::ptr::write_bytes(s.as_mut_ptr(), 0, 1);
-            s.assume_init()
-        }
-    }
-}
 extern "C" {
     pub fn ma_delay_node_config_init(
         channels: ma_uint32,
@@ -32831,15 +30536,6 @@ fn bindgen_test_layout_ma_delay_node() {
     }
     test_field_delay();
 }
-impl Default for ma_delay_node {
-    fn default() -> Self {
-        let mut s = ::std::mem::MaybeUninit::<Self>::uninit();
-        unsafe {
-            ::std::ptr::write_bytes(s.as_mut_ptr(), 0, 1);
-            s.assume_init()
-        }
-    }
-}
 extern "C" {
     pub fn ma_delay_node_init(
         pNodeGraph: *mut ma_node_graph,
@@ -32879,10 +30575,10 @@ pub const MA_SOUND_FLAG_WAIT_INIT: ma_sound_flags = 8;
 pub const MA_SOUND_FLAG_NO_DEFAULT_ATTACHMENT: ma_sound_flags = 16;
 pub const MA_SOUND_FLAG_NO_PITCH: ma_sound_flags = 32;
 pub const MA_SOUND_FLAG_NO_SPATIALIZATION: ma_sound_flags = 64;
-pub type ma_sound_flags = ::std::os::raw::c_uint;
+pub type ma_sound_flags = ::std::os::raw::c_int;
 pub const ma_engine_node_type_sound: ma_engine_node_type = 0;
 pub const ma_engine_node_type_group: ma_engine_node_type = 1;
-pub type ma_engine_node_type = ::std::os::raw::c_uint;
+pub type ma_engine_node_type = ::std::os::raw::c_int;
 #[repr(C)]
 #[derive(Debug, Copy, Clone)]
 pub struct ma_engine_node_config {
@@ -33043,15 +30739,6 @@ fn bindgen_test_layout_ma_engine_node_config() {
         );
     }
     test_field_pinnedListenerIndex();
-}
-impl Default for ma_engine_node_config {
-    fn default() -> Self {
-        let mut s = ::std::mem::MaybeUninit::<Self>::uninit();
-        unsafe {
-            ::std::ptr::write_bytes(s.as_mut_ptr(), 0, 1);
-            s.assume_init()
-        }
-    }
 }
 extern "C" {
     pub fn ma_engine_node_config_init(
@@ -33346,15 +31033,6 @@ fn bindgen_test_layout_ma_engine_node() {
         );
     }
     test_field__pHeap();
-}
-impl Default for ma_engine_node {
-    fn default() -> Self {
-        let mut s = ::std::mem::MaybeUninit::<Self>::uninit();
-        unsafe {
-            ::std::ptr::write_bytes(s.as_mut_ptr(), 0, 1);
-            s.assume_init()
-        }
-    }
 }
 impl ::std::fmt::Debug for ma_engine_node {
     fn fmt(&self, f: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
@@ -33674,15 +31352,6 @@ fn bindgen_test_layout_ma_sound_config() {
     }
     test_field_pDoneFence();
 }
-impl Default for ma_sound_config {
-    fn default() -> Self {
-        let mut s = ::std::mem::MaybeUninit::<Self>::uninit();
-        unsafe {
-            ::std::ptr::write_bytes(s.as_mut_ptr(), 0, 1);
-            s.assume_init()
-        }
-    }
-}
 extern "C" {
     pub fn ma_sound_config_init() -> ma_sound_config;
 }
@@ -33811,15 +31480,6 @@ fn bindgen_test_layout_ma_sound() {
     }
     test_field_pResourceManagerDataSource();
 }
-impl Default for ma_sound {
-    fn default() -> Self {
-        let mut s = ::std::mem::MaybeUninit::<Self>::uninit();
-        unsafe {
-            ::std::ptr::write_bytes(s.as_mut_ptr(), 0, 1);
-            s.assume_init()
-        }
-    }
-}
 impl ::std::fmt::Debug for ma_sound {
     fn fmt(&self, f: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
         write ! (f , "ma_sound {{ engineNode: {:?}, pDataSource: {:?}, seekTarget: {:?}, atEnd: {:?}, ownsDataSource: {:?}, pResourceManagerDataSource: {:?} }}" , self . engineNode , self . pDataSource , self . seekTarget , self . atEnd , self . ownsDataSource , self . pResourceManagerDataSource)
@@ -33895,15 +31555,6 @@ fn bindgen_test_layout_ma_sound_inlined() {
         );
     }
     test_field_pPrev();
-}
-impl Default for ma_sound_inlined {
-    fn default() -> Self {
-        let mut s = ::std::mem::MaybeUninit::<Self>::uninit();
-        unsafe {
-            ::std::ptr::write_bytes(s.as_mut_ptr(), 0, 1);
-            s.assume_init()
-        }
-    }
 }
 impl ::std::fmt::Debug for ma_sound_inlined {
     fn fmt(&self, f: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
@@ -34242,15 +31893,6 @@ fn bindgen_test_layout_ma_engine_config() {
     }
     test_field_pResourceManagerVFS();
 }
-impl Default for ma_engine_config {
-    fn default() -> Self {
-        let mut s = ::std::mem::MaybeUninit::<Self>::uninit();
-        unsafe {
-            ::std::ptr::write_bytes(s.as_mut_ptr(), 0, 1);
-            s.assume_init()
-        }
-    }
-}
 extern "C" {
     pub fn ma_engine_config_init() -> ma_engine_config;
 }
@@ -34540,15 +32182,6 @@ fn bindgen_test_layout_ma_engine() {
         );
     }
     test_field_monoExpansionMode();
-}
-impl Default for ma_engine {
-    fn default() -> Self {
-        let mut s = ::std::mem::MaybeUninit::<Self>::uninit();
-        unsafe {
-            ::std::ptr::write_bytes(s.as_mut_ptr(), 0, 1);
-            s.assume_init()
-        }
-    }
 }
 extern "C" {
     pub fn ma_engine_init(pConfig: *const ma_engine_config, pEngine: *mut ma_engine) -> ma_result;
