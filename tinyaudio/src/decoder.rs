@@ -201,7 +201,7 @@ mod tests {
 
     #[test]
     fn it_works() {
-        let file_path = "../audio-samples/file_example_WAV_1MG.wav";
+        let file_path = "../audio-samples/file_example_WAV_5MG.wav";
         let config = DecoderConfig::new(Format::F32, 2, 44100);
         let mut decoder = Decoder::new(file_path, Some(config)).unwrap();
 
