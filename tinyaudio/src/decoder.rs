@@ -149,12 +149,15 @@ impl Decoder {
         let mut frames_read = 0;
 
         unsafe {
-            to_result(ma_decoder_read_pcm_frames(
+            match to_result(ma_decoder_read_pcm_frames(
                 &mut self.raw,
                 frames.as_mut_ptr() as _,
                 (frames.len() / self.channels()) as _,
                 &mut frames_read,
-            ))?;
+            )) {
+                Ok(_) | Err(MiniaudioError::AtEnd) => {}
+                err => err?,
+            }
         }
 
         Ok(frames_read as _)
@@ -173,7 +176,8 @@ impl Drop for Decoder {
 mod tests {
     use super::*;
 
-    const SAMPLE_AUDIO_FILE_PATH: &str = "../audio-samples/5MB.wav";
+    const SAMPLE_AUDIO_FILE_PATH: &str = "../audio-samples/2MB.wav";
+    const FRAME_COUNT: usize = 128;
 
     #[test]
     fn test_metadata() {
@@ -201,14 +205,17 @@ mod tests {
     fn test_read() {
         let mut decoder = Decoder::new(SAMPLE_AUDIO_FILE_PATH, None).unwrap();
 
-        let mut frames = vec![0_f32; 128];
-        let mut frames_read = 0;
+        let mut frames = vec![0_f32; FRAME_COUNT];
+        let mut total_frames_read = 0;
 
-        while decoder.available_frame_count() > 0 {
-            frames_read += decoder.read(&mut frames).unwrap();
+        loop {
+            match decoder.read(&mut frames).unwrap() {
+                0 => break,
+                frames_read => total_frames_read += frames_read,
+            }
         }
 
-        assert!(frames_read >= decoder.total_frame_count());
+        assert_eq!(total_frames_read, decoder.total_frame_count());
     }
 
     #[test]
@@ -222,13 +229,16 @@ mod tests {
         assert!(decoder.total_frame_count() > 0);
         assert_eq!(decoder.available_frame_count(), decoder.total_frame_count());
 
-        let mut frames = vec![0_f32; 128];
-        let mut frames_read = 0;
+        let mut frames = vec![0_f32; FRAME_COUNT];
+        let mut total_frames_read = 0;
 
-        while decoder.available_frame_count() > 0 {
-            frames_read += decoder.read(&mut frames).unwrap();
+        loop {
+            match decoder.read(&mut frames).unwrap() {
+                0 => break,
+                frames_read => total_frames_read += frames_read,
+            }
         }
 
-        assert!(frames_read >= decoder.total_frame_count());
+        assert!(total_frames_read + frames.len() >= decoder.total_frame_count());
     }
 }
