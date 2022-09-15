@@ -69,9 +69,6 @@ impl Default for DecoderConfig {
 
 pub struct Decoder {
     raw: ma_decoder,
-    format: Format,
-    channels: usize,
-    sample_rate: usize,
     total_frame_count: usize,
 }
 
@@ -99,21 +96,8 @@ impl Decoder {
             decoder.assume_init()
         };
 
-        let mut format = 0;
-        let mut channels = 0;
-        let mut sample_rate = 0;
         let mut total_frame_count = 0;
-
         unsafe {
-            to_result(ma_decoder_get_data_format(
-                &mut decoder,
-                &mut format,
-                &mut channels,
-                &mut sample_rate,
-                std::ptr::null_mut(),
-                0,
-            ))?;
-
             to_result(ma_decoder_get_length_in_pcm_frames(
                 &mut decoder,
                 &mut total_frame_count,
@@ -122,40 +106,34 @@ impl Decoder {
 
         Ok(Self {
             raw: decoder,
-            format: format.into(),
-            channels: channels as _,
-            sample_rate: sample_rate as _,
             total_frame_count: total_frame_count as _,
         })
     }
 
     pub fn format(&self) -> Format {
-        self.format
+        self.raw.outputFormat.into()
     }
 
     pub fn channels(&self) -> usize {
-        self.channels
+        self.raw.outputChannels as _
     }
 
     pub fn sample_rate(&self) -> usize {
-        self.sample_rate
+        self.raw.outputSampleRate as _
     }
 
     pub fn total_frame_count(&self) -> usize {
         self.total_frame_count
     }
 
-    pub fn available_frame_count(&mut self) -> Result<usize, DecoderError> {
-        let mut available_frames = 0;
+    pub fn available_frame_count(&mut self) -> usize {
+        let read_pointer_in_pcm_frames = self.raw.readPointerInPCMFrames as usize;
 
-        unsafe {
-            to_result(ma_decoder_get_available_frames(
-                &mut self.raw,
-                &mut available_frames,
-            ))?;
+        if self.total_frame_count < read_pointer_in_pcm_frames {
+            return 0;
         }
 
-        Ok(available_frames as _)
+        self.total_frame_count - read_pointer_in_pcm_frames
     }
 
     pub fn seek(&mut self, frame_index: usize) -> Result<(), DecoderError> {
@@ -174,7 +152,7 @@ impl Decoder {
             to_result(ma_decoder_read_pcm_frames(
                 &mut self.raw,
                 frames.as_mut_ptr() as _,
-                (frames.len() / self.channels) as _,
+                (frames.len() / self.channels()) as _,
                 &mut frames_read,
             ))?;
         }
@@ -195,7 +173,7 @@ impl Drop for Decoder {
 mod tests {
     use super::*;
 
-    const SAMPLE_AUDIO_FILE_PATH: &str = "../audio-samples/1MB.wav";
+    const SAMPLE_AUDIO_FILE_PATH: &str = "../audio-samples/5MB.wav";
 
     #[test]
     fn test_metadata() {
@@ -205,10 +183,7 @@ mod tests {
         assert!(decoder.channels() > 0);
         assert!(decoder.sample_rate() > 0);
         assert!(decoder.total_frame_count() > 0);
-        assert_eq!(
-            decoder.available_frame_count().unwrap(),
-            decoder.total_frame_count()
-        );
+        assert_eq!(decoder.available_frame_count(), decoder.total_frame_count());
     }
 
     #[test]
@@ -216,13 +191,10 @@ mod tests {
         let mut decoder = Decoder::new(SAMPLE_AUDIO_FILE_PATH, None).unwrap();
 
         decoder.seek(decoder.total_frame_count()).unwrap();
-        assert_eq!(decoder.available_frame_count().unwrap(), 0);
+        assert_eq!(decoder.available_frame_count(), 0);
 
         decoder.seek(0).unwrap();
-        assert_eq!(
-            decoder.available_frame_count().unwrap(),
-            decoder.total_frame_count()
-        );
+        assert_eq!(decoder.available_frame_count(), decoder.total_frame_count());
     }
 
     #[test]
@@ -232,7 +204,7 @@ mod tests {
         let mut frames = vec![0_f32; 128];
         let mut frames_read = 0;
 
-        while decoder.available_frame_count().unwrap() > 0 {
+        while decoder.available_frame_count() > 0 {
             frames_read += decoder.read(&mut frames).unwrap();
         }
 
@@ -241,22 +213,19 @@ mod tests {
 
     #[test]
     fn test_read_with_config() {
-        let config = DecoderConfig::new(Format::F32, 1, 44100);
+        let config = DecoderConfig::new(Format::F32, 1, 8000);
         let mut decoder = Decoder::new(SAMPLE_AUDIO_FILE_PATH, Some(config)).unwrap();
 
         assert_eq!(decoder.format(), config.format());
         assert_eq!(decoder.channels(), config.channels());
         assert_eq!(decoder.sample_rate(), config.sample_rate());
         assert!(decoder.total_frame_count() > 0);
-        assert_eq!(
-            decoder.available_frame_count().unwrap(),
-            decoder.total_frame_count()
-        );
+        assert_eq!(decoder.available_frame_count(), decoder.total_frame_count());
 
         let mut frames = vec![0_f32; 128];
         let mut frames_read = 0;
 
-        while decoder.available_frame_count().unwrap() > 0 {
+        while decoder.available_frame_count() > 0 {
             frames_read += decoder.read(&mut frames).unwrap();
         }
 
