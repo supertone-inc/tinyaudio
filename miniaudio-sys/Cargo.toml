@@ -1,0 +1,11 @@
+[package]
+name = "miniaudio-sys"
+version = "0.1.0"
+edition = "2021"
+
+[features]
+bindgen = ["dep:bindgen"]
+
+[build-dependencies]
+bindgen = { version = "0.60", optional = true }
+cc = "1.0"
