@@ -195,11 +195,54 @@ impl Drop for Decoder {
 mod tests {
     use super::*;
 
+    const SAMPLE_AUDIO_FILE_PATH: &str = "../audio-samples/1MB.wav";
+
     #[test]
-    fn it_works() {
-        let file_path = "../audio-samples/5MB.wav";
-        let config = DecoderConfig::new(Format::F32, 2, 44100);
-        let mut decoder = Decoder::new(file_path, Some(config)).unwrap();
+    fn test_metadata() {
+        let mut decoder = Decoder::new(SAMPLE_AUDIO_FILE_PATH, None).unwrap();
+
+        assert_ne!(decoder.format(), Format::Unknown);
+        assert!(decoder.channels() > 0);
+        assert!(decoder.sample_rate() > 0);
+        assert!(decoder.total_frame_count() > 0);
+        assert_eq!(
+            decoder.available_frame_count().unwrap(),
+            decoder.total_frame_count()
+        );
+    }
+
+    #[test]
+    fn test_seek() {
+        let mut decoder = Decoder::new(SAMPLE_AUDIO_FILE_PATH, None).unwrap();
+
+        decoder.seek(decoder.total_frame_count()).unwrap();
+        assert_eq!(decoder.available_frame_count().unwrap(), 0);
+
+        decoder.seek(0).unwrap();
+        assert_eq!(
+            decoder.available_frame_count().unwrap(),
+            decoder.total_frame_count()
+        );
+    }
+
+    #[test]
+    fn test_read() {
+        let mut decoder = Decoder::new(SAMPLE_AUDIO_FILE_PATH, None).unwrap();
+
+        let mut frames = vec![0_f32; 128];
+        let mut frames_read = 0;
+
+        while decoder.available_frame_count().unwrap() > 0 {
+            frames_read += decoder.read(&mut frames).unwrap();
+        }
+
+        assert!(frames_read >= decoder.total_frame_count());
+    }
+
+    #[test]
+    fn test_read_with_config() {
+        let config = DecoderConfig::new(Format::F32, 1, 44100);
+        let mut decoder = Decoder::new(SAMPLE_AUDIO_FILE_PATH, Some(config)).unwrap();
 
         assert_eq!(decoder.format(), config.format());
         assert_eq!(decoder.channels(), config.channels());
@@ -210,7 +253,7 @@ mod tests {
             decoder.total_frame_count()
         );
 
-        let mut frames = vec![0_f32; 1024];
+        let mut frames = vec![0_f32; 128];
         let mut frames_read = 0;
 
         while decoder.available_frame_count().unwrap() > 0 {
@@ -218,12 +261,5 @@ mod tests {
         }
 
         assert!(frames_read >= decoder.total_frame_count());
-
-        decoder.seek(0).unwrap();
-
-        assert_eq!(
-            decoder.available_frame_count().unwrap(),
-            decoder.total_frame_count()
-        );
     }
 }
