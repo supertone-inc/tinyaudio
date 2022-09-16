@@ -66,26 +66,22 @@ impl Default for DecoderConfig {
 }
 
 #[derive(Debug)]
-pub struct Decoder {
-    raw: Box<ma_decoder>,
-    total_frame_count: usize,
-}
+pub struct Decoder(Box<ma_decoder>);
 
 impl Decoder {
     pub fn new<P: AsRef<Path>>(
         file_path: P,
         config: Option<&DecoderConfig>,
     ) -> Result<Self, DecoderError> {
-        let file_path = unsafe {
-            CString::from_vec_unchecked(file_path.as_ref().to_string_lossy().as_bytes().into())
-        };
+        Ok(Self(unsafe {
+            let file_path =
+                CString::from_vec_unchecked(file_path.as_ref().to_string_lossy().as_bytes().into());
 
-        let config = match config {
-            Some(config) => &config.0,
-            None => std::ptr::null(),
-        };
+            let config = match config {
+                Some(config) => &config.0,
+                None => std::ptr::null(),
+            };
 
-        let mut decoder: Box<ma_decoder> = unsafe {
             let mut decoder = Box::new(MaybeUninit::<ma_decoder>::uninit());
 
             to_result(ma_decoder_init_file(
@@ -95,52 +91,51 @@ impl Decoder {
             ))?;
 
             std::mem::transmute(decoder)
-        };
-
-        let mut total_frame_count = 0;
-        unsafe {
-            to_result(ma_decoder_get_length_in_pcm_frames(
-                decoder.as_mut(),
-                &mut total_frame_count,
-            ))?;
-        }
-
-        Ok(Self {
-            raw: decoder,
-            total_frame_count: total_frame_count as _,
-        })
+        }))
     }
 
     pub fn format(&self) -> Format {
-        self.raw.outputFormat.into()
+        self.0.outputFormat.into()
     }
 
     pub fn channels(&self) -> usize {
-        self.raw.outputChannels as _
+        self.0.outputChannels as _
     }
 
     pub fn sample_rate(&self) -> usize {
-        self.raw.outputSampleRate as _
+        self.0.outputSampleRate as _
     }
 
-    pub fn total_frame_count(&self) -> usize {
-        self.total_frame_count
+    pub fn total_frame_count(&self) -> Result<usize, DecoderError> {
+        let mut total_frame_count = 0;
+
+        unsafe {
+            to_result(ma_decoder_get_length_in_pcm_frames(
+                self.0.as_ref() as *const _ as _,
+                &mut total_frame_count,
+            ))?
+        };
+
+        Ok(total_frame_count as _)
     }
 
-    pub fn available_frame_count(&self) -> usize {
-        let read_pointer_in_pcm_frames = self.raw.readPointerInPCMFrames as usize;
+    pub fn available_frame_count(&self) -> Result<usize, DecoderError> {
+        let mut available_frames = 0;
 
-        if self.total_frame_count < read_pointer_in_pcm_frames {
-            return 0;
-        }
+        unsafe {
+            to_result(ma_decoder_get_available_frames(
+                self.0.as_ref() as *const _ as _,
+                &mut available_frames,
+            ))?
+        };
 
-        self.total_frame_count - read_pointer_in_pcm_frames
+        Ok(available_frames as _)
     }
 
     pub fn seek(&mut self, frame_index: usize) -> Result<(), DecoderError> {
         unsafe {
             Ok(to_result(ma_decoder_seek_to_pcm_frame(
-                self.raw.as_mut(),
+                self.0.as_mut(),
                 frame_index as _,
             ))?)
         }
@@ -151,7 +146,7 @@ impl Decoder {
 
         unsafe {
             match to_result(ma_decoder_read_pcm_frames(
-                self.raw.as_mut(),
+                self.0.as_mut(),
                 frames.as_mut_ptr() as _,
                 (frames.len() / self.channels()) as _,
                 &mut frames_read,
@@ -168,7 +163,7 @@ impl Decoder {
 impl Drop for Decoder {
     fn drop(&mut self) {
         unsafe {
-            ma_decoder_uninit(self.raw.as_mut());
+            ma_decoder_uninit(self.0.as_mut());
         }
     }
 }
@@ -190,8 +185,11 @@ mod tests {
         assert_ne!(decoder.format(), Format::Unknown);
         assert!(decoder.channels() > 0);
         assert!(decoder.sample_rate() > 0);
-        assert!(decoder.total_frame_count() > 0);
-        assert_eq!(decoder.available_frame_count(), decoder.total_frame_count());
+        assert!(decoder.total_frame_count().unwrap() > 0);
+        assert_eq!(
+            decoder.available_frame_count().unwrap(),
+            decoder.total_frame_count().unwrap()
+        );
     }
 
     #[test]
@@ -202,19 +200,25 @@ mod tests {
         assert_eq!(decoder.format(), FORMAT);
         assert_eq!(decoder.channels(), CHANNELS);
         assert_eq!(decoder.sample_rate(), SAMPLE_RATE);
-        assert!(decoder.total_frame_count() > 0);
-        assert_eq!(decoder.available_frame_count(), decoder.total_frame_count());
+        assert!(decoder.total_frame_count().unwrap() > 0);
+        assert_eq!(
+            decoder.available_frame_count().unwrap(),
+            decoder.total_frame_count().unwrap()
+        );
     }
 
     #[test]
     fn test_seek() {
         let mut decoder = Decoder::new(AUDIO_FILE_PATH, None).unwrap();
 
-        decoder.seek(decoder.total_frame_count()).unwrap();
-        assert_eq!(decoder.available_frame_count(), 0);
+        decoder.seek(decoder.total_frame_count().unwrap()).unwrap();
+        assert_eq!(decoder.available_frame_count().unwrap(), 0);
 
         decoder.seek(0).unwrap();
-        assert_eq!(decoder.available_frame_count(), decoder.total_frame_count());
+        assert_eq!(
+            decoder.available_frame_count().unwrap(),
+            decoder.total_frame_count().unwrap()
+        );
     }
 
     #[test]
@@ -231,7 +235,7 @@ mod tests {
             }
         }
 
-        assert_eq!(total_frames_read, decoder.total_frame_count());
+        assert_eq!(total_frames_read, decoder.total_frame_count().unwrap());
     }
 
     #[test]
@@ -249,6 +253,6 @@ mod tests {
             }
         }
 
-        assert!(total_frames_read + frames.len() >= decoder.total_frame_count());
+        assert!(total_frames_read + frames.len() >= decoder.total_frame_count().unwrap());
     }
 }
