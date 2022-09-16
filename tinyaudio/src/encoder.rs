@@ -19,14 +19,14 @@ impl From<MiniaudioError> for EncoderError {
     }
 }
 
-#[repr(C)]
+#[repr(i32)]
 #[derive(Debug, Clone, Copy, PartialEq, Eq)]
 pub enum EncodingFormat {
-    Unknown = ma_encoding_format_unknown as _,
-    Wav = ma_encoding_format_wav as _,
-    Flac = ma_encoding_format_flac as _,
-    Mp3 = ma_encoding_format_mp3 as _,
-    Vorbis = ma_encoding_format_vorbis as _,
+    Unknown = ma_encoding_format_unknown,
+    Wav = ma_encoding_format_wav,
+    Flac = ma_encoding_format_flac,
+    Mp3 = ma_encoding_format_mp3,
+    Vorbis = ma_encoding_format_vorbis,
 }
 
 impl From<ma_encoding_format> for EncodingFormat {
