@@ -175,12 +175,12 @@ impl Drop for Decoder {
 mod tests {
     use super::*;
 
-    const SAMPLE_AUDIO_FILE_PATH: &str = "../audio-samples/2MB.wav";
+    const AUDIO_FILE_PATH: &str = concat!(env!("CARGO_MANIFEST_DIR"), "/../audio-samples/2MB.wav");
     const FRAME_COUNT: usize = 128;
 
     #[test]
     fn test_metadata() {
-        let decoder = Decoder::new(SAMPLE_AUDIO_FILE_PATH, None).unwrap();
+        let decoder = Decoder::new(AUDIO_FILE_PATH, None).unwrap();
 
         assert_ne!(decoder.format(), Format::Unknown);
         assert!(decoder.channels() > 0);
@@ -191,7 +191,7 @@ mod tests {
 
     #[test]
     fn test_seek() {
-        let mut decoder = Decoder::new(SAMPLE_AUDIO_FILE_PATH, None).unwrap();
+        let mut decoder = Decoder::new(AUDIO_FILE_PATH, None).unwrap();
 
         decoder.seek(decoder.total_frame_count()).unwrap();
         assert_eq!(decoder.available_frame_count(), 0);
@@ -202,7 +202,7 @@ mod tests {
 
     #[test]
     fn test_read() {
-        let mut decoder = Decoder::new(SAMPLE_AUDIO_FILE_PATH, None).unwrap();
+        let mut decoder = Decoder::new(AUDIO_FILE_PATH, None).unwrap();
 
         let mut frames = vec![0_f32; FRAME_COUNT];
         let mut total_frames_read = 0;
@@ -220,7 +220,7 @@ mod tests {
     #[test]
     fn test_read_with_config() {
         let config = DecoderConfig::new(Format::F32, 1, 8000);
-        let mut decoder = Decoder::new(SAMPLE_AUDIO_FILE_PATH, Some(config)).unwrap();
+        let mut decoder = Decoder::new(AUDIO_FILE_PATH, Some(config)).unwrap();
 
         assert_eq!(decoder.format(), config.format());
         assert_eq!(decoder.channels(), config.channels());
