@@ -1,0 +1,13 @@
+{
+  "configurations": [
+    {
+      "name": "Test `tinyaudio`",
+      "type": "lldb",
+      "request": "launch",
+      "cargo": {
+        "args": ["test", "--package", "tinyaudio", "--no-run"]
+      },
+      "args": ["--nocapture"]
+    }
+  ]
+}
