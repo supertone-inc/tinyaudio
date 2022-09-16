@@ -8,9 +8,6 @@ use thiserror::Error;
 
 #[derive(Error, Debug)]
 pub enum DecoderError {
-    #[error(transparent)]
-    FfiNulError(#[from] std::ffi::NulError),
-
     #[error("{0:#?}")]
     MiniaudioError(MiniaudioError),
 }
@@ -77,7 +74,9 @@ impl Decoder {
         file_path: P,
         config: Option<DecoderConfig>,
     ) -> Result<Self, DecoderError> {
-        let file_path = CString::new(file_path.as_ref().to_string_lossy().as_bytes())?;
+        let file_path = unsafe {
+            CString::from_vec_unchecked(file_path.as_ref().to_string_lossy().as_bytes().into())
+        };
 
         let config = match config {
             Some(config) => &config.0,
