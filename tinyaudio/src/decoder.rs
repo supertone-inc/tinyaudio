@@ -3,6 +3,7 @@ use crate::miniaudio_error::MiniaudioError;
 use crate::Format;
 use miniaudio_sys::*;
 use std::ffi::CString;
+use std::mem::MaybeUninit;
 use std::path::Path;
 use thiserror::Error;
 
@@ -65,7 +66,7 @@ impl Default for DecoderConfig {
 }
 
 pub struct Decoder {
-    raw: ma_decoder,
+    raw: Box<ma_decoder>,
     total_frame_count: usize,
 }
 
@@ -83,8 +84,8 @@ impl Decoder {
             None => std::ptr::null(),
         };
 
-        let mut decoder = unsafe {
-            let mut decoder = std::mem::MaybeUninit::<ma_decoder>::uninit();
+        let mut decoder: Box<ma_decoder> = unsafe {
+            let mut decoder = Box::new(MaybeUninit::<ma_decoder>::uninit());
 
             to_result(ma_decoder_init_file(
                 file_path.as_ptr(),
@@ -92,13 +93,13 @@ impl Decoder {
                 decoder.as_mut_ptr(),
             ))?;
 
-            decoder.assume_init()
+            std::mem::transmute(decoder)
         };
 
         let mut total_frame_count = 0;
         unsafe {
             to_result(ma_decoder_get_length_in_pcm_frames(
-                &mut decoder,
+                decoder.as_mut(),
                 &mut total_frame_count,
             ))?;
         }
@@ -138,7 +139,7 @@ impl Decoder {
     pub fn seek(&mut self, frame_index: usize) -> Result<(), DecoderError> {
         unsafe {
             Ok(to_result(ma_decoder_seek_to_pcm_frame(
-                &mut self.raw,
+                self.raw.as_mut(),
                 frame_index as _,
             ))?)
         }
@@ -149,7 +150,7 @@ impl Decoder {
 
         unsafe {
             match to_result(ma_decoder_read_pcm_frames(
-                &mut self.raw,
+                self.raw.as_mut(),
                 frames.as_mut_ptr() as _,
                 (frames.len() / self.channels()) as _,
                 &mut frames_read,
@@ -166,7 +167,7 @@ impl Decoder {
 impl Drop for Decoder {
     fn drop(&mut self) {
         unsafe {
-            ma_decoder_uninit(&mut self.raw);
+            ma_decoder_uninit(self.raw.as_mut());
         }
     }
 }
