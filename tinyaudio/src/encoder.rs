@@ -89,7 +89,6 @@ impl EncoderConfig {
     }
 }
 
-#[repr(transparent)]
 pub struct Encoder(Box<ma_encoder>);
 
 impl Encoder {
