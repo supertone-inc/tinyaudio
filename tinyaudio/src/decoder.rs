@@ -177,6 +177,9 @@ mod tests {
     use super::*;
 
     const AUDIO_FILE_PATH: &str = concat!(env!("CARGO_MANIFEST_DIR"), "/../audio-samples/2MB.wav");
+    const FORMAT: Format = Format::F32;
+    const CHANNELS: usize = 2;
+    const SAMPLE_RATE: usize = 44100;
     const FRAME_COUNT: usize = 128;
 
     #[test]
@@ -186,6 +189,18 @@ mod tests {
         assert_ne!(decoder.format(), Format::Unknown);
         assert!(decoder.channels() > 0);
         assert!(decoder.sample_rate() > 0);
+        assert!(decoder.total_frame_count() > 0);
+        assert_eq!(decoder.available_frame_count(), decoder.total_frame_count());
+    }
+
+    #[test]
+    fn test_metadata_with_config() {
+        let config = DecoderConfig::new(FORMAT, CHANNELS, SAMPLE_RATE);
+        let decoder = Decoder::new(AUDIO_FILE_PATH, Some(config)).unwrap();
+
+        assert_eq!(decoder.format(), FORMAT);
+        assert_eq!(decoder.channels(), CHANNELS);
+        assert_eq!(decoder.sample_rate(), SAMPLE_RATE);
         assert!(decoder.total_frame_count() > 0);
         assert_eq!(decoder.available_frame_count(), decoder.total_frame_count());
     }
@@ -220,14 +235,8 @@ mod tests {
 
     #[test]
     fn test_read_with_config() {
-        let config = DecoderConfig::new(Format::F32, 1, 8000);
+        let config = DecoderConfig::new(FORMAT, CHANNELS, SAMPLE_RATE);
         let mut decoder = Decoder::new(AUDIO_FILE_PATH, Some(config)).unwrap();
-
-        assert_eq!(decoder.format(), config.format());
-        assert_eq!(decoder.channels(), config.channels());
-        assert_eq!(decoder.sample_rate(), config.sample_rate());
-        assert!(decoder.total_frame_count() > 0);
-        assert_eq!(decoder.available_frame_count(), decoder.total_frame_count());
 
         let mut frames = vec![0_f32; FRAME_COUNT];
         let mut total_frames_read = 0;

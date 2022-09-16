@@ -164,10 +164,10 @@ mod tests {
         let config = EncoderConfig::new(ENCODING_FORMAT, FORMAT, CHANNELS, SAMPLE_RATE);
         let encoder = Encoder::new(OUTPUT_AUDIO_FILE_PATH, config).unwrap();
 
-        assert_eq!(encoder.encoding_format(), config.encoding_format());
-        assert_eq!(encoder.format(), config.format());
-        assert_eq!(encoder.channels(), config.channels());
-        assert_eq!(encoder.sample_rate(), config.sample_rate());
+        assert_eq!(encoder.encoding_format(), ENCODING_FORMAT);
+        assert_eq!(encoder.format(), FORMAT);
+        assert_eq!(encoder.channels(), CHANNELS);
+        assert_eq!(encoder.sample_rate(), SAMPLE_RATE);
     }
 
     #[test]
