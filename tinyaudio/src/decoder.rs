@@ -2,7 +2,6 @@ use crate::miniaudio_error::to_result;
 use crate::miniaudio_error::MiniaudioError;
 use crate::Format;
 use miniaudio_sys::*;
-use std::ffi::CString;
 use std::mem::MaybeUninit;
 use std::path::Path;
 use thiserror::Error;
@@ -74,9 +73,6 @@ impl Decoder {
         config: Option<&DecoderConfig>,
     ) -> Result<Self, DecoderError> {
         Ok(Self(unsafe {
-            let file_path =
-                CString::from_vec_unchecked(file_path.as_ref().to_string_lossy().as_bytes().into());
-
             let config = match config {
                 Some(config) => &config.0,
                 None => std::ptr::null(),
@@ -84,11 +80,30 @@ impl Decoder {
 
             let mut decoder = Box::new(MaybeUninit::<ma_decoder>::uninit());
 
-            to_result(ma_decoder_init_file(
-                file_path.as_ptr(),
-                config,
-                decoder.as_mut_ptr(),
-            ))?;
+            #[cfg(not(windows))]
+            {
+                let file_path = std::ffi::CString::from_vec_unchecked(
+                    file_path.as_ref().to_string_lossy().as_bytes().into(),
+                );
+
+                to_result(ma_decoder_init_file(
+                    file_path.as_ptr(),
+                    config,
+                    decoder.as_mut_ptr(),
+                ))?;
+            }
+
+            #[cfg(windows)]
+            {
+                let file_path =
+                    widestring::WideCString::from_os_str_unchecked(file_path.as_ref().as_os_str());
+
+                to_result(ma_decoder_init_file_w(
+                    file_path.as_ptr(),
+                    config,
+                    decoder.as_mut_ptr(),
+                ))?;
+            }
 
             std::mem::transmute(decoder)
         }))

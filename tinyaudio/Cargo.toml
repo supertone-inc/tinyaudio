@@ -7,5 +7,8 @@ edition = "2021"
 miniaudio-sys = { path = "../miniaudio-sys" }
 thiserror = "1.0"
 
+[target.'cfg(windows)'.dependencies]
+widestring = "1.0"
+
 [dev-dependencies]
 serial_test = "0.9"
