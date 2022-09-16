@@ -125,7 +125,7 @@ impl Decoder {
         self.total_frame_count
     }
 
-    pub fn available_frame_count(&mut self) -> usize {
+    pub fn available_frame_count(&self) -> usize {
         let read_pointer_in_pcm_frames = self.raw.readPointerInPCMFrames as usize;
 
         if self.total_frame_count < read_pointer_in_pcm_frames {
@@ -180,7 +180,7 @@ mod tests {
 
     #[test]
     fn test_metadata() {
-        let mut decoder = Decoder::new(SAMPLE_AUDIO_FILE_PATH, None).unwrap();
+        let decoder = Decoder::new(SAMPLE_AUDIO_FILE_PATH, None).unwrap();
 
         assert_ne!(decoder.format(), Format::Unknown);
         assert!(decoder.channels() > 0);
