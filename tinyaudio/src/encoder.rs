@@ -93,7 +93,7 @@ impl EncoderConfig {
 pub struct Encoder(Box<ma_encoder>);
 
 impl Encoder {
-    pub fn new<P: AsRef<Path>>(file_path: P, config: EncoderConfig) -> Result<Self, EncoderError> {
+    pub fn new<P: AsRef<Path>>(file_path: P, config: &EncoderConfig) -> Result<Self, EncoderError> {
         Ok(Self(unsafe {
             let file_path =
                 CString::from_vec_unchecked(file_path.as_ref().to_string_lossy().as_bytes().into());
@@ -162,7 +162,7 @@ mod tests {
     #[test]
     fn test_metadata() {
         let config = EncoderConfig::new(ENCODING_FORMAT, FORMAT, CHANNELS, SAMPLE_RATE);
-        let encoder = Encoder::new(OUTPUT_AUDIO_FILE_PATH, config).unwrap();
+        let encoder = Encoder::new(OUTPUT_AUDIO_FILE_PATH, &config).unwrap();
 
         assert_eq!(encoder.encoding_format(), ENCODING_FORMAT);
         assert_eq!(encoder.format(), FORMAT);
@@ -173,7 +173,7 @@ mod tests {
     #[test]
     fn test_write() {
         let config = EncoderConfig::new(ENCODING_FORMAT, FORMAT, CHANNELS, SAMPLE_RATE);
-        let mut encoder = Encoder::new(OUTPUT_AUDIO_FILE_PATH, config).unwrap();
+        let mut encoder = Encoder::new(OUTPUT_AUDIO_FILE_PATH, &config).unwrap();
 
         let mut waveform = unsafe {
             let config = ma_waveform_config_init(

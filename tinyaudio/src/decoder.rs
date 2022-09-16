@@ -74,7 +74,7 @@ pub struct Decoder {
 impl Decoder {
     pub fn new<P: AsRef<Path>>(
         file_path: P,
-        config: Option<DecoderConfig>,
+        config: Option<&DecoderConfig>,
     ) -> Result<Self, DecoderError> {
         let file_path = unsafe {
             CString::from_vec_unchecked(file_path.as_ref().to_string_lossy().as_bytes().into())
@@ -197,7 +197,7 @@ mod tests {
     #[test]
     fn test_metadata_with_config() {
         let config = DecoderConfig::new(FORMAT, CHANNELS, SAMPLE_RATE);
-        let decoder = Decoder::new(AUDIO_FILE_PATH, Some(config)).unwrap();
+        let decoder = Decoder::new(AUDIO_FILE_PATH, Some(&config)).unwrap();
 
         assert_eq!(decoder.format(), FORMAT);
         assert_eq!(decoder.channels(), CHANNELS);
@@ -237,7 +237,7 @@ mod tests {
     #[test]
     fn test_read_with_config() {
         let config = DecoderConfig::new(FORMAT, CHANNELS, SAMPLE_RATE);
-        let mut decoder = Decoder::new(AUDIO_FILE_PATH, Some(config)).unwrap();
+        let mut decoder = Decoder::new(AUDIO_FILE_PATH, Some(&config)).unwrap();
 
         let mut frames = vec![0_f32; FRAME_COUNT];
         let mut total_frames_read = 0;
