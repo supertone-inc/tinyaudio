@@ -161,7 +161,7 @@ impl Decoder {
 
     pub fn close(&mut self) {
         unsafe {
-            if self.0.data.memory.dataSize > 0 {
+            if !self.0.data.vfs.file.is_null() {
                 ma_decoder_uninit(self.0.as_mut());
             }
         }
@@ -267,11 +267,11 @@ mod tests {
         let mut decoder = Decoder::new(AUDIO_FILE_PATH, None).unwrap();
 
         unsafe {
-            assert!(decoder.0.data.memory.dataSize > 0);
+            assert!(!decoder.0.data.vfs.file.is_null());
 
             decoder.close();
 
-            assert!(decoder.0.data.memory.dataSize == 0);
+            assert!(decoder.0.data.vfs.file.is_null());
         }
     }
 }
