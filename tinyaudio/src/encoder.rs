@@ -142,7 +142,17 @@ impl Encoder {
     }
 
     pub fn close(&mut self) {
-        unsafe { ma_encoder_uninit(self.0.as_mut()) };
+        unsafe {
+            if !self.0.data.vfs.file.is_null() {
+                ma_encoder_uninit(self.0.as_mut());
+            }
+        }
+    }
+}
+
+impl Drop for Encoder {
+    fn drop(&mut self) {
+        self.close();
     }
 }
 
@@ -211,7 +221,19 @@ mod tests {
         assert_eq!(total_frames_written, LOOP_COUNT * FRAME_COUNT);
 
         unsafe { ma_waveform_uninit(&mut waveform) };
+    }
 
-        encoder.close();
+    #[test]
+    fn test_close() {
+        let config = EncoderConfig::new(ENCODING_FORMAT, FORMAT, CHANNELS, SAMPLE_RATE);
+        let mut encoder = Encoder::new(OUTPUT_AUDIO_FILE_PATH, &config).unwrap();
+
+        unsafe {
+            assert!(!encoder.0.data.vfs.file.is_null());
+
+            encoder.close();
+
+            assert!(encoder.0.data.vfs.file.is_null());
+        }
     }
 }
