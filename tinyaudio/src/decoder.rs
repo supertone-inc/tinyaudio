@@ -154,17 +154,23 @@ impl Decoder {
                 Ok(_) | Err(MiniaudioError::AtEnd) => {}
                 err => err?,
             }
-        }
+        };
 
         Ok(frames_read as _)
+    }
+
+    pub fn close(&mut self) {
+        unsafe {
+            if self.0.data.memory.dataSize > 0 {
+                ma_decoder_uninit(self.0.as_mut());
+            }
+        }
     }
 }
 
 impl Drop for Decoder {
     fn drop(&mut self) {
-        unsafe {
-            ma_decoder_uninit(self.0.as_mut());
-        }
+        self.close()
     }
 }
 
@@ -254,5 +260,18 @@ mod tests {
         }
 
         assert!(total_frames_read + frames.len() >= decoder.total_frame_count().unwrap());
+    }
+
+    #[test]
+    fn test_close() {
+        let mut decoder = Decoder::new(AUDIO_FILE_PATH, None).unwrap();
+
+        unsafe {
+            assert!(decoder.0.data.memory.dataSize > 0);
+
+            decoder.close();
+
+            assert!(decoder.0.data.memory.dataSize == 0);
+        }
     }
 }
