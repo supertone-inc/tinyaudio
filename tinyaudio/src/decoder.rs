@@ -106,7 +106,7 @@ impl Decoder {
         self.0.outputSampleRate as _
     }
 
-    pub fn total_frame_count(&self) -> Result<usize, DecoderError> {
+    pub fn total_frames(&self) -> Result<usize, DecoderError> {
         let mut total_frame_count = 0;
 
         unsafe {
@@ -119,7 +119,7 @@ impl Decoder {
         Ok(total_frame_count as _)
     }
 
-    pub fn available_frame_count(&self) -> Result<usize, DecoderError> {
+    pub fn available_frames(&self) -> Result<usize, DecoderError> {
         let mut available_frames = 0;
 
         unsafe {
@@ -191,10 +191,10 @@ mod tests {
         assert_ne!(decoder.format(), Format::Unknown);
         assert!(decoder.channels() > 0);
         assert!(decoder.sample_rate() > 0);
-        assert!(decoder.total_frame_count().unwrap() > 0);
+        assert!(decoder.total_frames().unwrap() > 0);
         assert_eq!(
-            decoder.available_frame_count().unwrap(),
-            decoder.total_frame_count().unwrap()
+            decoder.available_frames().unwrap(),
+            decoder.total_frames().unwrap()
         );
     }
 
@@ -206,10 +206,10 @@ mod tests {
         assert_eq!(decoder.format(), FORMAT);
         assert_eq!(decoder.channels(), CHANNELS);
         assert_eq!(decoder.sample_rate(), SAMPLE_RATE);
-        assert!(decoder.total_frame_count().unwrap() > 0);
+        assert!(decoder.total_frames().unwrap() > 0);
         assert_eq!(
-            decoder.available_frame_count().unwrap(),
-            decoder.total_frame_count().unwrap()
+            decoder.available_frames().unwrap(),
+            decoder.total_frames().unwrap()
         );
     }
 
@@ -217,13 +217,13 @@ mod tests {
     fn test_seek() {
         let mut decoder = Decoder::new(AUDIO_FILE_PATH, None).unwrap();
 
-        decoder.seek(decoder.total_frame_count().unwrap()).unwrap();
-        assert_eq!(decoder.available_frame_count().unwrap(), 0);
+        decoder.seek(decoder.total_frames().unwrap()).unwrap();
+        assert_eq!(decoder.available_frames().unwrap(), 0);
 
         decoder.seek(0).unwrap();
         assert_eq!(
-            decoder.available_frame_count().unwrap(),
-            decoder.total_frame_count().unwrap()
+            decoder.available_frames().unwrap(),
+            decoder.total_frames().unwrap()
         );
     }
 
@@ -241,7 +241,7 @@ mod tests {
             }
         }
 
-        assert_eq!(total_frames_read, decoder.total_frame_count().unwrap());
+        assert_eq!(total_frames_read, decoder.total_frames().unwrap());
     }
 
     #[test]
@@ -259,7 +259,7 @@ mod tests {
             }
         }
 
-        assert!(total_frames_read + frames.len() >= decoder.total_frame_count().unwrap());
+        assert!(total_frames_read + frames.len() >= decoder.total_frames().unwrap());
     }
 
     #[test]
