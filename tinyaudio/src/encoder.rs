@@ -89,6 +89,7 @@ impl EncoderConfig {
     }
 }
 
+#[derive(Debug)]
 pub struct Encoder(Box<ma_encoder>);
 
 impl Encoder {

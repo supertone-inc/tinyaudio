@@ -65,6 +65,7 @@ impl Default for DecoderConfig {
     }
 }
 
+#[derive(Debug)]
 pub struct Decoder {
     raw: Box<ma_decoder>,
     total_frame_count: usize,
