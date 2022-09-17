@@ -67,41 +67,39 @@ impl Decoder {
         file_path: P,
         config: Option<&DecoderConfig>,
     ) -> Result<Self, Error> {
-        Ok(Self(unsafe {
-            let config = match config {
-                Some(config) => &config.0,
-                None => std::ptr::null(),
-            };
+        let config = match config {
+            Some(config) => &config.0,
+            None => std::ptr::null(),
+        };
 
-            let mut decoder = Box::new(MaybeUninit::<ma_decoder>::uninit());
+        let mut decoder = Box::new(MaybeUninit::<ma_decoder>::uninit());
 
-            #[cfg(not(windows))]
-            {
-                let file_path = std::ffi::CString::from_vec_unchecked(
-                    file_path.as_ref().to_string_lossy().as_bytes().into(),
-                );
+        #[cfg(not(windows))]
+        unsafe {
+            let file_path = std::ffi::CString::from_vec_unchecked(
+                file_path.as_ref().to_string_lossy().as_bytes().into(),
+            );
 
-                ma_result!(ma_decoder_init_file(
-                    file_path.as_ptr(),
-                    config,
-                    decoder.as_mut_ptr(),
-                ))?;
-            }
+            ma_result!(ma_decoder_init_file(
+                file_path.as_ptr(),
+                config,
+                decoder.as_mut_ptr(),
+            ))?;
+        }
 
-            #[cfg(windows)]
-            {
-                let file_path =
-                    widestring::WideCString::from_os_str_unchecked(file_path.as_ref().as_os_str());
+        #[cfg(windows)]
+        unsafe {
+            let file_path =
+                widestring::WideCString::from_os_str_unchecked(file_path.as_ref().as_os_str());
 
-                ma_result!(ma_decoder_init_file_w(
-                    file_path.as_ptr(),
-                    config,
-                    decoder.as_mut_ptr(),
-                ))?;
-            }
+            ma_result!(ma_decoder_init_file_w(
+                file_path.as_ptr(),
+                config,
+                decoder.as_mut_ptr(),
+            ))?;
+        }
 
-            std::mem::transmute(decoder)
-        }))
+        Ok(Self(unsafe { std::mem::transmute(decoder) }))
     }
 
     pub fn format(&self) -> Format {
@@ -123,8 +121,8 @@ impl Decoder {
             ma_result!(ma_decoder_get_length_in_pcm_frames(
                 self.0.as_ref() as *const _ as _,
                 &mut total_frame_count,
-            ))?;
-        }
+            ))?
+        };
 
         Ok(total_frame_count as _)
     }
@@ -136,35 +134,35 @@ impl Decoder {
             ma_result!(ma_decoder_get_available_frames(
                 self.0.as_ref() as *const _ as _,
                 &mut available_frame_count,
-            ))?;
-        }
+            ))?
+        };
 
         Ok(available_frame_count as _)
     }
 
     pub fn seek(&mut self, frame_index: usize) -> Result<(), Error> {
-        unsafe {
-            Ok(ma_result!(ma_decoder_seek_to_pcm_frame(
+        Ok(unsafe {
+            ma_result!(ma_decoder_seek_to_pcm_frame(
                 self.0.as_mut(),
                 frame_index as _,
-            ))?)
-        }
+            ))?
+        })
     }
 
     pub fn read(&mut self, frames: &mut FramesMut) -> Result<usize, Error> {
         let mut frames_read = 0;
 
-        unsafe {
-            match ma_result!(ma_decoder_read_pcm_frames(
+        match unsafe {
+            ma_result!(ma_decoder_read_pcm_frames(
                 self.0.as_mut(),
                 frames.as_bytes_mut().as_mut_ptr() as _,
                 frames.frame_count() as _,
                 &mut frames_read,
-            )) {
-                Ok(_) | Err(MiniaudioError::AtEnd) => {}
-                err => err?,
-            };
-        }
+            ))
+        } {
+            Ok(_) | Err(MiniaudioError::AtEnd) => {}
+            err => err?,
+        };
 
         Ok(frames_read as _)
     }
@@ -280,12 +278,8 @@ mod tests {
     fn test_close() {
         let mut decoder = Decoder::new(INPUT_FILE_PATH, None).unwrap();
 
-        unsafe {
-            assert!(!decoder.0.data.vfs.file.is_null());
-
-            decoder.close();
-
-            assert!(decoder.0.data.vfs.file.is_null());
-        }
+        assert!(unsafe { !decoder.0.data.vfs.file.is_null() });
+        decoder.close();
+        assert!(unsafe { decoder.0.data.vfs.file.is_null() });
     }
 }

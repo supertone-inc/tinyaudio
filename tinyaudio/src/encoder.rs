@@ -84,36 +84,34 @@ pub struct Encoder(Box<ma_encoder>);
 
 impl Encoder {
     pub fn new<P: AsRef<Path>>(file_path: P, config: &EncoderConfig) -> Result<Self, Error> {
-        Ok(Self(unsafe {
-            let mut encoder = Box::new(MaybeUninit::<ma_encoder>::uninit());
+        let mut encoder = Box::new(MaybeUninit::<ma_encoder>::uninit());
 
-            #[cfg(not(windows))]
-            {
-                let file_path = std::ffi::CString::from_vec_unchecked(
-                    file_path.as_ref().to_string_lossy().as_bytes().into(),
-                );
+        #[cfg(not(windows))]
+        unsafe {
+            let file_path = std::ffi::CString::from_vec_unchecked(
+                file_path.as_ref().to_string_lossy().as_bytes().into(),
+            );
 
-                ma_result!(ma_encoder_init_file(
-                    file_path.as_ptr(),
-                    &config.0,
-                    encoder.as_mut_ptr(),
-                ))?;
-            }
+            ma_result!(ma_encoder_init_file(
+                file_path.as_ptr(),
+                &config.0,
+                encoder.as_mut_ptr(),
+            ))?;
+        }
 
-            #[cfg(windows)]
-            {
-                let file_path =
-                    widestring::WideCString::from_os_str_unchecked(file_path.as_ref().as_os_str());
+        #[cfg(windows)]
+        unsafe {
+            let file_path =
+                widestring::WideCString::from_os_str_unchecked(file_path.as_ref().as_os_str());
 
-                ma_result!(ma_encoder_init_file_w(
-                    file_path.as_ptr(),
-                    &config.0,
-                    encoder.as_mut_ptr(),
-                ))?;
-            }
+            ma_result!(ma_encoder_init_file_w(
+                file_path.as_ptr(),
+                &config.0,
+                encoder.as_mut_ptr(),
+            ))?;
+        }
 
-            std::mem::transmute(encoder)
-        }))
+        Ok(Self(unsafe { std::mem::transmute(encoder) }))
     }
 
     pub fn encoding_format(&self) -> EncodingFormat {
@@ -141,8 +139,8 @@ impl Encoder {
                 frames.as_bytes().as_ptr() as _,
                 frames.frame_count() as _,
                 &mut frames_written,
-            ))?;
-        }
+            ))?
+        };
 
         Ok(frames_written as _)
     }
@@ -241,12 +239,8 @@ mod tests {
         let config = EncoderConfig::new(ENCODING_FORMAT, FORMAT, CHANNELS, SAMPLE_RATE);
         let mut encoder = Encoder::new(OUTPUT_FILE_PATH, &config).unwrap();
 
-        unsafe {
-            assert!(!encoder.0.data.vfs.file.is_null());
-
-            encoder.close();
-
-            assert!(encoder.0.data.vfs.file.is_null());
-        }
+        assert!(unsafe { !encoder.0.data.vfs.file.is_null() });
+        encoder.close();
+        assert!(unsafe { encoder.0.data.vfs.file.is_null() });
     }
 }
