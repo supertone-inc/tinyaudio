@@ -1,4 +1,4 @@
-use crate::miniaudio_error::to_result;
+use crate::ma_result;
 use crate::miniaudio_error::MiniaudioError;
 use crate::Format;
 use crate::FramesMut;
@@ -81,7 +81,7 @@ impl Decoder {
                     file_path.as_ref().to_string_lossy().as_bytes().into(),
                 );
 
-                to_result(ma_decoder_init_file(
+                ma_result!(ma_decoder_init_file(
                     file_path.as_ptr(),
                     config,
                     decoder.as_mut_ptr(),
@@ -93,7 +93,7 @@ impl Decoder {
                 let file_path =
                     widestring::WideCString::from_os_str_unchecked(file_path.as_ref().as_os_str());
 
-                to_result(ma_decoder_init_file_w(
+                ma_result!(ma_decoder_init_file_w(
                     file_path.as_ptr(),
                     config,
                     decoder.as_mut_ptr(),
@@ -120,11 +120,11 @@ impl Decoder {
         let mut total_frame_count = 0;
 
         unsafe {
-            to_result(ma_decoder_get_length_in_pcm_frames(
+            ma_result!(ma_decoder_get_length_in_pcm_frames(
                 self.0.as_ref() as *const _ as _,
                 &mut total_frame_count,
-            ))?
-        };
+            ))?;
+        }
 
         Ok(total_frame_count as _)
     }
@@ -133,18 +133,18 @@ impl Decoder {
         let mut available_frame_count = 0;
 
         unsafe {
-            to_result(ma_decoder_get_available_frames(
+            ma_result!(ma_decoder_get_available_frames(
                 self.0.as_ref() as *const _ as _,
                 &mut available_frame_count,
-            ))?
-        };
+            ))?;
+        }
 
         Ok(available_frame_count as _)
     }
 
     pub fn seek(&mut self, frame_index: usize) -> Result<(), Error> {
         unsafe {
-            Ok(to_result(ma_decoder_seek_to_pcm_frame(
+            Ok(ma_result!(ma_decoder_seek_to_pcm_frame(
                 self.0.as_mut(),
                 frame_index as _,
             ))?)
@@ -155,7 +155,7 @@ impl Decoder {
         let mut frames_read = 0;
 
         unsafe {
-            match to_result(ma_decoder_read_pcm_frames(
+            match ma_result!(ma_decoder_read_pcm_frames(
                 self.0.as_mut(),
                 frames.as_bytes_mut().as_mut_ptr() as _,
                 frames.frame_count() as _,
@@ -163,8 +163,8 @@ impl Decoder {
             )) {
                 Ok(_) | Err(MiniaudioError::AtEnd) => {}
                 err => err?,
-            }
-        };
+            };
+        }
 
         Ok(frames_read as _)
     }

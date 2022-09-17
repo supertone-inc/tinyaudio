@@ -3,7 +3,7 @@ use std::error::Error;
 use std::fmt::Display;
 
 #[repr(i32)]
-#[derive(Debug, Clone, Copy, PartialEq, Eq)]
+#[derive(Debug)]
 pub enum MiniaudioError {
     Error = MA_ERROR,
     InvalidArgs = MA_INVALID_ARGS,
@@ -83,9 +83,15 @@ impl Display for MiniaudioError {
 
 impl Error for MiniaudioError {}
 
-pub fn to_result(ma_result: ma_result) -> Result<(), MiniaudioError> {
-    match ma_result {
-        MA_SUCCESS => Ok(()),
-        _ => Err(unsafe { std::mem::transmute(ma_result) }),
-    }
+#[macro_export]
+macro_rules! ma_result {
+    ($Result:expr) => {
+        match $Result {
+            miniaudio_sys::MA_SUCCESS => Ok(()),
+            err => Err(std::mem::transmute::<
+                ma_result,
+                crate::miniaudio_error::MiniaudioError,
+            >(err)),
+        }
+    };
 }

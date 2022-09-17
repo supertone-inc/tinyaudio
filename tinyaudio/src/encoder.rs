@@ -1,4 +1,4 @@
-use crate::miniaudio_error::to_result;
+use crate::ma_result;
 use crate::miniaudio_error::MiniaudioError;
 use crate::Format;
 use crate::Frames;
@@ -93,7 +93,7 @@ impl Encoder {
                     file_path.as_ref().to_string_lossy().as_bytes().into(),
                 );
 
-                to_result(ma_encoder_init_file(
+                ma_result!(ma_encoder_init_file(
                     file_path.as_ptr(),
                     &config.0,
                     encoder.as_mut_ptr(),
@@ -105,7 +105,7 @@ impl Encoder {
                 let file_path =
                     widestring::WideCString::from_os_str_unchecked(file_path.as_ref().as_os_str());
 
-                to_result(ma_encoder_init_file_w(
+                ma_result!(ma_encoder_init_file_w(
                     file_path.as_ptr(),
                     &config.0,
                     encoder.as_mut_ptr(),
@@ -136,13 +136,13 @@ impl Encoder {
         let mut frames_written = 0;
 
         unsafe {
-            to_result(ma_encoder_write_pcm_frames(
+            ma_result!(ma_encoder_write_pcm_frames(
                 self.0.as_mut(),
                 frames.as_bytes().as_ptr() as _,
                 frames.frame_count() as _,
                 &mut frames_written,
-            ))?
-        };
+            ))?;
+        }
 
         Ok(frames_written as _)
     }
@@ -206,7 +206,7 @@ mod tests {
 
             let mut waveform = std::mem::MaybeUninit::<ma_waveform>::uninit();
 
-            to_result(ma_waveform_init(&config, waveform.as_mut_ptr())).unwrap();
+            ma_result!(ma_waveform_init(&config, waveform.as_mut_ptr())).unwrap();
 
             waveform.assume_init()
         };
