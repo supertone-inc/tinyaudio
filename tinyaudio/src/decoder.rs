@@ -9,14 +9,8 @@ use thiserror::Error;
 
 #[derive(Error, Debug)]
 pub enum Error {
-    #[error("{0:#?}")]
-    MiniaudioError(MiniaudioError),
-}
-
-impl From<MiniaudioError> for Error {
-    fn from(err: MiniaudioError) -> Self {
-        Error::MiniaudioError(err)
-    }
+    #[error(transparent)]
+    MiniaudioError(#[from] MiniaudioError),
 }
 
 #[repr(transparent)]

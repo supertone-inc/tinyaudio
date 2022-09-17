@@ -1,4 +1,6 @@
 use miniaudio_sys::*;
+use std::error::Error;
+use std::fmt::Display;
 
 #[repr(i32)]
 #[derive(Debug, Clone, Copy, PartialEq, Eq)]
@@ -72,6 +74,14 @@ pub enum MiniaudioError {
     FailedToStartBackendDevice = MA_FAILED_TO_START_BACKEND_DEVICE,
     FailedToStopBackendDevice = MA_FAILED_TO_STOP_BACKEND_DEVICE,
 }
+
+impl Display for MiniaudioError {
+    fn fmt(&self, f: &mut std::fmt::Formatter<'_>) -> std::fmt::Result {
+        write!(f, "miniaudio error: {self:#?}")
+    }
+}
+
+impl Error for MiniaudioError {}
 
 pub fn to_result(ma_result: ma_result) -> Result<(), MiniaudioError> {
     match ma_result {
