@@ -8,14 +8,14 @@ use std::path::Path;
 use thiserror::Error;
 
 #[derive(Error, Debug)]
-pub enum EncoderError {
+pub enum Error {
     #[error("{0:#?}")]
     MiniaudioError(MiniaudioError),
 }
 
-impl From<MiniaudioError> for EncoderError {
+impl From<MiniaudioError> for Error {
     fn from(err: MiniaudioError) -> Self {
-        EncoderError::MiniaudioError(err)
+        Error::MiniaudioError(err)
     }
 }
 
@@ -89,7 +89,7 @@ impl EncoderConfig {
 pub struct Encoder(Box<ma_encoder>);
 
 impl Encoder {
-    pub fn new<P: AsRef<Path>>(file_path: P, config: &EncoderConfig) -> Result<Self, EncoderError> {
+    pub fn new<P: AsRef<Path>>(file_path: P, config: &EncoderConfig) -> Result<Self, Error> {
         Ok(Self(unsafe {
             let mut encoder = Box::new(MaybeUninit::<ma_encoder>::uninit());
 
@@ -138,7 +138,7 @@ impl Encoder {
         self.0.config.sampleRate as _
     }
 
-    pub fn write(&mut self, frames: &Frames) -> Result<usize, EncoderError> {
+    pub fn write(&mut self, frames: &Frames) -> Result<usize, Error> {
         let mut frames_written = 0;
 
         unsafe {

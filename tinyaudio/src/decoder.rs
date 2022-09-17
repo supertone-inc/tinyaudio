@@ -8,14 +8,14 @@ use std::path::Path;
 use thiserror::Error;
 
 #[derive(Error, Debug)]
-pub enum DecoderError {
+pub enum Error {
     #[error("{0:#?}")]
     MiniaudioError(MiniaudioError),
 }
 
-impl From<MiniaudioError> for DecoderError {
+impl From<MiniaudioError> for Error {
     fn from(err: MiniaudioError) -> Self {
-        DecoderError::MiniaudioError(err)
+        Error::MiniaudioError(err)
     }
 }
 
@@ -72,7 +72,7 @@ impl Decoder {
     pub fn new<P: AsRef<Path>>(
         file_path: P,
         config: Option<&DecoderConfig>,
-    ) -> Result<Self, DecoderError> {
+    ) -> Result<Self, Error> {
         Ok(Self(unsafe {
             let config = match config {
                 Some(config) => &config.0,
@@ -122,7 +122,7 @@ impl Decoder {
         self.0.outputSampleRate as _
     }
 
-    pub fn total_frame_count(&self) -> Result<usize, DecoderError> {
+    pub fn total_frame_count(&self) -> Result<usize, Error> {
         let mut total_frame_count = 0;
 
         unsafe {
@@ -135,7 +135,7 @@ impl Decoder {
         Ok(total_frame_count as _)
     }
 
-    pub fn available_frame_count(&self) -> Result<usize, DecoderError> {
+    pub fn available_frame_count(&self) -> Result<usize, Error> {
         let mut available_frame_count = 0;
 
         unsafe {
@@ -148,7 +148,7 @@ impl Decoder {
         Ok(available_frame_count as _)
     }
 
-    pub fn seek(&mut self, frame_index: usize) -> Result<(), DecoderError> {
+    pub fn seek(&mut self, frame_index: usize) -> Result<(), Error> {
         unsafe {
             Ok(to_result(ma_decoder_seek_to_pcm_frame(
                 self.0.as_mut(),
@@ -157,7 +157,7 @@ impl Decoder {
         }
     }
 
-    pub fn read(&mut self, frames: &mut FramesMut) -> Result<usize, DecoderError> {
+    pub fn read(&mut self, frames: &mut FramesMut) -> Result<usize, Error> {
         let mut frames_read = 0;
 
         unsafe {

@@ -8,10 +8,8 @@ mod stream;
 
 pub use decoder::Decoder;
 pub use decoder::DecoderConfig;
-pub use decoder::DecoderError;
 pub use encoder::Encoder;
 pub use encoder::EncoderConfig;
-pub use encoder::EncoderError;
 pub use encoder::EncodingFormat;
 pub use format::Format;
 pub use frames::Frames;

@@ -1,9 +1,7 @@
 use crate::Decoder;
 use crate::DecoderConfig;
-use crate::DecoderError;
 use crate::Encoder;
 use crate::EncoderConfig;
-use crate::EncoderError;
 use crate::EncodingFormat;
 use crate::Format;
 use crate::Frames;
@@ -13,12 +11,12 @@ use std::path::Path;
 use thiserror::Error;
 
 #[derive(Error, Debug)]
-pub enum OfflineStreamError {
+pub enum Error {
     #[error(transparent)]
-    DecoderError(#[from] DecoderError),
+    DecoderError(#[from] crate::decoder::Error),
 
     #[error(transparent)]
-    EncoderError(#[from] EncoderError),
+    EncoderError(#[from] crate::encoder::Error),
 }
 
 pub struct OfflineStream {
@@ -35,7 +33,7 @@ impl OfflineStream {
         channels: usize,
         sample_rate: usize,
         frame_count: usize,
-    ) -> Result<Self, OfflineStreamError> {
+    ) -> Result<Self, Error> {
         let decoder = Decoder::new(
             input_file_path,
             Some(&DecoderConfig::new(format, channels, sample_rate)),
@@ -76,7 +74,7 @@ impl OfflineStream {
 }
 
 impl Stream for OfflineStream {
-    type Error = OfflineStreamError;
+    type Error = Error;
 
     fn start<StreamCallback>(&mut self, callback: StreamCallback) -> Result<(), Self::Error>
     where
