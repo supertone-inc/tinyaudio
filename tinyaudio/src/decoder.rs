@@ -195,7 +195,7 @@ impl Drop for Decoder {
 mod tests {
     use super::*;
 
-    const AUDIO_FILE_PATH: &str = concat!(env!("CARGO_MANIFEST_DIR"), "/../audio-samples/2MB.wav");
+    const INPUT_FILE_PATH: &str = concat!(env!("CARGO_MANIFEST_DIR"), "/../audio-samples/2MB.wav");
     const FORMAT: Format = Format::F32;
     const CHANNELS: usize = 2;
     const SAMPLE_RATE: usize = 44100;
@@ -203,7 +203,7 @@ mod tests {
 
     #[test]
     fn test_metadata() {
-        let decoder = Decoder::new(AUDIO_FILE_PATH, None).unwrap();
+        let decoder = Decoder::new(INPUT_FILE_PATH, None).unwrap();
 
         assert_ne!(decoder.format(), Format::Unknown);
         assert!(decoder.channels() > 0);
@@ -218,7 +218,7 @@ mod tests {
     #[test]
     fn test_metadata_with_config() {
         let config = DecoderConfig::new(FORMAT, CHANNELS, SAMPLE_RATE);
-        let decoder = Decoder::new(AUDIO_FILE_PATH, Some(&config)).unwrap();
+        let decoder = Decoder::new(INPUT_FILE_PATH, Some(&config)).unwrap();
 
         assert_eq!(decoder.format(), FORMAT);
         assert_eq!(decoder.channels(), CHANNELS);
@@ -232,7 +232,7 @@ mod tests {
 
     #[test]
     fn test_seek() {
-        let mut decoder = Decoder::new(AUDIO_FILE_PATH, None).unwrap();
+        let mut decoder = Decoder::new(INPUT_FILE_PATH, None).unwrap();
 
         decoder.seek(decoder.total_frame_count().unwrap()).unwrap();
         assert_eq!(decoder.available_frame_count().unwrap(), 0);
@@ -246,7 +246,7 @@ mod tests {
 
     #[test]
     fn test_read() {
-        let mut decoder = Decoder::new(AUDIO_FILE_PATH, None).unwrap();
+        let mut decoder = Decoder::new(INPUT_FILE_PATH, None).unwrap();
 
         let buffer_size = decoder.format().size_in_bytes() * decoder.channels() * FRAME_COUNT;
         let mut buffer = vec![0_u8; buffer_size];
@@ -266,7 +266,7 @@ mod tests {
     #[test]
     fn test_read_with_config() {
         let config = DecoderConfig::new(FORMAT, CHANNELS, SAMPLE_RATE);
-        let mut decoder = Decoder::new(AUDIO_FILE_PATH, Some(&config)).unwrap();
+        let mut decoder = Decoder::new(INPUT_FILE_PATH, Some(&config)).unwrap();
 
         let buffer_size = decoder.format().size_in_bytes() * decoder.channels() * FRAME_COUNT;
         let mut buffer = vec![0_u8; buffer_size];
@@ -285,7 +285,7 @@ mod tests {
 
     #[test]
     fn test_close() {
-        let mut decoder = Decoder::new(AUDIO_FILE_PATH, None).unwrap();
+        let mut decoder = Decoder::new(INPUT_FILE_PATH, None).unwrap();
 
         unsafe {
             assert!(!decoder.0.data.vfs.file.is_null());

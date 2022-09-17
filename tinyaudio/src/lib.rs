@@ -3,7 +3,9 @@ mod encoder;
 mod format;
 mod frames;
 mod miniaudio_error;
+mod offline_stream;
 mod sample;
+mod stream;
 
 pub use decoder::Decoder;
 pub use decoder::DecoderConfig;
@@ -13,4 +15,6 @@ pub use encoder::EncodingFormat;
 pub use format::Format;
 pub use frames::Frames;
 pub use frames::FramesMut;
+pub use offline_stream::OfflineStream;
 pub use sample::Sample;
+pub use stream::Stream;
