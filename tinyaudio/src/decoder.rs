@@ -246,7 +246,7 @@ mod tests {
     fn test_read() {
         let mut decoder = Decoder::new(AUDIO_FILE_PATH, None).unwrap();
 
-        let mut frames = vec![0_f32; FRAME_COUNT];
+        let mut frames = vec![0_f32; decoder.channels() * FRAME_COUNT];
         let mut total_frames_read = 0;
 
         loop {
@@ -264,7 +264,7 @@ mod tests {
         let config = DecoderConfig::new(FORMAT, CHANNELS, SAMPLE_RATE);
         let mut decoder = Decoder::new(AUDIO_FILE_PATH, Some(&config)).unwrap();
 
-        let mut frames = vec![0_f32; FRAME_COUNT];
+        let mut frames = vec![0_f32; decoder.channels() * FRAME_COUNT];
         let mut total_frames_read = 0;
 
         loop {
