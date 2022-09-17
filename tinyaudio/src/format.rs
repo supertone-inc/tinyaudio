@@ -11,6 +11,19 @@ pub enum Format {
     F32 = ma_format_f32,
 }
 
+impl Format {
+    pub fn size_in_bytes(self) -> usize {
+        match self {
+            Self::Unknown => 0,
+            Self::U8 => 1,
+            Self::S16 => 2,
+            Self::S24 => 3,
+            Self::S32 => 4,
+            Self::F32 => 4,
+        }
+    }
+}
+
 impl From<ma_format> for Format {
     fn from(format: ma_format) -> Self {
         unsafe { std::mem::transmute(format) }
