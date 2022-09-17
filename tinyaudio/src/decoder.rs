@@ -1,6 +1,7 @@
 use crate::miniaudio_error::to_result;
 use crate::miniaudio_error::MiniaudioError;
 use crate::Format;
+use crate::Sample;
 use miniaudio_sys::*;
 use std::mem::MaybeUninit;
 use std::path::Path;
@@ -156,7 +157,7 @@ impl Decoder {
         }
     }
 
-    pub fn read<T>(&mut self, frames: &mut [T]) -> Result<usize, DecoderError> {
+    pub fn read<S: Sample>(&mut self, frames: &mut [S]) -> Result<usize, DecoderError> {
         let mut frames_read = 0;
 
         unsafe {

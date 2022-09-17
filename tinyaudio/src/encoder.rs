@@ -1,6 +1,7 @@
 use crate::miniaudio_error::to_result;
 use crate::miniaudio_error::MiniaudioError;
 use crate::Format;
+use crate::Sample;
 use miniaudio_sys::*;
 use std::mem::MaybeUninit;
 use std::path::Path;
@@ -137,7 +138,7 @@ impl Encoder {
         self.0.config.sampleRate as _
     }
 
-    pub fn write<T>(&mut self, frames: &[T]) -> Result<usize, EncoderError> {
+    pub fn write<S: Sample>(&mut self, frames: &[S]) -> Result<usize, EncoderError> {
         let mut frames_written = 0;
 
         unsafe {
