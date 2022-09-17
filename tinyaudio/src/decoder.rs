@@ -1,7 +1,8 @@
 use crate::miniaudio_error::to_result;
 use crate::miniaudio_error::MiniaudioError;
 use crate::Format;
-use crate::Sample;
+use crate::FramesMut;
+
 use miniaudio_sys::*;
 use std::mem::MaybeUninit;
 use std::path::Path;
@@ -157,14 +158,14 @@ impl Decoder {
         }
     }
 
-    pub fn read<S: Sample>(&mut self, frames: &mut [S]) -> Result<usize, DecoderError> {
+    pub fn read(&mut self, frames: &mut FramesMut) -> Result<usize, DecoderError> {
         let mut frames_read = 0;
 
         unsafe {
             match to_result(ma_decoder_read_pcm_frames(
                 self.0.as_mut(),
-                frames.as_mut_ptr() as _,
-                (frames.len() / self.channels()) as _,
+                frames.as_bytes_mut().as_mut_ptr() as _,
+                frames.frame_count() as _,
                 &mut frames_read,
             )) {
                 Ok(_) | Err(MiniaudioError::AtEnd) => {}
@@ -247,7 +248,9 @@ mod tests {
     fn test_read() {
         let mut decoder = Decoder::new(AUDIO_FILE_PATH, None).unwrap();
 
-        let mut frames = vec![0_f32; decoder.channels() * FRAME_COUNT];
+        let buffer_size = decoder.format().size_in_bytes() * decoder.channels() * FRAME_COUNT;
+        let mut buffer = vec![0_u8; buffer_size];
+        let mut frames = FramesMut::wrap(&mut buffer, decoder.format(), decoder.channels());
         let mut total_frames_read = 0;
 
         loop {
@@ -265,7 +268,9 @@ mod tests {
         let config = DecoderConfig::new(FORMAT, CHANNELS, SAMPLE_RATE);
         let mut decoder = Decoder::new(AUDIO_FILE_PATH, Some(&config)).unwrap();
 
-        let mut frames = vec![0_f32; decoder.channels() * FRAME_COUNT];
+        let buffer_size = decoder.format().size_in_bytes() * decoder.channels() * FRAME_COUNT;
+        let mut buffer = vec![0_u8; buffer_size];
+        let mut frames = FramesMut::wrap(&mut buffer, decoder.format(), decoder.channels());
         let mut total_frames_read = 0;
 
         loop {
@@ -275,7 +280,7 @@ mod tests {
             }
         }
 
-        assert!(total_frames_read + frames.len() >= decoder.total_frames().unwrap());
+        assert!(total_frames_read + frames.frame_count() >= decoder.total_frames().unwrap());
     }
 
     #[test]

@@ -1,7 +1,7 @@
 use crate::miniaudio_error::to_result;
 use crate::miniaudio_error::MiniaudioError;
 use crate::Format;
-use crate::Sample;
+use crate::Frames;
 use miniaudio_sys::*;
 use std::mem::MaybeUninit;
 use std::path::Path;
@@ -138,14 +138,14 @@ impl Encoder {
         self.0.config.sampleRate as _
     }
 
-    pub fn write<S: Sample>(&mut self, frames: &[S]) -> Result<usize, EncoderError> {
+    pub fn write(&mut self, frames: &Frames) -> Result<usize, EncoderError> {
         let mut frames_written = 0;
 
         unsafe {
             to_result(ma_encoder_write_pcm_frames(
                 self.0.as_mut(),
-                frames.as_ptr() as _,
-                (frames.len() / self.channels()) as _,
+                frames.as_bytes().as_ptr() as _,
+                frames.frame_count() as _,
                 &mut frames_written,
             ))?
         };
@@ -202,9 +202,9 @@ mod tests {
 
         let mut waveform = unsafe {
             let config = ma_waveform_config_init(
-                FORMAT as _,
-                CHANNELS as _,
-                SAMPLE_RATE as _,
+                encoder.format() as _,
+                encoder.channels() as _,
+                encoder.sample_rate() as _,
                 ma_waveform_type_sine,
                 0.5,
                 440.0,
@@ -217,19 +217,22 @@ mod tests {
             waveform.assume_init()
         };
 
-        let mut frames = vec![0_f32; CHANNELS * FRAME_COUNT];
+        let buffer_size = encoder.format().size_in_bytes() * encoder.channels() * FRAME_COUNT;
+        let mut buffer = vec![0_u8; buffer_size];
+        let frame_count = buffer.len() / encoder.format().size_in_bytes() / encoder.channels();
         let mut total_frames_written = 0;
 
         for _ in 0..LOOP_COUNT {
             unsafe {
                 ma_waveform_read_pcm_frames(
                     &mut waveform,
-                    frames.as_mut_ptr() as _,
-                    (frames.len() / CHANNELS) as _,
+                    buffer.as_mut_ptr() as _,
+                    frame_count as _,
                     std::ptr::null_mut(),
                 )
             };
 
+            let frames = Frames::wrap(&buffer, encoder.format(), encoder.channels());
             total_frames_written += encoder.write(&frames).unwrap();
         }
 
