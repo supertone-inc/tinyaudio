@@ -2,7 +2,6 @@ use crate::miniaudio_error::to_result;
 use crate::miniaudio_error::MiniaudioError;
 use crate::Format;
 use crate::FramesMut;
-
 use miniaudio_sys::*;
 use std::mem::MaybeUninit;
 use std::path::Path;

@@ -1,11 +1,12 @@
 use crate::Frames;
 use crate::FramesMut;
-use std::error::Error;
 
 pub trait Stream {
-    fn start<StreamCallback>(&mut self, callback: StreamCallback) -> Result<(), Box<dyn Error>>
+    type Error;
+
+    fn start<StreamCallback>(&mut self, callback: StreamCallback) -> Result<(), Self::Error>
     where
         StreamCallback: Fn(&Frames, &mut FramesMut);
 
-    fn stop(&mut self) -> Result<(), Box<dyn Error>>;
+    fn stop(&mut self) -> Result<(), Self::Error>;
 }

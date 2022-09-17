@@ -1,14 +1,25 @@
 use crate::Decoder;
 use crate::DecoderConfig;
+use crate::DecoderError;
 use crate::Encoder;
 use crate::EncoderConfig;
+use crate::EncoderError;
 use crate::EncodingFormat;
 use crate::Format;
 use crate::Frames;
 use crate::FramesMut;
 use crate::Stream;
-use std::error::Error;
 use std::path::Path;
+use thiserror::Error;
+
+#[derive(Error, Debug)]
+pub enum OfflineStreamError {
+    #[error(transparent)]
+    DecoderError(#[from] DecoderError),
+
+    #[error(transparent)]
+    EncoderError(#[from] EncoderError),
+}
 
 pub struct OfflineStream {
     decoder: Decoder,
@@ -24,7 +35,7 @@ impl OfflineStream {
         channels: usize,
         sample_rate: usize,
         frame_count: usize,
-    ) -> Result<Self, Box<dyn Error>> {
+    ) -> Result<Self, OfflineStreamError> {
         let decoder = Decoder::new(
             input_file_path,
             Some(&DecoderConfig::new(format, channels, sample_rate)),
@@ -65,7 +76,9 @@ impl OfflineStream {
 }
 
 impl Stream for OfflineStream {
-    fn start<StreamCallback>(&mut self, callback: StreamCallback) -> Result<(), Box<dyn Error>>
+    type Error = OfflineStreamError;
+
+    fn start<StreamCallback>(&mut self, callback: StreamCallback) -> Result<(), Self::Error>
     where
         StreamCallback: Fn(&Frames, &mut FramesMut),
     {
@@ -98,7 +111,7 @@ impl Stream for OfflineStream {
         Ok(())
     }
 
-    fn stop(&mut self) -> Result<(), Box<dyn Error>> {
+    fn stop(&mut self) -> Result<(), Self::Error> {
         todo!()
     }
 }
