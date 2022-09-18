@@ -168,8 +168,29 @@ impl Device {
         self.0.type_.into()
     }
 
+    pub fn format(&self) -> Format {
+        match self.device_type() {
+            DeviceType::Playback => self.0.playback.format.into(),
+            _ => self.0.capture.format.into(),
+        }
+    }
+
+    pub fn channels(&self) -> usize {
+        match self.device_type() {
+            DeviceType::Playback => self.0.playback.channels as _,
+            _ => self.0.capture.channels as _,
+        }
+    }
+
     pub fn sample_rate(&self) -> usize {
         self.0.sampleRate as _
+    }
+
+    pub fn frame_count(&self) -> usize {
+        match self.device_type() {
+            DeviceType::Playback => self.0.playback.internalPeriodSizeInFrames as _,
+            _ => self.0.capture.internalPeriodSizeInFrames as _,
+        }
     }
 
     pub fn start(&mut self) -> Result<(), Error> {
@@ -190,7 +211,6 @@ impl Drop for Device {
 #[cfg(test)]
 mod tests {
     use super::*;
-    use serial_test::serial;
 
     const FORMAT: Format = Format::F32;
     const CHANNELS: usize = 1;
@@ -198,7 +218,6 @@ mod tests {
     const FRAME_COUNT: usize = 128;
 
     #[test]
-    #[serial]
     fn test_metadata() {
         let test = |device_type| {
             let device = Device::new(&DeviceConfig::new(
@@ -211,11 +230,14 @@ mod tests {
             .unwrap();
 
             assert_eq!(device.device_type(), device_type);
+            assert_eq!(device.format(), FORMAT);
+            assert_eq!(device.channels(), CHANNELS);
             assert_eq!(device.sample_rate(), SAMPLE_RATE);
+            assert_eq!(device.frame_count(), FRAME_COUNT);
         };
 
-        for _ in 0..100 {
-            test(DeviceType::Duplex);
-        }
+        test(DeviceType::Playback);
+        test(DeviceType::Capture);
+        test(DeviceType::Duplex);
     }
 }
