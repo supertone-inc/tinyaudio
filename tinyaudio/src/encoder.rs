@@ -111,7 +111,7 @@ impl Encoder {
             ))?;
         }
 
-        Ok(Self(unsafe { std::mem::transmute(encoder) }))
+        Ok(unsafe { std::mem::transmute(encoder) })
     }
 
     pub fn encoding_format(&self) -> EncodingFormat {

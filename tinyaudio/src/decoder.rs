@@ -102,7 +102,7 @@ impl Decoder {
             ))?;
         }
 
-        Ok(Self(unsafe { std::mem::transmute(decoder) }))
+        Ok(unsafe { std::mem::transmute(decoder) })
     }
 
     pub fn format(&self) -> Format {
