@@ -152,8 +152,9 @@ impl DeviceConfigCapture {
     }
 }
 
-struct DeviceUserData {
-    data_callback: Box<dyn Fn(&Frames, &mut FramesMut)>,
+struct DeviceUserData<'a> {
+    device: &'a Device,
+    data_callback: Box<dyn Fn(&Device, &Frames, &mut FramesMut)>,
 }
 
 unsafe extern "C" fn device_data_callback(
@@ -197,9 +198,8 @@ unsafe extern "C" fn device_data_callback(
     };
 
     if !device.pUserData.is_null() {
-        let user_data = device.pUserData.cast::<DeviceUserData>();
-        let data_callback = &(*user_data).data_callback;
-        data_callback(&input_frames, &mut output_frames);
+        let user_data = &*device.pUserData.cast::<DeviceUserData>();
+        (&user_data.data_callback)(&user_data.device, &input_frames, &mut output_frames);
     }
 }
 
@@ -243,9 +243,10 @@ impl Device {
 
     pub fn start<DataCallback>(&mut self, callback: DataCallback) -> Result<(), Error>
     where
-        DataCallback: Fn(&Frames, &mut FramesMut) + 'static,
+        DataCallback: Fn(&Device, &Frames, &mut FramesMut) + 'static,
     {
         self.0.pUserData = Box::into_raw(Box::new(DeviceUserData {
+            device: &self,
             data_callback: Box::new(callback),
         })) as _;
 
@@ -325,10 +326,10 @@ mod tests {
             let count_clone = count.clone();
 
             device
-                .start(move |input_frames, output_frames| {
+                .start(move |device, input_frames, output_frames| {
                     count_clone.fetch_add(1, Ordering::Relaxed);
 
-                    match device_type {
+                    match device.device_type() {
                         DeviceType::Playback => {
                             assert_eq!(input_frames.frame_count(), 0);
                             assert_eq!(output_frames.frame_count(), FRAME_COUNT);
