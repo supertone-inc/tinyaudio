@@ -91,7 +91,7 @@ macro_rules! ma_result {
             match $Result {
                 miniaudio_sys::MA_SUCCESS => Ok(()),
                 err => Err(std::mem::transmute::<
-                    ma_result,
+                    miniaudio_sys::ma_result,
                     crate::miniaudio_error::MiniaudioError,
                 >(err)),
             }
