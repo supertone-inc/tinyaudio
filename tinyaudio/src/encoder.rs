@@ -103,8 +103,9 @@ impl Encoder {
 
         #[cfg(windows)]
         {
-            let file_path =
-                widestring::WideCString::from_os_str_unchecked(file_path.as_ref().as_os_str());
+            let file_path = unsafe {
+                widestring::WideCString::from_os_str_unchecked(file_path.as_ref().as_os_str())
+            };
 
             ma_result!(ma_encoder_init_file_w(
                 file_path.as_ptr(),
