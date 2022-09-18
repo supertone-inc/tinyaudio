@@ -35,18 +35,18 @@ impl DeviceConfig {
         sample_rate: usize,
         frame_count: usize,
     ) -> DeviceConfig {
-        let mut config = Self(unsafe { ma_device_config_init(device_type as _) });
+        let mut config = unsafe { ma_device_config_init(device_type as _) };
 
-        config.set_sample_rate(sample_rate);
-        config.set_frame_count(frame_count);
+        config.sampleRate = sample_rate as _;
+        config.periodSizeInFrames = frame_count as _;
 
-        config.playback_mut().set_format(format);
-        config.playback_mut().set_channels(channels);
+        config.playback.format = format as _;
+        config.playback.channels = channels as _;
 
-        config.capture_mut().set_format(format);
-        config.capture_mut().set_channels(channels);
+        config.capture.format = format as _;
+        config.capture.channels = channels as _;
 
-        config
+        unsafe { std::mem::transmute(config) }
     }
 
     pub fn device_type(&self) -> DeviceType {
