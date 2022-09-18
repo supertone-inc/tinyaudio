@@ -15,7 +15,7 @@ pub use format::Format;
 pub use frames::Frames;
 pub use frames::FramesMut;
 pub use sample::Sample;
-pub use stream::OfflineStream;
+pub use stream::CodecStream;
 pub use stream::Stream;
 
 #[macro_export]

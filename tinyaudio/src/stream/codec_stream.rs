@@ -19,13 +19,13 @@ pub enum Error {
     EncoderError(#[from] crate::encoder::Error),
 }
 
-pub struct OfflineStream {
+pub struct CodecStream {
     decoder: Decoder,
     encoder: Encoder,
     frame_count: usize,
 }
 
-impl OfflineStream {
+impl CodecStream {
     pub fn new<P: AsRef<Path>>(
         input_file_path: P,
         output_file_path: P,
@@ -73,7 +73,7 @@ impl OfflineStream {
     }
 }
 
-impl Stream for OfflineStream {
+impl Stream for CodecStream {
     type Error = Error;
 
     fn start<StreamCallback>(&mut self, callback: StreamCallback) -> Result<(), Self::Error>
@@ -126,8 +126,8 @@ mod tests {
     const FRAME_COUNT: usize = 128;
 
     #[test]
-    fn test_offline_stream() {
-        let mut stream = OfflineStream::new(
+    fn it_works() {
+        let mut stream = CodecStream::new(
             INPUT_FILE_PATH,
             OUTPUT_FILE_PATH,
             FORMAT,

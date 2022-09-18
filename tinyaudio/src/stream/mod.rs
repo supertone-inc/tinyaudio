@@ -1,5 +1,5 @@
-mod offline_stream;
+mod codec_stream;
 mod stream;
 
-pub use offline_stream::OfflineStream;
+pub use codec_stream::CodecStream;
 pub use stream::Stream;
