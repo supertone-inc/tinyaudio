@@ -272,7 +272,6 @@ impl Drop for Device {
 
 #[cfg(test)]
 mod tests {
-
     use super::*;
 
     const FORMAT: Format = Format::F32;
