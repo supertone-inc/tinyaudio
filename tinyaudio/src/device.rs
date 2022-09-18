@@ -186,13 +186,6 @@ impl Device {
         self.0.sampleRate as _
     }
 
-    pub fn frame_count(&self) -> usize {
-        match self.device_type() {
-            DeviceType::Playback => self.0.playback.internalPeriodSizeInFrames as _,
-            _ => self.0.capture.internalPeriodSizeInFrames as _,
-        }
-    }
-
     pub fn start(&mut self) -> Result<(), Error> {
         Ok(ma_result!(ma_device_start(self.0.as_mut()))?)
     }
@@ -233,7 +226,6 @@ mod tests {
             assert_eq!(device.format(), FORMAT);
             assert_eq!(device.channels(), CHANNELS);
             assert_eq!(device.sample_rate(), SAMPLE_RATE);
-            assert_eq!(device.frame_count(), FRAME_COUNT);
         };
 
         test(DeviceType::Playback);
