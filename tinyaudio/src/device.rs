@@ -257,8 +257,8 @@ impl Device {
         ma_result!(ma_device_stop(self.0.as_mut()))?;
 
         if !self.0.pUserData.is_null() {
-            drop(unsafe { Box::from_raw(self.0.pUserData.cast::<DeviceUserData>()) });
-            self.0.pUserData = std::ptr::null_mut();
+            let user_data_ptr = std::mem::replace(&mut self.0.pUserData, std::ptr::null_mut());
+            drop(unsafe { Box::from_raw(user_data_ptr.cast::<DeviceUserData>()) });
         }
 
         Ok(())
