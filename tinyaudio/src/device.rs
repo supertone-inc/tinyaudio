@@ -149,11 +149,11 @@ impl DeviceConfigCapture {
 }
 
 #[derive(Debug)]
-pub struct Device(ma_device);
+pub struct Device(Box<ma_device>);
 
 impl Device {
     pub fn new(config: &DeviceConfig) -> Result<Self, Error> {
-        let mut device = MaybeUninit::<ma_device>::uninit();
+        let mut device = Box::new(MaybeUninit::<ma_device>::uninit());
 
         ma_result!(ma_device_init(
             std::ptr::null_mut(),
@@ -194,17 +194,17 @@ impl Device {
     }
 
     pub fn start(&mut self) -> Result<(), Error> {
-        Ok(ma_result!(ma_device_start(&mut self.0))?)
+        Ok(ma_result!(ma_device_start(self.0.as_mut()))?)
     }
 
     pub fn stop(&mut self) -> Result<(), Error> {
-        Ok(ma_result!(ma_device_start(&mut self.0))?)
+        Ok(ma_result!(ma_device_start(self.0.as_mut()))?)
     }
 }
 
 impl Drop for Device {
     fn drop(&mut self) {
-        unsafe { ma_device_uninit(&mut self.0) };
+        unsafe { ma_device_uninit(self.0.as_mut()) };
     }
 }
 
