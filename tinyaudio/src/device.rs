@@ -2,7 +2,10 @@ use crate::impl_from_ma_type;
 use crate::ma_result;
 use crate::miniaudio_error::MiniaudioError;
 use crate::Format;
+use crate::Frames;
+use crate::FramesMut;
 use miniaudio_sys::*;
+use std::ffi::c_void;
 use std::mem::MaybeUninit;
 use thiserror::Error;
 
@@ -39,6 +42,7 @@ impl DeviceConfig {
 
         config.sampleRate = sample_rate as _;
         config.periodSizeInFrames = frame_count as _;
+        config.dataCallback = Some(device_data_callback);
 
         config.playback.format = format as _;
         config.playback.channels = channels as _;
@@ -148,6 +152,57 @@ impl DeviceConfigCapture {
     }
 }
 
+struct DeviceUserData {
+    data_callback: Box<dyn Fn(&Frames, &mut FramesMut)>,
+}
+
+unsafe extern "C" fn device_data_callback(
+    device_ptr: *mut ma_device,
+    output_ptr: *mut c_void,
+    input_ptr: *const c_void,
+    frame_count: u32,
+) {
+    let device = &mut *device_ptr;
+
+    let input_format = Format::from(device.capture.format);
+    let input_channels = device.capture.channels as usize;
+    let empty_input_buffer = [0u8; 0];
+    let input_frames = if input_ptr.is_null() {
+        Frames::wrap(&empty_input_buffer, input_format, input_channels)
+    } else {
+        Frames::wrap::<u8>(
+            std::slice::from_raw_parts(
+                input_ptr.cast(),
+                input_format.size_in_bytes() * input_channels * frame_count as usize,
+            ),
+            input_format,
+            input_channels,
+        )
+    };
+
+    let output_format = Format::from(device.capture.format);
+    let output_channels = device.capture.channels as usize;
+    let mut empty_output_buffer = [0u8; 0];
+    let mut output_frames = if output_ptr.is_null() {
+        FramesMut::wrap(&mut empty_output_buffer, output_format, output_channels)
+    } else {
+        FramesMut::wrap::<u8>(
+            std::slice::from_raw_parts_mut(
+                output_ptr.cast(),
+                output_format.size_in_bytes() * input_channels * frame_count as usize,
+            ),
+            output_format,
+            output_channels,
+        )
+    };
+
+    if !device.pUserData.is_null() {
+        let user_data = device.pUserData.cast::<DeviceUserData>();
+        let data_callback = &(*user_data).data_callback;
+        data_callback(&input_frames, &mut output_frames);
+    }
+}
+
 #[derive(Debug)]
 pub struct Device(Box<ma_device>);
 
@@ -186,12 +241,26 @@ impl Device {
         self.0.sampleRate as _
     }
 
-    pub fn start(&mut self) -> Result<(), Error> {
+    pub fn start<DataCallback>(&mut self, callback: DataCallback) -> Result<(), Error>
+    where
+        DataCallback: Fn(&Frames, &mut FramesMut) + 'static,
+    {
+        self.0.pUserData = Box::into_raw(Box::new(DeviceUserData {
+            data_callback: Box::new(callback),
+        })) as _;
+
         Ok(ma_result!(ma_device_start(self.0.as_mut()))?)
     }
 
     pub fn stop(&mut self) -> Result<(), Error> {
-        Ok(ma_result!(ma_device_stop(self.0.as_mut()))?)
+        ma_result!(ma_device_stop(self.0.as_mut()))?;
+
+        if !self.0.pUserData.is_null() {
+            drop(unsafe { Box::from_raw(self.0.pUserData.cast::<DeviceUserData>()) });
+            self.0.pUserData = std::ptr::null_mut();
+        }
+
+        Ok(())
     }
 }
 
@@ -203,6 +272,7 @@ impl Drop for Device {
 
 #[cfg(test)]
 mod tests {
+
     use super::*;
 
     const FORMAT: Format = Format::F32;
@@ -238,6 +308,10 @@ mod tests {
 
     #[test]
     fn test_start_stop() {
+        use std::sync::atomic::AtomicUsize;
+        use std::sync::atomic::Ordering;
+        use std::sync::Arc;
+
         let test = |device_type| {
             let mut device = Device::new(&DeviceConfig::new(
                 device_type,
@@ -248,8 +322,39 @@ mod tests {
             ))
             .unwrap();
 
-            device.start().unwrap();
+            let count = Arc::new(AtomicUsize::new(0));
+            let count_clone = count.clone();
+
+            device
+                .start(move |input_frames, output_frames| {
+                    count_clone.fetch_add(1, Ordering::Relaxed);
+
+                    match device_type {
+                        DeviceType::Playback => {
+                            assert_eq!(input_frames.frame_count(), 0);
+                            assert_eq!(output_frames.frame_count(), FRAME_COUNT);
+                        }
+                        DeviceType::Capture => {
+                            assert_eq!(input_frames.frame_count(), FRAME_COUNT);
+                            assert_eq!(output_frames.frame_count(), 0);
+                        }
+                        DeviceType::Duplex => {
+                            assert_eq!(input_frames.frame_count(), FRAME_COUNT);
+                            assert_eq!(output_frames.frame_count(), FRAME_COUNT);
+                        }
+                        DeviceType::Loopback => {
+                            assert_eq!(input_frames.frame_count(), FRAME_COUNT);
+                            assert_eq!(output_frames.frame_count(), FRAME_COUNT);
+                        }
+                    };
+                })
+                .unwrap();
+
+            std::thread::sleep(std::time::Duration::from_millis(10));
+
             device.stop().unwrap();
+
+            assert!(count.load(Ordering::Relaxed) > 0);
         };
 
         test(DeviceType::Playback);
