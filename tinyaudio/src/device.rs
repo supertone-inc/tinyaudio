@@ -231,5 +231,8 @@ mod tests {
         test(DeviceType::Playback);
         test(DeviceType::Capture);
         test(DeviceType::Duplex);
+
+        #[cfg(windows)]
+        test(DeviceType::Loopback);
     }
 }
