@@ -1,4 +1,5 @@
 mod decoder;
+mod device;
 mod encoder;
 mod format;
 mod frames;
@@ -8,6 +9,7 @@ mod stream;
 
 pub use decoder::Decoder;
 pub use decoder::DecoderConfig;
+pub use device::Device;
 pub use encoder::Encoder;
 pub use encoder::EncoderConfig;
 pub use encoder::EncodingFormat;
