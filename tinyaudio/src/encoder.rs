@@ -14,10 +14,10 @@ pub enum Error {
     MiniaudioError(#[from] MiniaudioError),
 }
 
-#[repr(i32)]
+#[repr(C)]
 #[derive(Debug, Clone, Copy, PartialEq, Eq)]
 pub enum EncodingFormat {
-    Wav = ma_encoding_format_wav,
+    Wav = ma_encoding_format_wav as _,
 }
 
 impl_from_ma_type!(EncodingFormat, ma_encoding_format);

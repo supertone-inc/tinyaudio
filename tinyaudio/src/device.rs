@@ -12,13 +12,13 @@ pub enum Error {
     MiniaudioError(#[from] MiniaudioError),
 }
 
-#[repr(i32)]
+#[repr(C)]
 #[derive(Debug, Clone, Copy, PartialEq, Eq)]
 pub enum DeviceType {
-    Playback = ma_device_type_playback,
-    Capture = ma_device_type_capture,
-    Duplex = ma_device_type_duplex,
-    Loopback = ma_device_type_loopback,
+    Playback = ma_device_type_playback as _,
+    Capture = ma_device_type_capture as _,
+    Duplex = ma_device_type_duplex as _,
+    Loopback = ma_device_type_loopback as _,
 }
 
 impl_from_ma_type!(DeviceType, ma_device_type);
