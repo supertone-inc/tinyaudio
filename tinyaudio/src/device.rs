@@ -163,10 +163,10 @@ unsafe extern "C" fn device_data_callback(
     input_ptr: *const c_void,
     frame_count: u32,
 ) {
-    let device = &mut *device_ptr;
+    let ma_device = &mut *device_ptr;
 
-    let input_format = Format::from(device.capture.format);
-    let input_channels = device.capture.channels as usize;
+    let input_format = ma_device.capture.format.into();
+    let input_channels = ma_device.capture.channels as usize;
     let empty_input_buffer = [0u8; 0];
     let input_frames = if input_ptr.is_null() {
         Frames::wrap(&empty_input_buffer, input_format, input_channels)
@@ -181,8 +181,8 @@ unsafe extern "C" fn device_data_callback(
         )
     };
 
-    let output_format = Format::from(device.capture.format);
-    let output_channels = device.capture.channels as usize;
+    let output_format = ma_device.capture.format.into();
+    let output_channels = ma_device.capture.channels as usize;
     let mut empty_output_buffer = [0u8; 0];
     let mut output_frames = if output_ptr.is_null() {
         FramesMut::wrap(&mut empty_output_buffer, output_format, output_channels)
@@ -197,10 +197,10 @@ unsafe extern "C" fn device_data_callback(
         )
     };
 
-    if !device.pUserData.is_null() {
-        let user_data = &*device.pUserData.cast::<DeviceUserData>();
-        (&user_data.data_callback)(&user_data.device, &input_frames, &mut output_frames);
-    }
+    let user_data = &*ma_device.pUserData.cast::<DeviceUserData>();
+    let device = &user_data.device;
+    let data_callback = &user_data.data_callback;
+    data_callback(device, &input_frames, &mut output_frames);
 }
 
 #[derive(Debug)]
@@ -256,10 +256,8 @@ impl Device {
     pub fn stop(&mut self) -> Result<(), Error> {
         ma_result!(ma_device_stop(self.0.as_mut()))?;
 
-        if !self.0.pUserData.is_null() {
-            let user_data_ptr = std::mem::replace(&mut self.0.pUserData, std::ptr::null_mut());
-            drop(unsafe { Box::from_raw(user_data_ptr.cast::<DeviceUserData>()) });
-        }
+        let user_data_ptr = std::mem::replace(&mut self.0.pUserData, std::ptr::null_mut());
+        drop(unsafe { Box::from_raw(user_data_ptr.cast::<DeviceUserData>()) });
 
         Ok(())
     }
