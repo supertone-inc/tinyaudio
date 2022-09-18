@@ -191,7 +191,7 @@ impl Device {
     }
 
     pub fn stop(&mut self) -> Result<(), Error> {
-        Ok(ma_result!(ma_device_start(self.0.as_mut()))?)
+        Ok(ma_result!(ma_device_stop(self.0.as_mut()))?)
     }
 }
 
