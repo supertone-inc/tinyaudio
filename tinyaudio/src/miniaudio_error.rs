@@ -85,13 +85,16 @@ impl Error for MiniaudioError {}
 
 #[macro_export]
 macro_rules! ma_result {
-    ($Result:expr) => {
-        match $Result {
-            miniaudio_sys::MA_SUCCESS => Ok(()),
-            err => Err(std::mem::transmute::<
-                ma_result,
-                crate::miniaudio_error::MiniaudioError,
-            >(err)),
+    ($Result:expr) => {{
+        #[allow(unused_unsafe)]
+        unsafe {
+            match $Result {
+                miniaudio_sys::MA_SUCCESS => Ok(()),
+                err => Err(std::mem::transmute::<
+                    ma_result,
+                    crate::miniaudio_error::MiniaudioError,
+                >(err)),
+            }
         }
-    };
+    }};
 }

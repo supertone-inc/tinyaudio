@@ -87,10 +87,12 @@ impl Encoder {
         let mut encoder = Box::new(MaybeUninit::<ma_encoder>::uninit());
 
         #[cfg(not(windows))]
-        unsafe {
-            let file_path = std::ffi::CString::from_vec_unchecked(
-                file_path.as_ref().to_string_lossy().as_bytes().into(),
-            );
+        {
+            let file_path = unsafe {
+                std::ffi::CString::from_vec_unchecked(
+                    file_path.as_ref().to_string_lossy().as_bytes().into(),
+                )
+            };
 
             ma_result!(ma_encoder_init_file(
                 file_path.as_ptr(),
@@ -100,7 +102,7 @@ impl Encoder {
         }
 
         #[cfg(windows)]
-        unsafe {
+        {
             let file_path =
                 widestring::WideCString::from_os_str_unchecked(file_path.as_ref().as_os_str());
 
@@ -133,14 +135,12 @@ impl Encoder {
     pub fn write(&mut self, frames: &Frames) -> Result<usize, Error> {
         let mut frames_written = 0;
 
-        unsafe {
-            ma_result!(ma_encoder_write_pcm_frames(
-                self.0.as_mut(),
-                frames.as_bytes().as_ptr() as _,
-                frames.frame_count() as _,
-                &mut frames_written,
-            ))?
-        };
+        ma_result!(ma_encoder_write_pcm_frames(
+            self.0.as_mut(),
+            frames.as_bytes().as_ptr() as _,
+            frames.frame_count() as _,
+            &mut frames_written,
+        ))?;
 
         Ok(frames_written as _)
     }
@@ -215,14 +215,13 @@ mod tests {
         let mut total_frames_written = 0;
 
         for _ in 0..LOOP_COUNT {
-            unsafe {
-                ma_waveform_read_pcm_frames(
-                    &mut waveform,
-                    buffer.as_mut_ptr() as _,
-                    frame_count as _,
-                    std::ptr::null_mut(),
-                )
-            };
+            ma_result!(ma_waveform_read_pcm_frames(
+                &mut waveform,
+                buffer.as_mut_ptr() as _,
+                frame_count as _,
+                std::ptr::null_mut(),
+            ))
+            .unwrap();
 
             let frames = Frames::wrap(&buffer, encoder.format(), encoder.channels());
             total_frames_written += encoder.write(&frames).unwrap();

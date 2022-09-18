@@ -75,10 +75,12 @@ impl Decoder {
         let mut decoder = Box::new(MaybeUninit::<ma_decoder>::uninit());
 
         #[cfg(not(windows))]
-        unsafe {
-            let file_path = std::ffi::CString::from_vec_unchecked(
-                file_path.as_ref().to_string_lossy().as_bytes().into(),
-            );
+        {
+            let file_path = unsafe {
+                std::ffi::CString::from_vec_unchecked(
+                    file_path.as_ref().to_string_lossy().as_bytes().into(),
+                )
+            };
 
             ma_result!(ma_decoder_init_file(
                 file_path.as_ptr(),
@@ -88,7 +90,7 @@ impl Decoder {
         }
 
         #[cfg(windows)]
-        unsafe {
+        {
             let file_path =
                 widestring::WideCString::from_os_str_unchecked(file_path.as_ref().as_os_str());
 
@@ -117,12 +119,10 @@ impl Decoder {
     pub fn total_frame_count(&self) -> Result<usize, Error> {
         let mut total_frame_count = 0;
 
-        unsafe {
-            ma_result!(ma_decoder_get_length_in_pcm_frames(
-                self.0.as_ref() as *const _ as _,
-                &mut total_frame_count,
-            ))?
-        };
+        ma_result!(ma_decoder_get_length_in_pcm_frames(
+            self.0.as_ref() as *const _ as _,
+            &mut total_frame_count,
+        ))?;
 
         Ok(total_frame_count as _)
     }
@@ -130,36 +130,30 @@ impl Decoder {
     pub fn available_frame_count(&self) -> Result<usize, Error> {
         let mut available_frame_count = 0;
 
-        unsafe {
-            ma_result!(ma_decoder_get_available_frames(
-                self.0.as_ref() as *const _ as _,
-                &mut available_frame_count,
-            ))?
-        };
+        ma_result!(ma_decoder_get_available_frames(
+            self.0.as_ref() as *const _ as _,
+            &mut available_frame_count,
+        ))?;
 
         Ok(available_frame_count as _)
     }
 
     pub fn seek(&mut self, frame_index: usize) -> Result<(), Error> {
-        Ok(unsafe {
-            ma_result!(ma_decoder_seek_to_pcm_frame(
-                self.0.as_mut(),
-                frame_index as _,
-            ))?
-        })
+        Ok(ma_result!(ma_decoder_seek_to_pcm_frame(
+            self.0.as_mut(),
+            frame_index as _,
+        ))?)
     }
 
     pub fn read(&mut self, frames: &mut FramesMut) -> Result<usize, Error> {
         let mut frames_read = 0;
 
-        match unsafe {
-            ma_result!(ma_decoder_read_pcm_frames(
-                self.0.as_mut(),
-                frames.as_bytes_mut().as_mut_ptr() as _,
-                frames.frame_count() as _,
-                &mut frames_read,
-            ))
-        } {
+        match ma_result!(ma_decoder_read_pcm_frames(
+            self.0.as_mut(),
+            frames.as_bytes_mut().as_mut_ptr() as _,
+            frames.frame_count() as _,
+            &mut frames_read,
+        )) {
             Ok(_) | Err(MiniaudioError::AtEnd) => {}
             err => err?,
         };
