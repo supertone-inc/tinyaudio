@@ -17,3 +17,14 @@ pub use frames::FramesMut;
 pub use sample::Sample;
 pub use stream::OfflineStream;
 pub use stream::Stream;
+
+#[macro_export]
+macro_rules! impl_from_ma_type {
+    ($RustType:ty, $CType:ty) => {
+        impl From<$CType> for $RustType {
+            fn from(c_value: $CType) -> Self {
+                unsafe { std::mem::transmute(c_value) }
+            }
+        }
+    };
+}

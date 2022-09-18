@@ -1,3 +1,4 @@
+use crate::impl_from_ma_type;
 use miniaudio_sys::*;
 
 #[repr(i32)]
@@ -11,6 +12,8 @@ pub enum Format {
     F32 = ma_format_f32,
 }
 
+impl_from_ma_type!(Format, ma_format);
+
 impl Format {
     pub fn size_in_bytes(self) -> usize {
         match self {
@@ -21,11 +24,5 @@ impl Format {
             Self::S32 => 4,
             Self::F32 => 4,
         }
-    }
-}
-
-impl From<ma_format> for Format {
-    fn from(format: ma_format) -> Self {
-        unsafe { std::mem::transmute(format) }
     }
 }

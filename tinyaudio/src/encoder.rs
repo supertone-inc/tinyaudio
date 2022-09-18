@@ -1,3 +1,4 @@
+use crate::impl_from_ma_type;
 use crate::ma_result;
 use crate::miniaudio_error::MiniaudioError;
 use crate::Format;
@@ -19,11 +20,7 @@ pub enum EncodingFormat {
     Wav = ma_encoding_format_wav,
 }
 
-impl From<ma_encoding_format> for EncodingFormat {
-    fn from(encoding_format: ma_encoding_format) -> Self {
-        unsafe { std::mem::transmute(encoding_format) }
-    }
-}
+impl_from_ma_type!(EncodingFormat, ma_encoding_format);
 
 #[repr(transparent)]
 #[derive(Debug, Clone, Copy)]
