@@ -161,7 +161,7 @@ impl Device {
             device.as_mut_ptr(),
         ))?;
 
-        Ok(unsafe { std::mem::transmute(device) })
+        Ok(Self(unsafe { device.assume_init() }))
     }
 
     pub fn device_type(&self) -> DeviceType {
