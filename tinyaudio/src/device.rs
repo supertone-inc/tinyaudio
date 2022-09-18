@@ -235,4 +235,28 @@ mod tests {
         #[cfg(windows)]
         test(DeviceType::Loopback);
     }
+
+    #[test]
+    fn test_start_stop() {
+        let test = |device_type| {
+            let mut device = Device::new(&DeviceConfig::new(
+                device_type,
+                FORMAT,
+                CHANNELS,
+                SAMPLE_RATE,
+                FRAME_COUNT,
+            ))
+            .unwrap();
+
+            device.start().unwrap();
+            device.stop().unwrap();
+        };
+
+        test(DeviceType::Playback);
+        test(DeviceType::Capture);
+        test(DeviceType::Duplex);
+
+        #[cfg(windows)]
+        test(DeviceType::Loopback);
+    }
 }
