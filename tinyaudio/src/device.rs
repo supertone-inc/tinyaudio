@@ -4,8 +4,6 @@ use crate::miniaudio_error::MiniaudioError;
 use crate::Format;
 use miniaudio_sys::*;
 use std::mem::MaybeUninit;
-use std::ops::Deref;
-use std::sync::Arc;
 use thiserror::Error;
 
 #[derive(Error, Debug)]
@@ -150,60 +148,42 @@ impl DeviceConfigCapture {
     }
 }
 
-#[repr(transparent)]
 #[derive(Debug)]
-pub struct RawDevice(ma_device);
+pub struct Device(Box<ma_device>);
 
-impl RawDevice {
-    pub fn new(config: &DeviceConfig) -> Result<Arc<Self>, Error> {
-        let device = Arc::new(MaybeUninit::<ma_device>::uninit());
+impl Device {
+    pub fn new(config: &DeviceConfig) -> Result<Self, Error> {
+        let mut device = Box::new(MaybeUninit::<ma_device>::uninit());
 
         ma_result!(ma_device_init(
             std::ptr::null_mut(),
             &config.0,
-            Arc::deref(&device).as_ptr() as *mut _,
+            device.as_mut_ptr(),
         ))?;
 
         Ok(unsafe { std::mem::transmute(device) })
     }
 
-    pub fn start(&self) -> Result<(), Error> {
-        Ok(ma_result!(ma_device_start(&self.0 as *const _ as _))?)
-    }
-
-    pub fn stop(&self) -> Result<(), Error> {
-        Ok(ma_result!(ma_device_stop(&self.0 as *const _ as _))?)
-    }
-}
-
-impl Drop for RawDevice {
-    fn drop(&mut self) {
-        unsafe { ma_device_uninit(&mut self.0) };
-    }
-}
-
-#[derive(Debug)]
-pub struct Device(Arc<RawDevice>);
-
-impl Device {
-    pub fn new(config: &DeviceConfig) -> Result<Self, Error> {
-        Ok(Self(RawDevice::new(config)?))
-    }
-
     pub fn device_type(&self) -> DeviceType {
-        self.0 .0.type_.into()
+        self.0.type_.into()
     }
 
     pub fn sample_rate(&self) -> usize {
-        self.0 .0.sampleRate as _
+        self.0.sampleRate as _
     }
 
-    pub fn start(&self) -> Result<(), Error> {
-        self.0.start()
+    pub fn start(&mut self) -> Result<(), Error> {
+        Ok(ma_result!(ma_device_start(self.0.as_mut()))?)
     }
 
-    pub fn stop(&self) -> Result<(), Error> {
-        self.0.stop()
+    pub fn stop(&mut self) -> Result<(), Error> {
+        Ok(ma_result!(ma_device_start(self.0.as_mut()))?)
+    }
+}
+
+impl Drop for Device {
+    fn drop(&mut self) {
+        unsafe { ma_device_uninit(self.0.as_mut()) };
     }
 }
 
@@ -234,6 +214,8 @@ mod tests {
             assert_eq!(device.sample_rate(), SAMPLE_RATE);
         };
 
-        test(DeviceType::Duplex);
+        for _ in 0..100 {
+            test(DeviceType::Duplex);
+        }
     }
 }
