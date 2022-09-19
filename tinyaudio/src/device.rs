@@ -297,11 +297,11 @@ mod tests {
             ))
             .unwrap();
 
-            assert_eq!(device.device_type(), device_type);
-            assert_eq!(device.format(), FORMAT);
-            assert_eq!(device.channels(), CHANNELS);
-            assert_eq!(device.sample_rate(), SAMPLE_RATE);
-            assert_eq!(device.frame_count(), FRAME_COUNT);
+            assert_eq!(device.device_type(), device_type, "{device_type:?}");
+            assert_eq!(device.format(), FORMAT, "{device_type:?}");
+            assert_eq!(device.channels(), CHANNELS, "{device_type:?}");
+            assert_eq!(device.sample_rate(), SAMPLE_RATE, "{device_type:?}");
+            assert_eq!(device.frame_count(), FRAME_COUNT, "{device_type:?}");
         };
 
         test(DeviceType::Playback);
@@ -334,23 +334,24 @@ mod tests {
             device
                 .start(move |device, input_frames, output_frames| {
                     count_clone.fetch_add(1, Ordering::Relaxed);
+                    let device_type = device.device_type();
 
-                    match device.device_type() {
+                    match device_type {
                         DeviceType::Playback => {
-                            assert_eq!(input_frames.frame_count(), 0);
-                            assert_eq!(output_frames.frame_count(), FRAME_COUNT);
+                            assert_eq!(input_frames.frame_count(), 0, "{device_type:?}");
+                            assert_eq!(output_frames.frame_count(), FRAME_COUNT, "{device_type:?}");
                         }
                         DeviceType::Capture => {
-                            assert_eq!(input_frames.frame_count(), FRAME_COUNT);
-                            assert_eq!(output_frames.frame_count(), 0);
+                            assert_eq!(input_frames.frame_count(), FRAME_COUNT, "{device_type:?}");
+                            assert_eq!(output_frames.frame_count(), 0, "{device_type:?}");
                         }
                         DeviceType::Duplex => {
-                            assert_eq!(input_frames.frame_count(), FRAME_COUNT);
-                            assert_eq!(output_frames.frame_count(), FRAME_COUNT);
+                            assert_eq!(input_frames.frame_count(), FRAME_COUNT, "{device_type:?}");
+                            assert_eq!(output_frames.frame_count(), FRAME_COUNT, "{device_type:?}");
                         }
                         DeviceType::Loopback => {
-                            assert_eq!(input_frames.frame_count(), FRAME_COUNT);
-                            assert_eq!(output_frames.frame_count(), 0);
+                            assert_eq!(input_frames.frame_count(), FRAME_COUNT, "{device_type:?}");
+                            assert_eq!(output_frames.frame_count(), 0, "{device_type:?}");
                         }
                     };
                 })
@@ -360,7 +361,7 @@ mod tests {
 
             device.stop().unwrap();
 
-            assert!(count.load(Ordering::Relaxed) > 0);
+            assert!(count.load(Ordering::Relaxed) > 0, "{device_type:?}");
         };
 
         test(DeviceType::Playback);
