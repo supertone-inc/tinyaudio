@@ -350,7 +350,7 @@ mod tests {
                         }
                         DeviceType::Loopback => {
                             assert_eq!(input_frames.frame_count(), FRAME_COUNT);
-                            assert_eq!(output_frames.frame_count(), FRAME_COUNT);
+                            assert_eq!(output_frames.frame_count(), 0);
                         }
                     };
                 })
