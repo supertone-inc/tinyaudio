@@ -241,6 +241,13 @@ impl Device {
         self.0.sampleRate as _
     }
 
+    pub fn frame_count(&self) -> usize {
+        match self.device_type() {
+            DeviceType::Playback => self.0.playback.intermediaryBufferCap as _,
+            _ => self.0.capture.intermediaryBufferCap as _,
+        }
+    }
+
     pub fn start<DataCallback>(&mut self, callback: DataCallback) -> Result<(), Error>
     where
         DataCallback: Fn(&Device, &Frames, &mut FramesMut) + 'static,
@@ -294,6 +301,7 @@ mod tests {
             assert_eq!(device.format(), FORMAT);
             assert_eq!(device.channels(), CHANNELS);
             assert_eq!(device.sample_rate(), SAMPLE_RATE);
+            assert_eq!(device.frame_count(), FRAME_COUNT);
         };
 
         test(DeviceType::Playback);
