@@ -325,7 +325,7 @@ mod tests {
             .unwrap();
 
             device
-                .start(move |device, input_frames, output_frames| {
+                .start(|device, input_frames, output_frames| {
                     let device_type = device.device_type();
 
                     match device_type {
