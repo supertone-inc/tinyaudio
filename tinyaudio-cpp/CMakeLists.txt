@@ -2,8 +2,8 @@ cmake_minimum_required(VERSION 3.20)
 
 project(tinyaudio)
 
-include(miniaudio.cmake)
-include(doctest.cmake)
+include(cmake/miniaudio.cmake)
+include(cmake/doctest.cmake)
 
 if(TINYAUDIO_BUILD_TESTS)
     add_library(tinyaudio OBJECT src/tinyaudio.cpp)
