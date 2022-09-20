@@ -104,7 +104,7 @@ impl DeviceConfig {
 
 struct DeviceUserData<'a> {
     device: &'a Device,
-    data_callback: Box<dyn Fn(&Device, &Frames, &mut FramesMut)>,
+    data_callback: Option<Box<dyn Fn(&Device, &Frames, &mut FramesMut)>>,
 }
 
 unsafe extern "C" fn device_data_callback(
@@ -148,9 +148,9 @@ unsafe extern "C" fn device_data_callback(
     };
 
     let user_data = &*ma_device.pUserData.cast::<DeviceUserData>();
-    let device = &user_data.device;
-    let data_callback = &user_data.data_callback;
-    data_callback(device, &input_frames, &mut output_frames);
+    if let Some(data_callback) = &user_data.data_callback {
+        data_callback(&user_data.device, &input_frames, &mut output_frames);
+    }
 }
 
 #[derive(Debug)]
@@ -158,15 +158,24 @@ pub struct Device(Box<ma_device>);
 
 impl Device {
     pub fn new(config: &DeviceConfig) -> Result<Self, Error> {
-        let mut device = Box::new(MaybeUninit::<ma_device>::uninit());
+        let mut device: Self = {
+            let mut device = Box::new(MaybeUninit::<ma_device>::uninit());
 
-        ma_result!(ma_device_init(
-            std::ptr::null_mut(),
-            &config.0,
-            device.as_mut_ptr(),
-        ))?;
+            ma_result!(ma_device_init(
+                std::ptr::null_mut(),
+                &config.0,
+                device.as_mut_ptr(),
+            ))?;
 
-        Ok(unsafe { std::mem::transmute(device) })
+            unsafe { std::mem::transmute(device) }
+        };
+
+        device.0.pUserData = Box::into_raw(Box::new(DeviceUserData {
+            device: &device,
+            data_callback: None,
+        })) as _;
+
+        Ok(device)
     }
 
     pub fn device_type(&self) -> DeviceType {
@@ -198,31 +207,33 @@ impl Device {
         }
     }
 
+    fn device_user_data_mut(&self) -> &mut DeviceUserData {
+        unsafe { &mut *self.0.pUserData.cast::<DeviceUserData>() }
+    }
+
     pub fn start<DataCallback>(&mut self, callback: DataCallback) -> Result<(), Error>
     where
         DataCallback: Fn(&Device, &Frames, &mut FramesMut) + 'static,
     {
-        self.0.pUserData = Box::into_raw(Box::new(DeviceUserData {
-            device: &self,
-            data_callback: Box::new(callback),
-        })) as _;
+        self.device_user_data_mut()
+            .data_callback
+            .replace(Box::new(callback));
 
         Ok(ma_result!(ma_device_start(self.0.as_mut()))?)
     }
 
     pub fn stop(&mut self) -> Result<(), Error> {
-        ma_result!(ma_device_stop(self.0.as_mut()))?;
-
-        let user_data_ptr = std::mem::replace(&mut self.0.pUserData, std::ptr::null_mut());
-        drop(unsafe { Box::from_raw(user_data_ptr.cast::<DeviceUserData>()) });
-
-        Ok(())
+        Ok(ma_result!(ma_device_stop(self.0.as_mut()))?)
     }
 }
 
 impl Drop for Device {
     fn drop(&mut self) {
-        unsafe { ma_device_uninit(self.0.as_mut()) };
+        unsafe {
+            let user_data_ptr = self.0.pUserData.cast::<DeviceUserData>();
+            ma_device_uninit(self.0.as_mut());
+            drop(Box::from_raw(user_data_ptr));
+        };
     }
 }
 
