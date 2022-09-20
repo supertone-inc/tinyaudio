@@ -47,3 +47,15 @@ macro_rules! ma_result {
         }
     }};
 }
+
+#[cfg(not(windows))]
+fn path_to_c_string<P: AsRef<std::path::Path>>(path: P) -> std::ffi::CString {
+    use std::os::unix::prelude::OsStrExt;
+
+    unsafe { std::ffi::CString::from_vec_unchecked(path.as_ref().as_os_str().as_bytes().into()) }
+}
+
+#[cfg(windows)]
+fn path_to_c_string<P: AsRef<std::path::Path>>(path: P) -> widestring::WideCString {
+    unsafe { widestring::WideCString::from_os_str_unchecked(path.as_ref().as_os_str()) }
+}

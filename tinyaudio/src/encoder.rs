@@ -1,6 +1,7 @@
 use crate::impl_from_ma_type;
 use crate::ma_result;
 use crate::miniaudio_error::MiniaudioError;
+use crate::path_to_c_string;
 use crate::Format;
 use crate::Frames;
 use miniaudio_sys::*;
@@ -85,14 +86,8 @@ impl Encoder {
 
         #[cfg(not(windows))]
         {
-            let file_path = unsafe {
-                std::ffi::CString::from_vec_unchecked(
-                    file_path.as_ref().to_string_lossy().as_bytes().into(),
-                )
-            };
-
             ma_result!(ma_encoder_init_file(
-                file_path.as_ptr(),
+                path_to_c_string(file_path).as_ptr(),
                 &config.0,
                 encoder.as_mut_ptr(),
             ))?;
@@ -100,12 +95,8 @@ impl Encoder {
 
         #[cfg(windows)]
         {
-            let file_path = unsafe {
-                widestring::WideCString::from_os_str_unchecked(file_path.as_ref().as_os_str())
-            };
-
             ma_result!(ma_encoder_init_file_w(
-                file_path.as_ptr(),
+                path_to_c_string(file_path).as_ptr(),
                 &config.0,
                 encoder.as_mut_ptr(),
             ))?;
