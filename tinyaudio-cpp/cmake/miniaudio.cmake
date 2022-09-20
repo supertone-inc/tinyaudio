@@ -7,4 +7,7 @@ execute_process(
 
 add_library(miniaudio ${MINIAUDIO_DIR}/extras/miniaudio_split/miniaudio.c)
 target_include_directories(miniaudio PUBLIC ${MINIAUDIO_DIR}/extras/miniaudio_split)
-target_compile_options(miniaudio PRIVATE -Wno-deprecated-declarations)
+
+if(UNIX)
+    target_compile_options(miniaudio PRIVATE -Wno-deprecated-declarations)
+endif()
