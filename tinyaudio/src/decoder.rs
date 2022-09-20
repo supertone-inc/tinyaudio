@@ -130,6 +130,14 @@ impl Decoder {
         Ok(available_frame_count as _)
     }
 
+    pub fn looping(&self) -> bool {
+        unsafe { ma_data_source_is_looping(self.0.as_ref() as *const _ as _) != 0 }
+    }
+
+    pub fn set_looping(&mut self, looping: bool) {
+        unsafe { ma_data_source_set_looping(self.0.as_mut() as *const _ as _, looping as _) };
+    }
+
     pub fn seek(&mut self, frame_index: usize) -> Result<(), Error> {
         Ok(ma_result!(ma_decoder_seek_to_pcm_frame(
             self.0.as_mut(),
@@ -140,8 +148,8 @@ impl Decoder {
     pub fn read(&mut self, frames: &mut FramesMut) -> Result<usize, Error> {
         let mut frames_read = 0;
 
-        match ma_result!(ma_decoder_read_pcm_frames(
-            self.0.as_mut(),
+        match ma_result!(ma_data_source_read_pcm_frames(
+            self.0.as_mut() as *mut _ as _,
             frames.as_bytes_mut().as_mut_ptr() as _,
             frames.frame_count() as _,
             &mut frames_read,
@@ -258,6 +266,33 @@ mod tests {
         }
 
         assert!(total_frames_read + frames.frame_count() >= decoder.total_frame_count().unwrap());
+    }
+
+    #[test]
+    fn test_looping() {
+        let mut decoder = Decoder::new(INPUT_FILE_PATH, None).unwrap();
+
+        assert_eq!(decoder.looping(), false);
+        decoder.set_looping(true);
+        assert_eq!(decoder.looping(), true);
+
+        let buffer_size = decoder.format().size_in_bytes() * decoder.channels() * FRAME_COUNT;
+        let mut buffer = vec![0_u8; buffer_size];
+        let mut frames = FramesMut::wrap(&mut buffer, decoder.format(), decoder.channels());
+        let mut total_frames_read = 0;
+
+        loop {
+            match decoder.read(&mut frames).unwrap() {
+                0 => break,
+                frames_read => total_frames_read += frames_read,
+            }
+
+            if total_frames_read > decoder.total_frame_count().unwrap() {
+                decoder.set_looping(false);
+            }
+        }
+
+        assert_eq!(total_frames_read, 2 * decoder.total_frame_count().unwrap());
     }
 
     #[test]
