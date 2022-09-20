@@ -61,6 +61,30 @@ impl DeviceConfig {
         self.0.deviceType = device_type as _;
     }
 
+    pub fn format(&self) -> Format {
+        match self.device_type() {
+            DeviceType::Playback => self.0.playback.format.into(),
+            _ => self.0.capture.format.into(),
+        }
+    }
+
+    pub fn set_format(&mut self, format: Format) {
+        self.0.playback.format = format as _;
+        self.0.capture.format = format as _;
+    }
+
+    pub fn channels(&self) -> usize {
+        match self.device_type() {
+            DeviceType::Playback => self.0.playback.channels as _,
+            _ => self.0.capture.channels as _,
+        }
+    }
+
+    pub fn set_channels(&mut self, channels: usize) {
+        self.0.playback.channels = channels as _;
+        self.0.capture.channels = channels as _;
+    }
+
     pub fn sample_rate(&self) -> usize {
         self.0.sampleRate as _
     }
@@ -75,80 +99,6 @@ impl DeviceConfig {
 
     pub fn set_frame_count(&mut self, frame_count: usize) {
         self.0.periodSizeInFrames = frame_count as _;
-    }
-
-    #[inline]
-    pub fn playback(&self) -> &DeviceConfigPlayback {
-        unsafe {
-            &*(&self.0.playback as *const MaDeviceConfigPlayback as *const DeviceConfigPlayback)
-        }
-    }
-
-    #[inline]
-    pub fn playback_mut(&mut self) -> &mut DeviceConfigPlayback {
-        unsafe {
-            &mut *(&mut self.0.playback as *mut MaDeviceConfigPlayback as *mut DeviceConfigPlayback)
-        }
-    }
-
-    #[inline]
-    pub fn capture(&self) -> &DeviceConfigCapture {
-        unsafe { &*(&self.0.capture as *const MaDeviceConfigCapture as *const DeviceConfigCapture) }
-    }
-
-    #[inline]
-    pub fn capture_mut(&mut self) -> &mut DeviceConfigCapture {
-        unsafe {
-            &mut *(&mut self.0.capture as *mut MaDeviceConfigCapture as *mut DeviceConfigCapture)
-        }
-    }
-}
-
-type MaDeviceConfigPlayback = ma_device_config__bindgen_ty_1;
-
-#[repr(transparent)]
-#[derive(Debug)]
-pub struct DeviceConfigPlayback(MaDeviceConfigPlayback);
-
-impl DeviceConfigPlayback {
-    pub fn format(&self) -> Format {
-        self.0.format.into()
-    }
-
-    pub fn set_format(&mut self, format: Format) {
-        self.0.format = format as _;
-    }
-
-    pub fn channels(&self) -> usize {
-        self.0.channels as _
-    }
-
-    pub fn set_channels(&mut self, channels: usize) {
-        self.0.channels = channels as _;
-    }
-}
-
-type MaDeviceConfigCapture = ma_device_config__bindgen_ty_2;
-
-#[repr(transparent)]
-#[derive(Debug)]
-pub struct DeviceConfigCapture(MaDeviceConfigCapture);
-
-impl DeviceConfigCapture {
-    pub fn format(&self) -> Format {
-        self.0.format.into()
-    }
-
-    pub fn set_format(&mut self, format: Format) {
-        self.0.format = format as _;
-    }
-
-    pub fn channels(&self) -> usize {
-        self.0.channels as _
-    }
-
-    pub fn set_channels(&mut self, channels: usize) {
-        self.0.channels = channels as _;
     }
 }
 
