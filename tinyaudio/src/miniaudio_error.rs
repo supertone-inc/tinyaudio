@@ -82,20 +82,3 @@ impl Display for MiniaudioError {
 }
 
 impl Error for MiniaudioError {}
-
-#[macro_export]
-macro_rules! ma_result {
-    ($Result:expr) => {{
-        use crate::miniaudio_error::MiniaudioError;
-        use miniaudio_sys::*;
-        use std::mem::transmute;
-
-        #[allow(unused_unsafe)]
-        unsafe {
-            match $Result {
-                MA_SUCCESS => Ok(()),
-                err => Err(transmute::<ma_result, MiniaudioError>(err)),
-            }
-        }
-    }};
-}

@@ -30,3 +30,20 @@ macro_rules! impl_from_ma_type {
         }
     };
 }
+
+#[macro_export]
+macro_rules! ma_result {
+    ($Result:expr) => {{
+        use crate::miniaudio_error::MiniaudioError;
+        use miniaudio_sys::*;
+        use std::mem::transmute;
+
+        #[allow(unused_unsafe)]
+        unsafe {
+            match $Result {
+                MA_SUCCESS => Ok(()),
+                err => Err(transmute::<ma_result, MiniaudioError>(err)),
+            }
+        }
+    }};
+}
