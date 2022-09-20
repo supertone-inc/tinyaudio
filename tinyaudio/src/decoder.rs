@@ -64,10 +64,7 @@ impl Default for DecoderConfig {
 pub struct Decoder(Box<ma_decoder>);
 
 impl Decoder {
-    pub fn new<P: AsRef<Path>>(
-        file_path: P,
-        config: Option<&DecoderConfig>,
-    ) -> Result<Self, Error> {
+    pub fn new<P: AsRef<Path>>(file_path: P, config: Option<DecoderConfig>) -> Result<Self, Error> {
         let config = match config {
             Some(config) => &config.0,
             None => std::ptr::null(),
@@ -202,8 +199,11 @@ mod tests {
 
     #[test]
     fn test_metadata_with_config() {
-        let config = DecoderConfig::new(FORMAT, CHANNELS, SAMPLE_RATE);
-        let decoder = Decoder::new(INPUT_FILE_PATH, Some(&config)).unwrap();
+        let decoder = Decoder::new(
+            INPUT_FILE_PATH,
+            Some(DecoderConfig::new(FORMAT, CHANNELS, SAMPLE_RATE)),
+        )
+        .unwrap();
 
         assert_eq!(decoder.format(), FORMAT);
         assert_eq!(decoder.channels(), CHANNELS);
@@ -250,8 +250,11 @@ mod tests {
 
     #[test]
     fn test_read_with_config() {
-        let config = DecoderConfig::new(FORMAT, CHANNELS, SAMPLE_RATE);
-        let mut decoder = Decoder::new(INPUT_FILE_PATH, Some(&config)).unwrap();
+        let mut decoder = Decoder::new(
+            INPUT_FILE_PATH,
+            Some(DecoderConfig::new(FORMAT, CHANNELS, SAMPLE_RATE)),
+        )
+        .unwrap();
 
         let buffer_size = decoder.format().size_in_bytes() * decoder.channels() * FRAME_COUNT;
         let mut buffer = vec![0_u8; buffer_size];

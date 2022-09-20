@@ -81,7 +81,7 @@ impl EncoderConfig {
 pub struct Encoder(Box<ma_encoder>);
 
 impl Encoder {
-    pub fn new<P: AsRef<Path>>(file_path: P, config: &EncoderConfig) -> Result<Self, Error> {
+    pub fn new<P: AsRef<Path>>(file_path: P, config: EncoderConfig) -> Result<Self, Error> {
         let mut encoder = Box::new(MaybeUninit::<ma_encoder>::uninit());
 
         #[cfg(not(windows))]
@@ -166,8 +166,11 @@ mod tests {
     #[test]
     #[serial]
     fn test_metadata() {
-        let config = EncoderConfig::new(ENCODING_FORMAT, FORMAT, CHANNELS, SAMPLE_RATE);
-        let encoder = Encoder::new(OUTPUT_FILE_PATH, &config).unwrap();
+        let encoder = Encoder::new(
+            OUTPUT_FILE_PATH,
+            EncoderConfig::new(ENCODING_FORMAT, FORMAT, CHANNELS, SAMPLE_RATE),
+        )
+        .unwrap();
 
         assert_eq!(encoder.encoding_format(), ENCODING_FORMAT);
         assert_eq!(encoder.format(), FORMAT);
@@ -178,8 +181,11 @@ mod tests {
     #[test]
     #[serial]
     fn test_write() {
-        let config = EncoderConfig::new(ENCODING_FORMAT, FORMAT, CHANNELS, SAMPLE_RATE);
-        let mut encoder = Encoder::new(OUTPUT_FILE_PATH, &config).unwrap();
+        let mut encoder = Encoder::new(
+            OUTPUT_FILE_PATH,
+            EncoderConfig::new(ENCODING_FORMAT, FORMAT, CHANNELS, SAMPLE_RATE),
+        )
+        .unwrap();
 
         let mut waveform = unsafe {
             let config = ma_waveform_config_init(
@@ -224,8 +230,11 @@ mod tests {
     #[test]
     #[serial]
     fn test_close() {
-        let config = EncoderConfig::new(ENCODING_FORMAT, FORMAT, CHANNELS, SAMPLE_RATE);
-        let mut encoder = Encoder::new(OUTPUT_FILE_PATH, &config).unwrap();
+        let mut encoder = Encoder::new(
+            OUTPUT_FILE_PATH,
+            EncoderConfig::new(ENCODING_FORMAT, FORMAT, CHANNELS, SAMPLE_RATE),
+        )
+        .unwrap();
 
         assert!(unsafe { !encoder.0.data.vfs.file.is_null() });
         encoder.close();

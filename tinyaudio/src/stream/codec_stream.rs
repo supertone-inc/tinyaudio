@@ -36,12 +36,12 @@ impl CodecStream {
     ) -> Result<Self, Error> {
         let decoder = Decoder::new(
             input_file_path,
-            Some(&DecoderConfig::new(format, channels, sample_rate)),
+            Some(DecoderConfig::new(format, channels, sample_rate)),
         )?;
 
         let encoder = Encoder::new(
             output_file_path,
-            &EncoderConfig::new(
+            EncoderConfig::new(
                 EncodingFormat::Wav,
                 decoder.format(),
                 decoder.channels(),
