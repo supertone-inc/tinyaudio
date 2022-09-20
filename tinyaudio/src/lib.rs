@@ -18,6 +18,7 @@ pub use frames::Frames;
 pub use frames::FramesMut;
 pub use sample::Sample;
 pub use stream::CodecStream;
+pub use stream::DeviceStream;
 pub use stream::Stream;
 
 #[macro_export]

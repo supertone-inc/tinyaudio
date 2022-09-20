@@ -6,7 +6,7 @@ pub trait Stream {
 
     fn start<StreamCallback>(&mut self, callback: StreamCallback) -> Result<(), Self::Error>
     where
-        StreamCallback: Fn(&Frames, &mut FramesMut);
+        StreamCallback: Fn(&Frames, &mut FramesMut) + 'static;
 
     fn stop(&mut self) -> Result<(), Self::Error>;
 }
