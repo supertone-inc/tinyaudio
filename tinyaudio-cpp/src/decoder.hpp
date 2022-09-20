@@ -134,28 +134,6 @@ TEST_CASE("[decoder] retrives metadata")
         REQUIRE_EQ(decoder.total_frame_count(), 1203400);
         REQUIRE_EQ(decoder.available_frame_count(), decoder.total_frame_count());
     }
-
-    SUBCASE("korean file name without config")
-    {
-        Decoder decoder("../audio-samples/칠백KB.mp3");
-
-        REQUIRE_EQ(decoder.format(), Format::F32);
-        REQUIRE_EQ(decoder.channels(), 2);
-        REQUIRE_EQ(decoder.sample_rate(), 32000);
-        REQUIRE_EQ(decoder.total_frame_count(), 873216);
-        REQUIRE_EQ(decoder.available_frame_count(), decoder.total_frame_count());
-    }
-
-    SUBCASE("korean file name with config")
-    {
-        Decoder decoder("../audio-samples/칠백KB.mp3", Format::S16, 1, 44100);
-
-        REQUIRE_EQ(decoder.format(), Format::S16);
-        REQUIRE_EQ(decoder.channels(), 1);
-        REQUIRE_EQ(decoder.sample_rate(), 44100);
-        REQUIRE_EQ(decoder.total_frame_count(), 1203400);
-        REQUIRE_EQ(decoder.available_frame_count(), decoder.total_frame_count());
-    }
 }
 
 TEST_CASE("[decoder] reads frames")
