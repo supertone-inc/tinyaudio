@@ -1,3 +1,4 @@
+#include <doctest.h>
 #include <miniaudio.h>
 #include <tinyaudio.hpp>
 
@@ -9,5 +10,10 @@ Tinyaudio::Tinyaudio()
 
 Tinyaudio::~Tinyaudio()
 {
+}
+
+TEST_CASE("tinyaudio")
+{
+    REQUIRE(true);
 }
 } // namespace tinyaudio
