@@ -1,0 +1,26 @@
+{
+  "version": "2.0.0",
+  "windows": {
+    "options": {
+      "shell": {
+        "executable": "bash.exe"
+      }
+    }
+  },
+  "tasks": [
+    {
+      "label": "Build tinyaudio-cpp test",
+      "type": "shell",
+      "command": "./test.sh",
+      "options": {
+        "cwd": "${workspaceFolder}/tinyaudio-cpp",
+        "env": {
+          "NO_RUN": "1"
+        }
+      },
+      "presentation": {
+        "close": true
+      }
+    }
+  ]
+}

@@ -1,0 +1,15 @@
+{
+  "configurations": [
+    {
+      "name": "Test tinyaudio-cpp",
+      "type": "lldb",
+      "request": "launch",
+      "program": "${workspaceFolder}/tinyaudio-cpp/build/bin/tinyaudio-test",
+      "cwd": "${workspaceFolder}/tinyaudio-cpp",
+      "preLaunchTask": "Build tinyaudio-cpp test",
+      "windows": {
+        "program": "${workspaceFolder}/tinyaudio-cpp/build/bin/tinyaudio-test.exe"
+      }
+    }
+  ]
+}
