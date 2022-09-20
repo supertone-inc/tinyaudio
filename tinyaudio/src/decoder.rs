@@ -143,6 +143,8 @@ impl Decoder {
     }
 
     pub fn read(&mut self, frames: &mut FramesMut) -> Result<usize, Error> {
+        frames.as_bytes_mut().fill(0);
+
         let mut frames_read = 0;
 
         match ma_result!(ma_data_source_read_pcm_frames(
@@ -182,6 +184,11 @@ mod tests {
     const CHANNELS: usize = 2;
     const SAMPLE_RATE: usize = 44100;
     const FRAME_COUNT: usize = 128;
+
+    fn check_frames_zero_padded(frames: &FramesMut, non_zero_frames: usize) -> bool {
+        let non_zero_bytes = frames.format().size_in_bytes() * frames.channels() * non_zero_frames;
+        frames.as_bytes()[non_zero_bytes..].iter().all(|v| *v == 0)
+    }
 
     #[test]
     fn test_metadata() {
@@ -241,7 +248,10 @@ mod tests {
         loop {
             match decoder.read(&mut frames).unwrap() {
                 0 => break,
-                frames_read => total_frames_read += frames_read,
+                frames_read => {
+                    total_frames_read += frames_read;
+                    assert!(check_frames_zero_padded(&frames, frames_read));
+                }
             }
         }
 
@@ -264,7 +274,10 @@ mod tests {
         loop {
             match decoder.read(&mut frames).unwrap() {
                 0 => break,
-                frames_read => total_frames_read += frames_read,
+                frames_read => {
+                    total_frames_read += frames_read;
+                    assert!(check_frames_zero_padded(&frames, frames_read));
+                }
             }
         }
 
@@ -287,7 +300,10 @@ mod tests {
         loop {
             match decoder.read(&mut frames).unwrap() {
                 0 => break,
-                frames_read => total_frames_read += frames_read,
+                frames_read => {
+                    total_frames_read += frames_read;
+                    assert!(check_frames_zero_padded(&frames, frames_read));
+                }
             }
 
             if total_frames_read > decoder.total_frame_count().unwrap() {
