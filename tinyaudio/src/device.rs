@@ -5,6 +5,7 @@ use crate::Format;
 use crate::Frames;
 use crate::FramesMut;
 use miniaudio_sys::*;
+use std::any::Any;
 use std::ffi::c_void;
 use std::mem::MaybeUninit;
 use thiserror::Error;
@@ -26,6 +27,15 @@ pub enum DeviceType {
 
 impl_from_ma_type!(DeviceType, ma_device_type);
 
+pub type DataCallback = dyn Fn(&Device, Option<&mut UserData>, &Frames, &mut FramesMut);
+pub type UserData = dyn Any;
+
+struct DeviceUserData<'a> {
+    device: Option<&'a Device>,
+    data_callback: Option<Box<DataCallback>>,
+    user_data: Option<Box<UserData>>,
+}
+
 #[repr(transparent)]
 #[derive(Debug)]
 pub struct DeviceConfig(ma_device_config);
@@ -37,12 +47,18 @@ impl DeviceConfig {
         channels: usize,
         sample_rate: usize,
         frame_count: usize,
+        user_data: Option<Box<UserData>>,
     ) -> DeviceConfig {
         let mut config = unsafe { ma_device_config_init(device_type as _) };
 
         config.sampleRate = sample_rate as _;
         config.periodSizeInFrames = frame_count as _;
         config.dataCallback = Some(device_data_callback);
+        config.pUserData = Box::into_raw(Box::new(DeviceUserData {
+            device: None,
+            data_callback: None,
+            user_data,
+        })) as _;
 
         config.playback.format = format as _;
         config.playback.channels = channels as _;
@@ -100,11 +116,24 @@ impl DeviceConfig {
     pub fn set_frame_count(&mut self, frame_count: usize) {
         self.0.periodSizeInFrames = frame_count as _;
     }
+
+    pub fn user_data(&self) -> Option<&UserData> {
+        let device_user_data = unsafe { &*self.0.pUserData.cast::<DeviceUserData>() };
+        device_user_data.user_data.as_deref()
+    }
+
+    pub fn set_user_data(&mut self, user_data: Option<Box<UserData>>) {
+        let device_user_data = unsafe { &mut *self.0.pUserData.cast::<DeviceUserData>() };
+        device_user_data.user_data = user_data;
+    }
 }
 
-struct DeviceUserData<'a> {
-    device: &'a Device,
-    data_callback: Option<Box<dyn Fn(&Device, &Frames, &mut FramesMut)>>,
+impl Drop for DeviceConfig {
+    fn drop(&mut self) {
+        if !self.0.pUserData.is_null() {
+            drop(unsafe { Box::from_raw(self.0.pUserData.cast::<DeviceUserData>()) })
+        }
+    }
 }
 
 unsafe extern "C" fn device_data_callback(
@@ -147,9 +176,12 @@ unsafe extern "C" fn device_data_callback(
         )
     };
 
-    let user_data = &*ma_device.pUserData.cast::<DeviceUserData>();
-    if let Some(data_callback) = &user_data.data_callback {
-        data_callback(&user_data.device, &input_frames, &mut output_frames);
+    let device_user_data = &mut *ma_device.pUserData.cast::<DeviceUserData>();
+    if let Some(data_callback) = &device_user_data.data_callback {
+        let device = device_user_data.device.unwrap();
+        let user_data = device_user_data.user_data.as_mut().map(|v| v.as_mut());
+
+        data_callback(device, user_data, &input_frames, &mut output_frames);
     }
 }
 
@@ -157,7 +189,7 @@ unsafe extern "C" fn device_data_callback(
 pub struct Device(Box<ma_device>);
 
 impl Device {
-    pub fn new(config: &DeviceConfig) -> Result<Self, Error> {
+    pub fn new(config: DeviceConfig) -> Result<Self, Error> {
         let mut device: Self = {
             let mut device = Box::new(MaybeUninit::<ma_device>::uninit());
 
@@ -170,10 +202,14 @@ impl Device {
             unsafe { std::mem::transmute(device) }
         };
 
-        device.0.pUserData = Box::into_raw(Box::new(DeviceUserData {
-            device: &device,
-            data_callback: None,
-        })) as _;
+        unsafe {
+            let raw_config = &mut *(&config.0 as *const _ as *mut ma_device_config);
+            let user_data_ptr = std::mem::replace(&mut raw_config.pUserData, std::ptr::null_mut());
+            let device_user_data = &mut *user_data_ptr.cast::<DeviceUserData>();
+
+            device_user_data.device = Some(&device);
+            device.0.pUserData = device_user_data as *mut _ as _;
+        }
 
         Ok(device)
     }
@@ -207,17 +243,12 @@ impl Device {
         }
     }
 
-    fn device_user_data_mut(&self) -> &mut DeviceUserData {
-        unsafe { &mut *self.0.pUserData.cast::<DeviceUserData>() }
-    }
-
     pub fn start<DataCallback>(&mut self, callback: DataCallback) -> Result<(), Error>
     where
-        DataCallback: Fn(&Device, &Frames, &mut FramesMut) + 'static,
+        DataCallback: Fn(&Device, Option<&mut dyn Any>, &Frames, &mut FramesMut) + 'static,
     {
-        self.device_user_data_mut()
-            .data_callback
-            .replace(Box::new(callback));
+        let device_user_data = unsafe { &mut *self.0.pUserData.cast::<DeviceUserData>() };
+        device_user_data.data_callback.replace(Box::new(callback));
 
         Ok(ma_result!(ma_device_start(self.0.as_mut()))?)
     }
@@ -249,12 +280,13 @@ mod tests {
     #[test]
     fn test_metadata() {
         let test = |device_type| {
-            let device = Device::new(&DeviceConfig::new(
+            let device = Device::new(DeviceConfig::new(
                 device_type,
                 FORMAT,
                 CHANNELS,
                 SAMPLE_RATE,
                 FRAME_COUNT,
+                None,
             ))
             .unwrap();
 
@@ -274,19 +306,55 @@ mod tests {
     }
 
     #[test]
+    fn test_user_data() {
+        #[derive(Debug, Clone, PartialEq)]
+        struct UserData(String);
+
+        let original_user_data = UserData("user data".into());
+
+        let config = DeviceConfig::new(
+            DeviceType::Playback,
+            FORMAT,
+            CHANNELS,
+            SAMPLE_RATE,
+            FRAME_COUNT,
+            Some(Box::new(original_user_data.clone())),
+        );
+
+        assert_eq!(
+            config.user_data().map(|v| v.downcast_ref::<UserData>()),
+            Some(Some(&original_user_data))
+        );
+
+        let mut device = Device::new(config).unwrap();
+
+        device
+            .start(move |_, user_data, _, _| {
+                assert_eq!(
+                    user_data.map(|v| v.downcast_ref::<UserData>()),
+                    Some(Some(&original_user_data))
+                );
+            })
+            .unwrap();
+
+        std::thread::sleep(std::time::Duration::from_millis(100));
+    }
+
+    #[test]
     fn test_start_stop() {
         let test = |device_type| {
-            let mut device = Device::new(&DeviceConfig::new(
+            let mut device = Device::new(DeviceConfig::new(
                 device_type,
                 FORMAT,
                 CHANNELS,
                 SAMPLE_RATE,
                 FRAME_COUNT,
+                None,
             ))
             .unwrap();
 
             device
-                .start(|device, input_frames, output_frames| {
+                .start(|device, _, input_frames, output_frames| {
                     let device_type = device.device_type();
 
                     match device_type {
