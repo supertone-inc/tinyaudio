@@ -122,11 +122,16 @@ private:
     ma_uint64 total_frame_count;
 };
 
+namespace tests
+{
+const std::string INPUT_FILE_NAME = "../audio-samples/700KB.mp3";
+const size_t FRAME_COUNT = 128;
+
 TEST_CASE("[decoder] retrives metadata")
 {
     SUBCASE("without config")
     {
-        Decoder decoder("../audio-samples/700KB.mp3");
+        Decoder decoder(INPUT_FILE_NAME);
 
         REQUIRE_EQ(decoder.get_format(), Format::F32);
         REQUIRE_EQ(decoder.get_channels(), 2);
@@ -137,7 +142,7 @@ TEST_CASE("[decoder] retrives metadata")
 
     SUBCASE("with config")
     {
-        Decoder decoder("../audio-samples/700KB.mp3", Format::S16, 1, 44100);
+        Decoder decoder(INPUT_FILE_NAME, Format::S16, 1, 44100);
 
         REQUIRE_EQ(decoder.get_format(), Format::S16);
         REQUIRE_EQ(decoder.get_channels(), 1);
@@ -149,11 +154,9 @@ TEST_CASE("[decoder] retrives metadata")
 
 TEST_CASE("[decoder] reads frames")
 {
-    const size_t FRAME_COUNT = 128;
-
     SUBCASE("without config")
     {
-        Decoder decoder("../audio-samples/700KB.mp3");
+        Decoder decoder(INPUT_FILE_NAME);
 
         size_t buffer_size = get_bytes_per_frame(decoder.get_format(), decoder.get_channels()) * FRAME_COUNT;
         std::vector<uint8_t> frames(buffer_size);
@@ -175,7 +178,7 @@ TEST_CASE("[decoder] reads frames")
 
     SUBCASE("with config")
     {
-        Decoder decoder("../audio-samples/700KB.mp3", Format::S16, 1, 44100);
+        Decoder decoder(INPUT_FILE_NAME, Format::S16, 1, 44100);
 
         size_t buffer_size = get_bytes_per_frame(decoder.get_format(), decoder.get_channels()) * FRAME_COUNT;
         std::vector<uint8_t> frames(buffer_size);
@@ -198,9 +201,7 @@ TEST_CASE("[decoder] reads frames")
 
 TEST_CASE("[decoder] loops")
 {
-    const size_t FRAME_COUNT = 128;
-
-    Decoder decoder("../audio-samples/700KB.mp3");
+    Decoder decoder(INPUT_FILE_NAME);
 
     REQUIRE_EQ(decoder.is_looping(), false);
     decoder.set_looping(true);
@@ -228,4 +229,5 @@ TEST_CASE("[decoder] loops")
 
     REQUIRE_EQ(total_frames_read, 2 * decoder.get_total_frame_count());
 }
+} // namespace tests
 } // namespace tinyaudio

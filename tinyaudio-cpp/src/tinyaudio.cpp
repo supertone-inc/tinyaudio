@@ -20,7 +20,10 @@ Error::Error(const std::string &message)
 {
 }
 
+namespace tests
+{
 TEST_CASE("tinyaudio")
 {
 }
+} // namespace tests
 } // namespace tinyaudio
