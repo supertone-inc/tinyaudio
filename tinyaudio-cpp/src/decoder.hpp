@@ -272,6 +272,12 @@ TEST_CASE("[decoder] loops")
 
     REQUIRE_EQ(total_frames_read, 2 * decoder.get_total_frame_count());
 }
+
+TEST_CASE("[decoder] closes without error")
+{
+    Decoder decoder(INPUT_FILE_PATH);
+    decoder.close();
+}
 } // namespace decoder
 } // namespace tests
 } // namespace tinyaudio

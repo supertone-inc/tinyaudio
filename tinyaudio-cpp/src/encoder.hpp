@@ -104,6 +104,7 @@ namespace tests
 namespace encoder
 {
 const std::string OUTPUT_FILE_PATH = "test-output/encoder.wav";
+const std::string OUTPUT_FILE_PATH_NO_SOUND = "test-output/encoder-no-sound.wav";
 const EncodingFormat ENCODING_FORMAT = EncodingFormat::WAV;
 const Format FORMAT = Format::F32;
 const size_t CHANNELS = 2;
@@ -114,7 +115,7 @@ const size_t LOOP_COUNT = DURATION_IN_SECS * SAMPLE_RATE / FRAME_COUNT;
 
 TEST_CASE("[encoder] retrives metadata")
 {
-    Encoder encoder(OUTPUT_FILE_PATH, ENCODING_FORMAT, FORMAT, CHANNELS, SAMPLE_RATE);
+    Encoder encoder(OUTPUT_FILE_PATH_NO_SOUND, ENCODING_FORMAT, FORMAT, CHANNELS, SAMPLE_RATE);
 
     REQUIRE_EQ(encoder.get_encoding_format(), ENCODING_FORMAT);
     REQUIRE_EQ(encoder.get_format(), FORMAT);
@@ -149,6 +150,12 @@ TEST_CASE("[encoder] writes frames")
     CHECK_EQ(total_frames_written, LOOP_COUNT * FRAME_COUNT);
 
     ma_waveform_uninit(&waveform);
+}
+
+TEST_CASE("[encoder] closes without error")
+{
+    Encoder encoder(OUTPUT_FILE_PATH_NO_SOUND, ENCODING_FORMAT, FORMAT, CHANNELS, SAMPLE_RATE);
+    encoder.close();
 }
 } // namespace encoder
 } // namespace tests
