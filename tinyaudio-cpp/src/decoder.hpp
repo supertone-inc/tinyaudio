@@ -124,7 +124,7 @@ private:
 
 namespace tests
 {
-const std::string INPUT_FILE_NAME = "../audio-samples/700KB.mp3";
+const std::string INPUT_FILE_NAME = "../audio-samples/1MB.wav";
 const size_t FRAME_COUNT = 128;
 
 TEST_CASE("[decoder] retrives metadata")
@@ -142,12 +142,12 @@ TEST_CASE("[decoder] retrives metadata")
 
     SUBCASE("with config")
     {
-        Decoder decoder(INPUT_FILE_NAME, Format::S16, 1, 44100);
+        Decoder decoder(INPUT_FILE_NAME, Format::F32, 1, 44100);
 
-        REQUIRE_EQ(decoder.get_format(), Format::S16);
+        REQUIRE_EQ(decoder.get_format(), Format::F32);
         REQUIRE_EQ(decoder.get_channels(), 1);
         REQUIRE_EQ(decoder.get_sample_rate(), 44100);
-        REQUIRE_EQ(decoder.get_total_frame_count(), 1203400);
+        REQUIRE_GT(decoder.get_total_frame_count(), 0);
         REQUIRE_EQ(decoder.get_available_frame_count(), decoder.get_total_frame_count());
     }
 }
