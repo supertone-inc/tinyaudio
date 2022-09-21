@@ -25,6 +25,7 @@ public:
             ma_decoder_config_init(static_cast<ma_format>(output_format), output_channels, output_sample_rate);
 
         check_result(ma_decoder_init_file(input_file_path.c_str(), &config, &decoder));
+        check_result(ma_decoder_get_length_in_pcm_frames(&decoder, &total_frame_count));
     }
 
     Decoder(const std::wstring &input_file_path)
@@ -43,6 +44,7 @@ public:
             ma_decoder_config_init(static_cast<ma_format>(output_format), output_channels, output_sample_rate);
 
         check_result(ma_decoder_init_file_w(input_file_path.c_str(), &config, &decoder));
+        check_result(ma_decoder_get_length_in_pcm_frames(&decoder, &total_frame_count));
     }
 
     Format get_format() const
@@ -60,18 +62,26 @@ public:
         return decoder.outputSampleRate;
     }
 
-    size_t get_total_frame_count()
+    size_t get_total_frame_count() const
     {
-        ma_uint64 frame_count = 0;
-        check_result(ma_decoder_get_length_in_pcm_frames(&decoder, &frame_count));
-        return frame_count;
+        return total_frame_count;
     }
 
     size_t get_available_frame_count()
     {
-        ma_uint64 frame_count = 0;
-        check_result(ma_decoder_get_available_frames(&decoder, &frame_count));
-        return frame_count;
+        ma_uint64 value = 0;
+        check_result(ma_decoder_get_available_frames(&decoder, &value));
+        return value;
+    }
+
+    bool is_looping() const
+    {
+        return ma_data_source_is_looping(&decoder);
+    }
+
+    void set_looping(bool value)
+    {
+        check_result(ma_data_source_set_looping(&decoder, value));
     }
 
     void seek(size_t frame_index)
@@ -82,7 +92,7 @@ public:
     size_t read(void *frames, size_t frame_count)
     {
         ma_uint64 frames_read = 0;
-        auto result = ma_decoder_read_pcm_frames(&decoder, frames, frame_count, &frames_read);
+        auto result = ma_data_source_read_pcm_frames(&decoder, frames, frame_count, &frames_read);
         switch (result)
         {
         case MA_SUCCESS:
@@ -109,6 +119,7 @@ public:
 
 private:
     ma_decoder decoder;
+    ma_uint64 total_frame_count;
 };
 
 TEST_CASE("[decoder] retrives metadata")
@@ -183,5 +194,38 @@ TEST_CASE("[decoder] reads frames")
 
         REQUIRE(total_frames_read + FRAME_COUNT > decoder.get_total_frame_count());
     }
+}
+
+TEST_CASE("[decoder] loops")
+{
+    const size_t FRAME_COUNT = 128;
+
+    Decoder decoder("../audio-samples/700KB.mp3");
+
+    REQUIRE_EQ(decoder.is_looping(), false);
+    decoder.set_looping(true);
+    REQUIRE_EQ(decoder.is_looping(), true);
+
+    size_t buffer_size = get_bytes_per_frame(decoder.get_format(), decoder.get_channels()) * FRAME_COUNT;
+    std::vector<uint8_t> frames(buffer_size);
+    size_t total_frames_read = 0;
+
+    while (true)
+    {
+        size_t frames_read = decoder.read(frames.data(), FRAME_COUNT);
+        total_frames_read += frames_read;
+
+        if (frames_read == 0)
+        {
+            break;
+        }
+
+        if (total_frames_read > decoder.get_total_frame_count())
+        {
+            decoder.set_looping(false);
+        }
+    }
+
+    REQUIRE_EQ(total_frames_read, 2 * decoder.get_total_frame_count());
 }
 } // namespace tinyaudio
