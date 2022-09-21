@@ -1,12 +1,7 @@
 #include "codec_stream.hpp"
+#include "common.hpp"
 #include "decoder.hpp"
 #include "encoder.hpp"
-#include "error.hpp"
-#include "format.hpp"
-
-#include <doctest.h>
-#include <miniaudio.h>
-#include <tinyaudio.hpp>
 
 namespace tinyaudio
 {

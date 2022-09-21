@@ -1,14 +1,11 @@
 #pragma once
 
+#include "common.hpp"
 #include "decoder.hpp"
 #include "encoder.hpp"
-#include "format.hpp"
 
 #include <algorithm>
-#include <doctest.h>
-#include <miniaudio.h>
 #include <string>
-#include <tinyaudio.hpp>
 #include <vector>
 
 namespace tinyaudio
