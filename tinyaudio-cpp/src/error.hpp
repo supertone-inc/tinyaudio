@@ -1,12 +1,13 @@
 #pragma once
 
+#include <doctest.h>
 #include <miniaudio.h>
 #include <string>
 #include <tinyaudio.hpp>
 
 namespace tinyaudio
 {
-class MiniaudioError : Error
+class MiniaudioError : public Error
 {
 public:
     MiniaudioError(ma_result ma_result)
