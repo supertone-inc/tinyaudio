@@ -126,7 +126,8 @@ public:
     void start(const DataCallback &callback) override
     {
         device.start(
-            [&](auto nullable_input_frames, auto output_frames, auto frame_count)
+            this,
+            [&](auto user_data, auto nullable_input_frames, auto output_frames, auto frame_count)
             {
                 auto input_frames = nullable_input_frames;
 

@@ -31,7 +31,8 @@ enum class DeviceState
 class Device
 {
 public:
-    using DataCallback = std::function<void(const void *input_frames, void *output_frames, size_t frame_count)>;
+    using DataCallback =
+        std::function<void(void *user_data, const void *input_frames, void *output_frames, size_t frame_count)>;
 
     Device(DeviceType device_type, Format format, size_t channels, size_t sample_rate, size_t frame_count)
     {
@@ -94,7 +95,7 @@ public:
         return ma_device_is_started(&raw_device);
     }
 
-    void start(const DataCallback &callback)
+    void start(void *user_data, const DataCallback &callback)
     {
         control_thread = std::thread(
             [this]()
@@ -113,6 +114,7 @@ public:
         );
 
         data_callback = std::move(callback);
+        this->user_data = user_data;
         check_result(ma_device_start(&raw_device));
     }
 
@@ -137,6 +139,7 @@ public:
 private:
     ma_device raw_device;
     DataCallback data_callback;
+    void *user_data;
 
     std::thread::id data_callback_thread_id;
     std::thread control_thread;
@@ -155,7 +158,7 @@ private:
 
         try
         {
-            device.data_callback(input_frames, output_frames, frame_count);
+            device.data_callback(device.user_data, input_frames, output_frames, frame_count);
         }
         catch (const std::exception &ex)
         {
@@ -200,7 +203,8 @@ TEST_CASE("[device] starts and stops without error")
         Device device(device_type, FORMAT, CHANNELS, SAMPLE_RATE, FRAME_COUNT);
 
         device.start(
-            [&](auto input_frames, auto output_frames, auto frame_count)
+            nullptr,
+            [&](auto user_data, auto input_frames, auto output_frames, auto frame_count)
             {
                 switch (device.get_device_type())
                 {
@@ -245,7 +249,8 @@ TEST_CASE("[device] can be stopped by calling stop() from data callback")
     auto stopped_by_callback = false;
 
     device.start(
-        [&](auto input_frames, auto output_frames, auto frame_count)
+        nullptr,
+        [&](auto user_data, auto input_frames, auto output_frames, auto frame_count)
         {
             stopped_by_callback = true;
             device.stop();
@@ -255,6 +260,21 @@ TEST_CASE("[device] can be stopped by calling stop() from data callback")
     std::this_thread::sleep_for(std::chrono::milliseconds(100));
 
     REQUIRE(stopped_by_callback);
+}
+
+TEST_CASE("[device] passes through user data")
+{
+    Device device(DeviceType::PLAYBACK, FORMAT, CHANNELS, SAMPLE_RATE, FRAME_COUNT);
+
+    int user_data = 12345;
+
+    device.start(
+        (void *)&user_data,
+        [&](auto passed_user_data, auto input_frames, auto output_frames, auto frame_count)
+        { REQUIRE_EQ(static_cast<int *>(passed_user_data), &user_data); }
+    );
+
+    std::this_thread::sleep_for(std::chrono::milliseconds(100));
 }
 } // namespace tests::device
 } // namespace tinyaudio
