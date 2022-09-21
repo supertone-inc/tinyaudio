@@ -144,7 +144,7 @@ TEST_CASE("[decoder] reads frames")
     {
         Decoder decoder("../audio-samples/700KB.mp3");
 
-        size_t buffer_size = get_format_size_in_bytes(decoder.format()) * decoder.channels() * FRAME_COUNT;
+        size_t buffer_size = get_bytes_per_frame(decoder.format(), decoder.channels()) * FRAME_COUNT;
         std::vector<uint8_t> frames(buffer_size);
         size_t total_frames_read = 0;
 
@@ -166,7 +166,7 @@ TEST_CASE("[decoder] reads frames")
     {
         Decoder decoder("../audio-samples/700KB.mp3", Format::S16, 1, 44100);
 
-        size_t buffer_size = get_format_size_in_bytes(decoder.format()) * decoder.channels() * FRAME_COUNT;
+        size_t buffer_size = get_bytes_per_frame(decoder.format(), decoder.channels()) * FRAME_COUNT;
         std::vector<uint8_t> frames(buffer_size);
         size_t total_frames_read = 0;
 
