@@ -95,7 +95,7 @@ public:
         return device.is_started();
     }
 
-    void start(const DataCallback callback)
+    void start(const DataCallback &callback)
     {
         device.start(
             [&](auto nullable_input_frames, auto output_frames, auto frame_count)

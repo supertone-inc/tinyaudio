@@ -71,7 +71,7 @@ public:
         return frame_count;
     }
 
-    void start(const DataCallback callback)
+    void start(const DataCallback &callback)
     {
         auto bytes_per_frame = get_bytes_per_frame(get_format(), get_channels());
         std::vector<uint8_t> input_frames(bytes_per_frame * frame_count);

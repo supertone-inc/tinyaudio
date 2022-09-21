@@ -94,7 +94,7 @@ public:
         return ma_device_is_started(&raw_device);
     }
 
-    void start(const DataCallback callback)
+    void start(const DataCallback &callback)
     {
         control_thread = std::thread(
             [this]()
