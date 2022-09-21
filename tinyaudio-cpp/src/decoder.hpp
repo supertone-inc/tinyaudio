@@ -24,7 +24,7 @@ public:
         auto config =
             ma_decoder_config_init(static_cast<ma_format>(output_format), output_channels, output_sample_rate);
 
-        check_result(ma_decoder_init_file(input_file_path.c_str(), &config, &m_decoder));
+        check_result(ma_decoder_init_file(input_file_path.c_str(), &config, &decoder));
     }
 
     Decoder(const std::wstring &input_file_path)
@@ -42,47 +42,47 @@ public:
         auto config =
             ma_decoder_config_init(static_cast<ma_format>(output_format), output_channels, output_sample_rate);
 
-        check_result(ma_decoder_init_file_w(input_file_path.c_str(), &config, &m_decoder));
+        check_result(ma_decoder_init_file_w(input_file_path.c_str(), &config, &decoder));
     }
 
     Format get_format() const
     {
-        return static_cast<Format>(m_decoder.outputFormat);
+        return static_cast<Format>(decoder.outputFormat);
     }
 
     size_t get_channels() const
     {
-        return m_decoder.outputChannels;
+        return decoder.outputChannels;
     }
 
     size_t get_sample_rate() const
     {
-        return m_decoder.outputSampleRate;
+        return decoder.outputSampleRate;
     }
 
     size_t get_total_frame_count()
     {
         ma_uint64 frame_count = 0;
-        check_result(ma_decoder_get_length_in_pcm_frames(&m_decoder, &frame_count));
+        check_result(ma_decoder_get_length_in_pcm_frames(&decoder, &frame_count));
         return frame_count;
     }
 
     size_t get_available_frame_count()
     {
         ma_uint64 frame_count = 0;
-        check_result(ma_decoder_get_available_frames(&m_decoder, &frame_count));
+        check_result(ma_decoder_get_available_frames(&decoder, &frame_count));
         return frame_count;
     }
 
     void seek(size_t frame_index)
     {
-        check_result(ma_decoder_seek_to_pcm_frame(&m_decoder, frame_index));
+        check_result(ma_decoder_seek_to_pcm_frame(&decoder, frame_index));
     }
 
     size_t read(void *frames, size_t frame_count)
     {
         ma_uint64 frames_read = 0;
-        auto result = ma_decoder_read_pcm_frames(&m_decoder, frames, frame_count, &frames_read);
+        auto result = ma_decoder_read_pcm_frames(&decoder, frames, frame_count, &frames_read);
         switch (result)
         {
         case MA_SUCCESS:
@@ -96,9 +96,9 @@ public:
 
     void close()
     {
-        if (m_decoder.data.vfs.file != nullptr)
+        if (decoder.data.vfs.file != nullptr)
         {
-            ma_decoder_uninit(&m_decoder);
+            ma_decoder_uninit(&decoder);
         }
     }
 
@@ -108,7 +108,7 @@ public:
     }
 
 private:
-    ma_decoder m_decoder;
+    ma_decoder decoder;
 };
 
 TEST_CASE("[decoder] retrives metadata")
