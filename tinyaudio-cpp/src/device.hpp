@@ -99,9 +99,16 @@ public:
         control_thread = std::thread(
             [this]()
             {
-                std::unique_lock<std::mutex> lock(control_mutex);
-                control_cv.wait(lock);
-                check_result(ma_device_stop(&raw_device));
+                try
+                {
+                    std::unique_lock<std::mutex> lock(control_mutex);
+                    control_cv.wait(lock);
+                    check_result(ma_device_stop(&raw_device));
+                }
+                catch (const std::exception &ex)
+                {
+                    fprintf(stderr, "%s\n", ex.what());
+                }
             }
         );
 
@@ -145,7 +152,15 @@ private:
     {
         auto &device = *static_cast<Device *>(raw_device->pUserData);
         device.data_callback_thread_id = std::this_thread::get_id();
-        device.data_callback(input_frames, output_frames, frame_count);
+
+        try
+        {
+            device.data_callback(input_frames, output_frames, frame_count);
+        }
+        catch (const std::exception &ex)
+        {
+            fprintf(stderr, "%s\n", ex.what());
+        }
     }
 };
 
