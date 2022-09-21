@@ -94,7 +94,7 @@ public:
         return ma_device_is_started(&raw_device);
     }
 
-    void start(const DataCallback &callback)
+    void start(const DataCallback callback)
     {
         control_thread = std::thread(
             [this]()
@@ -105,7 +105,7 @@ public:
             }
         );
 
-        data_callback = (DataCallback *)&callback;
+        data_callback = std::move(callback);
         check_result(ma_device_start(&raw_device));
     }
 
@@ -129,7 +129,7 @@ public:
 
 private:
     ma_device raw_device;
-    DataCallback *data_callback = nullptr;
+    DataCallback data_callback;
 
     std::thread::id data_callback_thread_id;
     std::thread control_thread;
@@ -145,7 +145,7 @@ private:
     {
         auto &device = *static_cast<Device *>(raw_device->pUserData);
         device.data_callback_thread_id = std::this_thread::get_id();
-        (*device.data_callback)(input_frames, output_frames, frame_count);
+        device.data_callback(input_frames, output_frames, frame_count);
     }
 };
 

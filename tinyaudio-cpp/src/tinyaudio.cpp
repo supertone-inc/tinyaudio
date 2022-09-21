@@ -2,6 +2,7 @@
 #include "common.hpp"
 #include "decoder.hpp"
 #include "device.hpp"
+#include "device_stream.hpp"
 #include "encoder.hpp"
 
 namespace tinyaudio
