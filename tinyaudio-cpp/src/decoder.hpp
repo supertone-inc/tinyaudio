@@ -95,8 +95,8 @@ public:
         check_result(ma_decoder_seek_to_pcm_frame(&decoder, frame_index));
     }
 
-    template <typename T>
-    size_t read(T *frames, size_t frame_count)
+    template <typename Sample>
+    size_t read(Sample *frames, size_t frame_count)
     {
         auto byte_count = get_bytes_per_frame(get_format(), get_channels()) * frame_count;
         std::fill_n(static_cast<uint8_t *>(frames), byte_count, 0);
