@@ -129,7 +129,7 @@ private:
 
 namespace tests
 {
-const std::string INPUT_FILE_NAME = "../audio-samples/1MB.wav";
+const std::string INPUT_FILE_PATH = "../audio-samples/1MB.wav";
 const size_t FRAME_COUNT = 128;
 
 bool check_frames_zero_padded(const uint8_t *frame_bytes, size_t byte_count, size_t non_zero_byte_count)
@@ -149,7 +149,7 @@ TEST_CASE("[decoder] retrives metadata")
 {
     SUBCASE("without config")
     {
-        Decoder decoder(INPUT_FILE_NAME);
+        Decoder decoder(INPUT_FILE_PATH);
 
         REQUIRE_NE(decoder.get_format(), Format::UNKNOWN);
         REQUIRE_GT(decoder.get_channels(), 0);
@@ -160,7 +160,7 @@ TEST_CASE("[decoder] retrives metadata")
 
     SUBCASE("with config")
     {
-        Decoder decoder(INPUT_FILE_NAME, Format::F32, 1, 44100);
+        Decoder decoder(INPUT_FILE_PATH, Format::F32, 1, 44100);
 
         REQUIRE_EQ(decoder.get_format(), Format::F32);
         REQUIRE_EQ(decoder.get_channels(), 1);
@@ -172,7 +172,7 @@ TEST_CASE("[decoder] retrives metadata")
 
 TEST_CASE("[decoder] seeks to frames")
 {
-    Decoder decoder(INPUT_FILE_NAME);
+    Decoder decoder(INPUT_FILE_PATH);
 
     decoder.seek(decoder.get_total_frame_count());
     REQUIRE_EQ(decoder.get_available_frame_count(), 0);
@@ -191,7 +191,7 @@ TEST_CASE("[decoder] reads frames")
 {
     SUBCASE("without config")
     {
-        Decoder decoder(INPUT_FILE_NAME);
+        Decoder decoder(INPUT_FILE_PATH);
 
         auto bytes_per_frame = get_bytes_per_frame(decoder.get_format(), decoder.get_channels());
         std::vector<uint8_t> frames(bytes_per_frame * FRAME_COUNT);
@@ -215,7 +215,7 @@ TEST_CASE("[decoder] reads frames")
 
     SUBCASE("with config")
     {
-        Decoder decoder(INPUT_FILE_NAME, Format::S16, 1, 44100);
+        Decoder decoder(INPUT_FILE_PATH, Format::S16, 1, 44100);
 
         auto bytes_per_frame = get_bytes_per_frame(decoder.get_format(), decoder.get_channels());
         std::vector<uint8_t> frames(bytes_per_frame * FRAME_COUNT);
@@ -240,7 +240,7 @@ TEST_CASE("[decoder] reads frames")
 
 TEST_CASE("[decoder] loops")
 {
-    Decoder decoder(INPUT_FILE_NAME);
+    Decoder decoder(INPUT_FILE_PATH);
 
     REQUIRE_EQ(decoder.is_looping(), false);
     decoder.set_looping(true);
