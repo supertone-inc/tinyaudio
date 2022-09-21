@@ -47,6 +47,35 @@ public:
         }
     }
 
+    DeviceStream(
+        Format format,
+        size_t channels,
+        size_t sample_rate,
+        size_t frame_count,
+        std::optional<std::wstring> input_file_path,
+        std::optional<std::wstring> output_file_path,
+        bool looping_input_file
+    )
+        : device(
+              input_file_path ? DeviceType::PLAYBACK : DeviceType::DUPLEX,
+              format,
+              channels,
+              sample_rate,
+              frame_count
+          )
+    {
+        if (input_file_path)
+        {
+            decoder.emplace(*input_file_path, format, channels, sample_rate, looping_input_file);
+            decoder_buffer.emplace(get_bytes_per_frame(format, channels) * frame_count);
+        }
+
+        if (output_file_path)
+        {
+            encoder.emplace(*output_file_path, EncodingFormat::WAV, format, channels, sample_rate);
+        }
+    }
+
     DeviceType get_device_type() const
     {
         return device.get_device_type();
