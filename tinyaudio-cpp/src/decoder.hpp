@@ -170,6 +170,23 @@ TEST_CASE("[decoder] retrives metadata")
     }
 }
 
+TEST_CASE("[decoder] seeks to frames")
+{
+    Decoder decoder(INPUT_FILE_NAME);
+
+    decoder.seek(decoder.get_total_frame_count());
+    REQUIRE_EQ(decoder.get_available_frame_count(), 0);
+
+    decoder.seek(decoder.get_total_frame_count() / 2);
+    REQUIRE_EQ(
+        decoder.get_available_frame_count(),
+        decoder.get_total_frame_count() - (decoder.get_total_frame_count() / 2)
+    );
+
+    decoder.seek(0);
+    REQUIRE_EQ(decoder.get_available_frame_count(), decoder.get_total_frame_count());
+}
+
 TEST_CASE("[decoder] reads frames")
 {
     SUBCASE("without config")
