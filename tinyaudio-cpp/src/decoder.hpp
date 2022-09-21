@@ -12,21 +12,28 @@ class Decoder
 {
 public:
     Decoder(const std::string &input_file_path)
-        : Decoder(input_file_path, Format::UNKNOWN, 0, 0)
+        : Decoder(input_file_path, Format::UNKNOWN, 0, 0, false)
     {
     }
 
-    Decoder(const std::string &input_file_path, Format output_format, size_t output_channels, size_t output_sample_rate)
+    Decoder(
+        const std::string &input_file_path,
+        Format output_format,
+        size_t output_channels,
+        size_t output_sample_rate,
+        bool looping
+    )
     {
         auto config =
             ma_decoder_config_init(static_cast<ma_format>(output_format), output_channels, output_sample_rate);
 
         check_result(ma_decoder_init_file(input_file_path.c_str(), &config, &raw_decoder));
         check_result(ma_decoder_get_length_in_pcm_frames(&raw_decoder, &total_frame_count));
+        check_result(ma_data_source_set_looping(&raw_decoder, looping));
     }
 
     Decoder(const std::wstring &input_file_path)
-        : Decoder(input_file_path, Format::UNKNOWN, 0, 0)
+        : Decoder(input_file_path, Format::UNKNOWN, 0, 0, false)
     {
     }
 
@@ -34,7 +41,8 @@ public:
         const std::wstring &input_file_path,
         Format output_format,
         size_t output_channels,
-        size_t output_sample_rate
+        size_t output_sample_rate,
+        bool looping
     )
     {
         auto config =
@@ -42,6 +50,7 @@ public:
 
         check_result(ma_decoder_init_file_w(input_file_path.c_str(), &config, &raw_decoder));
         check_result(ma_decoder_get_length_in_pcm_frames(&raw_decoder, &total_frame_count));
+        check_result(ma_data_source_set_looping(&raw_decoder, looping));
     }
 
     virtual ~Decoder()
@@ -156,7 +165,7 @@ TEST_CASE("[decoder] returns correct metadata")
 
     SUBCASE("with config")
     {
-        Decoder decoder(INPUT_FILE_PATH, Format::F32, 1, 44100);
+        Decoder decoder(INPUT_FILE_PATH, Format::F32, 1, 44100, false);
 
         REQUIRE_EQ(decoder.get_format(), Format::F32);
         REQUIRE_EQ(decoder.get_channels(), 1);
@@ -211,7 +220,7 @@ TEST_CASE("[decoder] reads frames")
 
     SUBCASE("with config")
     {
-        Decoder decoder(INPUT_FILE_PATH, Format::S16, 1, 44100);
+        Decoder decoder(INPUT_FILE_PATH, Format::S16, 1, 44100, false);
 
         auto bytes_per_frame = get_bytes_per_frame(decoder.get_format(), decoder.get_channels());
         std::vector<uint8_t> frames(bytes_per_frame * FRAME_COUNT);

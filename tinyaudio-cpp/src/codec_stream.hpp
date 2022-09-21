@@ -25,7 +25,7 @@ public:
         size_t sample_rate,
         size_t frame_count
     )
-        : decoder(input_file_path, format, channels, sample_rate)
+        : decoder(input_file_path, format, channels, sample_rate, false)
         , encoder(output_file_path, encoding_format, format, channels, sample_rate)
         , frame_count(frame_count)
     {
@@ -40,7 +40,7 @@ public:
         size_t sample_rate,
         size_t frame_count
     )
-        : decoder(input_file_path, format, channels, sample_rate)
+        : decoder(input_file_path, format, channels, sample_rate, false)
         , encoder(output_file_path, encoding_format, format, channels, sample_rate)
         , frame_count(frame_count)
     {
