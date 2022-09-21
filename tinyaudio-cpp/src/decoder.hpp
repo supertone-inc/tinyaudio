@@ -141,7 +141,7 @@ bool check_frames_zero_padded(const uint8_t *frame_bytes, size_t byte_count, siz
     return true;
 }
 
-TEST_CASE("[decoder] retrives metadata")
+TEST_CASE("[decoder] returns correct metadata")
 {
     SUBCASE("without config")
     {

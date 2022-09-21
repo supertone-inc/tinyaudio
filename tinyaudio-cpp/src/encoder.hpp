@@ -107,7 +107,7 @@ const size_t FRAME_COUNT = 128;
 const size_t DURATION_IN_SECS = 1;
 const size_t LOOP_COUNT = DURATION_IN_SECS * SAMPLE_RATE / FRAME_COUNT;
 
-TEST_CASE("[encoder] retrives metadata")
+TEST_CASE("[encoder] returns correct metadata")
 {
     Encoder encoder(OUTPUT_FILE_PATH_NO_SOUND, ENCODING_FORMAT, FORMAT, CHANNELS, SAMPLE_RATE);
 
