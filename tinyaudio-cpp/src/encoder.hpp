@@ -30,7 +30,7 @@ public:
             sample_rate
         );
 
-        check_result(ma_encoder_init_file(output_file_path.c_str(), &config, &encoder));
+        check_result(ma_encoder_init_file(output_file_path.c_str(), &config, &raw_encoder));
     }
 
     Encoder(
@@ -48,7 +48,7 @@ public:
             sample_rate
         );
 
-        check_result(ma_encoder_init_file_w(output_file_path.c_str(), &config, &encoder));
+        check_result(ma_encoder_init_file_w(output_file_path.c_str(), &config, &raw_encoder));
     }
 
     virtual ~Encoder()
@@ -58,41 +58,41 @@ public:
 
     EncodingFormat get_encoding_format() const
     {
-        return static_cast<EncodingFormat>(encoder.config.encodingFormat);
+        return static_cast<EncodingFormat>(raw_encoder.config.encodingFormat);
     }
 
     Format get_format() const
     {
-        return static_cast<Format>(encoder.config.format);
+        return static_cast<Format>(raw_encoder.config.format);
     }
 
     size_t get_channels() const
     {
-        return encoder.config.channels;
+        return raw_encoder.config.channels;
     }
 
     size_t get_sample_rate() const
     {
-        return encoder.config.sampleRate;
+        return raw_encoder.config.sampleRate;
     }
 
     size_t write(const void *frames, size_t frame_count)
     {
         ma_uint64 frames_written = 0;
-        check_result(ma_encoder_write_pcm_frames(&encoder, frames, frame_count, &frames_written));
+        check_result(ma_encoder_write_pcm_frames(&raw_encoder, frames, frame_count, &frames_written));
         return frames_written;
     }
 
     void close()
     {
-        if (encoder.data.vfs.file != nullptr)
+        if (raw_encoder.data.vfs.file != nullptr)
         {
-            ma_encoder_uninit(&encoder);
+            ma_encoder_uninit(&raw_encoder);
         }
     }
 
 private:
-    ma_encoder encoder;
+    ma_encoder raw_encoder;
 };
 
 namespace tests::encoder

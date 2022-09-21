@@ -21,8 +21,8 @@ public:
         auto config =
             ma_decoder_config_init(static_cast<ma_format>(output_format), output_channels, output_sample_rate);
 
-        check_result(ma_decoder_init_file(input_file_path.c_str(), &config, &decoder));
-        check_result(ma_decoder_get_length_in_pcm_frames(&decoder, &total_frame_count));
+        check_result(ma_decoder_init_file(input_file_path.c_str(), &config, &raw_decoder));
+        check_result(ma_decoder_get_length_in_pcm_frames(&raw_decoder, &total_frame_count));
     }
 
     Decoder(const std::wstring &input_file_path)
@@ -40,8 +40,8 @@ public:
         auto config =
             ma_decoder_config_init(static_cast<ma_format>(output_format), output_channels, output_sample_rate);
 
-        check_result(ma_decoder_init_file_w(input_file_path.c_str(), &config, &decoder));
-        check_result(ma_decoder_get_length_in_pcm_frames(&decoder, &total_frame_count));
+        check_result(ma_decoder_init_file_w(input_file_path.c_str(), &config, &raw_decoder));
+        check_result(ma_decoder_get_length_in_pcm_frames(&raw_decoder, &total_frame_count));
     }
 
     virtual ~Decoder()
@@ -51,17 +51,17 @@ public:
 
     Format get_format() const
     {
-        return static_cast<Format>(decoder.outputFormat);
+        return static_cast<Format>(raw_decoder.outputFormat);
     }
 
     size_t get_channels() const
     {
-        return decoder.outputChannels;
+        return raw_decoder.outputChannels;
     }
 
     size_t get_sample_rate() const
     {
-        return decoder.outputSampleRate;
+        return raw_decoder.outputSampleRate;
     }
 
     size_t get_total_frame_count() const
@@ -72,23 +72,23 @@ public:
     size_t get_available_frame_count()
     {
         ma_uint64 value = 0;
-        check_result(ma_decoder_get_available_frames(&decoder, &value));
+        check_result(ma_decoder_get_available_frames(&raw_decoder, &value));
         return value;
     }
 
     bool is_looping() const
     {
-        return ma_data_source_is_looping(&decoder);
+        return ma_data_source_is_looping(&raw_decoder);
     }
 
     void set_looping(bool value)
     {
-        check_result(ma_data_source_set_looping(&decoder, value));
+        check_result(ma_data_source_set_looping(&raw_decoder, value));
     }
 
     void seek(size_t frame_index)
     {
-        check_result(ma_decoder_seek_to_pcm_frame(&decoder, frame_index));
+        check_result(ma_decoder_seek_to_pcm_frame(&raw_decoder, frame_index));
     }
 
     size_t read(void *frames, size_t frame_count)
@@ -97,7 +97,7 @@ public:
         std::fill_n(static_cast<uint8_t *>(frames), byte_count, 0);
 
         ma_uint64 frames_read = 0;
-        auto result = ma_data_source_read_pcm_frames(&decoder, frames, frame_count, &frames_read);
+        auto result = ma_data_source_read_pcm_frames(&raw_decoder, frames, frame_count, &frames_read);
         switch (result)
         {
         case MA_SUCCESS:
@@ -112,14 +112,14 @@ public:
 
     void close()
     {
-        if (decoder.data.vfs.file != nullptr)
+        if (raw_decoder.data.vfs.file != nullptr)
         {
-            ma_decoder_uninit(&decoder);
+            ma_decoder_uninit(&raw_decoder);
         }
     }
 
 private:
-    ma_decoder decoder;
+    ma_decoder raw_decoder;
     ma_uint64 total_frame_count;
 };
 
