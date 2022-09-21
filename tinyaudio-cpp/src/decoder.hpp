@@ -48,6 +48,11 @@ public:
         check_result(ma_decoder_get_length_in_pcm_frames(&decoder, &total_frame_count));
     }
 
+    virtual ~Decoder()
+    {
+        close();
+    }
+
     Format get_format() const
     {
         return static_cast<Format>(decoder.outputFormat);
@@ -116,11 +121,6 @@ public:
         {
             ma_decoder_uninit(&decoder);
         }
-    }
-
-    virtual ~Decoder()
-    {
-        close();
     }
 
 private:

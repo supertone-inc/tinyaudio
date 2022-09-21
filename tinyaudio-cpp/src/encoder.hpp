@@ -55,6 +55,11 @@ public:
         check_result(ma_encoder_init_file_w(output_file_path.c_str(), &config, &encoder));
     }
 
+    virtual ~Encoder()
+    {
+        close();
+    }
+
     EncodingFormat get_encoding_format() const
     {
         return static_cast<EncodingFormat>(encoder.config.encodingFormat);
@@ -89,11 +94,6 @@ public:
         {
             ma_encoder_uninit(&encoder);
         }
-    }
-
-    virtual ~Encoder()
-    {
-        close();
     }
 
 private:
