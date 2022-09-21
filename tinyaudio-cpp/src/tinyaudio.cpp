@@ -4,6 +4,7 @@
 #include "device.hpp"
 #include "device_stream.hpp"
 #include "encoder.hpp"
+#include "stream.hpp"
 
 namespace tinyaudio
 {

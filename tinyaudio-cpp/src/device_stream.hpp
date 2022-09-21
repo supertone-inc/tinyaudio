@@ -4,6 +4,7 @@
 #include "decoder.hpp"
 #include "device.hpp"
 #include "encoder.hpp"
+#include "stream.hpp"
 
 #include <algorithm>
 #include <functional>
@@ -13,11 +14,9 @@
 
 namespace tinyaudio
 {
-class DeviceStream
+class DeviceStream : public Stream
 {
 public:
-    using DataCallback = std::function<void(const void *input_frames, void *output_frames, size_t frame_count)>;
-
     DeviceStream(
         Format format,
         size_t channels,
@@ -124,7 +123,7 @@ public:
         return device.is_started();
     }
 
-    void start(const DataCallback &callback)
+    void start(const DataCallback &callback) override
     {
         device.start(
             [&](auto nullable_input_frames, auto output_frames, auto frame_count)
@@ -153,7 +152,7 @@ public:
         );
     }
 
-    void stop()
+    void stop() override
     {
         device.stop();
     }

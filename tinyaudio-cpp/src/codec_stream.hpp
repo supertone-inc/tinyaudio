@@ -3,6 +3,7 @@
 #include "common.hpp"
 #include "decoder.hpp"
 #include "encoder.hpp"
+#include "stream.hpp"
 
 #include <algorithm>
 #include <functional>
@@ -11,11 +12,9 @@
 
 namespace tinyaudio
 {
-class CodecStream
+class CodecStream : public Stream
 {
 public:
-    using DataCallback = std::function<void(const void *input_frames, void *output_frames, size_t frame_count)>;
-
     CodecStream(
         const std::string &input_file_path,
         const std::string &output_file_path,
@@ -71,7 +70,7 @@ public:
         return frame_count;
     }
 
-    void start(const DataCallback &callback)
+    void start(const DataCallback &callback) override
     {
         auto bytes_per_frame = get_bytes_per_frame(get_format(), get_channels());
         std::vector<uint8_t> input_frames(bytes_per_frame * frame_count);
