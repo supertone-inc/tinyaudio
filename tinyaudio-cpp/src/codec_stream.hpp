@@ -5,6 +5,7 @@
 #include "format.hpp"
 
 #include <algorithm>
+#include <doctest.h>
 #include <miniaudio.h>
 #include <string>
 #include <tinyaudio.hpp>
@@ -103,7 +104,7 @@ private:
 namespace tests::codec_stream
 {
 const std::string INPUT_FILE_PATH = "../audio-samples/2MB.wav";
-const std::string OUTPUT_FILE_PATH = "test-output/codec-stream.wav";
+const std::string OUTPUT_FILE_PATH = "test-codec-stream.wav";
 const EncodingFormat ENCODING_FORMAT = EncodingFormat::WAV;
 const Format FORMAT = Format::F32;
 const size_t CHANNELS = 1;

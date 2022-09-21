@@ -102,8 +102,8 @@ private:
 
 namespace tests::encoder
 {
-const std::string OUTPUT_FILE_PATH = "test-output/encoder.wav";
-const std::string OUTPUT_FILE_PATH_NO_SOUND = "test-output/encoder-no-sound.wav";
+const std::string OUTPUT_FILE_PATH = "test-encoder.wav";
+const std::string OUTPUT_FILE_PATH_NO_SOUND = "test-encoder-no-sound.wav";
 const EncodingFormat ENCODING_FORMAT = EncodingFormat::WAV;
 const Format FORMAT = Format::F32;
 const size_t CHANNELS = 2;
