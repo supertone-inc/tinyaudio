@@ -3,6 +3,7 @@
 #include "error.hpp"
 #include "format.hpp"
 
+#include <algorithm>
 #include <doctest.h>
 #include <miniaudio.h>
 #include <string>
@@ -91,6 +92,9 @@ public:
 
     size_t read(void *frames, size_t frame_count)
     {
+        auto byte_count = get_bytes_per_frame(get_format(), get_channels()) * frame_count;
+        std::fill_n(static_cast<uint8_t *>(frames), byte_count, 0);
+
         ma_uint64 frames_read = 0;
         auto result = ma_data_source_read_pcm_frames(&decoder, frames, frame_count, &frames_read);
         switch (result)
@@ -101,6 +105,7 @@ public:
         default:
             check_result(result);
         }
+
         return frames_read;
     }
 
@@ -126,6 +131,19 @@ namespace tests
 {
 const std::string INPUT_FILE_NAME = "../audio-samples/1MB.wav";
 const size_t FRAME_COUNT = 128;
+
+bool check_frames_zero_padded(const uint8_t *frame_bytes, size_t byte_count, size_t non_zero_byte_count)
+{
+    for (auto i = non_zero_byte_count; i < byte_count; i++)
+    {
+        if (frame_bytes[i] != 0)
+        {
+            return false;
+        }
+    }
+
+    return true;
+}
 
 TEST_CASE("[decoder] retrives metadata")
 {
@@ -158,14 +176,16 @@ TEST_CASE("[decoder] reads frames")
     {
         Decoder decoder(INPUT_FILE_NAME);
 
-        size_t buffer_size = get_bytes_per_frame(decoder.get_format(), decoder.get_channels()) * FRAME_COUNT;
-        std::vector<uint8_t> frames(buffer_size);
-        size_t total_frames_read = 0;
+        auto bytes_per_frame = get_bytes_per_frame(decoder.get_format(), decoder.get_channels());
+        std::vector<uint8_t> frames(bytes_per_frame * FRAME_COUNT);
+        auto total_frames_read = 0;
 
         while (true)
         {
-            size_t frames_read = decoder.read(frames.data(), FRAME_COUNT);
+            auto frames_read = decoder.read(frames.data(), FRAME_COUNT);
             total_frames_read += frames_read;
+
+            REQUIRE(check_frames_zero_padded(frames.data(), frames.size(), bytes_per_frame * frames_read));
 
             if (frames_read == 0)
             {
@@ -180,14 +200,16 @@ TEST_CASE("[decoder] reads frames")
     {
         Decoder decoder(INPUT_FILE_NAME, Format::S16, 1, 44100);
 
-        size_t buffer_size = get_bytes_per_frame(decoder.get_format(), decoder.get_channels()) * FRAME_COUNT;
-        std::vector<uint8_t> frames(buffer_size);
-        size_t total_frames_read = 0;
+        auto bytes_per_frame = get_bytes_per_frame(decoder.get_format(), decoder.get_channels());
+        std::vector<uint8_t> frames(bytes_per_frame * FRAME_COUNT);
+        auto total_frames_read = 0;
 
         while (true)
         {
             size_t frames_read = decoder.read(frames.data(), FRAME_COUNT);
             total_frames_read += frames_read;
+
+            REQUIRE(check_frames_zero_padded(frames.data(), frames.size(), bytes_per_frame * frames_read));
 
             if (frames_read == 0)
             {
@@ -207,14 +229,16 @@ TEST_CASE("[decoder] loops")
     decoder.set_looping(true);
     REQUIRE_EQ(decoder.is_looping(), true);
 
-    size_t buffer_size = get_bytes_per_frame(decoder.get_format(), decoder.get_channels()) * FRAME_COUNT;
-    std::vector<uint8_t> frames(buffer_size);
-    size_t total_frames_read = 0;
+    auto bytes_per_frame = get_bytes_per_frame(decoder.get_format(), decoder.get_channels());
+    std::vector<uint8_t> frames(bytes_per_frame * FRAME_COUNT);
+    auto total_frames_read = 0;
 
     while (true)
     {
         size_t frames_read = decoder.read(frames.data(), FRAME_COUNT);
         total_frames_read += frames_read;
+
+        REQUIRE(check_frames_zero_padded(frames.data(), frames.size(), bytes_per_frame * frames_read));
 
         if (frames_read == 0)
         {
