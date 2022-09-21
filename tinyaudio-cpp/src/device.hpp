@@ -185,7 +185,7 @@ TEST_CASE("[device] starts and stops without error")
         Device device(device_type, FORMAT, CHANNELS, SAMPLE_RATE, FRAME_COUNT);
 
         device.start(
-            [&](const void *input_frames, void *output_frames, size_t frame_count)
+            [&](auto input_frames, auto output_frames, auto frame_count)
             {
                 switch (device.get_device_type())
                 {
@@ -227,10 +227,10 @@ TEST_CASE("[device] can be stopped by calling stop() from data callback")
 {
     Device device(DeviceType::PLAYBACK, FORMAT, CHANNELS, SAMPLE_RATE, FRAME_COUNT);
 
-    bool stopped_by_callback = false;
+    auto stopped_by_callback = false;
 
     device.start(
-        [&](const void *input_frames, void *output_frames, size_t frame_count)
+        [&](auto input_frames, auto output_frames, auto frame_count)
         {
             stopped_by_callback = true;
             device.stop();

@@ -228,7 +228,7 @@ TEST_CASE("[decoder] reads frames")
 
         while (true)
         {
-            size_t frames_read = decoder.read(frames.data(), FRAME_COUNT);
+            auto frames_read = decoder.read(frames.data(), FRAME_COUNT);
             total_frames_read += frames_read;
 
             REQUIRE(check_frames_zero_padded(frames.data(), frames.size(), bytes_per_frame * frames_read));
@@ -257,7 +257,7 @@ TEST_CASE("[decoder] loops")
 
     while (true)
     {
-        size_t frames_read = decoder.read(frames.data(), FRAME_COUNT);
+        auto frames_read = decoder.read(frames.data(), FRAME_COUNT);
         total_frames_read += frames_read;
 
         REQUIRE(check_frames_zero_padded(frames.data(), frames.size(), bytes_per_frame * frames_read));

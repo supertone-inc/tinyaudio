@@ -117,7 +117,7 @@ TEST_CASE("[codec_stream] works")
     REQUIRE_EQ(stream.get_frame_count(), FRAME_COUNT);
 
     stream.start(
-        [&](const void *input_frames, void *output_frames, size_t frame_count)
+        [&](auto input_frames, auto output_frames, auto frame_count)
         { std::copy_n(static_cast<const float *>(input_frames), frame_count, static_cast<float *>(output_frames)); }
     );
 }
