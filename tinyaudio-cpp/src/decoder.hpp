@@ -129,6 +129,8 @@ private:
 
 namespace tests
 {
+namespace decoder
+{
 const std::string INPUT_FILE_PATH = "../audio-samples/1MB.wav";
 const size_t FRAME_COUNT = 128;
 
@@ -270,5 +272,6 @@ TEST_CASE("[decoder] loops")
 
     REQUIRE_EQ(total_frames_read, 2 * decoder.get_total_frame_count());
 }
+} // namespace decoder
 } // namespace tests
 } // namespace tinyaudio

@@ -1,5 +1,5 @@
-
 #include "decoder.hpp"
+#include "encoder.hpp"
 #include "error.hpp"
 
 #include <doctest.h>
