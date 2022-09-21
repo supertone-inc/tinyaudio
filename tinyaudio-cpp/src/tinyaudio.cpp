@@ -1,6 +1,7 @@
 #include "decoder.hpp"
 #include "encoder.hpp"
 #include "error.hpp"
+#include "format.hpp"
 
 #include <doctest.h>
 #include <miniaudio.h>
