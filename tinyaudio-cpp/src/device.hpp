@@ -153,12 +153,12 @@ private:
         ma_uint32 frame_count
     )
     {
-        auto &device = *static_cast<Device *>(raw_device->pUserData);
-        device.data_callback_thread_id = std::this_thread::get_id();
+        auto &self = *static_cast<Device *>(raw_device->pUserData);
+        self.data_callback_thread_id = std::this_thread::get_id();
 
         try
         {
-            device.data_callback(device.user_data, input_frames, output_frames, frame_count);
+            self.data_callback(self.user_data, input_frames, output_frames, frame_count);
         }
         catch (const std::exception &ex)
         {
