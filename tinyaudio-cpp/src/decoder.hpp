@@ -127,9 +127,7 @@ private:
     ma_uint64 total_frame_count;
 };
 
-namespace tests
-{
-namespace decoder
+namespace tests::decoder
 {
 const std::string INPUT_FILE_PATH = "../audio-samples/1MB.wav";
 const size_t FRAME_COUNT = 128;
@@ -278,6 +276,5 @@ TEST_CASE("[decoder] closes without error")
     Decoder decoder(INPUT_FILE_PATH);
     decoder.close();
 }
-} // namespace decoder
-} // namespace tests
+} // namespace tests::decoder
 } // namespace tinyaudio

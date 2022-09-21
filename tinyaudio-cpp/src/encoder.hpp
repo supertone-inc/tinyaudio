@@ -99,9 +99,7 @@ private:
     ma_encoder encoder;
 };
 
-namespace tests
-{
-namespace encoder
+namespace tests::encoder
 {
 const std::string OUTPUT_FILE_PATH = "test-output/encoder.wav";
 const std::string OUTPUT_FILE_PATH_NO_SOUND = "test-output/encoder-no-sound.wav";
@@ -157,6 +155,5 @@ TEST_CASE("[encoder] closes without error")
     Encoder encoder(OUTPUT_FILE_PATH_NO_SOUND, ENCODING_FORMAT, FORMAT, CHANNELS, SAMPLE_RATE);
     encoder.close();
 }
-} // namespace encoder
-} // namespace tests
+} // namespace tests::encoder
 } // namespace tinyaudio
