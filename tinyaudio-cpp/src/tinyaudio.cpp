@@ -1,3 +1,4 @@
+#include "codec_stream.hpp"
 #include "decoder.hpp"
 #include "encoder.hpp"
 #include "error.hpp"
