@@ -125,32 +125,8 @@ public:
 
     void start(const DataCallback &callback) override
     {
-        device.start(
-            this,
-            [&](auto user_data, auto nullable_input_frames, auto output_frames, auto frame_count)
-            {
-                auto input_frames = nullable_input_frames;
-
-                if (decoder)
-                {
-                    auto decoder_frames = (*decoder_buffer).data();
-                    auto frames_read = (*decoder).read(decoder_frames, frame_count);
-                    input_frames = decoder_frames;
-
-                    if (frames_read == 0)
-                    {
-                        stop();
-                    }
-                }
-
-                callback(input_frames, output_frames, frame_count);
-
-                if (encoder)
-                {
-                    (*encoder).write(output_frames, frame_count);
-                }
-            }
-        );
+        data_callback = std::move(callback);
+        device.start(this, device_data_callback);
     }
 
     void stop() override
@@ -163,6 +139,38 @@ private:
     std::optional<Decoder> decoder;
     std::optional<std::vector<uint8_t>> decoder_buffer;
     std::optional<Encoder> encoder;
+    DataCallback data_callback;
+
+    static void device_data_callback(
+        void *user_data,
+        const void *nullable_input_frames,
+        void *output_frames,
+        size_t frame_count
+    )
+    {
+        auto &self = *static_cast<DeviceStream *>(user_data);
+
+        auto input_frames = nullable_input_frames;
+
+        if (self.decoder)
+        {
+            auto decoder_frames = (*self.decoder_buffer).data();
+            auto frames_read = (*self.decoder).read(decoder_frames, frame_count);
+            input_frames = decoder_frames;
+
+            if (frames_read == 0)
+            {
+                self.stop();
+            }
+        }
+
+        self.data_callback(input_frames, output_frames, frame_count);
+
+        if (self.encoder)
+        {
+            (*self.encoder).write(output_frames, frame_count);
+        }
+    }
 };
 
 namespace tests::device_stream
