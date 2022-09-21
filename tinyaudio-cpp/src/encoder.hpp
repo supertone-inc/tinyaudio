@@ -76,8 +76,7 @@ public:
         return encoder.config.sampleRate;
     }
 
-    template <typename Sample>
-    size_t write(const Sample *frames, size_t frame_count)
+    size_t write(const void *frames, size_t frame_count)
     {
         ma_uint64 frames_written = 0;
         check_result(ma_encoder_write_pcm_frames(&encoder, frames, frame_count, &frames_written));

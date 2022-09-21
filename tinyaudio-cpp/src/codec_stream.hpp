@@ -5,6 +5,7 @@
 #include "encoder.hpp"
 
 #include <algorithm>
+#include <functional>
 #include <string>
 #include <vector>
 
@@ -13,6 +14,8 @@ namespace tinyaudio
 class CodecStream
 {
 public:
+    using DataCallback = std::function<void(const void *input_frames, void *output_frames, size_t frame_count)>;
+
     CodecStream(
         const std::string &input_file_path,
         const std::string &output_file_path,
@@ -68,11 +71,6 @@ public:
         return frame_count;
     }
 
-    virtual ~CodecStream(){};
-
-    template <
-        typename Sample,
-        typename DataCallback = void (*)(const Sample *input_frames, Sample *output_frames, size_t frame_count)>
     void start(const DataCallback &callback)
     {
         auto bytes_per_frame = get_bytes_per_frame(get_format(), get_channels());
@@ -86,7 +84,7 @@ public:
                 break;
             }
 
-            callback((const Sample *)(input_frames.data()), (Sample *)(output_frames.data()), frame_count);
+            callback(input_frames.data(), output_frames.data(), frame_count);
 
             encoder.write(output_frames.data(), frame_count);
         }
@@ -118,8 +116,10 @@ TEST_CASE("[codec_stream] works")
     REQUIRE_EQ(stream.get_sample_rate(), SAMPLE_RATE);
     REQUIRE_EQ(stream.get_frame_count(), FRAME_COUNT);
 
-    stream.start<float>([&](const float *input_frames, float *output_frames, size_t frame_count)
-                        { std::copy_n(input_frames, frame_count, output_frames); });
+    stream.start(
+        [&](const void *input_frames, void *output_frames, size_t frame_count)
+        { std::copy_n(static_cast<const float *>(input_frames), frame_count, static_cast<float *>(output_frames)); }
+    );
 }
 } // namespace tests::codec_stream
 } // namespace tinyaudio
