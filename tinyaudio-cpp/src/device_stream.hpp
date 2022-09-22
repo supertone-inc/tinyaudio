@@ -118,7 +118,7 @@ public:
         return device.get_device_state();
     }
 
-    bool is_started() const
+    bool is_started() const override
     {
         return device.is_started();
     }
@@ -185,20 +185,24 @@ const size_t FRAME_COUNT = 128;
 TEST_CASE("[device_stream] works")
 {
     DeviceStream stream(FORMAT, CHANNELS, SAMPLE_RATE, FRAME_COUNT, INPUT_FILE_PATH, OUTPUT_FILE_PATH, false);
-
     REQUIRE_EQ(stream.get_device_type(), DeviceType::PLAYBACK);
     REQUIRE_EQ(stream.get_format(), FORMAT);
     REQUIRE_EQ(stream.get_channels(), CHANNELS);
     REQUIRE_EQ(stream.get_sample_rate(), SAMPLE_RATE);
     REQUIRE_EQ(stream.get_frame_count(), FRAME_COUNT);
     REQUIRE_EQ(stream.is_looping_input_file(), false);
+    REQUIRE_EQ(stream.is_started(), false);
 
     stream.start(
         [&](auto input_frames, auto output_frames, auto frame_count)
         { std::copy_n(static_cast<const float *>(input_frames), frame_count, static_cast<float *>(output_frames)); }
     );
+    REQUIRE_EQ(stream.is_started(), true);
 
     std::this_thread::sleep_for(std::chrono::milliseconds(100));
+
+    stream.stop();
+    REQUIRE_EQ(stream.is_started(), false);
 }
 
 } // namespace tests::device_stream

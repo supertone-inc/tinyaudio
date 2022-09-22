@@ -6,6 +6,8 @@
 #include "stream.hpp"
 
 #include <algorithm>
+#include <atomic>
+#include <exception>
 #include <functional>
 #include <string>
 #include <vector>
@@ -27,6 +29,7 @@ public:
         : decoder(input_file_path, format, channels, sample_rate, false)
         , encoder(output_file_path, encoding_format, format, channels, sample_rate)
         , frame_count(frame_count)
+        , started(false)
     {
     }
 
@@ -42,6 +45,7 @@ public:
         : decoder(input_file_path, format, channels, sample_rate, false)
         , encoder(output_file_path, encoding_format, format, channels, sample_rate)
         , frame_count(frame_count)
+        , started(false)
     {
     }
 
@@ -70,29 +74,52 @@ public:
         return frame_count;
     }
 
+    bool is_started() const override
+    {
+        return started;
+    }
+
     void start(const DataCallback &callback) override
     {
-        auto bytes_per_frame = get_bytes_per_frame(get_format(), get_channels());
-        std::vector<uint8_t> input_frames(bytes_per_frame * frame_count);
-        std::vector<uint8_t> output_frames(bytes_per_frame * frame_count);
-
-        while (true)
+        try
         {
-            if (decoder.read(input_frames.data(), frame_count) == 0)
+            started = true;
+
+            auto bytes_per_frame = get_bytes_per_frame(get_format(), get_channels());
+            std::vector<uint8_t> input_frames(bytes_per_frame * frame_count);
+            std::vector<uint8_t> output_frames(bytes_per_frame * frame_count);
+
+            while (started)
             {
-                break;
+                if (decoder.read(input_frames.data(), frame_count) == 0)
+                {
+                    break;
+                }
+
+                callback(input_frames.data(), output_frames.data(), frame_count);
+
+                encoder.write(output_frames.data(), frame_count);
             }
 
-            callback(input_frames.data(), output_frames.data(), frame_count);
-
-            encoder.write(output_frames.data(), frame_count);
+            started = false;
         }
+        catch (const std::exception &ex)
+        {
+            started = false;
+            throw ex;
+        }
+    }
+
+    void stop() override
+    {
+        started = false;
     }
 
 private:
     Decoder decoder;
     Encoder encoder;
     size_t frame_count;
+    std::atomic<bool> started;
 };
 
 namespace tests::codec_stream
@@ -114,11 +141,17 @@ TEST_CASE("[codec_stream] works")
     REQUIRE_EQ(stream.get_channels(), CHANNELS);
     REQUIRE_EQ(stream.get_sample_rate(), SAMPLE_RATE);
     REQUIRE_EQ(stream.get_frame_count(), FRAME_COUNT);
+    REQUIRE_EQ(stream.is_started(), false);
 
     stream.start(
         [&](auto input_frames, auto output_frames, auto frame_count)
-        { std::copy_n(static_cast<const float *>(input_frames), frame_count, static_cast<float *>(output_frames)); }
+        {
+            REQUIRE_EQ(stream.is_started(), true);
+            std::copy_n(static_cast<const float *>(input_frames), frame_count, static_cast<float *>(output_frames));
+        }
     );
+
+    REQUIRE_EQ(stream.is_started(), false);
 }
 } // namespace tests::codec_stream
 } // namespace tinyaudio
