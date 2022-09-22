@@ -1,29 +1,61 @@
 #pragma once
 
+#include <cstddef>
+#include <functional>
+#include <optional>
 #include <stdexcept>
+#include <string>
 
 namespace tinyaudio
 {
+enum class Format
+{
+    UNKNOWN = 0,
+    U8 = 1,
+    S16 = 2,
+    S24 = 3,
+    S32 = 4,
+    F32 = 5,
+};
+
 class Tinyaudio
 {
 public:
-    Tinyaudio();
+    using DataCallback = std::function<void(const void *input_frames, void *output_frames, size_t frame_count)>;
+
+    Tinyaudio(
+        bool offline,
+        Format format,
+        size_t channels,
+        size_t sample_rate,
+        size_t frame_count,
+        std::optional<std::string> input_file_path,
+        std::optional<std::string> output_file_path,
+        bool looping_input_file
+    );
+
+    Tinyaudio(const Tinyaudio &) = delete;
+    Tinyaudio &operator=(const Tinyaudio &) = delete;
+
+    Tinyaudio(Tinyaudio &&);
+    Tinyaudio &operator=(Tinyaudio &&);
+
     virtual ~Tinyaudio();
-};
 
-class Error : public std::runtime_error
-{
-public:
-    Error(const std::string &message);
-};
+    bool is_offline() const;
+    Format get_format() const;
+    size_t get_channels() const;
+    size_t get_sample_rate() const;
+    size_t get_frame_count() const;
+    bool is_looping_input_file() const;
+    void set_looping_input_file(bool value);
+    bool is_started() const;
 
-enum class Format
-{
-    UNKNOWN,
-    U8,
-    S16,
-    S24,
-    S32,
-    F32,
+    void start(const DataCallback &callback);
+    void stop();
+
+private:
+    class Impl;
+    Impl *impl;
 };
 } // namespace tinyaudio

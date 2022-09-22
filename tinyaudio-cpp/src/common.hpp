@@ -7,11 +7,11 @@
 
 namespace tinyaudio
 {
-class MiniaudioError : public Error
+class Error : public std::runtime_error
 {
 public:
-    MiniaudioError(ma_result ma_result)
-        : Error(ma_result_description(ma_result))
+    Error(const std::string &message)
+        : std::runtime_error(message)
     {
     }
 };
@@ -23,7 +23,7 @@ inline void check_result(ma_result ma_result)
         return;
     }
 
-    throw MiniaudioError(ma_result);
+    throw Error(ma_result_description(ma_result));
 }
 
 size_t get_bytes_per_sample(Format format)
