@@ -18,30 +18,8 @@ class CodecStream : public Stream
 {
 public:
     CodecStream(
-        const std::string &input_file_path,
-        const std::string &output_file_path,
-        EncodingFormat encoding_format,
-        Format format,
-        size_t channels,
-        size_t sample_rate,
-        size_t frame_count
-    )
-        : decoder(input_file_path, format, channels, sample_rate, false)
-        , encoder(
-              output_file_path,
-              encoding_format,
-              decoder.get_format(),
-              decoder.get_channels(),
-              decoder.get_sample_rate()
-          )
-        , frame_count(frame_count)
-        , started(false)
-    {
-    }
-
-    CodecStream(
-        const std::wstring &input_file_path,
-        const std::wstring &output_file_path,
+        std::variant<std::string, std::wstring> input_file_path,
+        std::variant<std::string, std::wstring> output_file_path,
         EncodingFormat encoding_format,
         Format format,
         size_t channels,

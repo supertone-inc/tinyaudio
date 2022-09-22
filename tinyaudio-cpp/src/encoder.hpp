@@ -3,6 +3,7 @@
 #include "common.hpp"
 
 #include <string>
+#include <variant>
 #include <vector>
 
 namespace tinyaudio
@@ -16,7 +17,7 @@ class Encoder
 {
 public:
     Encoder(
-        const std::string &output_file_path,
+        std::variant<std::string, std::wstring> output_file_path,
         EncodingFormat encoding_format,
         Format format,
         size_t channels,
@@ -30,25 +31,14 @@ public:
             sample_rate
         );
 
-        check_result(ma_encoder_init_file(output_file_path.c_str(), &config, &raw_encoder));
-    }
-
-    Encoder(
-        const std::wstring &output_file_path,
-        EncodingFormat encoding_format,
-        Format format,
-        size_t channels,
-        size_t sample_rate
-    )
-    {
-        auto config = ma_encoder_config_init(
-            static_cast<ma_encoding_format>(encoding_format),
-            static_cast<ma_format>(format),
-            channels,
-            sample_rate
-        );
-
-        check_result(ma_encoder_init_file_w(output_file_path.c_str(), &config, &raw_encoder));
+        if (output_file_path.index() == 0)
+        {
+            check_result(ma_encoder_init_file(std::get<0>(output_file_path).c_str(), &config, &raw_encoder));
+        }
+        else
+        {
+            check_result(ma_encoder_init_file_w(std::get<1>(output_file_path).c_str(), &config, &raw_encoder));
+        }
     }
 
     virtual ~Encoder()

@@ -11,13 +11,13 @@ namespace tinyaudio
 class Decoder
 {
 public:
-    Decoder(const std::string &input_file_path)
+    Decoder(std::variant<std::string, std::wstring> input_file_path)
         : Decoder(input_file_path, Format::UNKNOWN, 0, 0, false)
     {
     }
 
     Decoder(
-        const std::string &input_file_path,
+        std::variant<std::string, std::wstring> input_file_path,
         Format output_format,
         size_t output_channels,
         size_t output_sample_rate,
@@ -27,28 +27,15 @@ public:
         auto config =
             ma_decoder_config_init(static_cast<ma_format>(output_format), output_channels, output_sample_rate);
 
-        check_result(ma_decoder_init_file(input_file_path.c_str(), &config, &raw_decoder));
-        check_result(ma_decoder_get_length_in_pcm_frames(&raw_decoder, &total_frame_count));
-        check_result(ma_data_source_set_looping(&raw_decoder, looping));
-    }
+        if (input_file_path.index() == 0)
+        {
+            check_result(ma_decoder_init_file(std::get<0>(input_file_path).c_str(), &config, &raw_decoder));
+        }
+        else
+        {
+            check_result(ma_decoder_init_file_w(std::get<1>(input_file_path).c_str(), &config, &raw_decoder));
+        }
 
-    Decoder(const std::wstring &input_file_path)
-        : Decoder(input_file_path, Format::UNKNOWN, 0, 0, false)
-    {
-    }
-
-    Decoder(
-        const std::wstring &input_file_path,
-        Format output_format,
-        size_t output_channels,
-        size_t output_sample_rate,
-        bool looping
-    )
-    {
-        auto config =
-            ma_decoder_config_init(static_cast<ma_format>(output_format), output_channels, output_sample_rate);
-
-        check_result(ma_decoder_init_file_w(input_file_path.c_str(), &config, &raw_decoder));
         check_result(ma_decoder_get_length_in_pcm_frames(&raw_decoder, &total_frame_count));
         check_result(ma_data_source_set_looping(&raw_decoder, looping));
     }
