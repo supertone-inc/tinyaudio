@@ -118,7 +118,7 @@ const std::string INPUT_FILE_PATH = "../audio-samples/2MB.wav";
 const std::string OUTPUT_FILE_PATH = "test-codec-stream.wav";
 const EncodingFormat ENCODING_FORMAT = EncodingFormat::WAV;
 const Format FORMAT = Format::F32;
-const size_t CHANNELS = 1;
+const size_t CHANNELS = 2;
 const size_t SAMPLE_RATE = 8000;
 const size_t FRAME_COUNT = 128;
 
@@ -137,7 +137,11 @@ TEST_CASE("[codec_stream] works")
         [&](auto input_frames, auto output_frames, auto frame_count)
         {
             REQUIRE_EQ(stream.is_started(), true);
-            std::copy_n(static_cast<const float *>(input_frames), frame_count, static_cast<float *>(output_frames));
+            std::copy_n(
+                static_cast<const float *>(input_frames),
+                stream.get_channels() * frame_count,
+                static_cast<float *>(output_frames)
+            );
         }
     );
 

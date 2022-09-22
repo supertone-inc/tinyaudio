@@ -177,7 +177,7 @@ namespace tests::tinyaudio
 {
 const std::string INPUT_FILE_PATH = "../audio-samples/2MB.wav";
 const Format FORMAT = Format::F32;
-const size_t CHANNELS = 1;
+const size_t CHANNELS = 2;
 const size_t SAMPLE_RATE = 44100;
 const size_t FRAME_COUNT = 128;
 
@@ -206,7 +206,11 @@ TEST_CASE("[tinyaudio] works offline")
         [&](auto input_frames, auto output_frames, auto frame_count)
         {
             REQUIRE_EQ(audio.is_started(), true);
-            std::copy_n(static_cast<const float *>(input_frames), frame_count, static_cast<float *>(output_frames));
+            std::copy_n(
+                static_cast<const float *>(input_frames),
+                audio.get_channels() * frame_count,
+                static_cast<float *>(output_frames)
+            );
         }
     );
 
@@ -237,7 +241,13 @@ TEST_CASE("[tinyaudio] works online")
 
     audio.start(
         [&](auto input_frames, auto output_frames, auto frame_count)
-        { std::copy_n(static_cast<const float *>(input_frames), frame_count, static_cast<float *>(output_frames)); }
+        {
+            std::copy_n(
+                static_cast<const float *>(input_frames),
+                audio.get_channels() * frame_count,
+                static_cast<float *>(output_frames)
+            );
+        }
     );
     REQUIRE_EQ(audio.is_started(), true);
 
