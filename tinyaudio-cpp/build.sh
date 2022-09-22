@@ -2,7 +2,8 @@
 
 set -e
 
-BUILD_DIR=./build
+BUILD_DIR=build
+CMAKE_BUILD_TYPE=Release
 
-cmake -S. -B$BUILD_DIR -DCMAKE_BUILD_TYPE=Release -DTINYAUDIO_BUILD_TESTS=OFF
-cmake --build $BUILD_DIR --config Release
+cmake -S. -B$BUILD_DIR -DCMAKE_BUILD_TYPE=$CMAKE_BUILD_TYPE -DTINYAUDIO_BUILD_TESTS=OFF
+cmake --build $BUILD_DIR --config $CMAKE_BUILD_TYPE
