@@ -80,22 +80,22 @@ public:
         return device.get_device_type();
     }
 
-    Format get_format() const
+    Format get_format() const override
     {
         return device.get_format();
     }
 
-    size_t get_channels() const
+    size_t get_channels() const override
     {
         return device.get_channels();
     }
 
-    size_t get_sample_rate() const
+    size_t get_sample_rate() const override
     {
         return device.get_sample_rate();
     }
 
-    size_t get_frame_count() const
+    size_t get_frame_count() const override
     {
         return device.get_frame_count();
     }
