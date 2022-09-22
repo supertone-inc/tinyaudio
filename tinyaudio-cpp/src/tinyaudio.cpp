@@ -1,10 +1,7 @@
 #include "codec_stream.hpp"
-#include "common.hpp"
-#include "decoder.hpp"
-#include "device.hpp"
 #include "device_stream.hpp"
-#include "encoder.hpp"
-#include "stream.hpp"
+
+#include <tinyaudio.hpp>
 
 namespace tinyaudio
 {
@@ -173,6 +170,11 @@ void Tinyaudio::stop()
     impl->stream->stop();
 }
 } // namespace tinyaudio
+
+#include <algorithm>
+#include <chrono>
+#include <doctest.h>
+#include <thread>
 
 namespace tinyaudio::tests::tinyaudio
 {

@@ -1,6 +1,7 @@
 #pragma once
 
 #include <miniaudio.h>
+#include <stdexcept>
 #include <string>
 #include <tinyaudio.hpp>
 

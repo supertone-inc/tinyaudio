@@ -3,7 +3,6 @@
 #include <cstddef>
 #include <functional>
 #include <optional>
-#include <stdexcept>
 #include <string>
 
 namespace tinyaudio
