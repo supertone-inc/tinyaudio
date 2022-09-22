@@ -2,10 +2,8 @@
 
 #include "common.hpp"
 
-#include <algorithm>
 #include <string>
 #include <variant>
-#include <vector>
 
 namespace tinyaudio
 {
@@ -119,8 +117,12 @@ private:
     ma_decoder raw_decoder;
     ma_uint64 total_frame_count;
 };
+} // namespace tinyaudio
 
-namespace tests::decoder
+#include <algorithm>
+#include <vector>
+
+namespace tinyaudio::tests::decoder
 {
 const std::string INPUT_FILE_PATH = "../audio-samples/1MB.wav";
 const size_t FRAME_COUNT = 128;
@@ -269,5 +271,4 @@ TEST_CASE("[decoder] closes without error")
     Decoder decoder(INPUT_FILE_PATH);
     decoder.close();
 }
-} // namespace tests::decoder
-} // namespace tinyaudio
+} // namespace tinyaudio::tests::decoder

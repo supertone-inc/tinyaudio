@@ -1,6 +1,5 @@
 #pragma once
 
-#include <doctest.h>
 #include <miniaudio.h>
 #include <string>
 #include <tinyaudio.hpp>
@@ -36,3 +35,5 @@ size_t get_bytes_per_frame(Format format, size_t channels)
     return ma_get_bytes_per_frame(static_cast<ma_format>(format), channels);
 }
 } // namespace tinyaudio
+
+#include <doctest.h>

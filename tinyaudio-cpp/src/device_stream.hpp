@@ -6,11 +6,9 @@
 #include "encoder.hpp"
 #include "stream.hpp"
 
-#include <algorithm>
 #include <functional>
 #include <optional>
 #include <string>
-#include <vector>
 
 namespace tinyaudio
 {
@@ -143,8 +141,12 @@ private:
         }
     }
 };
+} // namespace tinyaudio
 
-namespace tests::device_stream
+#include <algorithm>
+#include <vector>
+
+namespace tinyaudio::tests::device_stream
 {
 const std::string INPUT_FILE_PATH = "../audio-samples/2MB.wav";
 const std::string OUTPUT_FILE_PATH = "test-device-stream.wav";
@@ -182,5 +184,4 @@ TEST_CASE("[device_stream] works")
     REQUIRE_EQ(stream.is_started(), false);
 }
 
-} // namespace tests::device_stream
-} // namespace tinyaudio
+} // namespace tinyaudio::tests::device_stream

@@ -4,7 +4,6 @@
 
 #include <string>
 #include <variant>
-#include <vector>
 
 namespace tinyaudio
 {
@@ -84,8 +83,11 @@ public:
 private:
     ma_encoder raw_encoder;
 };
+} // namespace tinyaudio
 
-namespace tests::encoder
+#include <vector>
+
+namespace tinyaudio::tests::encoder
 {
 const std::string OUTPUT_FILE_PATH = "test-encoder.wav";
 const std::string OUTPUT_FILE_PATH_NO_SOUND = "test-encoder-no-sound.wav";
@@ -141,5 +143,4 @@ TEST_CASE("[encoder] closes without error")
     Encoder encoder(OUTPUT_FILE_PATH_NO_SOUND, ENCODING_FORMAT, FORMAT, CHANNELS, SAMPLE_RATE);
     encoder.close();
 }
-} // namespace tests::encoder
-} // namespace tinyaudio
+} // namespace tinyaudio::tests::encoder

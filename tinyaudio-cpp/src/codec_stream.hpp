@@ -5,7 +5,6 @@
 #include "encoder.hpp"
 #include "stream.hpp"
 
-#include <algorithm>
 #include <atomic>
 #include <exception>
 #include <functional>
@@ -111,8 +110,11 @@ private:
     size_t frame_count;
     std::atomic<bool> started;
 };
+} // namespace tinyaudio
 
-namespace tests::codec_stream
+#include <algorithm>
+
+namespace tinyaudio::tests::codec_stream
 {
 const std::string INPUT_FILE_PATH = "../audio-samples/2MB.wav";
 const std::string OUTPUT_FILE_PATH = "test-codec-stream.wav";
@@ -147,5 +149,4 @@ TEST_CASE("[codec_stream] works")
 
     REQUIRE_EQ(stream.is_started(), false);
 }
-} // namespace tests::codec_stream
-} // namespace tinyaudio
+} // namespace tinyaudio::tests::codec_stream

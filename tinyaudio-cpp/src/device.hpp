@@ -2,7 +2,6 @@
 
 #include "common.hpp"
 
-#include <chrono>
 #include <condition_variable>
 #include <exception>
 #include <functional>
@@ -166,8 +165,11 @@ private:
         }
     }
 };
+} // namespace tinyaudio
 
-namespace tests::device
+#include <chrono>
+
+namespace tinyaudio::tests::device
 {
 const Format FORMAT = Format::F32;
 const size_t CHANNELS = 2;
@@ -276,5 +278,4 @@ TEST_CASE("[device] passes through user data")
 
     std::this_thread::sleep_for(std::chrono::milliseconds(100));
 }
-} // namespace tests::device
-} // namespace tinyaudio
+} // namespace tinyaudio::tests::device

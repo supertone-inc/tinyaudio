@@ -11,7 +11,9 @@ class Stream
 public:
     using DataCallback = std::function<void(const void *input_frames, void *output_frames, size_t frame_count)>;
 
-    virtual ~Stream() {}
+    virtual ~Stream()
+    {
+    }
 
     virtual Format get_format() const = 0;
     virtual size_t get_channels() const = 0;

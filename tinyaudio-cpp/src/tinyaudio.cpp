@@ -172,8 +172,9 @@ void Tinyaudio::stop()
 {
     impl->stream->stop();
 }
+} // namespace tinyaudio
 
-namespace tests::tinyaudio
+namespace tinyaudio::tests::tinyaudio
 {
 const std::string INPUT_FILE_PATH = "../audio-samples/2MB.wav";
 const Format FORMAT = Format::F32;
@@ -256,5 +257,4 @@ TEST_CASE("[tinyaudio] works online")
     audio.stop();
     REQUIRE_EQ(audio.is_started(), false);
 }
-} // namespace tests::tinyaudio
-} // namespace tinyaudio
+} // namespace tinyaudio::tests::tinyaudio
