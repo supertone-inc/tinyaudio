@@ -105,7 +105,7 @@ public:
         return decoder ? (*decoder).is_looping() : false;
     }
 
-    void set_loopping_input_file(bool value)
+    void set_looping_input_file(bool value)
     {
         if (decoder)
         {
