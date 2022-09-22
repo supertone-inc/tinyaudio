@@ -27,7 +27,13 @@ public:
         size_t frame_count
     )
         : decoder(input_file_path, format, channels, sample_rate, false)
-        , encoder(output_file_path, encoding_format, format, channels, sample_rate)
+        , encoder(
+              output_file_path,
+              encoding_format,
+              decoder.get_format(),
+              decoder.get_channels(),
+              decoder.get_sample_rate()
+          )
         , frame_count(frame_count)
         , started(false)
     {
@@ -43,7 +49,13 @@ public:
         size_t frame_count
     )
         : decoder(input_file_path, format, channels, sample_rate, false)
-        , encoder(output_file_path, encoding_format, format, channels, sample_rate)
+        , encoder(
+              output_file_path,
+              encoding_format,
+              decoder.get_format(),
+              decoder.get_channels(),
+              decoder.get_sample_rate()
+          )
         , frame_count(frame_count)
         , started(false)
     {
