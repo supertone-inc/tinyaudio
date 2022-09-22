@@ -4,6 +4,7 @@
 
 #include <algorithm>
 #include <string>
+#include <variant>
 #include <vector>
 
 namespace tinyaudio
