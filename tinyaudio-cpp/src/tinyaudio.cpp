@@ -1,6 +1,7 @@
 #include "codec_stream.hpp"
 #include "device_stream.hpp"
 
+#include <optional>
 #include <tinyaudio.hpp>
 
 namespace tinyaudio
@@ -64,8 +65,8 @@ Tinyaudio::Tinyaudio(
     size_t channels,
     size_t sample_rate,
     size_t frame_count,
-    std::optional<std::string> input_file_path,
-    std::optional<std::string> output_file_path,
+    const std::string &input_file_path,
+    const std::string &output_file_path,
     bool looping_input_file
 )
     : impl(new Impl(
@@ -74,8 +75,8 @@ Tinyaudio::Tinyaudio(
           channels,
           sample_rate,
           frame_count,
-          input_file_path,
-          output_file_path,
+          input_file_path.empty() ? std::nullopt : std::optional(input_file_path),
+          output_file_path.empty() ? std::nullopt : std::optional(output_file_path),
           looping_input_file
       ))
 {

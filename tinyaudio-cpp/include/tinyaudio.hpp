@@ -2,7 +2,6 @@
 
 #include <cstddef>
 #include <functional>
-#include <optional>
 #include <string>
 
 namespace tinyaudio
@@ -28,8 +27,8 @@ public:
         size_t channels,
         size_t sample_rate,
         size_t frame_count,
-        std::optional<std::string> input_file_path,
-        std::optional<std::string> output_file_path,
+        const std::string &input_file_path,
+        const std::string &output_file_path,
         bool looping_input_file
     );
 
