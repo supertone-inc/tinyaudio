@@ -57,4 +57,13 @@ private:
     class Impl;
     Impl *impl;
 };
+
+struct AudioFileInfo {
+    Format format;
+    size_t channels;
+    size_t sample_rate;
+    size_t total_frame_count;
+};
+
+AudioFileInfo get_audio_file_info(const std::string &path);
 } // namespace tinyaudio

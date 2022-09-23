@@ -169,6 +169,16 @@ void Tinyaudio::stop()
 {
     impl->stream->stop();
 }
+
+AudioFileInfo get_audio_file_info(const std::string &path)
+{
+    Decoder decoder(path, Format::UNKNOWN, 0, 0, false);
+    return std::move(AudioFileInfo{
+        decoder.get_format(),
+        decoder.get_channels(),
+        decoder.get_sample_rate(),
+        decoder.get_total_frame_count()});
+}
 } // namespace tinyaudio
 
 #include <algorithm>
@@ -258,5 +268,15 @@ TEST_CASE("[tinyaudio] works online")
 
     audio.stop();
     REQUIRE_EQ(audio.is_started(), false);
+}
+
+TEST_CASE("[tinyaudio] get_audio_file_info() retrives metadata correctly")
+{
+    auto info = get_audio_file_info("../audio-samples/1MB.wav");
+
+    REQUIRE_EQ(info.format, Format::S16);
+    REQUIRE_EQ(info.channels, 2);
+    REQUIRE_EQ(info.sample_rate, 8000);
+    REQUIRE_EQ(info.total_frame_count, 268237);
 }
 } // namespace tinyaudio::tests::tinyaudio
