@@ -181,10 +181,9 @@ AudioFileInfo get_audio_file_info(const std::string &path)
 }
 } // namespace tinyaudio
 
+#include "common.hpp"
+
 #include <algorithm>
-#include <chrono>
-#include <doctest.h>
-#include <thread>
 
 namespace tinyaudio::tests::tinyaudio
 {
@@ -260,11 +259,12 @@ TEST_CASE("[tinyaudio] works online")
                 audio.get_channels() * frame_count,
                 static_cast<float *>(output_frames)
             );
+            notify();
         }
     );
     REQUIRE_EQ(audio.is_started(), true);
 
-    std::this_thread::sleep_for(std::chrono::milliseconds(100));
+    wait();
 
     audio.stop();
     REQUIRE_EQ(audio.is_started(), false);

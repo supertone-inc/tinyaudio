@@ -174,11 +174,12 @@ TEST_CASE("[device_stream] works")
                 stream.get_channels() * frame_count,
                 static_cast<float *>(output_frames)
             );
+            notify();
         }
     );
     REQUIRE_EQ(stream.is_started(), true);
 
-    std::this_thread::sleep_for(std::chrono::milliseconds(100));
+    wait();
 
     stream.stop();
     REQUIRE_EQ(stream.is_started(), false);

@@ -167,8 +167,6 @@ private:
 };
 } // namespace tinyaudio
 
-#include <chrono>
-
 namespace tinyaudio::tests::device
 {
 const Format FORMAT = Format::F32;
@@ -227,10 +225,12 @@ TEST_CASE("[device] starts and stops without error")
                     REQUIRE_EQ(output_frames, nullptr);
                     break;
                 }
+
+                notify();
             }
         );
 
-        std::this_thread::sleep_for(std::chrono::milliseconds(100));
+        wait();
 
         device.stop();
     };
@@ -256,10 +256,11 @@ TEST_CASE("[device] can be stopped by calling stop() from data callback")
         {
             stopped_by_callback = true;
             device.stop();
+            notify();
         }
     );
 
-    std::this_thread::sleep_for(std::chrono::milliseconds(100));
+    wait();
 
     REQUIRE(stopped_by_callback);
 }
@@ -273,9 +274,12 @@ TEST_CASE("[device] passes through user data")
     device.start(
         (void *)&user_data,
         [&](auto passed_user_data, auto input_frames, auto output_frames, auto frame_count)
-        { REQUIRE_EQ(static_cast<int *>(passed_user_data), &user_data); }
+        {
+            REQUIRE_EQ(static_cast<int *>(passed_user_data), &user_data);
+            notify();
+        }
     );
 
-    std::this_thread::sleep_for(std::chrono::milliseconds(100));
+    wait();
 }
 } // namespace tinyaudio::tests::device
