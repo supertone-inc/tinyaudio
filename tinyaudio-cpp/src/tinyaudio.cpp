@@ -187,11 +187,11 @@ AudioFileInfo get_audio_file_info(const std::string &path)
 
 namespace tinyaudio::tests::tinyaudio
 {
-const std::string INPUT_FILE_PATH = "../audio-samples/2MB.wav";
-const Format FORMAT = Format::F32;
-const size_t CHANNELS = 2;
-const size_t SAMPLE_RATE = 44100;
-const size_t FRAME_COUNT = 128;
+const auto INPUT_FILE_PATH = "../audio-samples/2MB.wav";
+const auto FORMAT = Format::F32;
+const auto CHANNELS = 2;
+const auto SAMPLE_RATE = 44100;
+const auto FRAME_COUNT = 128;
 
 TEST_CASE("[tinyaudio] works offline")
 {

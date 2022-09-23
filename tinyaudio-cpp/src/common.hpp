@@ -45,7 +45,7 @@ size_t get_bytes_per_frame(Format format, size_t channels)
 
 namespace tinyaudio::tests
 {
-const std::chrono::duration WAIT_DURATION = std::chrono::milliseconds(100);
+const auto WAIT_DURATION = std::chrono::milliseconds(100);
 
 std::mutex mutex;
 std::condition_variable cv;

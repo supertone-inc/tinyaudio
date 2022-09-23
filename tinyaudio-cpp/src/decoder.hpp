@@ -124,8 +124,8 @@ private:
 
 namespace tinyaudio::tests::decoder
 {
-const std::string INPUT_FILE_PATH = "../audio-samples/1MB.wav";
-const size_t FRAME_COUNT = 128;
+const auto INPUT_FILE_PATH = "../audio-samples/1MB.wav";
+const auto FRAME_COUNT = 128;
 
 bool check_frames_zero_padded(const uint8_t *frame_bytes, size_t byte_count, size_t non_zero_byte_count)
 {

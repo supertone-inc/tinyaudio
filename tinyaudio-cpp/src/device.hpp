@@ -169,10 +169,10 @@ private:
 
 namespace tinyaudio::tests::device
 {
-const Format FORMAT = Format::F32;
-const size_t CHANNELS = 2;
-const size_t SAMPLE_RATE = 44100;
-const size_t FRAME_COUNT = 128;
+const auto FORMAT = Format::F32;
+const auto CHANNELS = 2;
+const auto SAMPLE_RATE = 44100;
+const auto FRAME_COUNT = 128;
 
 TEST_CASE("[device] returns correct metadata")
 {

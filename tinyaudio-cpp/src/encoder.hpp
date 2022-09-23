@@ -89,15 +89,15 @@ private:
 
 namespace tinyaudio::tests::encoder
 {
-const std::string OUTPUT_FILE_PATH = "test-encoder.wav";
-const std::string OUTPUT_FILE_PATH_NO_SOUND = "test-encoder-no-sound.wav";
-const EncodingFormat ENCODING_FORMAT = EncodingFormat::WAV;
-const Format FORMAT = Format::F32;
-const size_t CHANNELS = 2;
-const size_t SAMPLE_RATE = 44100;
-const size_t FRAME_COUNT = 128;
-const size_t DURATION_IN_SECS = 1;
-const size_t LOOP_COUNT = DURATION_IN_SECS * SAMPLE_RATE / FRAME_COUNT;
+const auto OUTPUT_FILE_PATH = "test-encoder.wav";
+const auto OUTPUT_FILE_PATH_NO_SOUND = "test-encoder-no-sound.wav";
+const auto ENCODING_FORMAT = EncodingFormat::WAV;
+const auto FORMAT = Format::F32;
+const auto CHANNELS = 2;
+const auto SAMPLE_RATE = 44100;
+const auto FRAME_COUNT = 128;
+const auto DURATION_IN_SECS = 1;
+const auto LOOP_COUNT = DURATION_IN_SECS * SAMPLE_RATE / FRAME_COUNT;
 
 TEST_CASE("[encoder] returns correct metadata")
 {
