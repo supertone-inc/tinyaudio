@@ -50,16 +50,16 @@ size_t get_bytes_per_frame(Format format, size_t channels)
 
 namespace tinyaudio::tests
 {
-const auto WAIT_DURATION = std::chrono::milliseconds(100);
+const auto WAIT_TIMEOUT = std::chrono::milliseconds(100);
 
 std::mutex mutex;
 std::condition_variable cv;
 
 template <typename Duration = std::chrono::milliseconds>
-void wait(const Duration &duration = WAIT_DURATION)
+void wait(const Duration &timeout = WAIT_TIMEOUT)
 {
     std::unique_lock<std::mutex> lock(mutex);
-    cv.wait_for(lock, duration);
+    cv.wait_for(lock, timeout);
 }
 
 void notify()
