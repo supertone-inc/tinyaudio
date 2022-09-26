@@ -68,7 +68,7 @@ public:
         return started;
     }
 
-    void start(const DataCallback &callback) override
+    void start(const DataCallback &data_callback, const StopCallback &stop_callback = nullptr) override
     {
         try
         {
@@ -85,12 +85,17 @@ public:
                     break;
                 }
 
-                callback(input_frames.data(), output_frames.data(), frame_count);
+                data_callback(input_frames.data(), output_frames.data(), frame_count);
 
                 encoder.write(output_frames.data(), frame_count);
             }
 
             started = false;
+
+            if (stop_callback)
+            {
+                stop_callback();
+            }
         }
         catch (const std::exception &ex)
         {
@@ -144,7 +149,8 @@ TEST_CASE("[codec_stream] works")
                 stream.get_channels() * frame_count,
                 static_cast<float *>(output_frames)
             );
-        }
+        },
+        [&]() { REQUIRE_EQ(stream.is_started(), false); }
     );
 
     REQUIRE_EQ(stream.is_started(), false);

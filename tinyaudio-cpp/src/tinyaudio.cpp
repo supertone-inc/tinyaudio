@@ -161,9 +161,9 @@ bool Tinyaudio::is_started() const
     return impl->stream->is_started();
 }
 
-void Tinyaudio::start(const DataCallback &callback)
+void Tinyaudio::start(const DataCallback &data_callback, const StopCallback &stop_callback)
 {
-    impl->stream->start(callback);
+    impl->stream->start(data_callback, stop_callback);
 }
 
 void Tinyaudio::stop()
@@ -224,7 +224,8 @@ TEST_CASE("[tinyaudio] works offline")
                 audio.get_channels() * frame_count,
                 static_cast<float *>(output_frames)
             );
-        }
+        },
+        [&]() { REQUIRE_EQ(audio.is_started(), false); }
     );
 
     audio.stop();
@@ -261,7 +262,8 @@ TEST_CASE("[tinyaudio] works online")
                 static_cast<float *>(output_frames)
             );
             notify();
-        }
+        },
+        [&]() { REQUIRE_EQ(audio.is_started(), false); }
     );
     REQUIRE_EQ(audio.is_started(), true);
 

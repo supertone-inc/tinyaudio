@@ -92,10 +92,11 @@ public:
         return device.is_started();
     }
 
-    void start(const DataCallback &callback) override
+    void start(const DataCallback &data_callback, const StopCallback &stop_callback = nullptr) override
     {
-        data_callback = std::move(callback);
-        device.start(this, device_data_callback);
+        this->data_callback = std::move(data_callback);
+        this->stop_callback = std::move(stop_callback);
+        device.start(this, device_data_callback, device_stop_callback);
     }
 
     void stop() override
@@ -109,6 +110,7 @@ private:
     std::optional<std::vector<uint8_t>> decoder_buffer;
     std::optional<Encoder> encoder;
     DataCallback data_callback;
+    StopCallback stop_callback;
 
     static void device_data_callback(
         void *user_data,
@@ -138,6 +140,16 @@ private:
         if (self.encoder)
         {
             (*self.encoder).write(output_frames, frame_count);
+        }
+    }
+
+    static void device_stop_callback(void *user_data)
+    {
+        auto &self = *static_cast<DeviceStream *>(user_data);
+
+        if (self.stop_callback)
+        {
+            self.stop_callback();
         }
     }
 };
@@ -175,7 +187,8 @@ TEST_CASE("[device_stream] works")
                 static_cast<float *>(output_frames)
             );
             notify();
-        }
+        },
+        [&]() { REQUIRE_EQ(stream.is_started(), false); }
     );
     REQUIRE_EQ(stream.is_started(), true);
 

@@ -20,6 +20,7 @@ class Tinyaudio
 {
 public:
     using DataCallback = std::function<void(const void *input_frames, void *output_frames, size_t frame_count)>;
+    using StopCallback = std::function<void()>;
 
     Tinyaudio(
         bool offline,
@@ -49,7 +50,7 @@ public:
     void set_looping_input_file(bool value);
     bool is_started() const;
 
-    void start(const DataCallback &callback);
+    void start(const DataCallback &data_callback, const StopCallback &stop_callback = nullptr);
     void stop();
 
 private:
@@ -57,7 +58,8 @@ private:
     Impl *impl;
 };
 
-struct AudioFileInfo {
+struct AudioFileInfo
+{
     Format format;
     size_t channels;
     size_t sample_rate;

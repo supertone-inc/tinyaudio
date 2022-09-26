@@ -32,6 +32,7 @@ class Device
 public:
     using DataCallback =
         std::function<void(void *user_data, const void *input_frames, void *output_frames, size_t frame_count)>;
+    using StopCallback = std::function<void(void *user_data)>;
 
     Device(DeviceType device_type, Format format, size_t channels, size_t sample_rate, size_t frame_count)
     {
@@ -40,6 +41,7 @@ public:
         config.sampleRate = sample_rate;
         config.periodSizeInFrames = frame_count;
         config.dataCallback = device_data_callback;
+        config.stopCallback = device_stop_callback;
         config.pUserData = this;
 
         config.playback.format = static_cast<ma_format>(format);
@@ -94,7 +96,7 @@ public:
         return ma_device_is_started(&raw_device);
     }
 
-    void start(void *user_data, const DataCallback &callback)
+    void start(void *user_data, const DataCallback &data_callback, const StopCallback &stop_callback = nullptr)
     {
         control_thread = std::thread(
             [this]()
@@ -112,7 +114,8 @@ public:
             }
         );
 
-        data_callback = std::move(callback);
+        this->data_callback = std::move(data_callback);
+        this->stop_callback = std::move(stop_callback);
         this->user_data = user_data;
         check_result(ma_device_start(&raw_device));
     }
@@ -138,6 +141,7 @@ public:
 private:
     ma_device raw_device;
     DataCallback data_callback;
+    StopCallback stop_callback;
     void *user_data;
 
     std::thread::id data_callback_thread_id;
@@ -158,6 +162,25 @@ private:
         try
         {
             self.data_callback(self.user_data, input_frames, output_frames, frame_count);
+        }
+        catch (const std::exception &ex)
+        {
+            fprintf(stderr, "%s\n", ex.what());
+        }
+    }
+
+    static void device_stop_callback(ma_device *raw_device)
+    {
+        auto &self = *static_cast<Device *>(raw_device->pUserData);
+
+        if (!self.stop_callback)
+        {
+            return;
+        }
+
+        try
+        {
+            self.stop_callback(self.user_data);
         }
         catch (const std::exception &ex)
         {
@@ -227,7 +250,8 @@ TEST_CASE("[device] starts and stops without error")
                 }
 
                 notify();
-            }
+            },
+            [&](auto user_data) { REQUIRE(!device.is_started()); }
         );
 
         wait();
@@ -277,7 +301,8 @@ TEST_CASE("[device] passes through user data")
         {
             REQUIRE_EQ(static_cast<int *>(passed_user_data), &user_data);
             notify();
-        }
+        },
+        [&](auto passed_user_data) { REQUIRE_EQ(static_cast<int *>(passed_user_data), &user_data); }
     );
 
     wait();
