@@ -38,6 +38,24 @@ public:
 
     void start(const DataCallback &data_callback, const StopCallback &stop_callback = nullptr)
     {
+        user_data_callback = std::move(data_callback);
+        Tinyaudio::start(
+            std::bind(
+                &TinyaudioPython::data_callback,
+                this,
+                std::placeholders::_1,
+                std::placeholders::_2,
+                std::placeholders::_3
+            ),
+            stop_callback
+        );
+    }
+
+private:
+    DataCallback user_data_callback;
+
+    void data_callback(const void *input_frames, void *output_frames, size_t frame_count)
+    {
         auto bytes_per_sample = get_bytes_per_sample(get_format());
 
         std::string type_code;
@@ -61,32 +79,23 @@ public:
 
         auto channels = get_channels();
 
-        Tinyaudio::start(
-            [bytes_per_sample,
-             type_code,
-             channels,
-             &data_callback](const void *input_frames, void *output_frames, size_t frame_count)
-            {
-                data_callback(
-                    py::memoryview::from_buffer(
-                        (void *)input_frames,
-                        bytes_per_sample,
-                        type_code.c_str(),
-                        {channels * frame_count},
-                        {bytes_per_sample},
-                        true
-                    ),
-                    py::memoryview::from_buffer(
-                        output_frames,
-                        bytes_per_sample,
-                        type_code.c_str(),
-                        {channels * frame_count},
-                        {bytes_per_sample},
-                        false
-                    )
-                );
-            },
-            stop_callback
+        user_data_callback(
+            py::memoryview::from_buffer(
+                (void *)input_frames,
+                bytes_per_sample,
+                type_code.c_str(),
+                {channels * frame_count},
+                {bytes_per_sample},
+                true
+            ),
+            py::memoryview::from_buffer(
+                output_frames,
+                bytes_per_sample,
+                type_code.c_str(),
+                {channels * frame_count},
+                {bytes_per_sample},
+                false
+            )
         );
     }
 };
