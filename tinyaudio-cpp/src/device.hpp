@@ -191,6 +191,7 @@ private:
 };
 } // namespace tinyaudio
 
+#ifdef TINYAUDIO_BUILD_TESTS
 namespace tinyaudio::tests::device
 {
 const auto FORMAT = Format::F32;
@@ -309,3 +310,4 @@ TEST_CASE("[device] passes through user data")
     wait();
 }
 } // namespace tinyaudio::tests::device
+#endif

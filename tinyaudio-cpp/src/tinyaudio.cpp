@@ -182,6 +182,7 @@ AudioFileInfo get_audio_file_info(const std::string &path)
 }
 } // namespace tinyaudio
 
+#ifdef TINYAUDIO_BUILD_TESTS
 #include "common.hpp"
 
 #include <algorithm>
@@ -283,3 +284,4 @@ TEST_CASE("[tinyaudio] get_audio_file_info() retrives metadata correctly")
     REQUIRE_EQ(info.total_frame_count, 268237);
 }
 } // namespace tinyaudio::tests::tinyaudio
+#endif

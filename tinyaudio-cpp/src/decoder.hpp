@@ -119,6 +119,7 @@ private:
 };
 } // namespace tinyaudio
 
+#ifdef TINYAUDIO_BUILD_TESTS
 #include <algorithm>
 #include <vector>
 
@@ -272,3 +273,4 @@ TEST_CASE("[decoder] closes without error")
     decoder.close();
 }
 } // namespace tinyaudio::tests::decoder
+#endif

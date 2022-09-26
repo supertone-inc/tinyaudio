@@ -117,6 +117,7 @@ private:
 };
 } // namespace tinyaudio
 
+#ifdef TINYAUDIO_BUILD_TESTS
 #include <algorithm>
 
 namespace tinyaudio::tests::codec_stream
@@ -156,3 +157,4 @@ TEST_CASE("[codec_stream] works")
     REQUIRE_EQ(stream.is_started(), false);
 }
 } // namespace tinyaudio::tests::codec_stream
+#endif

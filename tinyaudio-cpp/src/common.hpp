@@ -37,6 +37,7 @@ size_t get_bytes_per_frame(Format format, size_t channels)
 }
 } // namespace tinyaudio
 
+#ifdef TINYAUDIO_BUILD_TESTS
 #include <chrono>
 #include <condition_variable>
 #include <doctest.h>
@@ -63,3 +64,4 @@ void notify()
     cv.notify_all();
 }
 } // namespace tinyaudio::tests
+#endif

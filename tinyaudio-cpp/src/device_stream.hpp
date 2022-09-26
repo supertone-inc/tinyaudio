@@ -155,6 +155,7 @@ private:
 };
 } // namespace tinyaudio
 
+#ifdef TINYAUDIO_BUILD_TESTS
 #include <algorithm>
 #include <vector>
 
@@ -199,3 +200,4 @@ TEST_CASE("[device_stream] works")
 }
 
 } // namespace tinyaudio::tests::device_stream
+#endif
