@@ -40,6 +40,7 @@ public:
 
         config.sampleRate = sample_rate;
         config.periodSizeInFrames = frame_count;
+        config.noClip = true;
         config.dataCallback = device_data_callback;
         config.stopCallback = device_stop_callback;
         config.pUserData = this;
