@@ -1,6 +1,10 @@
 #pragma once
 
+// clang-format off
+#define MINIAUDIO_IMPLEMENTATION
 #include <miniaudio.h>
+// clang-format on
+
 #include <stdexcept>
 #include <string>
 #include <tinyaudio.hpp>
