@@ -34,25 +34,25 @@ class TestTinyaudio(unittest.TestCase):
             True,
         )
 
-        self.assertTrue(audio.is_offline())
-        self.assertEqual(audio.get_format(), FORMAT)
-        self.assertEqual(audio.get_channels(), CHANNELS)
-        self.assertEqual(audio.get_sample_rate(), SAMPLE_RATE)
-        self.assertEqual(audio.get_frame_count(), FRAME_COUNT)
-        self.assertFalse(audio.is_looping_input_file())
-        self.assertFalse(audio.is_started())
+        self.assertTrue(audio.offline)
+        self.assertEqual(audio.format, FORMAT)
+        self.assertEqual(audio.channels, CHANNELS)
+        self.assertEqual(audio.sample_rate, SAMPLE_RATE)
+        self.assertEqual(audio.frame_count, FRAME_COUNT)
+        self.assertFalse(audio.looping_input_file)
+        self.assertFalse(audio.started)
 
         def data_callback(input_frames, output_frames):
-            self.assertTrue(audio.is_started())
+            self.assertTrue(audio.started)
             self.assertEqual(len(input_frames), len(output_frames))
             output_frames[:] = input_frames
 
         def stop_callback():
-            self.assertFalse(audio.is_started())
+            self.assertFalse(audio.started)
 
         audio.start(data_callback, stop_callback)
 
-        self.assertFalse(audio.is_started())
+        self.assertFalse(audio.started)
 
     def test_online(self):
         audio = ta.Tinyaudio(
@@ -66,30 +66,30 @@ class TestTinyaudio(unittest.TestCase):
             False,
         )
 
-        self.assertFalse(audio.is_offline())
-        self.assertEqual(audio.get_format(), FORMAT)
-        self.assertEqual(audio.get_channels(), CHANNELS)
-        self.assertEqual(audio.get_sample_rate(), SAMPLE_RATE)
-        self.assertEqual(audio.get_frame_count(), FRAME_COUNT)
-        self.assertFalse(audio.is_looping_input_file())
-        self.assertFalse(audio.is_started())
+        self.assertFalse(audio.offline)
+        self.assertEqual(audio.format, FORMAT)
+        self.assertEqual(audio.channels, CHANNELS)
+        self.assertEqual(audio.sample_rate, SAMPLE_RATE)
+        self.assertEqual(audio.frame_count, FRAME_COUNT)
+        self.assertFalse(audio.looping_input_file)
+        self.assertFalse(audio.started)
 
         def data_callback(input_frames, output_frames):
-            self.assertTrue(audio.is_started())
+            self.assertTrue(audio.started)
             self.assertEqual(len(input_frames), len(output_frames))
             output_frames[:] = input_frames
             notify()
 
         def stop_callback():
-            self.assertFalse(audio.is_started())
+            self.assertFalse(audio.started)
 
         audio.start(data_callback, stop_callback)
-        self.assertTrue(audio.is_started())
+        self.assertTrue(audio.started)
 
         wait()
 
         audio.stop()
-        self.assertFalse(audio.is_started())
+        self.assertFalse(audio.started)
 
     def test_get_audio_file_info(self):
         info = ta.get_audio_file_info("../audio-samples/1MB.wav")

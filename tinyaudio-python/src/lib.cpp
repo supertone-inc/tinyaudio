@@ -122,14 +122,17 @@ PYBIND11_MODULE(tinyaudio, m)
              std::optional<std::string>,
              std::optional<std::string>,
              bool>())
-        .def("is_offline", &TinyaudioPython::is_offline)
-        .def("get_format", &TinyaudioPython::get_format)
-        .def("get_channels", &TinyaudioPython::get_channels)
-        .def("get_sample_rate", &TinyaudioPython::get_sample_rate)
-        .def("get_frame_count", &TinyaudioPython::get_frame_count)
-        .def("is_looping_input_file", &TinyaudioPython::is_looping_input_file)
-        .def("set_looping_input_file", &TinyaudioPython::set_looping_input_file)
-        .def("is_started", &TinyaudioPython::is_started)
+        .def_property_readonly("offline", &TinyaudioPython::is_offline)
+        .def_property_readonly("format", &TinyaudioPython::get_format)
+        .def_property_readonly("channels", &TinyaudioPython::get_channels)
+        .def_property_readonly("sample_rate", &TinyaudioPython::get_sample_rate)
+        .def_property_readonly("frame_count", &TinyaudioPython::get_frame_count)
+        .def_property(
+            "looping_input_file",
+            &TinyaudioPython::is_looping_input_file,
+            &TinyaudioPython::set_looping_input_file
+        )
+        .def_property_readonly("started", &TinyaudioPython::is_started)
         .def("start", &TinyaudioPython::start)
         .def("stop", &TinyaudioPython::stop);
 
