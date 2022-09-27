@@ -59,6 +59,7 @@ public:
     void start(const DataCallback &data_callback, const StopCallback &stop_callback = nullptr)
     {
         user_data_callback = data_callback;
+        user_stop_callback = stop_callback;
 
         Tinyaudio::start(
             std::bind(
@@ -68,7 +69,7 @@ public:
                 std::placeholders::_2,
                 std::placeholders::_3
             ),
-            stop_callback
+            user_stop_callback
         );
     }
 
@@ -77,6 +78,7 @@ private:
     std::string type_code;
     size_t sample_count;
     DataCallback user_data_callback;
+    StopCallback user_stop_callback;
 
     void data_callback(const void *input_frames, void *output_frames, size_t frame_count)
     {
