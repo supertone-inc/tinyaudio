@@ -6,7 +6,7 @@ FORMAT = ta.Format.F32
 CHANNELS = 2
 SAMPLE_RATE = 44100
 FRAME_COUNT = 128
-WAIT_TIMEOUT = 1000 / 1000.0
+WAIT_TIMEOUT = 100 / 1000.0
 
 cv = threading.Condition()
 
