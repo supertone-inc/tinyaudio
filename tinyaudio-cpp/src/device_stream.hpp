@@ -192,9 +192,9 @@ TEST_CASE("[device_stream] works")
         [&](auto input_frames, auto output_frames, auto frame_count)
         {
             std::copy_n(
-                static_cast<const float *>(input_frames),
+                reinterpret_cast<const float *>(input_frames),
                 stream.get_channels() * frame_count,
-                static_cast<float *>(output_frames)
+                reinterpret_cast<float *>(output_frames)
             );
             notify();
         },

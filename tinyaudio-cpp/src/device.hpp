@@ -158,7 +158,7 @@ private:
         ma_uint32 frame_count
     )
     {
-        auto &self = *static_cast<Device *>(raw_device->pUserData);
+        auto &self = *reinterpret_cast<Device *>(raw_device->pUserData);
         self.data_callback_thread_id = std::this_thread::get_id();
 
         try
@@ -173,7 +173,7 @@ private:
 
     static void device_stop_callback(ma_device *raw_device)
     {
-        auto &self = *static_cast<Device *>(raw_device->pUserData);
+        auto &self = *reinterpret_cast<Device *>(raw_device->pUserData);
 
         if (!self.stop_callback)
         {
@@ -299,13 +299,13 @@ TEST_CASE("[device] passes through user data")
     int user_data = 12345;
 
     device.start(
-        (void *)&user_data,
+        &user_data,
         [&](auto passed_user_data, auto input_frames, auto output_frames, auto frame_count)
         {
-            REQUIRE_EQ(static_cast<int *>(passed_user_data), &user_data);
+            REQUIRE_EQ(passed_user_data, &user_data);
             notify();
         },
-        [&](auto passed_user_data) { REQUIRE_EQ(static_cast<int *>(passed_user_data), &user_data); }
+        [&](auto passed_user_data) { REQUIRE_EQ(passed_user_data, &user_data); }
     );
 
     wait();

@@ -146,9 +146,9 @@ TEST_CASE("[codec_stream] works")
         {
             REQUIRE_EQ(stream.is_started(), true);
             std::copy_n(
-                static_cast<const float *>(input_frames),
+                reinterpret_cast<const float *>(input_frames),
                 stream.get_channels() * frame_count,
-                static_cast<float *>(output_frames)
+                reinterpret_cast<float *>(output_frames)
             );
         },
         [&]() { REQUIRE_EQ(stream.is_started(), false); }

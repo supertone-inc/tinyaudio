@@ -82,7 +82,7 @@ private:
     {
         user_data_callback(
             py::memoryview::from_buffer(
-                (void *)input_frames,
+                const_cast<void *>(input_frames),
                 bytes_per_sample,
                 type_code.c_str(),
                 {sample_count},

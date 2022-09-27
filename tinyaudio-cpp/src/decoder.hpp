@@ -89,7 +89,7 @@ public:
     size_t read(void *frames, size_t frame_count)
     {
         auto byte_count = get_bytes_per_frame(get_format(), get_channels()) * frame_count;
-        std::fill_n(static_cast<uint8_t *>(frames), byte_count, 0);
+        std::fill_n(reinterpret_cast<uint8_t *>(frames), byte_count, 0);
 
         ma_uint64 frames_read = 0;
         auto result = ma_data_source_read_pcm_frames(&raw_decoder, frames, frame_count, &frames_read);

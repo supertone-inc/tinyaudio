@@ -220,9 +220,9 @@ TEST_CASE("[tinyaudio] works offline")
         {
             REQUIRE_EQ(audio.is_started(), true);
             std::copy_n(
-                static_cast<const float *>(input_frames),
+                reinterpret_cast<const float *>(input_frames),
                 audio.get_channels() * frame_count,
-                static_cast<float *>(output_frames)
+                reinterpret_cast<float *>(output_frames)
             );
         },
         [&]() { REQUIRE_EQ(audio.is_started(), false); }
@@ -256,9 +256,9 @@ TEST_CASE("[tinyaudio] works online")
         [&](auto input_frames, auto output_frames, auto frame_count)
         {
             std::copy_n(
-                static_cast<const float *>(input_frames),
+                reinterpret_cast<const float *>(input_frames),
                 audio.get_channels() * frame_count,
-                static_cast<float *>(output_frames)
+                reinterpret_cast<float *>(output_frames)
             );
             notify();
         },
