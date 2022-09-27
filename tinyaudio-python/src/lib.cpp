@@ -4,7 +4,7 @@
 #include <tinyaudio.cpp>
 
 namespace py = pybind11;
-
+using namespace pybind11::literals;
 using namespace tinyaudio;
 
 class TinyaudioPython : public Tinyaudio
@@ -133,7 +133,7 @@ PYBIND11_MODULE(tinyaudio, m)
             &TinyaudioPython::set_looping_input_file
         )
         .def_property_readonly("started", &TinyaudioPython::is_started)
-        .def("start", &TinyaudioPython::start)
+        .def("start", &TinyaudioPython::start, "data_callback"_a, "stop_callback"_a = nullptr)
         .def("stop", &TinyaudioPython::stop);
 
     py::class_<AudioFileInfo>(m, "AudioFileInfo")
