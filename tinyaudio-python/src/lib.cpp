@@ -38,7 +38,8 @@ public:
 
     void start(const DataCallback &data_callback, const StopCallback &stop_callback = nullptr)
     {
-        user_data_callback = std::move(data_callback);
+        user_data_callback = data_callback;
+
         Tinyaudio::start(
             std::bind(
                 &TinyaudioPython::data_callback,

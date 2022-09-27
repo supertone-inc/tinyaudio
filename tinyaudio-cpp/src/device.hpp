@@ -115,9 +115,10 @@ public:
             }
         );
 
-        this->data_callback = std::move(data_callback);
-        this->stop_callback = std::move(stop_callback);
+        this->data_callback = data_callback;
+        this->stop_callback = stop_callback;
         this->user_data = user_data;
+
         check_result(ma_device_start(&raw_device));
     }
 
