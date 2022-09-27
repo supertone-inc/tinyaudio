@@ -33,6 +33,26 @@ public:
               output_file_path ? *output_file_path : "",
               looping_input_file
           )
+        , bytes_per_sample(get_bytes_per_sample(get_format()))
+        , type_code(
+              [this]()
+              {
+                  switch (get_format())
+                  {
+                  case Format::U8:
+                      return py::format_descriptor<uint8_t>::format();
+                  case Format::S16:
+                      return py::format_descriptor<int16_t>::format();
+                  case Format::S32:
+                      return py::format_descriptor<int32_t>::format();
+                  case Format::F32:
+                      return py::format_descriptor<float>::format();
+                  default:
+                      throw Error("unsupported format");
+                  }
+              }()
+          )
+        , sample_count(get_channels() * frame_count)
     {
     }
 
@@ -53,39 +73,19 @@ public:
     }
 
 private:
+    size_t bytes_per_sample;
+    std::string type_code;
+    size_t sample_count;
     DataCallback user_data_callback;
 
     void data_callback(const void *input_frames, void *output_frames, size_t frame_count)
     {
-        auto bytes_per_sample = get_bytes_per_sample(get_format());
-
-        std::string type_code;
-        switch (get_format())
-        {
-        case Format::U8:
-            type_code = py::format_descriptor<uint8_t>::format();
-            break;
-        case Format::S16:
-            type_code = py::format_descriptor<int16_t>::format();
-            break;
-        case Format::S32:
-            type_code = py::format_descriptor<int32_t>::format();
-            break;
-        case Format::F32:
-            type_code = py::format_descriptor<float>::format();
-            break;
-        default:
-            throw Error("unsupported format");
-        }
-
-        auto channels = get_channels();
-
         user_data_callback(
             py::memoryview::from_buffer(
                 (void *)input_frames,
                 bytes_per_sample,
                 type_code.c_str(),
-                {channels * frame_count},
+                {sample_count},
                 {bytes_per_sample},
                 true
             ),
@@ -93,7 +93,7 @@ private:
                 output_frames,
                 bytes_per_sample,
                 type_code.c_str(),
-                {channels * frame_count},
+                {sample_count},
                 {bytes_per_sample},
                 false
             )
