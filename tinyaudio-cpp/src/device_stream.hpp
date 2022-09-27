@@ -96,7 +96,19 @@ public:
     {
         this->data_callback = std::move(data_callback);
         this->stop_callback = std::move(stop_callback);
-        device.start(this, device_data_callback, device_stop_callback);
+
+        device.start(
+            this,
+            std::bind(
+                &DeviceStream::device_data_callback,
+                this,
+                std::placeholders::_1,
+                std::placeholders::_2,
+                std::placeholders::_3,
+                std::placeholders::_4
+            ),
+            std::bind(&DeviceStream::device_stop_callback, this, std::placeholders::_1)
+        );
     }
 
     void stop() override
@@ -112,44 +124,40 @@ private:
     DataCallback data_callback;
     StopCallback stop_callback;
 
-    static void device_data_callback(
+    void device_data_callback(
         void *user_data,
         const void *nullable_input_frames,
         void *output_frames,
         size_t frame_count
     )
     {
-        auto &self = *static_cast<DeviceStream *>(user_data);
-
         auto input_frames = nullable_input_frames;
 
-        if (self.decoder)
+        if (decoder)
         {
-            auto decoder_frames = (*self.decoder_buffer).data();
-            auto frames_read = (*self.decoder).read(decoder_frames, frame_count);
+            auto decoder_frames = (*decoder_buffer).data();
+            auto frames_read = (*decoder).read(decoder_frames, frame_count);
             input_frames = decoder_frames;
 
             if (frames_read == 0)
             {
-                self.stop();
+                stop();
             }
         }
 
-        self.data_callback(input_frames, output_frames, frame_count);
+        data_callback(input_frames, output_frames, frame_count);
 
-        if (self.encoder)
+        if (encoder)
         {
-            (*self.encoder).write(output_frames, frame_count);
+            (*encoder).write(output_frames, frame_count);
         }
     }
 
-    static void device_stop_callback(void *user_data)
+    void device_stop_callback(void *user_data)
     {
-        auto &self = *static_cast<DeviceStream *>(user_data);
-
-        if (self.stop_callback)
+        if (stop_callback)
         {
-            self.stop_callback();
+            stop_callback();
         }
     }
 };
@@ -171,6 +179,7 @@ const auto FRAME_COUNT = 128;
 TEST_CASE("[device_stream] works")
 {
     DeviceStream stream(FORMAT, CHANNELS, SAMPLE_RATE, FRAME_COUNT, INPUT_FILE_PATH, OUTPUT_FILE_PATH, false);
+
     REQUIRE_EQ(stream.get_device_type(), DeviceType::PLAYBACK);
     REQUIRE_EQ(stream.get_format(), FORMAT);
     REQUIRE_EQ(stream.get_channels(), CHANNELS);
