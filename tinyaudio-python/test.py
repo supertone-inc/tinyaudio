@@ -1,12 +1,14 @@
 import tinyaudio as ta
 import unittest
 import threading
+from pathlib import Path
 
 FORMAT = ta.Format.F32
 CHANNELS = 2
 SAMPLE_RATE = 44100
 FRAME_COUNT = 128
 WAIT_TIMEOUT = 100 / 1000.0
+PROJECT_DIR = Path(__file__).parent
 
 cv = threading.Condition()
 
@@ -29,8 +31,8 @@ class TestTinyaudio(unittest.TestCase):
             CHANNELS,
             SAMPLE_RATE,
             FRAME_COUNT,
-            "../audio-samples/2MB.wav",
-            "test-tinyaudio-offline.wav",
+            PROJECT_DIR.joinpath("../audio-samples/2MB.wav").as_posix(),
+            PROJECT_DIR.joinpath("test-tinyaudio-offline.wav").as_posix(),
             True,
         )
 
@@ -61,8 +63,8 @@ class TestTinyaudio(unittest.TestCase):
             CHANNELS,
             SAMPLE_RATE,
             FRAME_COUNT,
-            "../audio-samples/2MB.wav",
-            "test-tinyaudio-online.wav",
+            PROJECT_DIR.joinpath("../audio-samples/2MB.wav").as_posix(),
+            PROJECT_DIR.joinpath("test-tinyaudio-online.wav").as_posix(),
             False,
         )
 
@@ -92,7 +94,9 @@ class TestTinyaudio(unittest.TestCase):
         self.assertFalse(audio.started)
 
     def test_get_audio_file_info(self):
-        info = ta.get_audio_file_info("../audio-samples/1MB.wav")
+        info = ta.get_audio_file_info(
+            PROJECT_DIR.joinpath("../audio-samples/1MB.wav").as_posix()
+        )
 
         self.assertEqual(info.format, ta.Format.S16)
         self.assertEqual(info.channels, 2)

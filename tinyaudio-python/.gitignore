@@ -1,4 +1,7 @@
+/__pycache__
 /build
 /tinyaudio
+/*.dist-info
 /*.egg-info
 /test-*.wav
+/*.so

@@ -2,5 +2,5 @@
 
 set -e
 
-pip install --target tinyaudio --upgrade .
-PYTHONPATH=tinyaudio python tests/test.py
+pip install --target . --upgrade .
+python test.py
