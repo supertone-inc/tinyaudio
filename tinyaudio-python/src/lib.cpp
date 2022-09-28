@@ -70,7 +70,7 @@ public:
                 std::placeholders::_2,
                 std::placeholders::_3
             ),
-            user_stop_callback
+            std::bind(&TinyaudioPython::stop_callback, this)
         );
     }
 
@@ -112,6 +112,18 @@ private:
                 py::none()
             )
         );
+    }
+
+    void stop_callback()
+    {
+        if (!user_stop_callback)
+        {
+            return;
+        }
+
+        py::gil_scoped_acquire acquire;
+
+        user_stop_callback();
     }
 };
 
