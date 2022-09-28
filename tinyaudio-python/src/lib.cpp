@@ -1,4 +1,5 @@
 #include <pybind11/functional.h>
+#include <pybind11/numpy.h>
 #include <pybind11/pybind11.h>
 #include <pybind11/stl.h>
 #include <tinyaudio.cpp>
@@ -10,7 +11,7 @@ using namespace tinyaudio;
 class TinyaudioPython : public Tinyaudio
 {
 public:
-    using DataCallback = std::function<void(py::memoryview input_frames, py::memoryview output_frames)>;
+    using DataCallback = std::function<void(const py::array &input_frames, const py::array &output_frames)>;
     using StopCallback = tinyaudio::Tinyaudio::StopCallback;
 
     TinyaudioPython(
@@ -77,27 +78,38 @@ private:
     size_t bytes_per_sample;
     std::string type_code;
     size_t sample_count;
+
     DataCallback user_data_callback;
     StopCallback user_stop_callback;
 
     void data_callback(const void *input_frames, void *output_frames, size_t frame_count)
     {
+        py::gil_scoped_acquire acquire;
+
         user_data_callback(
-            py::memoryview::from_buffer(
-                const_cast<void *>(input_frames),
-                bytes_per_sample,
-                type_code.c_str(),
-                {sample_count},
-                {bytes_per_sample},
-                true
+            py::array(
+                py::buffer_info(
+                    const_cast<void *>(input_frames),
+                    bytes_per_sample,
+                    type_code,
+                    1,
+                    {sample_count},
+                    {bytes_per_sample},
+                    true
+                ),
+                py::none()
             ),
-            py::memoryview::from_buffer(
-                output_frames,
-                bytes_per_sample,
-                type_code.c_str(),
-                {sample_count},
-                {bytes_per_sample},
-                false
+            py::array(
+                py::buffer_info(
+                    output_frames,
+                    bytes_per_sample,
+                    type_code,
+                    1,
+                    {sample_count},
+                    {bytes_per_sample},
+                    false
+                ),
+                py::none()
             )
         );
     }
