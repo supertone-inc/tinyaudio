@@ -1,5 +1,12 @@
 {
   "version": "2.0.0",
+  "osx": {
+    "options": {
+      "shell": {
+        "args": ["--login", "--interactive"]
+      }
+    }
+  },
   "windows": {
     "options": {
       "shell": {
@@ -9,11 +16,25 @@
   },
   "tasks": [
     {
-      "label": "Build tinyaudio-cpp test",
+      "label": "Build tinyaudio-cpp for Debug",
       "type": "shell",
       "command": "./test.sh",
       "options": {
         "cwd": "${workspaceFolder}/tinyaudio-cpp",
+        "env": {
+          "NO_RUN": "1"
+        }
+      },
+      "presentation": {
+        "close": true
+      }
+    },
+    {
+      "label": "Build tinyaudio-python for Debug",
+      "type": "shell",
+      "command": "./test.sh",
+      "options": {
+        "cwd": "${workspaceFolder}/tinyaudio-python",
         "env": {
           "NO_RUN": "1"
         }

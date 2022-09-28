@@ -2,5 +2,10 @@
 
 set -e
 
-pip install --target . --upgrade .
-python test.py
+export CPPFLAGS="-g"
+
+pip install --target . --upgrade --no-clean .
+
+if [[ -z $NO_RUN ]]; then
+    python test.py
+fi

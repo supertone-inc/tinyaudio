@@ -1,15 +1,33 @@
 {
   "configurations": [
     {
-      "name": "Test tinyaudio-cpp",
+      "name": "Debug tinyaudio-cpp",
       "type": "lldb",
       "request": "launch",
       "program": "${workspaceFolder}/tinyaudio-cpp/build/bin/tinyaudio-test",
       "cwd": "${workspaceFolder}/tinyaudio-cpp",
-      "preLaunchTask": "Build tinyaudio-cpp test",
+      "preLaunchTask": "Build tinyaudio-cpp for Debug",
       "windows": {
         "program": "${workspaceFolder}/tinyaudio-cpp/build/bin/tinyaudio-test.exe"
       }
+    },
+    {
+      "name": "Debug tinyaudio-python",
+      "type": "pythoncpp",
+      "request": "launch",
+      "entirePythonConfig": {
+        "name": "Test tinyaudio-python",
+        "type": "python",
+        "request": "launch",
+        "program": "test.py",
+        "cwd": "${workspaceFolder}/tinyaudio-python",
+      },
+      "entireCppConfig": {
+        "name": "Attach C++ Debugger",
+        "type": "lldb",
+        "request": "attach"
+      },
+      "preLaunchTask": "Build tinyaudio-python for Debug"
     }
   ]
 }
