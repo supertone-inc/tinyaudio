@@ -26,14 +26,14 @@ def notify():
 class TestTinyaudio(unittest.TestCase):
     def test_offline(self):
         audio = ta.Tinyaudio(
-            True,
-            FORMAT,
-            CHANNELS,
-            SAMPLE_RATE,
-            FRAME_COUNT,
-            os.path.join(PROJECT_DIR, "../audio-samples/2MB.wav"),
-            os.path.join(PROJECT_DIR, "test-tinyaudio-offline.wav"),
-            True,
+            offline=True,
+            format=FORMAT,
+            channels=CHANNELS,
+            sample_rate=SAMPLE_RATE,
+            frame_count=FRAME_COUNT,
+            input_file_path=os.path.join(PROJECT_DIR, "../audio-samples/2MB.wav"),
+            output_file_path=os.path.join(PROJECT_DIR, "test-tinyaudio-offline.wav"),
+            looping_input_file=True,
         )
 
         self.assertTrue(audio.offline)
@@ -58,14 +58,14 @@ class TestTinyaudio(unittest.TestCase):
 
     def test_online(self):
         audio = ta.Tinyaudio(
-            False,
-            FORMAT,
-            CHANNELS,
-            SAMPLE_RATE,
-            FRAME_COUNT,
-            os.path.join(PROJECT_DIR, "../audio-samples/2MB.wav"),
-            os.path.join(PROJECT_DIR, "test-tinyaudio-online.wav"),
-            False,
+            offline=False,
+            format=FORMAT,
+            channels=CHANNELS,
+            sample_rate=SAMPLE_RATE,
+            frame_count=FRAME_COUNT,
+            input_file_path=os.path.join(PROJECT_DIR, "../audio-samples/2MB.wav"),
+            output_file_path=os.path.join(PROJECT_DIR, "test-tinyaudio-online.wav"),
+            looping_input_file=False,
         )
 
         self.assertFalse(audio.offline)

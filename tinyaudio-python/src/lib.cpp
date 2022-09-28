@@ -127,15 +127,25 @@ PYBIND11_MODULE(tinyaudio, m)
         .export_values();
 
     py::class_<TinyaudioPython>(m, "Tinyaudio")
-        .def(py::init<
-             bool,
-             Format,
-             size_t,
-             size_t,
-             size_t,
-             std::optional<std::string>,
-             std::optional<std::string>,
-             bool>())
+        .def(
+            py::init<
+                bool,
+                Format,
+                size_t,
+                size_t,
+                size_t,
+                std::optional<std::string>,
+                std::optional<std::string>,
+                bool>(),
+            "offline"_a,
+            "format"_a,
+            "channels"_a,
+            "sample_rate"_a,
+            "frame_count"_a,
+            "input_file_path"_a,
+            "output_file_path"_a,
+            "looping_input_file"_a
+        )
         .def_property_readonly("offline", &TinyaudioPython::is_offline)
         .def_property_readonly("format", &TinyaudioPython::get_format)
         .def_property_readonly("channels", &TinyaudioPython::get_channels)
@@ -156,5 +166,5 @@ PYBIND11_MODULE(tinyaudio, m)
         .def_readwrite("sample_rate", &AudioFileInfo::sample_rate)
         .def_readwrite("total_frame_count", &AudioFileInfo::total_frame_count);
 
-    m.def("get_audio_file_info", &get_audio_file_info);
+    m.def("get_audio_file_info", &get_audio_file_info, "path"_a);
 }
