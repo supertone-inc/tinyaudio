@@ -1,8 +1,12 @@
-from pybind11.setup_helpers import Pybind11Extension
 from setuptools import setup
 import os
+import sys
 
-os.system("git submodule update --init --recursive ../miniaudio")
+os.system("git submodule update --init --recursive ../miniaudio pybind11")
+
+PROJECT_DIR = os.path.abspath(os.path.dirname(__file__))
+sys.path.append(os.path.join(PROJECT_DIR, "pybind11"))
+from pybind11.setup_helpers import Pybind11Extension
 
 ext_modules = [
     Pybind11Extension(

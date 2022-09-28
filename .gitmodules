@@ -1,3 +1,6 @@
 [submodule "miniaudio"]
 	path = miniaudio
 	url = https://github.com/mackron/miniaudio.git
+[submodule "tinyaudio-python/pybind11"]
+	path = tinyaudio-python/pybind11
+	url = https://github.com/pybind/pybind11.git
