@@ -34,8 +34,7 @@ public:
               output_file_path ? *output_file_path : "",
               looping_input_file
           )
-        , bytes_per_sample(get_bytes_per_sample(get_format()))
-        , type_code(
+        , dtype(
               [this]()
               {
                   switch (get_format())
@@ -54,6 +53,7 @@ public:
               }()
           )
         , sample_count(get_channels() * frame_count)
+        , bytes_per_sample(get_bytes_per_sample(get_format()))
     {
     }
 
@@ -75,9 +75,9 @@ public:
     }
 
 private:
-    size_t bytes_per_sample;
-    std::string type_code;
+    py::dtype dtype;
     size_t sample_count;
+    size_t bytes_per_sample;
 
     DataCallback user_data_callback;
     StopCallback user_stop_callback;
@@ -87,30 +87,8 @@ private:
         py::gil_scoped_acquire acquire;
 
         user_data_callback(
-            py::array(
-                py::buffer_info(
-                    const_cast<void *>(input_frames),
-                    bytes_per_sample,
-                    type_code,
-                    1,
-                    {sample_count},
-                    {bytes_per_sample},
-                    true
-                ),
-                py::none()
-            ),
-            py::array(
-                py::buffer_info(
-                    output_frames,
-                    bytes_per_sample,
-                    type_code,
-                    1,
-                    {sample_count},
-                    {bytes_per_sample},
-                    false
-                ),
-                py::none()
-            )
+            py::array(dtype, {sample_count}, {bytes_per_sample}, input_frames, py::none()),
+            py::array(dtype, {sample_count}, {bytes_per_sample}, output_frames, py::none())
         );
     }
 
