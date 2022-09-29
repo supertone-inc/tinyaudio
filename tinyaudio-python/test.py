@@ -77,7 +77,6 @@ class TestTinyaudio(unittest.TestCase):
         self.assertFalse(audio.started)
 
         def data_callback(input_frames, output_frames):
-            self.assertTrue(audio.started)
             self.assertEqual(len(input_frames), len(output_frames))
             output_frames[:] = input_frames
             notify()
