@@ -16,13 +16,13 @@
   },
   "tasks": [
     {
-      "label": "Build tinyaudio-cpp for Debug",
+      "label": "Build C++",
       "type": "shell",
-      "command": "./test.sh",
+      "command": "./build.sh",
       "options": {
         "cwd": "${workspaceFolder}/tinyaudio-cpp",
         "env": {
-          "NO_RUN": "1"
+          "DEBUG": "1"
         }
       },
       "presentation": {
@@ -30,13 +30,13 @@
       }
     },
     {
-      "label": "Build tinyaudio-python for Debug",
+      "label": "Build Python",
       "type": "shell",
-      "command": "./test.sh",
+      "command": "./build.sh",
       "options": {
         "cwd": "${workspaceFolder}/tinyaudio-python",
         "env": {
-          "NO_RUN": "1"
+          "DEBUG": "1"
         }
       },
       "presentation": {
