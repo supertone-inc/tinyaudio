@@ -57,6 +57,11 @@ public:
     {
     }
 
+    virtual ~TinyaudioPython()
+    {
+        stop();
+    }
+
     void start(const DataCallback &data_callback, const StopCallback &stop_callback = nullptr)
     {
         user_data_callback = data_callback;
@@ -72,6 +77,12 @@ public:
             ),
             std::bind(&TinyaudioPython::stop_callback, this)
         );
+    }
+
+    void stop()
+    {
+        pybind11::gil_scoped_release release;
+        Tinyaudio::stop();
     }
 
 private:
