@@ -6,4 +6,5 @@
 
 *.dist-info
 *.egg-info
+*.pyd
 *.so
