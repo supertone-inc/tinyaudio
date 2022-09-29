@@ -104,8 +104,11 @@ public:
             {
                 try
                 {
-                    std::unique_lock<std::mutex> lock(control_mutex);
-                    control_cv.wait(lock);
+                    {
+                        std::unique_lock<std::mutex> lock(control_mutex);
+                        control_cv.wait(lock);
+                    }
+
                     check_result(ma_device_stop(&raw_device));
                 }
                 catch (const std::exception &ex)
@@ -281,8 +284,8 @@ TEST_CASE("[device] can be stopped by calling stop() from data callback")
         nullptr,
         [&](auto user_data, auto input_frames, auto output_frames, auto frame_count)
         {
-            stopped_by_callback = true;
             device.stop();
+            stopped_by_callback = true;
             notify();
         }
     );
