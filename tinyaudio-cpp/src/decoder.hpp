@@ -10,17 +10,12 @@ namespace tinyaudio
 class Decoder
 {
 public:
-    Decoder(std::variant<std::string, std::wstring> input_file_path)
-        : Decoder(input_file_path, Format::UNKNOWN, 0, 0, false)
-    {
-    }
-
     Decoder(
         std::variant<std::string, std::wstring> input_file_path,
-        Format output_format,
-        size_t output_channels,
-        size_t output_sample_rate,
-        bool looping
+        Format output_format = Format::UNKNOWN,
+        size_t output_channels = 0,
+        size_t output_sample_rate = 0,
+        bool looping = false
     )
     {
         auto config =

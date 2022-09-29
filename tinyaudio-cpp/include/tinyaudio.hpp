@@ -28,9 +28,9 @@ public:
         size_t channels,
         size_t sample_rate,
         size_t frame_count,
-        const std::string &input_file_path,
-        const std::string &output_file_path,
-        bool looping_input_file
+        const std::string &input_file_path = "",
+        const std::string &output_file_path = "",
+        bool looping_input_file = false
     );
 
     Tinyaudio(const Tinyaudio &) = delete;

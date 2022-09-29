@@ -20,9 +20,9 @@ public:
         size_t channels,
         size_t sample_rate,
         size_t frame_count,
-        std::optional<std::variant<std::string, std::wstring>> input_file_path,
-        std::optional<std::variant<std::string, std::wstring>> output_file_path,
-        bool looping_input_file
+        std::optional<std::variant<std::string, std::wstring>> input_file_path = std::nullopt,
+        std::optional<std::variant<std::string, std::wstring>> output_file_path = std::nullopt,
+        bool looping_input_file = false
     )
         : device(
               input_file_path ? DeviceType::PLAYBACK : DeviceType::DUPLEX,

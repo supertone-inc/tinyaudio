@@ -20,9 +20,9 @@ public:
         size_t channels,
         size_t sample_rate,
         size_t frame_count,
-        std::optional<std::string> input_file_path,
-        std::optional<std::string> output_file_path,
-        bool looping_input_file
+        std::optional<std::string> input_file_path = std::nullopt,
+        std::optional<std::string> output_file_path = std::nullopt,
+        bool looping_input_file = false
     )
         : Tinyaudio(
               offline,
@@ -143,9 +143,9 @@ PYBIND11_MODULE(tinyaudio, m)
             "channels"_a,
             "sample_rate"_a,
             "frame_count"_a,
-            "input_file_path"_a,
-            "output_file_path"_a,
-            "looping_input_file"_a
+            "input_file_path"_a = std::nullopt,
+            "output_file_path"_a = std::nullopt,
+            "looping_input_file"_a = false
         )
         .def_property_readonly("offline", &TinyaudioPython::is_offline)
         .def_property_readonly("format", &TinyaudioPython::get_format)

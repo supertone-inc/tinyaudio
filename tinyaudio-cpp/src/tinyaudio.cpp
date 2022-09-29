@@ -173,7 +173,8 @@ void Tinyaudio::stop()
 
 AudioFileInfo get_audio_file_info(const std::string &path)
 {
-    Decoder decoder(path, Format::UNKNOWN, 0, 0, false);
+    Decoder decoder(path);
+
     return AudioFileInfo{
         decoder.get_format(),
         decoder.get_channels(),
