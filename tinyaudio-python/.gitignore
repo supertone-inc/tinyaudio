@@ -1,7 +1,7 @@
 /__pycache__
 /bin
 /build
-/numpy
+/numpy*
 /test-*.wav
 
 *.dist-info
