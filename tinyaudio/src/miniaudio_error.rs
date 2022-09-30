@@ -77,7 +77,13 @@ pub enum MiniaudioError {
 
 impl Display for MiniaudioError {
     fn fmt(&self, f: &mut std::fmt::Formatter<'_>) -> std::fmt::Result {
-        write!(f, "miniaudio error: {self:#?}")
+        write!(
+            f,
+            "miniaudio error: {}",
+            unsafe { std::ffi::CStr::from_ptr(ma_result_description(*self as _)) }
+                .to_str()
+                .unwrap()
+        )
     }
 }
 
