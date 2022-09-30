@@ -52,12 +52,12 @@ namespace tinyaudio::tests
 {
 using namespace std::chrono_literals;
 
-const auto WAIT_TIMEOUT = 100ms;
+const auto WAIT_TIMEOUT = 0.1s;
 
 std::mutex mutex;
 std::condition_variable cv;
 
-template <typename Duration = std::chrono::milliseconds>
+template <typename Duration = std::chrono::duration<double>>
 void wait(const Duration &timeout = WAIT_TIMEOUT)
 {
     std::unique_lock<std::mutex> lock(mutex);
