@@ -207,6 +207,8 @@ TEST_CASE("[device] returns correct metadata")
 {
     auto test = [&](DeviceType device_type)
     {
+        CAPTURE(device_type);
+
         Device device(device_type, FORMAT, CHANNELS, SAMPLE_RATE, FRAME_COUNT);
 
         REQUIRE_EQ(device.get_device_type(), device_type);
@@ -229,6 +231,8 @@ TEST_CASE("[device] starts and stops without error")
 {
     auto test = [&](DeviceType device_type)
     {
+        CAPTURE(device_type);
+
         Device device(device_type, FORMAT, CHANNELS, SAMPLE_RATE, FRAME_COUNT);
 
         device.start(
