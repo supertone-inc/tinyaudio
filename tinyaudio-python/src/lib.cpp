@@ -64,6 +64,8 @@ public:
 
     void start(const DataCallback &data_callback, const StopCallback &stop_callback = nullptr)
     {
+        pybind11::gil_scoped_release release;
+
         user_data_callback = data_callback;
         user_stop_callback = stop_callback;
 
@@ -82,6 +84,7 @@ public:
     void stop()
     {
         pybind11::gil_scoped_release release;
+
         Tinyaudio::stop();
     }
 
