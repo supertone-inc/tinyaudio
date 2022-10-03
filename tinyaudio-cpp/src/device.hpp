@@ -99,11 +99,19 @@ public:
 
     void start(void *user_data, const DataCallback &data_callback, const StopCallback &stop_callback = nullptr)
     {
+        std::unique_lock<std::mutex> lock(control_mutex);
+
+        this->data_callback = data_callback;
+        this->stop_callback = stop_callback;
+        this->user_data = user_data;
+
         control_thread = std::thread(
             [this]()
             {
                 {
                     std::unique_lock<std::mutex> lock(control_mutex);
+                    check_result(ma_device_start(&raw_device));
+                    control_cv.notify_all();
                     control_cv.wait(lock);
                 }
 
@@ -111,11 +119,7 @@ public:
             }
         );
 
-        this->data_callback = data_callback;
-        this->stop_callback = stop_callback;
-        this->user_data = user_data;
-
-        check_result(ma_device_start(&raw_device));
+        control_cv.wait(lock);
     }
 
     void stop()
@@ -140,7 +144,7 @@ private:
     ma_device raw_device;
     DataCallback data_callback;
     StopCallback stop_callback;
-    void *user_data;
+    void *user_data = nullptr;
 
     std::thread::id data_callback_thread_id;
     std::thread control_thread;
