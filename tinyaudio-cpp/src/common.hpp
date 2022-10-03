@@ -20,14 +20,32 @@ public:
     }
 };
 
-inline void check_result(ma_result ma_result)
+class MiniaudioError : public Error
 {
-    if (ma_result == MA_SUCCESS)
+public:
+    MiniaudioError(ma_result result)
+        : result(result)
+        , Error(ma_result_description(result))
+    {
+    }
+
+    ma_result get_miniaudio_result() const
+    {
+        return result;
+    }
+
+private:
+    ma_result result;
+};
+
+inline void check_result(ma_result result)
+{
+    if (result == MA_SUCCESS)
     {
         return;
     }
 
-    throw Error(ma_result_description(ma_result));
+    throw MiniaudioError(result);
 }
 
 size_t get_bytes_per_sample(Format format)

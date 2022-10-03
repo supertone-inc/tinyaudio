@@ -183,15 +183,29 @@ TEST_CASE("[device] returns correct metadata")
 {
     auto test = [&](DeviceType device_type)
     {
-        CAPTURE(device_type);
+        try
+        {
+            CAPTURE(device_type);
 
-        Device device(device_type, FORMAT, CHANNELS, SAMPLE_RATE, FRAME_COUNT);
+            Device device(device_type, FORMAT, CHANNELS, SAMPLE_RATE, FRAME_COUNT);
 
-        REQUIRE_EQ(device.get_device_type(), device_type);
-        REQUIRE_EQ(device.get_format(), FORMAT);
-        REQUIRE_EQ(device.get_channels(), CHANNELS);
-        REQUIRE_EQ(device.get_sample_rate(), SAMPLE_RATE);
-        REQUIRE_EQ(device.get_frame_count(), FRAME_COUNT);
+            REQUIRE_EQ(device.get_device_type(), device_type);
+            REQUIRE_EQ(device.get_format(), FORMAT);
+            REQUIRE_EQ(device.get_channels(), CHANNELS);
+            REQUIRE_EQ(device.get_sample_rate(), SAMPLE_RATE);
+            REQUIRE_EQ(device.get_frame_count(), FRAME_COUNT);
+        }
+        catch (MiniaudioError &err)
+        {
+            switch (err.get_miniaudio_result())
+            {
+            case MA_DEVICE_TYPE_NOT_SUPPORTED:
+                MESSAGE(std::string(err.what()));
+                return;
+            default:
+                throw;
+            }
+        }
     };
 
     test(DeviceType::PLAYBACK);
@@ -207,42 +221,56 @@ TEST_CASE("[device] starts and stops without error")
 {
     auto test = [&](DeviceType device_type)
     {
-        CAPTURE(device_type);
+        try
+        {
+            CAPTURE(device_type);
 
-        Device device(device_type, FORMAT, CHANNELS, SAMPLE_RATE, FRAME_COUNT);
+            Device device(device_type, FORMAT, CHANNELS, SAMPLE_RATE, FRAME_COUNT);
 
-        device.start(
-            nullptr,
-            [&](auto user_data, auto input_frames, auto output_frames, auto frame_count)
-            {
-                switch (device.get_device_type())
+            device.start(
+                nullptr,
+                [&](auto user_data, auto input_frames, auto output_frames, auto frame_count)
                 {
-                case DeviceType::PLAYBACK:
-                    REQUIRE_EQ(input_frames, nullptr);
-                    REQUIRE_NE(output_frames, nullptr);
-                    break;
-                case DeviceType::CAPTURE:
-                    REQUIRE_NE(input_frames, nullptr);
-                    REQUIRE_EQ(output_frames, nullptr);
-                    break;
-                case DeviceType::DUPLEX:
-                    REQUIRE_NE(input_frames, nullptr);
-                    REQUIRE_NE(output_frames, nullptr);
-                    break;
-                case DeviceType::LOOPBACK:
-                    REQUIRE_NE(input_frames, nullptr);
-                    REQUIRE_EQ(output_frames, nullptr);
-                    break;
-                }
+                    switch (device.get_device_type())
+                    {
+                    case DeviceType::PLAYBACK:
+                        REQUIRE_EQ(input_frames, nullptr);
+                        REQUIRE_NE(output_frames, nullptr);
+                        break;
+                    case DeviceType::CAPTURE:
+                        REQUIRE_NE(input_frames, nullptr);
+                        REQUIRE_EQ(output_frames, nullptr);
+                        break;
+                    case DeviceType::DUPLEX:
+                        REQUIRE_NE(input_frames, nullptr);
+                        REQUIRE_NE(output_frames, nullptr);
+                        break;
+                    case DeviceType::LOOPBACK:
+                        REQUIRE_NE(input_frames, nullptr);
+                        REQUIRE_EQ(output_frames, nullptr);
+                        break;
+                    }
 
-                notify();
-            },
-            [&](auto user_data) { REQUIRE(!device.is_started()); }
-        );
+                    notify();
+                },
+                [&](auto user_data) { REQUIRE(!device.is_started()); }
+            );
 
-        wait();
+            wait();
 
-        device.stop();
+            device.stop();
+        }
+        catch (MiniaudioError &err)
+        {
+            switch (err.get_miniaudio_result())
+            {
+            case MA_DEVICE_TYPE_NOT_SUPPORTED:
+                MESSAGE(std::string(err.what()));
+                return;
+            default:
+                throw;
+            }
+        }
     };
 
     test(DeviceType::PLAYBACK);
