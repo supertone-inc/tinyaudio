@@ -200,7 +200,7 @@ TEST_CASE("[device] returns correct metadata")
             switch (err.get_miniaudio_result())
             {
             case MA_DEVICE_TYPE_NOT_SUPPORTED:
-                MESSAGE(std::string(err.what()));
+                MESSAGE(std::string(err.what()), ": ", device_type);
                 return;
             default:
                 throw;
@@ -265,7 +265,7 @@ TEST_CASE("[device] starts and stops without error")
             switch (err.get_miniaudio_result())
             {
             case MA_DEVICE_TYPE_NOT_SUPPORTED:
-                MESSAGE(std::string(err.what()));
+                MESSAGE(std::string(err.what()), ": ", device_type);
                 return;
             default:
                 throw;
