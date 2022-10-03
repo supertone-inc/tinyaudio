@@ -102,19 +102,12 @@ public:
         control_thread = std::thread(
             [this]()
             {
-                try
                 {
-                    {
-                        std::unique_lock<std::mutex> lock(control_mutex);
-                        control_cv.wait(lock);
-                    }
+                    std::unique_lock<std::mutex> lock(control_mutex);
+                    control_cv.wait(lock);
+                }
 
-                    check_result(ma_device_stop(&raw_device));
-                }
-                catch (const std::exception &ex)
-                {
-                    fprintf(stderr, "%s\n", ex.what());
-                }
+                check_result(ma_device_stop(&raw_device));
             }
         );
 
@@ -163,33 +156,16 @@ private:
     {
         auto &self = *reinterpret_cast<Device *>(raw_device->pUserData);
         self.data_callback_thread_id = std::this_thread::get_id();
-
-        try
-        {
-            self.data_callback(self.user_data, input_frames, output_frames, frame_count);
-        }
-        catch (const std::exception &ex)
-        {
-            fprintf(stderr, "%s\n", ex.what());
-        }
+        self.data_callback(self.user_data, input_frames, output_frames, frame_count);
     }
 
     static void device_stop_callback(ma_device *raw_device)
     {
         auto &self = *reinterpret_cast<Device *>(raw_device->pUserData);
 
-        if (!self.stop_callback)
-        {
-            return;
-        }
-
-        try
+        if (self.stop_callback)
         {
             self.stop_callback(self.user_data);
-        }
-        catch (const std::exception &ex)
-        {
-            fprintf(stderr, "%s\n", ex.what());
         }
     }
 };

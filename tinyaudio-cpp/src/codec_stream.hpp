@@ -100,7 +100,7 @@ public:
         catch (const std::exception &ex)
         {
             started = false;
-            throw ex;
+            throw;
         }
     }
 
