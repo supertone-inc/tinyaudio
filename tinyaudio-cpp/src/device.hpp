@@ -108,9 +108,10 @@ public:
         control_thread = std::thread(
             [this]()
             {
+                check_result(ma_device_start(&raw_device));
+
                 {
                     std::unique_lock<std::mutex> lock(control_mutex);
-                    check_result(ma_device_start(&raw_device));
                     control_cv.notify_all();
                     control_cv.wait(lock);
                 }
