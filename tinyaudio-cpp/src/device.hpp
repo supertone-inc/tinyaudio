@@ -161,7 +161,11 @@ private:
     {
         auto &self = *reinterpret_cast<Device *>(raw_device->pUserData);
         self.data_callback_thread_id = std::this_thread::get_id();
-        self.data_callback(self.user_data, input_frames, output_frames, frame_count);
+
+        if (self.is_started())
+        {
+            self.data_callback(self.user_data, input_frames, output_frames, frame_count);
+        }
     }
 
     static void device_stop_callback(ma_device *raw_device)
@@ -303,7 +307,7 @@ TEST_CASE("[device] can be stopped by calling stop() from data callback")
         }
     );
 
-    wait();
+    wait(10s);
 
     REQUIRE(stopped_by_callback);
 }

@@ -256,6 +256,7 @@ TEST_CASE("[tinyaudio] works online")
     audio.start(
         [&](auto input_frames, auto output_frames, auto frame_count)
         {
+            REQUIRE_EQ(audio.is_started(), true);
             std::copy_n(
                 reinterpret_cast<const float *>(input_frames),
                 audio.get_channels() * frame_count,
