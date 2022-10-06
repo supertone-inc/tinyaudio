@@ -23,9 +23,10 @@ public:
         Format format,
         size_t channels,
         size_t sample_rate,
-        size_t frame_count
+        size_t frame_count,
+        bool looping_input_file = false
     )
-        : decoder(input_file_path, format, channels, sample_rate, false)
+        : decoder(input_file_path, format, channels, sample_rate, looping_input_file)
         , encoder(
               output_file_path,
               encoding_format,
@@ -61,6 +62,16 @@ public:
     size_t get_frame_count() const override
     {
         return frame_count;
+    }
+
+    bool is_looping_input_file() const
+    {
+        return decoder.is_looping();
+    }
+
+    void set_looping_input_file(bool value)
+    {
+        decoder.set_looping(value);
     }
 
     bool is_started() const override
@@ -132,13 +143,15 @@ const auto FRAME_COUNT = 128;
 
 TEST_CASE("[codec_stream] works")
 {
-    CodecStream stream(INPUT_FILE_PATH, OUTPUT_FILE_PATH, ENCODING_FORMAT, FORMAT, CHANNELS, SAMPLE_RATE, FRAME_COUNT);
+    CodecStream
+        stream(INPUT_FILE_PATH, OUTPUT_FILE_PATH, ENCODING_FORMAT, FORMAT, CHANNELS, SAMPLE_RATE, FRAME_COUNT, false);
 
     REQUIRE_EQ(stream.get_encoding_format(), ENCODING_FORMAT);
     REQUIRE_EQ(stream.get_format(), FORMAT);
     REQUIRE_EQ(stream.get_channels(), CHANNELS);
     REQUIRE_EQ(stream.get_sample_rate(), SAMPLE_RATE);
     REQUIRE_EQ(stream.get_frame_count(), FRAME_COUNT);
+    REQUIRE_EQ(stream.is_looping_input_file(), false);
     REQUIRE_EQ(stream.is_started(), false);
 
     stream.start(

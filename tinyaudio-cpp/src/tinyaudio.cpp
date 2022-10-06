@@ -30,7 +30,8 @@ public:
                 format,
                 channels,
                 sample_rate,
-                frame_count
+                frame_count,
+                looping_input_file
             );
         }
         else
@@ -136,11 +137,14 @@ size_t Tinyaudio::get_frame_count() const
 
 bool Tinyaudio::is_looping_input_file() const
 {
-    auto device_stream = dynamic_cast<DeviceStream *>(impl->stream);
-
-    if (device_stream != nullptr)
+    if (dynamic_cast<CodecStream *>(impl->stream))
     {
-        return device_stream->is_looping_input_file();
+        return dynamic_cast<CodecStream *>(impl->stream)->is_looping_input_file();
+    }
+
+    if (dynamic_cast<DeviceStream *>(impl->stream))
+    {
+        return dynamic_cast<DeviceStream *>(impl->stream)->is_looping_input_file();
     }
 
     return false;
@@ -148,11 +152,16 @@ bool Tinyaudio::is_looping_input_file() const
 
 void Tinyaudio::set_looping_input_file(bool value)
 {
-    auto device_stream = dynamic_cast<DeviceStream *>(impl->stream);
-
-    if (device_stream != nullptr)
+    if (dynamic_cast<CodecStream *>(impl->stream))
     {
-        device_stream->set_looping_input_file(value);
+        dynamic_cast<CodecStream *>(impl->stream)->set_looping_input_file(value);
+        return;
+    }
+
+    if (dynamic_cast<DeviceStream *>(impl->stream))
+    {
+        dynamic_cast<DeviceStream *>(impl->stream)->set_looping_input_file(value);
+        return;
     }
 }
 
@@ -205,7 +214,7 @@ TEST_CASE("[tinyaudio] works offline")
         FRAME_COUNT,
         "../audio-samples/2MB.wav",
         "test-tinyaudio-offline.wav",
-        true
+        false
     );
 
     REQUIRE_EQ(audio.is_offline(), true);

@@ -33,7 +33,7 @@ class TestTinyaudio(unittest.TestCase):
             frame_count=FRAME_COUNT,
             input_file_path=os.path.join(PROJECT_DIR, "../audio-samples/2MB.wav"),
             output_file_path=os.path.join(PROJECT_DIR, "test-tinyaudio-offline.wav"),
-            looping_input_file=True,
+            looping_input_file=False,
         )
 
         self.assertTrue(audio.offline)
