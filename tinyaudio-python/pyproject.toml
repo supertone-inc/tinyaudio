@@ -1,8 +1,13 @@
 [project]
 name = "tinyaudio"
-version = "0.0.0"
+description = "A tiny library for audio I/O."
+urls = { hompage = "https://github.com/supertone-inc/tinyaudio/tree/main/tinyaudio-python" }
 dependencies = ["numpy >= 1.7.0"]
+dynamic = ["version"]
 
 [build-system]
 requires = ["setuptools>=42", "wheel"]
 build-backend = "setuptools.build_meta"
+
+[tool.setuptools.dynamic]
+version = { file = "VERSION" }

@@ -1,6 +1,14 @@
 cmake_minimum_required(VERSION 3.20)
 
-project(tinyaudio)
+file(STRINGS ${CMAKE_CURRENT_SOURCE_DIR}/../VERSION VERSION)
+
+project(
+    tinyaudio
+    VERSION ${VERSION}
+    DESCRIPTION "A tiny library for audio I/O."
+    HOMEPAGE_URL "https://github.com/supertone-inc/tinyaudio/tree/main/tinyaudio-cpp"
+    LANGUAGES C CXX
+)
 
 include(cmake/miniaudio.cmake)
 
@@ -25,6 +33,9 @@ else()
     add_library(tinyaudio src/tinyaudio.cpp)
 endif()
 
-set_target_properties(tinyaudio PROPERTIES CXX_STANDARD 17)
+set_target_properties(tinyaudio PROPERTIES
+    VERSION ${PROJECT_VERSION}
+    CXX_STANDARD 17
+)
 target_include_directories(tinyaudio PUBLIC ${CMAKE_CURRENT_SOURCE_DIR}/include)
 target_link_libraries(tinyaudio miniaudio)
