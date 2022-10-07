@@ -5,9 +5,10 @@ execute_process(
     WORKING_DIRECTORY ${CMAKE_CURRENT_SOURCE_DIR}
 )
 
-add_library(miniaudio ${MINIAUDIO_DIR}/extras/miniaudio_split/miniaudio.c)
-target_include_directories(miniaudio PUBLIC ${MINIAUDIO_DIR}/extras/miniaudio_split)
+add_library(miniaudio INTERFACE)
+target_include_directories(miniaudio INTERFACE ${MINIAUDIO_DIR}/extras/miniaudio_split)
+target_sources(miniaudio INTERFACE ${MINIAUDIO_DIR}/extras/miniaudio_split/miniaudio.c)
 
 if(UNIX)
-    target_compile_options(miniaudio PRIVATE -Wno-deprecated-declarations)
+    target_compile_options(miniaudio INTERFACE -Wno-deprecated-declarations)
 endif()
